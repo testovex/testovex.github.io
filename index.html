@@ -405,6 +405,11 @@
       You're on the list! We'll reach out when beta opens.
     </div>
 
+    <div class="success-msg" id="alreadyMsg" style="background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.3);color:#C7D2FE;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
+      This email is already on the waitlist!
+    </div>
+
     <!-- Feature grid -->
     <div class="features">
       <p class="features-label">What's included</p>
@@ -448,16 +453,53 @@
 </div>
 
 <script>
+  const WL_KEY = 'testovex_waitlist';
+
+  function showSuccess() {
+    document.getElementById('waitlistForm').style.display = 'none';
+    document.getElementById('successMsg').style.display  = 'flex';
+    document.getElementById('alreadyMsg').style.display  = 'none';
+  }
+
+  function showDuplicate() {
+    document.getElementById('waitlistForm').style.display = 'none';
+    document.getElementById('alreadyMsg').style.display  = 'flex';
+    document.getElementById('successMsg').style.display  = 'none';
+  }
+
+  // On page load: if this browser already submitted, show success immediately
+  (function() {
+    if (localStorage.getItem(WL_KEY)) showSuccess();
+  })();
+
   document.getElementById('waitlistForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    const email = document.getElementById('emailInput').value;
+    const raw   = document.getElementById('emailInput').value;
+    const email = raw.trim().toLowerCase();
+
+    // Already submitted from this browser?
+    const stored = localStorage.getItem(WL_KEY);
+    if (stored && stored === email) {
+      showDuplicate();
+      return;
+    }
+
     fetch('https://formspree.io/f/xkologwe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ email: email })
-    }).finally(() => {
-      document.getElementById('waitlistForm').style.display = 'none';
-      document.getElementById('successMsg').style.display = 'flex';
+      body: JSON.stringify({ email })
+    }).then(res => {
+      if (res.ok) {
+        localStorage.setItem(WL_KEY, email);
+        showSuccess();
+      } else {
+        // Formspree returned an error — still store & show success to avoid UX friction
+        localStorage.setItem(WL_KEY, email);
+        showSuccess();
+      }
+    }).catch(() => {
+      localStorage.setItem(WL_KEY, email);
+      showSuccess();
     });
   });
 </script>
