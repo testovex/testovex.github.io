@@ -3,8 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Testovex — Coming Soon</title>
-  <meta name="description" content="Enterprise test automation platform. No-code, Playwright-backed, built for ACOE teams. Beta launching soon." />
+  <title>Testovex — Enterprise Test Automation for ACOE Teams</title>
+  <meta name="description" content="Enterprise test automation platform. No-code, Playwright-backed, built for ACOE teams. Beta launching soon — join the waitlist." />
+
+  <!-- Open Graph / LinkedIn / Facebook -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://testovex.com" />
+  <meta property="og:title"       content="Testovex — Enterprise Test Automation for ACOE Teams" />
+  <meta property="og:description" content="No-code. Playwright-backed. Built for ACOE. Record tests in your browser, run at scale, get video + traces on every failure. Free beta — limited spots." />
+  <meta property="og:image"       content="https://testovex.com/og-image.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name"   content="Testovex" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:site"        content="@testovex" />
+  <meta name="twitter:title"       content="Testovex — Enterprise Test Automation for ACOE Teams" />
+  <meta name="twitter:description" content="No-code. Playwright-backed. Built for ACOE. Record tests in your browser, run at scale, get video + traces on every failure. Free beta — limited spots." />
+  <meta name="twitter:image"       content="https://testovex.com/og-image.png" />
+
+  <link rel="canonical" href="https://testovex.com" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
@@ -16,18 +35,11 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     html, body {
-      height: 100%;
-      overflow: hidden;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: #0F172A;
       color: #fff;
-    }
-
-    /* ── Page shell: navbar / main / footer ── */
-    .shell {
-      height: 100vh;
-      display: grid;
-      grid-template-rows: 60px 1fr 56px;
+      scroll-behavior: smooth;
+      overflow-x: hidden; /* prevent horizontal scroll on any screen size */
     }
 
     /* ── Background ── */
@@ -55,13 +67,18 @@
 
     /* ── Navbar ── */
     nav {
-      position: relative;
-      z-index: 10;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 48px;
       border-bottom: 1px solid rgba(255,255,255,0.07);
+      background: rgba(15,23,42,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
     .nav-logo {
       display: flex;
@@ -70,51 +87,38 @@
       text-decoration: none;
     }
     .nav-logo-icon {
-      width: 34px;
-      height: 34px;
+      width: 34px; height: 34px;
       background: white;
       border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 3px;
-      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      padding: 3px; flex-shrink: 0;
     }
-    .nav-logo-name {
-      font-size: 18px;
-      font-weight: 800;
-      color: white;
-      letter-spacing: -0.3px;
-    }
+    .nav-logo-name { font-size: 18px; font-weight: 800; color: white; letter-spacing: -0.3px; }
     .nav-logo-name span { color: #818CF8; }
     .nav-tag {
-      font-size: 11.5px;
-      font-weight: 600;
+      font-size: 11.5px; font-weight: 600;
       background: rgba(16,185,129,0.12);
       border: 1px solid rgba(16,185,129,0.28);
       color: #6EE7B7;
-      padding: 4px 12px;
-      border-radius: 999px;
-      letter-spacing: 0.2px;
+      padding: 4px 12px; border-radius: 999px; letter-spacing: 0.2px;
     }
 
-    /* ── Main: two-column layout ── */
-    main {
+    /* ── Hero section ── */
+    .hero {
       position: relative;
       z-index: 10;
+      min-height: calc(100vh - 60px);
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
       gap: 56px;
-      padding: 0 48px;
-      min-height: 0;
-      overflow: hidden;
+      padding: 48px 48px;
     }
 
-    /* ── Left column: hero + form ── */
+    /* ── Left column ── */
     .hero-left {
-      flex: 0 0 400px;
+      flex: 0 0 430px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -122,64 +126,83 @@
 
     /* Status badge */
     .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
+      display: inline-flex; align-items: center; gap: 7px;
       background: rgba(67,56,202,0.2);
       border: 1px solid rgba(99,102,241,0.35);
       border-radius: 999px;
       padding: 5px 16px;
-      font-size: 12px;
-      font-weight: 600;
-      color: #C7D2FE;
+      font-size: 12px; font-weight: 600; color: #C7D2FE;
       margin-bottom: 16px;
     }
     .status-dot {
       width: 6px; height: 6px;
-      background: #10B981;
-      border-radius: 50%;
+      background: #10B981; border-radius: 50%;
       animation: blink 2s infinite;
     }
-    @keyframes blink {
-      0%,100% { opacity:1; } 50% { opacity:0.4; }
-    }
+    @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
 
     /* Headline */
     h1 {
       font-size: clamp(28px, 3.2vw, 46px);
-      font-weight: 900;
-      line-height: 1.08;
-      letter-spacing: -1.5px;
-      text-align: left;
+      font-weight: 900; line-height: 1.08;
+      letter-spacing: -1.5px; text-align: left;
       margin-bottom: 12px;
     }
     h1 .muted  { color: rgba(255,255,255,0.38); }
     h1 .accent { color: #818CF8; }
 
+    /* Social proof bar */
+    .social-proof {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .sp-avatars {
+      display: flex;
+    }
+    .sp-avatar {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 2px solid #0F172A;
+      margin-left: -8px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 700; color: white;
+    }
+    .sp-avatar:first-child { margin-left: 0; }
+    .sp-text { font-size: 13px; color: rgba(255,255,255,0.55); }
+    .sp-text strong { color: #A5B4FC; font-weight: 600; }
+
     /* Subtitle */
     .sub {
-      font-size: 14px;
-      line-height: 1.65;
+      font-size: 14px; line-height: 1.65;
       color: rgba(255,255,255,0.5);
-      text-align: left;
       margin-bottom: 22px;
     }
     .sub strong { color: rgba(255,255,255,0.8); font-weight: 600; }
 
+    /* Beta perks row */
+    .beta-perks {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 20px;
+    }
+    .perk {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 11.5px; font-weight: 600;
+      color: #6EE7B7;
+      background: rgba(16,185,129,0.08);
+      border: 1px solid rgba(16,185,129,0.2);
+      border-radius: 999px;
+      padding: 4px 12px;
+    }
+    .perk svg { flex-shrink: 0; }
+
     /* Email form */
     .form-wrap { width: 100%; margin-bottom: 8px; }
     .form-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: #818CF8;
-      margin-bottom: 10px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      color: #818CF8; margin-bottom: 10px;
     }
     .form {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      display: flex; align-items: center; gap: 8px;
       background: rgba(255,255,255,0.07);
       border: 1.5px solid rgba(99,102,241,0.45);
       border-radius: 14px;
@@ -191,73 +214,53 @@
       border-color: #6366F1;
       box-shadow: 0 0 0 4px rgba(99,102,241,0.18), inset 0 1px 0 rgba(255,255,255,0.08);
     }
-    .form-icon {
-      color: rgba(129,140,248,0.7);
-      flex-shrink: 0;
-      display: flex;
-    }
+    .form-icon { color: rgba(129,140,248,0.7); flex-shrink: 0; display: flex; }
     .form input {
-      flex: 1;
-      background: transparent;
-      border: none;
-      outline: none;
-      color: white;
-      font-size: 14px;
-      font-family: inherit;
-      min-width: 0;
+      flex: 1; background: transparent; border: none; outline: none;
+      color: white; font-size: 14px; font-family: inherit; min-width: 0;
     }
     .form input::placeholder { color: rgba(255,255,255,0.28); }
     .form button {
-      flex-shrink: 0;
-      padding: 10px 20px;
-      border-radius: 10px;
-      border: none;
+      flex-shrink: 0; padding: 10px 20px; border-radius: 10px; border: none;
       background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
-      color: white;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: inherit;
-      transition: opacity 0.2s, transform 0.1s;
+      color: white; font-size: 13px; font-weight: 700; cursor: pointer;
+      font-family: inherit; transition: opacity 0.2s, transform 0.1s;
       white-space: nowrap;
       box-shadow: 0 2px 8px rgba(67,56,202,0.45);
     }
     .form button:hover { opacity: 0.88; transform: translateY(-1px); }
-    .form-note {
-      font-size: 11px;
-      color: rgba(255,255,255,0.22);
-      margin-top: 8px;
+    .form-note { font-size: 11px; color: rgba(255,255,255,0.22); margin-top: 8px; }
+
+    /* Urgency line */
+    .urgency {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12px; color: rgba(255,165,0,0.75);
+      margin-top: 12px;
     }
+    .urgency svg { flex-shrink: 0; }
 
     /* Success / duplicate messages */
     .success-msg {
-      display: none;
-      align-items: center;
-      gap: 8px;
+      display: none; align-items: center; gap: 8px;
       background: rgba(16,185,129,0.1);
       border: 1px solid rgba(16,185,129,0.28);
-      border-radius: 10px;
-      padding: 12px 18px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #6EE7B7;
-      width: 100%;
-      margin-bottom: 8px;
+      border-radius: 10px; padding: 12px 18px;
+      font-size: 13px; font-weight: 600; color: #6EE7B7;
+      width: 100%; margin-bottom: 8px;
+    }
+
+    /* ── Divider ── */
+    .col-divider {
+      width: 1px; align-self: stretch;
+      background: rgba(255,255,255,0.07); flex-shrink: 0;
     }
 
     /* ── Right column: feature grid ── */
-    .hero-right {
-      flex: 1;
-      min-width: 0;
-    }
-
+    .hero-right { flex: 1; min-width: 0; }
     .features-label {
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.25);
-      margin-bottom: 10px;
+      font-size: 10.5px; font-weight: 700;
+      letter-spacing: 1.8px; text-transform: uppercase;
+      color: rgba(255,255,255,0.25); margin-bottom: 10px;
     }
     .feature-grid {
       display: grid;
@@ -265,14 +268,11 @@
       gap: 7px;
     }
     .feat {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
+      display: flex; flex-direction: row; align-items: flex-start;
       gap: 9px;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 9px;
-      padding: 10px 12px;
+      border-radius: 9px; padding: 10px 12px;
       text-align: left;
       transition: background 0.2s, border-color 0.2s, transform 0.15s;
       cursor: default;
@@ -282,279 +282,933 @@
       border-color: rgba(99,102,241,0.3);
       transform: translateY(-2px);
     }
-    .feat-icon {
-      font-size: 16px;
-      line-height: 1;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
+    .feat-icon { font-size: 16px; line-height: 1; flex-shrink: 0; margin-top: 1px; }
     .feat-content { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
-    .feat-label {
-      font-size: 11.5px;
-      font-weight: 700;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.2;
-    }
-    .feat-desc {
-      font-size: 10.5px;
-      color: rgba(255,255,255,0.38);
-      line-height: 1.3;
-    }
+    .feat-label { font-size: 11.5px; font-weight: 700; color: rgba(255,255,255,0.75); line-height: 1.2; }
+    .feat-desc  { font-size: 10.5px; color: rgba(255,255,255,0.38); line-height: 1.3; }
     .feat:hover .feat-label { color: rgba(255,255,255,0.95); }
     .feat:hover .feat-desc  { color: rgba(255,255,255,0.6); }
 
-    /* ── Divider between columns ── */
-    .col-divider {
-      width: 1px;
-      align-self: stretch;
-      background: rgba(255,255,255,0.07);
+    /* ── How it works ── */
+    .hiw-section {
+      position: relative; z-index: 10;
+      padding: 72px 48px 80px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .hiw-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 48px;
+      position: relative;
+    }
+    .hiw-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px; left: calc(16.67% + 14px); right: calc(16.67% + 14px);
+      height: 1px;
+      background: linear-gradient(90deg, rgba(99,102,241,0.5) 0%, rgba(99,102,241,0.15) 50%, rgba(99,102,241,0.5) 100%);
+    }
+    .hiw-step {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: 0 24px;
+    }
+    .hiw-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; font-weight: 900; color: white;
+      box-shadow: 0 0 0 6px rgba(99,102,241,0.15);
+      margin-bottom: 20px; position: relative; z-index: 1;
       flex-shrink: 0;
+    }
+    .hiw-icon-wrap {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px; position: relative; z-index: 1;
+      flex-shrink: 0;
+    }
+    .hiw-step-title {
+      font-size: 16px; font-weight: 800; color: white;
+      margin-bottom: 8px; letter-spacing: -0.3px;
+    }
+    .hiw-step-desc {
+      font-size: 13.5px; color: rgba(255,255,255,0.45); line-height: 1.6;
+    }
+    .hiw-step-tag {
+      display: inline-block;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase;
+      color: #818CF8;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 4px; padding: 2px 8px;
+      margin-bottom: 10px;
+    }
+    .hiw-callout {
+      margin-top: 48px;
+      background: rgba(99,102,241,0.07);
+      border: 1px solid rgba(99,102,241,0.18);
+      border-radius: 16px;
+      padding: 24px 32px;
+      display: flex; align-items: center; gap: 20px;
+    }
+    .hiw-callout-icon {
+      font-size: 28px; flex-shrink: 0;
+    }
+    .hiw-callout-text { flex: 1; }
+    .hiw-callout-title { font-size: 14px; font-weight: 700; color: white; margin-bottom: 4px; }
+    .hiw-callout-desc  { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.5; }
+
+    /* ── Illustrated mockups ── */
+    .mock-ui {
+      width: 100%; height: 220px;
+      background: #0A1628;
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .mock-sidebar {
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 120px;
+      background: rgba(255,255,255,0.03);
+      border-right: 1px solid rgba(255,255,255,0.06);
+      display: flex; flex-direction: column;
+      gap: 4px; padding: 12px 8px;
+    }
+    .mock-nav-item {
+      height: 22px; border-radius: 5px;
+      background: rgba(255,255,255,0.05);
+    }
+    .mock-nav-item.active {
+      background: rgba(99,102,241,0.18);
+      border: 1px solid rgba(99,102,241,0.25);
+    }
+    .mock-main {
+      position: absolute; left: 120px; top: 0; right: 0; bottom: 0;
+      padding: 12px;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .mock-step-row {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 6px; padding: 6px 10px;
+      animation: slideIn 0.4s ease both;
+    }
+    .mock-step-row.new-row {
+      background: rgba(99,102,241,0.1);
+      border-color: rgba(99,102,241,0.25);
+    }
+    @keyframes slideIn { from { opacity:0; transform:translateX(-8px); } to { opacity:1; transform:none; } }
+    .mock-step-num {
+      width: 16px; height: 16px; border-radius: 50%;
+      background: linear-gradient(135deg,#4F46E5,#4338CA);
+      font-size: 8px; font-weight: 900; color: white;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .mock-step-label {
+      flex: 1; height: 8px; border-radius: 3px;
+      background: rgba(255,255,255,0.12);
+    }
+    .mock-step-badge {
+      font-size: 8px; font-weight: 700; padding: 2px 6px; border-radius: 3px;
+      background: rgba(16,185,129,0.15); color: #6EE7B7;
+      border: 1px solid rgba(16,185,129,0.2);
+    }
+    /* Run result mockup */
+    .mock-result-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+    }
+    .mock-stat {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 7px; padding: 8px 10px;
+    }
+    .mock-stat.pass { border-color: rgba(16,185,129,0.25); background: rgba(16,185,129,0.07); }
+    .mock-stat.fail { border-color: rgba(239,68,68,0.25); background: rgba(239,68,68,0.07); }
+    .mock-stat-num { font-size: 18px; font-weight: 900; color: white; }
+    .mock-stat-num.g { color: #6EE7B7; }
+    .mock-stat-num.r { color: #FCA5A5; }
+    .mock-stat-lbl { font-size: 9px; color: rgba(255,255,255,0.35); margin-top: 1px; }
+    .mock-video-bar {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(99,102,241,0.08);
+      border: 1px solid rgba(99,102,241,0.18);
+      border-radius: 6px; padding: 7px 10px;
+    }
+    .mock-play-btn {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: linear-gradient(135deg,#4F46E5,#4338CA);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .mock-timeline { flex: 1; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.08); overflow: hidden; }
+    .mock-timeline-fill { height: 100%; width: 38%; background: #6366F1; border-radius: 2px; }
+    /* Analytics mockup */
+    .mock-chart-bars {
+      display: flex; align-items: flex-end; gap: 4px;
+      height: 80px; padding: 0 4px;
+    }
+    .mock-bar {
+      flex: 1; border-radius: 3px 3px 0 0;
+      background: linear-gradient(180deg, #6366F1 0%, #4338CA 100%);
+      opacity: 0.7;
+      animation: growBar 0.6s ease both;
+    }
+    .mock-bar.hi { opacity: 1; }
+    .mock-bar.lo { opacity: 0.35; }
+    @keyframes growBar { from { transform: scaleY(0); transform-origin: bottom; } to { transform: scaleY(1); } }
+
+    /* scroll hint */
+    .scroll-hint {
+      position: absolute;
+      bottom: 24px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      font-size: 11px; color: rgba(255,255,255,0.22);
+      animation: bobble 2.5s ease-in-out infinite;
+      cursor: pointer; text-decoration: none;
+    }
+    @keyframes bobble { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(5px); } }
+
+    /* ── Screenshots section ── */
+    .screenshots-section {
+      position: relative; z-index: 10;
+      padding: 72px 48px 80px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .section-eyebrow {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: #818CF8; margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: clamp(24px, 2.5vw, 36px);
+      font-weight: 800; letter-spacing: -0.8px;
+      color: white; margin-bottom: 8px;
+    }
+    .section-sub {
+      font-size: 15px; color: rgba(255,255,255,0.45);
+      margin-bottom: 48px; max-width: 520px;
+    }
+
+    .screenshots-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .ss-card {
+      display: flex; flex-direction: column;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+    }
+    .ss-card:hover {
+      border-color: rgba(99,102,241,0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(67,56,202,0.18);
+    }
+
+    /* Browser chrome bar */
+    .ss-chrome {
+      display: flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 8px 12px;
+      flex-shrink: 0;
+    }
+    .ss-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+    }
+    .ss-dot-r { background: rgba(255,95,86,0.5); }
+    .ss-dot-y { background: rgba(255,189,46,0.5); }
+    .ss-dot-g { background: rgba(39,201,63,0.5); }
+    .ss-url {
+      flex: 1; background: rgba(255,255,255,0.06); border-radius: 4px;
+      padding: 3px 8px; font-size: 9px; color: rgba(255,255,255,0.25);
+      margin-left: 4px;
+    }
+
+    /* Screenshot image area */
+    .ss-img {
+      flex: 1;
+      position: relative;
+      background: rgba(15,23,42,0.6);
+      display: flex; align-items: stretch; justify-content: center;
+      overflow: hidden;
+      min-height: 200px;
+    }
+    .ss-img img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top left;
+      display: block;
+    }
+    .mock-ui { min-height: 200px; display: none; } /* shown only when real screenshot is missing */
+    /* Placeholder — hidden; replaced by .mock-ui */
+    .ss-placeholder { display: none; }
+
+    .ss-body { padding: 18px 20px 20px; }
+    .ss-tag {
+      display: inline-block;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase;
+      color: #818CF8;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 4px; padding: 2px 8px;
+      margin-bottom: 8px;
+    }
+    .ss-title { font-size: 15px; font-weight: 700; color: white; margin-bottom: 6px; }
+    .ss-desc  { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.5; }
+
+    /* ── Bottom CTA section ── */
+    .cta-section {
+      position: relative; z-index: 10;
+      padding: 64px 48px 80px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center;
+    }
+    .cta-title {
+      font-size: clamp(24px, 2.8vw, 38px);
+      font-weight: 800; letter-spacing: -0.8px; color: white;
+      margin-bottom: 10px;
+    }
+    .cta-sub { font-size: 15px; color: rgba(255,255,255,0.45); margin-bottom: 32px; }
+    .cta-form {
+      display: flex; gap: 10px; width: 100%; max-width: 460px;
+      background: rgba(255,255,255,0.07);
+      border: 1.5px solid rgba(99,102,241,0.45);
+      border-radius: 14px;
+      padding: 6px 6px 6px 18px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 0 3px rgba(99,102,241,0.08);
+    }
+    .cta-form:focus-within {
+      border-color: #6366F1;
+      box-shadow: 0 0 0 4px rgba(99,102,241,0.18);
+    }
+    .cta-form input {
+      flex: 1; background: transparent; border: none; outline: none;
+      color: white; font-size: 14px; font-family: inherit; min-width: 0;
+    }
+    .cta-form input::placeholder { color: rgba(255,255,255,0.28); }
+    .cta-form button {
+      flex-shrink: 0; padding: 10px 22px; border-radius: 10px; border: none;
+      background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+      color: white; font-size: 13px; font-weight: 700; cursor: pointer;
+      font-family: inherit; transition: opacity 0.2s, transform 0.1s;
+      box-shadow: 0 2px 8px rgba(67,56,202,0.45);
+    }
+    .cta-form button:hover { opacity: 0.88; transform: translateY(-1px); }
+    .cta-note { font-size: 12px; color: rgba(255,255,255,0.2); margin-top: 12px; }
+    .cta-success {
+      display: none; align-items: center; gap: 8px;
+      background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.28);
+      border-radius: 10px; padding: 12px 20px;
+      font-size: 14px; font-weight: 600; color: #6EE7B7;
     }
 
     /* ── Footer ── */
     footer {
-      position: relative;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
+      position: relative; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 56px;
       border-top: 1px solid rgba(255,255,255,0.07);
     }
     .footer-copy {
-      font-size: 12px;
-      color: rgba(255,255,255,0.25);
-      display: flex;
-      align-items: center;
-      gap: 16px;
+      font-size: 12px; color: rgba(255,255,255,0.25);
+      display: flex; align-items: center; gap: 16px;
     }
     .footer-email {
-      font-size: 12px;
-      color: rgba(255,255,255,0.35);
-      text-decoration: none;
-      transition: color 0.2s;
+      font-size: 12px; color: rgba(255,255,255,0.35);
+      text-decoration: none; transition: color 0.2s;
     }
     .footer-email:hover { color: rgba(255,255,255,0.7); }
-    .socials {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-    }
+    .socials { display: flex; align-items: center; gap: 2px; }
     .socials a {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      color: rgba(255,255,255,0.38);
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 500;
-      padding: 5px 10px;
-      border-radius: 6px;
+      display: flex; align-items: center; gap: 5px;
+      color: rgba(255,255,255,0.38); text-decoration: none;
+      font-size: 12px; font-weight: 500;
+      padding: 5px 10px; border-radius: 6px;
       transition: color 0.2s, background 0.2s;
     }
     .socials a:hover { color: white; background: rgba(255,255,255,0.07); }
     .socials a svg { width: 13px; height: 13px; flex-shrink: 0; }
 
-    /* ── Mobile: stack to single column ── */
-    @media (max-width: 860px), (max-height: 640px) {
-      html, body { overflow: auto; }
-      .shell { height: auto; grid-template-rows: 60px auto 56px; }
-      main {
-        flex-direction: column;
-        align-items: center;
-        padding: 32px 24px;
-        gap: 32px;
+    /* ── Mobile ── */
+    /* ── Tablet (≤860px) ── */
+    @media (max-width: 860px) {
+      nav { padding: 0 24px; }
+      .scroll-hint { display: none; }
+
+      .hero {
+        flex-direction: column; align-items: center;
+        padding: 32px 24px; gap: 32px; min-height: auto;
       }
-      .hero-left { flex: none; width: 100%; max-width: 520px; align-items: center; }
+      .hero-left { flex: none; width: 100%; max-width: 540px; align-items: center; }
       h1 { text-align: center; font-size: clamp(28px, 6vw, 42px); }
       .sub { text-align: center; }
+      .social-proof { justify-content: center; }
+      .beta-perks { justify-content: center; }
       .col-divider { display: none; }
       .hero-right { width: 100%; }
       .feature-grid { grid-template-columns: repeat(3, 1fr); }
-      footer { padding: 0 24px; }
-      nav { padding: 0 24px; }
+
+      .hiw-section { padding: 48px 24px; }
+      .hiw-steps { grid-template-columns: 1fr; gap: 32px; }
+      .hiw-steps::before { display: none; }
+      .hiw-callout { flex-direction: column; text-align: center; }
+
+      .screenshots-section { padding: 48px 24px 56px; }
+      .screenshots-grid { grid-template-columns: 1fr; }
+
+      .cta-section { padding: 48px 24px 64px; }
+
+      footer {
+        flex-direction: column; height: auto;
+        padding: 20px 24px; gap: 14px;
+      }
+      .socials { flex-wrap: wrap; justify-content: center; }
     }
 
-    @media (max-width: 500px) {
+    /* ── Large phone (≤600px) ── */
+    @media (max-width: 600px) {
       .feature-grid { grid-template-columns: repeat(2, 1fr); }
+
+      /* Stack form: input full-width on top, button below */
+      .form {
+        flex-direction: column; align-items: stretch;
+        padding: 10px 14px; gap: 10px;
+      }
+      .form-icon { display: none; }
+      .form input { font-size: 15px; }
+      .form button {
+        padding: 12px 16px; border-radius: 10px; font-size: 14px;
+        width: 100%; text-align: center;
+      }
+
+      .cta-form {
+        flex-direction: column; align-items: stretch;
+        padding: 10px 14px; gap: 10px;
+      }
+      .cta-form input { font-size: 15px; }
+      .cta-form button {
+        padding: 12px 16px; border-radius: 10px; font-size: 14px;
+        width: 100%; text-align: center;
+      }
+
+      .hiw-step { padding: 0 8px; }
+      .section-title { font-size: clamp(20px, 5.5vw, 28px); }
+    }
+
+    /* ── Small phone (≤420px) ── */
+    @media (max-width: 420px) {
+      nav { padding: 0 16px; }
+      /* Hide the beta tag on very small screens to avoid overflow */
+      .nav-tag { display: none; }
+
+      .hero { padding: 24px 16px; gap: 24px; }
+      .hero-left { max-width: 100%; }
+      h1 { font-size: clamp(26px, 7vw, 36px); letter-spacing: -1px; }
+      .beta-perks { gap: 6px; }
+      .perk { font-size: 11px; padding: 4px 10px; }
+
+      .hiw-section { padding: 36px 16px; }
+      .hiw-callout { padding: 18px 20px; }
+
+      .screenshots-section { padding: 36px 16px 48px; }
+      .section-sub { font-size: 14px; }
+
+      .cta-section { padding: 36px 16px 56px; }
+      .cta-title { font-size: clamp(20px, 6vw, 28px); }
+
+      /* Simplify mock-ui on very small screens — hide sidebar to give content room */
+      .mock-sidebar { display: none; }
+      .mock-main { left: 0; padding: 10px; }
+
+      footer { padding: 16px; }
+      .footer-copy { flex-direction: column; gap: 6px; align-items: center; text-align: center; }
     }
   </style>
 </head>
 <body>
-<div class="shell">
 
-  <!-- Background -->
-  <div class="bg"></div>
+<!-- Background -->
+<div class="bg"></div>
 
-  <!-- Navbar -->
-  <nav>
-    <a class="nav-logo" href="#">
-      <div class="nav-logo-icon">
-        <svg width="28" height="28" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#0F172A"/>
-              <stop offset="100%" stop-color="#1A3FAA"/>
-            </linearGradient>
-          </defs>
-          <polygon points="54,24 346,24 376,54 376,218 200,376 24,218 24,54" fill="url(#sg)"/>
-          <polygon points="54,24 346,24 376,54 376,218 200,376 24,218 24,54" fill="none" stroke="#6384D4" stroke-width="4" stroke-opacity="0.6"/>
-          <rect x="125" y="87" width="150" height="50" fill="white"/>
-          <rect x="175" y="137" width="50" height="105" fill="white"/>
-          <circle cx="200" cy="284" r="16" fill="#10B981"/>
-          <polyline points="192,284 198,291 210,275" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+<!-- Navbar -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-icon">
+      <svg width="28" height="28" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0F172A"/>
+            <stop offset="100%" stop-color="#1A3FAA"/>
+          </linearGradient>
+        </defs>
+        <polygon points="54,24 346,24 376,54 376,218 200,376 24,218 24,54" fill="url(#sg)"/>
+        <polygon points="54,24 346,24 376,54 376,218 200,376 24,218 24,54" fill="none" stroke="#6384D4" stroke-width="4" stroke-opacity="0.6"/>
+        <rect x="125" y="87" width="150" height="50" fill="white"/>
+        <rect x="175" y="137" width="50" height="105" fill="white"/>
+        <circle cx="200" cy="284" r="16" fill="#10B981"/>
+        <polyline points="192,284 198,291 210,275" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="nav-logo-name">Testo<span>vex</span></span>
+  </a>
+  <div class="nav-tag">Beta launching soon</div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+
+  <!-- Left: headline + form -->
+  <div class="hero-left">
+
+    <div class="status">
+      <span class="status-dot"></span>
+      Private beta in progress · Limited spots
+    </div>
+
+    <h1>
+      Enterprise Test<br/>
+      Automation,<br/>
+      <span class="muted">Built for</span> <span class="accent">ACOE Teams</span>
+    </h1>
+
+    <!-- Social proof -->
+    <div class="social-proof">
+      <div class="sp-avatars">
+        <div class="sp-avatar" style="background:#4F46E5">PK</div>
+        <div class="sp-avatar" style="background:#0891B2">AJ</div>
+        <div class="sp-avatar" style="background:#059669">SR</div>
+        <div class="sp-avatar" style="background:#7C3AED">MN</div>
       </div>
-      <span class="nav-logo-name">Testo<span>vex</span></span>
+      <span class="sp-text">Joined by <strong>QA leaders & ACOE heads</strong> across enterprises</span>
+    </div>
+
+    <p class="sub">
+      <strong>No-code · Playwright-backed · Built for ACOE.</strong><br/>
+      One platform to build, manage and run tests —<br/>without writing a line of code.
+    </p>
+
+    <!-- Beta perks -->
+    <div class="beta-perks">
+      <span class="perk">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Free during beta
+      </span>
+      <span class="perk">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Shape the roadmap
+      </span>
+      <span class="perk">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Direct founder access
+      </span>
+    </div>
+
+    <div class="form-wrap">
+      <div class="form-label">Get early access</div>
+      <form class="form" id="waitlistForm">
+        <span class="form-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </span>
+        <input type="email" id="emailInput" placeholder="Enter your work email" required autocomplete="email" />
+        <button type="submit">Get Early Access →</button>
+      </form>
+      <p class="form-note">No spam · Unsubscribe anytime · Free during beta</p>
+    </div>
+
+    <div class="urgency">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Beta spots are limited — join now to secure yours
+    </div>
+
+    <div class="success-msg" id="successMsg">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+      You're on the list! We'll reach out when beta opens.
+    </div>
+    <div class="success-msg" id="alreadyMsg" style="background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.3);color:#C7D2FE;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
+      This email is already on the waitlist!
+    </div>
+
+  </div>
+
+  <!-- Divider -->
+  <div class="col-divider"></div>
+
+  <!-- Right: feature grid -->
+  <div class="hero-right">
+    <p class="features-label">What's included in beta</p>
+    <div class="feature-grid">
+      <div class="feat"><span class="feat-icon">🎯</span><span class="feat-content"><span class="feat-label">Smart Locator Engine</span><span class="feat-desc">9 strategies, 95%+ success rate</span></span></div>
+      <div class="feat"><span class="feat-icon">🎬</span><span class="feat-content"><span class="feat-label">Browser Recorder</span><span class="feat-desc">Click to test case in minutes</span></span></div>
+      <div class="feat"><span class="feat-icon">🌑</span><span class="feat-content"><span class="feat-label">Shadow DOM Support</span><span class="feat-desc">Records &amp; runs inside web components</span></span></div>
+      <div class="feat"><span class="feat-icon">🖼️</span><span class="feat-content"><span class="feat-label">iframe Recording</span><span class="feat-desc">Captures clicks inside same-origin frames</span></span></div>
+      <div class="feat"><span class="feat-icon">🌊</span><span class="feat-content"><span class="feat-label">Control Flow Engine</span><span class="feat-desc">Loops, if/else, break — no code</span></span></div>
+      <div class="feat"><span class="feat-icon">🏗️</span><span class="feat-content"><span class="feat-label">Reusable Components</span><span class="feat-desc">Write once, use across all tests</span></span></div>
+      <div class="feat"><span class="feat-icon">📊</span><span class="feat-content"><span class="feat-label">Analytics &amp; Reports</span><span class="feat-desc">7/14/30/90-day cross-org views</span></span></div>
+      <div class="feat"><span class="feat-icon">🎥</span><span class="feat-content"><span class="feat-label">Run Recordings</span><span class="feat-desc">Video, screenshots &amp; traces</span></span></div>
+      <div class="feat"><span class="feat-icon">🔐</span><span class="feat-content"><span class="feat-label">4-Layer Variables</span><span class="feat-desc">Locked org creds, runtime profiles</span></span></div>
+      <div class="feat"><span class="feat-icon">🔒</span><span class="feat-content"><span class="feat-label">Multi-Tenant RBAC</span><span class="feat-desc">Org isolation, role governance</span></span></div>
+      <div class="feat"><span class="feat-icon">📜</span><span class="feat-content"><span class="feat-label">Version History</span><span class="feat-desc">50-version rollback per entity</span></span></div>
+      <div class="feat"><span class="feat-icon">🤝</span><span class="feat-content"><span class="feat-label">Conflict Detection</span><span class="feat-desc">Safe multi-user editing, no overwrites</span></span></div>
+      <div class="feat"><span class="feat-icon">🔀</span><span class="feat-content"><span class="feat-label">Parallel Execution</span><span class="feat-desc">5 concurrent runs, no bottlenecks</span></span></div>
+      <div class="feat"><span class="feat-icon">💻</span><span class="feat-content"><span class="feat-label">CLI + CI/CD</span><span class="feat-desc">Trigger from any pipeline or terminal</span></span></div>
+      <div class="feat"><span class="feat-icon">🖱️</span><span class="feat-content"><span class="feat-label">Hover &amp; Tooltip</span><span class="feat-desc">Validate tooltips &amp; hover states</span></span></div>
+      <div class="feat"><span class="feat-icon">🏁</span><span class="feat-content"><span class="feat-label">Project Milestones</span><span class="feat-desc">Commit &amp; restore full project state</span></span></div>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <a class="scroll-hint" href="#how-it-works">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    See it in action
+  </a>
+
+</section>
+
+<!-- ── How it works ── -->
+<section class="hiw-section" id="how-it-works">
+  <div class="section-eyebrow">How it works</div>
+  <h2 class="section-title">From recording to passing test in minutes</h2>
+  <p class="section-sub">No Playwright knowledge required. No scripting. No infrastructure setup.</p>
+
+  <div class="hiw-steps">
+
+    <div class="hiw-step">
+      <div class="hiw-num">1</div>
+      <div class="hiw-step-tag">Chrome Extension</div>
+      <div class="hiw-step-title">Record in your browser</div>
+      <div class="hiw-step-desc">Install the Testovex recorder extension. Click through your app normally — every click, input, navigation, hover, and assertion is captured automatically. Works inside Shadow DOM components and iframes too.</div>
+    </div>
+
+    <div class="hiw-step">
+      <div class="hiw-num">2</div>
+      <div class="hiw-step-tag">No-Code Builder</div>
+      <div class="hiw-step-title">Build &amp; organise your suite</div>
+      <div class="hiw-step-desc">Recorded steps become a structured test case in the builder. Add control flow — loops, if/else, waits. Package steps into reusable components. Group tests into suites with one click.</div>
+    </div>
+
+    <div class="hiw-step">
+      <div class="hiw-num">3</div>
+      <div class="hiw-step-tag">Playwright Engine</div>
+      <div class="hiw-step-title">Run &amp; diagnose instantly</div>
+      <div class="hiw-step-desc">Trigger from the UI, CLI, or CI pipeline. Every run captures a full video, step-level screenshots, and Playwright traces. When something fails, you know exactly where and why — before stakeholders ask.</div>
+    </div>
+
+  </div>
+
+  <div class="hiw-callout">
+    <div class="hiw-callout-icon">⚡</div>
+    <div class="hiw-callout-text">
+      <div class="hiw-callout-title">9 locator strategies — 95%+ test reliability</div>
+      <div class="hiw-callout-desc">Testovex's smart locator engine tries ARIA roles, test IDs, CSS, XPath, label text, shadow DOM, and iframe selectors in priority order — so your tests survive UI changes that would break hand-written Playwright scripts.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Screenshots section ── -->
+<section class="screenshots-section" id="screenshots">
+
+  <div class="section-eyebrow">Product Preview</div>
+  <h2 class="section-title">See Testovex in action</h2>
+  <p class="section-sub">Built for real enterprise teams — every feature you need to run test automation at scale.</p>
+
+  <div class="screenshots-grid">
+
+    <!-- Screenshot 1: Test Builder -->
+    <div class="ss-card">
+      <div class="ss-chrome">
+        <span class="ss-dot ss-dot-r"></span>
+        <span class="ss-dot ss-dot-y"></span>
+        <span class="ss-dot ss-dot-g"></span>
+        <span class="ss-url">app.testovex.com / test-builder</span>
+      </div>
+      <div class="ss-img">
+        <img src="screenshot-test-builder.png" alt="Testovex No-Code Test Builder"
+             style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;position:absolute;inset:0;z-index:1"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <!-- Animated test builder mockup -->
+        <div class="mock-ui">
+          <div class="mock-sidebar">
+            <div class="mock-nav-item" style="height:14px;margin-bottom:8px;background:rgba(255,255,255,0.07)"></div>
+            <div class="mock-nav-item active"></div>
+            <div class="mock-nav-item"></div>
+            <div class="mock-nav-item"></div>
+            <div class="mock-nav-item"></div>
+            <div class="mock-nav-item" style="margin-top:auto;background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.2)"></div>
+          </div>
+          <div class="mock-main">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+              <div style="height:10px;width:120px;background:rgba(255,255,255,0.1);border-radius:3px"></div>
+              <div style="height:18px;width:60px;background:linear-gradient(135deg,#4F46E5,#4338CA);border-radius:4px;margin-left:auto;font-size:8px;color:white;display:flex;align-items:center;justify-content:center;font-weight:700">▶ Run</div>
+            </div>
+            <div class="mock-step-row" style="animation-delay:0.0s">
+              <div class="mock-step-num">1</div>
+              <div class="mock-step-label" style="width:55%"></div>
+              <div class="mock-step-badge">navigate</div>
+            </div>
+            <div class="mock-step-row" style="animation-delay:0.15s">
+              <div class="mock-step-num">2</div>
+              <div class="mock-step-label" style="width:65%"></div>
+              <div class="mock-step-badge">click</div>
+            </div>
+            <div class="mock-step-row" style="animation-delay:0.3s">
+              <div class="mock-step-num">3</div>
+              <div class="mock-step-label" style="width:50%"></div>
+              <div class="mock-step-badge" style="background:rgba(251,191,36,0.15);color:#FCD34D;border-color:rgba(251,191,36,0.2)">type</div>
+            </div>
+            <div class="mock-step-row new-row" style="animation-delay:0.45s">
+              <div class="mock-step-num" style="background:rgba(16,185,129,0.8)">4</div>
+              <div class="mock-step-label" style="width:60%;background:rgba(255,255,255,0.18)"></div>
+              <div class="mock-step-badge">assert</div>
+            </div>
+            <div class="mock-step-row" style="animation-delay:0.6s">
+              <div class="mock-step-num">5</div>
+              <div class="mock-step-label" style="width:45%"></div>
+              <div class="mock-step-badge">click</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ss-body">
+        <span class="ss-tag">No-Code Builder</span>
+        <div class="ss-title">Build tests visually — zero code required</div>
+        <div class="ss-desc">Record your clicks, inputs, and navigation in the browser. Testovex turns them into a structured, maintainable test case automatically.</div>
+      </div>
+    </div>
+
+    <!-- Screenshot 2: Run Results -->
+    <div class="ss-card">
+      <div class="ss-chrome">
+        <span class="ss-dot ss-dot-r"></span>
+        <span class="ss-dot ss-dot-y"></span>
+        <span class="ss-dot ss-dot-g"></span>
+        <span class="ss-url">app.testovex.com / run-results</span>
+      </div>
+      <div class="ss-img">
+        <img src="screenshot-run-results.png" alt="Testovex Run Results and Video Recording"
+             style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;position:absolute;inset:0;z-index:1"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <!-- Animated run results mockup -->
+        <div class="mock-ui" style="padding:12px;gap:8px">
+          <div class="mock-result-grid">
+            <div class="mock-stat pass">
+              <div class="mock-stat-num g">24</div>
+              <div class="mock-stat-lbl">Passed</div>
+            </div>
+            <div class="mock-stat fail">
+              <div class="mock-stat-num r">2</div>
+              <div class="mock-stat-lbl">Failed</div>
+            </div>
+          </div>
+          <div class="mock-video-bar">
+            <div class="mock-play-btn">
+              <svg width="8" height="8" viewBox="0 0 10 10" fill="white"><polygon points="2,1 9,5 2,9"/></svg>
+            </div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.5);white-space:nowrap">Run video · 0:42</div>
+            <div class="mock-timeline"><div class="mock-timeline-fill"></div></div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.3)">0:16</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="display:flex;align-items:center;gap:6px;padding:5px 8px;background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.15);border-radius:5px">
+              <div style="width:6px;height:6px;border-radius:50%;background:#10B981;flex-shrink:0"></div>
+              <div style="height:7px;flex:1;background:rgba(255,255,255,0.1);border-radius:2px"></div>
+              <div style="font-size:8px;color:#6EE7B7">12ms</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;padding:5px 8px;background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);border-radius:5px">
+              <div style="width:6px;height:6px;border-radius:50%;background:#EF4444;flex-shrink:0"></div>
+              <div style="height:7px;flex:1;background:rgba(255,255,255,0.1);border-radius:2px"></div>
+              <div style="font-size:8px;color:#FCA5A5">timeout</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;padding:5px 8px;background:rgba(99,102,241,0.07);border:1px solid rgba(99,102,241,0.15);border-radius:5px">
+              <div style="font-size:8px;color:#A5B4FC;white-space:nowrap">🔍 Trace</div>
+              <div style="height:7px;flex:1;background:rgba(255,255,255,0.07);border-radius:2px"></div>
+              <div style="font-size:8px;color:rgba(255,255,255,0.3)">Open →</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ss-body">
+        <span class="ss-tag">Run Diagnostics</span>
+        <div class="ss-title">Every failure recorded — video, screenshots & traces</div>
+        <div class="ss-desc">Never guess why a test failed again. Every run captures a full video, step-level screenshots, and Playwright traces for instant root-cause analysis.</div>
+      </div>
+    </div>
+
+    <!-- Screenshot 3: Analytics -->
+    <div class="ss-card">
+      <div class="ss-chrome">
+        <span class="ss-dot ss-dot-r"></span>
+        <span class="ss-dot ss-dot-y"></span>
+        <span class="ss-dot ss-dot-g"></span>
+        <span class="ss-url">app.testovex.com / analytics</span>
+      </div>
+      <div class="ss-img">
+        <img src="screenshot-analytics.png" alt="Testovex Analytics Dashboard"
+             style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;position:absolute;inset:0;z-index:1"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <!-- Animated analytics mockup -->
+        <div class="mock-ui" style="padding:12px;gap:8px">
+          <div style="display:flex;gap:6px;margin-bottom:2px">
+            <div style="flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:7px;padding:7px 9px">
+              <div style="font-size:16px;font-weight:900;color:#A5B4FC">98.2%</div>
+              <div style="font-size:8px;color:rgba(255,255,255,0.3);margin-top:1px">Pass rate · 30d</div>
+            </div>
+            <div style="flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:7px;padding:7px 9px">
+              <div style="font-size:16px;font-weight:900;color:#6EE7B7">847</div>
+              <div style="font-size:8px;color:rgba(255,255,255,0.3);margin-top:1px">Runs · 30d</div>
+            </div>
+            <div style="flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:7px;padding:7px 9px">
+              <div style="font-size:16px;font-weight:900;color:#FCD34D">3</div>
+              <div style="font-size:8px;color:rgba(255,255,255,0.3);margin-top:1px">Orgs active</div>
+            </div>
+          </div>
+          <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:7px;padding:8px 10px">
+            <div style="font-size:8px;color:rgba(255,255,255,0.3);margin-bottom:8px">Daily pass rate — last 14 days</div>
+            <div class="mock-chart-bars">
+              <div class="mock-bar lo" style="height:55%;animation-delay:0.0s"></div>
+              <div class="mock-bar" style="height:70%;animation-delay:0.05s"></div>
+              <div class="mock-bar" style="height:75%;animation-delay:0.1s"></div>
+              <div class="mock-bar hi" style="height:90%;animation-delay:0.15s"></div>
+              <div class="mock-bar" style="height:80%;animation-delay:0.2s"></div>
+              <div class="mock-bar lo" style="height:60%;animation-delay:0.25s"></div>
+              <div class="mock-bar" style="height:78%;animation-delay:0.3s"></div>
+              <div class="mock-bar hi" style="height:95%;animation-delay:0.35s"></div>
+              <div class="mock-bar hi" style="height:100%;animation-delay:0.4s"></div>
+              <div class="mock-bar" style="height:88%;animation-delay:0.45s"></div>
+              <div class="mock-bar hi" style="height:96%;animation-delay:0.5s"></div>
+              <div class="mock-bar hi" style="height:98%;animation-delay:0.55s"></div>
+              <div class="mock-bar hi" style="height:99%;animation-delay:0.6s"></div>
+              <div class="mock-bar hi" style="height:100%;animation-delay:0.65s"></div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px">
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0">
+              <div style="width:8px;height:8px;border-radius:2px;background:#6366F1;flex-shrink:0"></div>
+              <div style="font-size:9px;color:rgba(255,255,255,0.5);flex:1">Project Alpha</div>
+              <div style="height:4px;width:70%;background:rgba(99,102,241,0.3);border-radius:2px;overflow:hidden"><div style="height:100%;width:98%;background:#6366F1;border-radius:2px"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0">
+              <div style="width:8px;height:8px;border-radius:2px;background:#10B981;flex-shrink:0"></div>
+              <div style="font-size:9px;color:rgba(255,255,255,0.5);flex:1">Project Beta</div>
+              <div style="height:4px;width:70%;background:rgba(16,185,129,0.2);border-radius:2px;overflow:hidden"><div style="height:100%;width:82%;background:#10B981;border-radius:2px"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ss-body">
+        <span class="ss-tag">Analytics</span>
+        <div class="ss-title">Cross-org health — every project at a glance</div>
+        <div class="ss-desc">7, 14, 30, and 90-day trend views across all projects and teams. Know which projects are healthy and which need attention — before stakeholders ask.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Bottom CTA ── -->
+<section class="cta-section">
+  <div class="section-eyebrow" style="margin-bottom:12px;">Limited beta access</div>
+  <h2 class="cta-title">Ready to transform your QA team?</h2>
+  <p class="cta-sub">Join the waitlist and be among the first to experience enterprise test automation done right.</p>
+
+  <form class="cta-form" id="ctaForm">
+    <input type="email" id="ctaEmailInput" placeholder="Enter your work email" required autocomplete="email" />
+    <button type="submit">Get Early Access →</button>
+  </form>
+  <p class="cta-note">Free during beta · No credit card required · Unsubscribe anytime</p>
+
+  <div class="cta-success" id="ctaSuccess" style="margin-top: 12px;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+    You're on the list! We'll reach out when beta opens.
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <span class="footer-copy">
+    © 2026 Testovex. All rights reserved.
+    <span style="color:rgba(255,255,255,0.12)">·</span>
+    <a href="mailto:hello@testovex.com" class="footer-email">hello@testovex.com</a>
+  </span>
+  <div class="socials">
+    <a href="https://x.com/testovex" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      @testovex
     </a>
-    <div class="nav-tag">Beta launching soon</div>
-  </nav>
-
-  <!-- Main: two-column -->
-  <main>
-
-    <!-- Left: hero + form -->
-    <div class="hero-left">
-
-      <div class="status">
-        <span class="status-dot"></span>
-        Private beta in progress
-      </div>
-
-      <h1>
-        Enterprise Test<br/>
-        Automation,<br/>
-        <span class="muted">Built for</span> <span class="accent">ACOE Teams</span>
-      </h1>
-
-      <p class="sub">
-        <strong>No-code · Playwright-backed · Built for ACOE.</strong><br/>
-        One platform to build, manage and run tests —<br/>without writing a line of code.
-      </p>
-
-      <div class="form-wrap">
-        <div class="form-label">Join the waitlist</div>
-        <form class="form" id="waitlistForm">
-          <span class="form-icon">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          </span>
-          <input type="email" id="emailInput" placeholder="Enter your work email" required autocomplete="email" />
-          <button type="submit">Get Early Access →</button>
-        </form>
-        <p class="form-note">No spam · Unsubscribe anytime · Free during beta</p>
-      </div>
-
-      <div class="success-msg" id="successMsg">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
-        You're on the list! We'll reach out when beta opens.
-      </div>
-
-      <div class="success-msg" id="alreadyMsg" style="background:rgba(99,102,241,0.1);border-color:rgba(99,102,241,0.3);color:#C7D2FE;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
-        This email is already on the waitlist!
-      </div>
-
-    </div>
-
-    <!-- Vertical divider -->
-    <div class="col-divider"></div>
-
-    <!-- Right: feature grid -->
-    <div class="hero-right">
-      <p class="features-label">What's included in beta</p>
-      <div class="feature-grid">
-        <div class="feat"><span class="feat-icon">🎯</span><span class="feat-content"><span class="feat-label">Smart Locator Engine</span><span class="feat-desc">9 strategies, 95%+ success rate</span></span></div>
-        <div class="feat"><span class="feat-icon">🎬</span><span class="feat-content"><span class="feat-label">Browser Recorder</span><span class="feat-desc">Click to test case in minutes</span></span></div>
-        <div class="feat"><span class="feat-icon">🌊</span><span class="feat-content"><span class="feat-label">Control Flow Engine</span><span class="feat-desc">Loops, if/else, break — no code</span></span></div>
-        <div class="feat"><span class="feat-icon">🏗️</span><span class="feat-content"><span class="feat-label">Reusable Components</span><span class="feat-desc">Write once, use across all tests</span></span></div>
-        <div class="feat"><span class="feat-icon">📊</span><span class="feat-content"><span class="feat-label">Analytics &amp; Reports</span><span class="feat-desc">7/14/30/90-day cross-org views</span></span></div>
-        <div class="feat"><span class="feat-icon">🎥</span><span class="feat-content"><span class="feat-label">Run Recordings</span><span class="feat-desc">Video, screenshots &amp; traces</span></span></div>
-        <div class="feat"><span class="feat-icon">🔐</span><span class="feat-content"><span class="feat-label">4-Layer Variables</span><span class="feat-desc">Locked org creds, runtime profiles</span></span></div>
-        <div class="feat"><span class="feat-icon">🔒</span><span class="feat-content"><span class="feat-label">Multi-Tenant RBAC</span><span class="feat-desc">Org isolation, role governance</span></span></div>
-        <div class="feat"><span class="feat-icon">📜</span><span class="feat-content"><span class="feat-label">Version History</span><span class="feat-desc">50-version rollback per entity</span></span></div>
-        <div class="feat"><span class="feat-icon">🏁</span><span class="feat-content"><span class="feat-label">Project Milestones</span><span class="feat-desc">Commit &amp; restore full project state</span></span></div>
-        <div class="feat"><span class="feat-icon">🤝</span><span class="feat-content"><span class="feat-label">Conflict Detection</span><span class="feat-desc">Safe multi-user editing, no overwrites</span></span></div>
-        <div class="feat"><span class="feat-icon">🔀</span><span class="feat-content"><span class="feat-label">Parallel Execution</span><span class="feat-desc">5 concurrent runs, no bottlenecks</span></span></div>
-        <div class="feat"><span class="feat-icon">💻</span><span class="feat-content"><span class="feat-label">CLI + CI/CD</span><span class="feat-desc">Trigger from any pipeline or terminal</span></span></div>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <span class="footer-copy">
-      © 2026 Testovex. All rights reserved.
-      <span style="color:rgba(255,255,255,0.12)">·</span>
-      <a href="mailto:hello@testovex.com" class="footer-email">hello@testovex.com</a>
-    </span>
-    <div class="socials">
-      <a href="https://x.com/testovex" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        @testovex
-      </a>
-      <a href="https://linkedin.com/company/testovex" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        LinkedIn
-      </a>
-
-      <a href="https://youtube.com/@testovex" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        YouTube
-      </a>
-    </div>
-  </footer>
-
-</div>
+    <a href="https://linkedin.com/company/testovex" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://youtube.com/@testovex" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      YouTube
+    </a>
+  </div>
+</footer>
 
 <script>
   const WL_KEY = 'testovex_waitlist';
 
-  function showSuccess() {
-    document.getElementById('waitlistForm').style.display = 'none';
-    document.getElementById('successMsg').style.display  = 'flex';
-    document.getElementById('alreadyMsg').style.display  = 'none';
+  function showSuccess(formId, successId) {
+    document.getElementById(formId).style.display = 'none';
+    document.getElementById(successId).style.display = 'flex';
   }
 
   function showDuplicate() {
     document.getElementById('waitlistForm').style.display = 'none';
-    document.getElementById('alreadyMsg').style.display  = 'flex';
-    document.getElementById('successMsg').style.display  = 'none';
+    document.getElementById('alreadyMsg').style.display = 'flex';
+    document.getElementById('successMsg').style.display = 'none';
   }
 
-  // On page load: if this browser already submitted, show success immediately
+  // On page load: if already submitted, show success
   (function() {
-    if (localStorage.getItem(WL_KEY)) showSuccess();
+    if (localStorage.getItem(WL_KEY)) {
+      showSuccess('waitlistForm', 'successMsg');
+      showSuccess('ctaForm', 'ctaSuccess');
+    }
   })();
 
-  document.getElementById('waitlistForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const raw   = document.getElementById('emailInput').value;
-    const email = raw.trim().toLowerCase();
-
-    // Already submitted from this browser?
+  function submitEmail(email, formId, successId) {
     const stored = localStorage.getItem(WL_KEY);
-    if (stored && stored === email) {
-      showDuplicate();
-      return;
+    if (formId === 'waitlistForm' && stored && stored === email) {
+      showDuplicate(); return;
     }
-
     fetch('https://formspree.io/f/xkologwe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({ email })
-    }).then(res => {
-      if (res.ok) {
-        localStorage.setItem(WL_KEY, email);
-        showSuccess();
-      } else {
-        localStorage.setItem(WL_KEY, email);
-        showSuccess();
-      }
+    }).then(() => {
+      localStorage.setItem(WL_KEY, email);
+      showSuccess(formId, successId);
+      // also hide the other form if it exists
+      if (formId === 'waitlistForm') showSuccess('ctaForm', 'ctaSuccess');
+      if (formId === 'ctaForm') showSuccess('waitlistForm', 'successMsg');
     }).catch(() => {
       localStorage.setItem(WL_KEY, email);
-      showSuccess();
+      showSuccess(formId, successId);
     });
+  }
+
+  document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    submitEmail(document.getElementById('emailInput').value.trim().toLowerCase(), 'waitlistForm', 'successMsg');
+  });
+
+  document.getElementById('ctaForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    submitEmail(document.getElementById('ctaEmailInput').value.trim().toLowerCase(), 'ctaForm', 'ctaSuccess');
   });
 </script>
 </body>
