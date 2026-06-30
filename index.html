@@ -549,7 +549,7 @@
       object-fit: cover; object-position: top left;
       display: block;
     }
-    .mock-ui { min-height: 200px; display: none; } /* shown only when real screenshot is missing */
+    .mock-ui { min-height: 200px; display: flex; }
     /* Placeholder — hidden; replaced by .mock-ui */
     .ss-placeholder { display: none; }
 
@@ -956,9 +956,6 @@
         <span class="ss-url">app.testovex.com / test-builder</span>
       </div>
       <div class="ss-img">
-        <img src="screenshot-test-builder.png" alt="Testovex No-Code Test Builder"
-             style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;position:absolute;inset:0;z-index:1"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
         <!-- Animated test builder mockup -->
         <div class="mock-ui">
           <div class="mock-sidebar">
@@ -1018,9 +1015,6 @@
         <span class="ss-url">app.testovex.com / run-results</span>
       </div>
       <div class="ss-img">
-        <img src="screenshot-run-results.png" alt="Testovex Run Results and Video Recording"
-             style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;position:absolute;inset:0;z-index:1"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
         <!-- Animated run results mockup -->
         <div class="mock-ui" style="padding:12px;gap:8px">
           <div class="mock-result-grid">
@@ -1076,9 +1070,6 @@
         <span class="ss-url">app.testovex.com / analytics</span>
       </div>
       <div class="ss-img">
-        <img src="screenshot-analytics.png" alt="Testovex Analytics Dashboard"
-             style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;position:absolute;inset:0;z-index:1"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
         <!-- Animated analytics mockup -->
         <div class="mock-ui" style="padding:12px;gap:8px">
           <div style="display:flex;gap:6px;margin-bottom:2px">
