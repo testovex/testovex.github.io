@@ -786,15 +786,16 @@
 
     /* ── Nav feature links ── */
     .lp-nav-links {
-      display: flex; align-items: center; gap: 2px;
-      flex: 1; justify-content: center;
+      display: flex; align-items: center;
+      flex: 1; justify-content: center; gap: 4px;
     }
     .lp-nav-links a {
-      font-size: 12.5px; font-weight: 500;
-      color: rgba(255,255,255,0.5);
-      text-decoration: none; padding: 6px 9px;
+      font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none; padding: 6px 14px;
       border-radius: 6px; white-space: nowrap;
       transition: color .15s, background .15s;
+      letter-spacing: 0.01em;
     }
     .lp-nav-links a:hover {
       color: rgba(255,255,255,0.88);
@@ -832,8 +833,8 @@
   <div class="lp-nav-links">
     <a href="#features">Features</a>
     <a href="#recorder">Recorder</a>
-    <a href="#locator">Locators</a>
-    <a href="#recording">Diagnostics</a>
+    <a href="#locator">Locator Engine</a>
+    <a href="#recording">Recording</a>
     <a href="#collaboration">History</a>
     <a href="#security">Security</a>
     <a href="#cli">CLI</a>
