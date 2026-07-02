@@ -30,7 +30,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -783,6 +783,24 @@
       footer { padding: 16px; }
       .footer-copy { flex-direction: column; gap: 6px; align-items: center; text-align: center; }
     }
+
+    /* ── Nav feature links ── */
+    .lp-nav-links {
+      display: flex; align-items: center; gap: 2px;
+      flex: 1; justify-content: center;
+    }
+    .lp-nav-links a {
+      font-size: 12.5px; font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none; padding: 6px 9px;
+      border-radius: 6px; white-space: nowrap;
+      transition: color .15s, background .15s;
+    }
+    .lp-nav-links a:hover {
+      color: rgba(255,255,255,0.88);
+      background: rgba(255,255,255,0.06);
+    }
+    @media (max-width: 960px) { .lp-nav-links { display: none; } }
   </style>
 </head>
 <body>
@@ -811,6 +829,16 @@
     </div>
     <span class="nav-logo-name">Testo<span>vex</span></span>
   </a>
+  <div class="lp-nav-links">
+    <a href="#features">Features</a>
+    <a href="#recorder">Recorder</a>
+    <a href="#locator">Locators</a>
+    <a href="#recording">Diagnostics</a>
+    <a href="#collaboration">History</a>
+    <a href="#security">Security</a>
+    <a href="#cli">CLI</a>
+    <a href="#roadmap">Roadmap</a>
+  </div>
   <div class="nav-tag">Beta launching soon</div>
 </nav>
 
@@ -1195,6 +1223,674 @@
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════════════════════
+     FEATURE SECTIONS — dark-navy theme, content from landing page
+     ═══════════════════════════════════════════════════════ -->
+<style>
+  .lp-container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .lp-sec-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #818CF8; margin-bottom: 12px; }
+  .lp-sec-title { font-size: clamp(22px,3.5vw,36px); font-weight: 800; color: rgba(255,255,255,0.92); line-height: 1.2; margin-bottom: 14px; }
+  .lp-sec-sub { font-size: 16px; color: rgba(255,255,255,0.48); line-height: 1.65; max-width: 560px; }
+  .lp-divider { height: 1px; background: rgba(255,255,255,0.07); }
+  .lp-fade { opacity: 0; transform: translateY(20px); transition: opacity .55s, transform .55s; }
+  .lp-fade.vis { opacity: 1; transform: translateY(0); }
+
+  /* Stats bar */
+  .lp-stats-bar { background: #0A1628; border-top: 1px solid rgba(255,255,255,0.07); border-bottom: 1px solid rgba(255,255,255,0.07); padding: 28px 0; }
+  .lp-stats-inner { display: flex; justify-content: space-around; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .lp-stat-item { text-align: center; }
+  .lp-stat-val { font-size: clamp(22px,3vw,30px); font-weight: 900; color: #fff; letter-spacing: -1px; line-height: 1; }
+  .lp-stat-val span { color: #818CF8; }
+  .lp-stat-lbl { font-size: 11px; color: rgba(255,255,255,0.38); font-weight: 500; margin-top: 4px; }
+
+  /* Problem section */
+  .lp-problem { padding: 80px 0 70px; }
+  .lp-problem-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  @media (max-width: 768px) { .lp-problem-inner { grid-template-columns: 1fr; gap: 40px; } }
+  .lp-pain-list { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+  .lp-pain-item { display: flex; gap: 14px; align-items: flex-start; background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.18); border-radius: 10px; padding: 14px 16px; }
+  .lp-pain-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(239,68,68,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 15px; }
+  .lp-pain-text strong { font-size: 14px; color: rgba(255,255,255,0.88); display: block; margin-bottom: 3px; }
+  .lp-pain-text span { font-size: 13px; color: rgba(255,255,255,0.44); }
+  .lp-solution-list { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+  .lp-solution-item { display: flex; gap: 14px; align-items: flex-start; background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.18); border-radius: 10px; padding: 14px 16px; }
+  .lp-solution-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(16,185,129,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 15px; }
+  .lp-solution-text strong { font-size: 14px; color: rgba(255,255,255,0.88); display: block; margin-bottom: 3px; }
+  .lp-solution-text span { font-size: 13px; color: rgba(255,255,255,0.44); }
+
+  /* Feature grid */
+  .lp-features { padding: 80px 0; background: #0A1628; }
+  .lp-features-header { text-align: center; margin-bottom: 48px; }
+  .lp-features-header .lp-sec-sub { margin: 0 auto; }
+  .lp-feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  .lp-feature-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px; transition: background .2s, border-color .2s; }
+  .lp-feature-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(129,140,248,0.35); }
+  .lp-feature-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 14px; }
+  .lp-feature-card h3 { font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.88); margin-bottom: 8px; }
+  .lp-feature-card p { font-size: 13px; color: rgba(255,255,255,0.44); line-height: 1.65; margin-bottom: 12px; }
+  .lp-ftag { font-size: 10.5px; font-weight: 700; padding: 3px 10px; border-radius: 100px; display: inline-block; }
+  .lp-ftag.blue { background: rgba(99,102,241,0.15); color: #A5B4FC; border: 1px solid rgba(99,102,241,0.25); }
+  .lp-ftag.teal { background: rgba(16,185,129,0.1); color: #6EE7B7; border: 1px solid rgba(16,185,129,0.2); }
+  .lp-ftag.gray { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.44); border: 1px solid rgba(255,255,255,0.1); }
+
+  /* Spotlight two-col */
+  .lp-spotlight { padding: 80px 0; }
+  .lp-spotlight.alt { background: #0A1628; }
+  .lp-spotlight-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .lp-spotlight-inner.rev { direction: rtl; }
+  .lp-spotlight-inner.rev > * { direction: ltr; }
+  @media (max-width: 860px) { .lp-spotlight-inner { grid-template-columns: 1fr; gap: 40px; } .lp-spotlight-inner.rev { direction: ltr; } }
+
+  .lp-stat-callout { display: inline-flex; align-items: baseline; gap: 8px; margin-bottom: 20px; }
+  .lp-stat-big { font-size: 58px; font-weight: 900; color: #818CF8; line-height: 1; letter-spacing: -3px; }
+  .lp-stat-suffix { font-size: 20px; font-weight: 700; color: #818CF8; }
+  .lp-stat-desc { font-size: 13px; color: rgba(255,255,255,0.38); margin-left: 4px; }
+  .lp-pill-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+  .lp-pill { font-size: 12.5px; font-weight: 600; padding: 5px 13px; border-radius: 100px; }
+  .lp-pill.teal { background: rgba(16,185,129,0.1); color: #6EE7B7; border: 1px solid rgba(16,185,129,0.2); }
+  .lp-pill.blue { background: rgba(99,102,241,0.12); color: #A5B4FC; border: 1px solid rgba(99,102,241,0.2); }
+  .lp-pill.gray { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.48); border: 1px solid rgba(255,255,255,0.1); }
+  .lp-feat-list { display: flex; flex-direction: column; gap: 14px; margin-top: 20px; }
+  .lp-feat-item { display: flex; gap: 12px; align-items: flex-start; }
+  .lp-feat-dot { width: 7px; height: 7px; border-radius: 50%; background: #818CF8; margin-top: 7px; flex-shrink: 0; }
+  .lp-feat-item strong { font-size: 14px; color: rgba(255,255,255,0.85); }
+  .lp-feat-item span { font-size: 13px; color: rgba(255,255,255,0.42); display: block; margin-top: 2px; }
+
+  /* Recorder flow */
+  .lp-rec-flow { display: flex; flex-direction: column; gap: 0; position: relative; }
+  .lp-rec-flow::before { content: ''; position: absolute; left: 23px; top: 44px; bottom: 44px; width: 2px; background: linear-gradient(180deg,#818CF8,#10B981); opacity: .2; }
+  .lp-rec-step { display: flex; gap: 18px; align-items: flex-start; padding: 14px 0; }
+  .lp-rec-num { width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 800; border: 2px solid; }
+  .lp-rec-num.n1 { background: rgba(99,102,241,0.15); color: #A5B4FC; border-color: rgba(99,102,241,0.3); }
+  .lp-rec-num.n2 { background: rgba(245,158,11,0.12); color: #FCD34D; border-color: rgba(245,158,11,0.25); }
+  .lp-rec-num.n3 { background: rgba(16,185,129,0.1);  color: #6EE7B7; border-color: rgba(16,185,129,0.25); }
+  .lp-rec-num.n4 { background: rgba(139,92,246,0.12); color: #C4B5FD; border-color: rgba(139,92,246,0.25); }
+  .lp-rec-body { padding-top: 10px; }
+  .lp-rec-body strong { font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.88); display: block; margin-bottom: 4px; }
+  .lp-rec-body p { font-size: 13px; color: rgba(255,255,255,0.44); line-height: 1.6; }
+  .lp-rec-time { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; color: #6EE7B7; background: rgba(16,185,129,0.1); padding: 3px 10px; border-radius: 100px; margin-top: 8px; border: 1px solid rgba(16,185,129,0.2); }
+  .lp-rec-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+  .lp-rec-badge { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 8px; }
+
+  /* Recorder mockup */
+  .lp-rm { background: #0D1B30; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); }
+  .lp-rm-bar { background: #111E30; padding: 10px 14px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .lp-dr { width: 10px; height: 10px; border-radius: 50%; } .lp-dr.r{background:#FF5F57}.lp-dr.y{background:#FEBC2E}.lp-dr.g{background:#28C840}
+  .lp-rm-ext { margin-left: 8px; font-size: 11px; color: rgba(255,255,255,0.28); font-family: 'JetBrains Mono',monospace; display: flex; align-items: center; gap: 6px; }
+  .lp-recdot { width: 7px; height: 7px; border-radius: 50%; background: #EF4444; animation: lp-rpulse 1.3s infinite; }
+  @keyframes lp-rpulse { 0%,100%{opacity:1}50%{opacity:.3} }
+  .lp-rm-body { padding: 14px; }
+  .lp-rm-ttl { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.28); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px; }
+  .lp-rm-step { display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; border-radius: 7px; margin-bottom: 3px; border: 1px solid rgba(255,255,255,0.05); }
+  .lp-rm-snum { font-size: 10px; color: rgba(255,255,255,0.2); font-family: 'JetBrains Mono',monospace; width: 16px; padding-top: 2px; flex-shrink: 0; }
+  .lp-rm-stype { font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; flex-shrink: 0; font-family: 'JetBrains Mono',monospace; }
+  .lp-rm-stype.click{background:rgba(59,130,246,.2);color:#93C5FD}.lp-rm-stype.check{background:rgba(5,150,105,.2);color:#6EE7B7}.lp-rm-stype.type{background:rgba(245,158,11,.2);color:#FCD34D}.lp-rm-stype.assert{background:rgba(139,92,246,.2);color:#C4B5FD}.lp-rm-stype.nav{background:rgba(239,68,68,.15);color:#FCA5A5}.lp-rm-stype.dbl{background:rgba(236,72,153,.2);color:#F9A8D4}.lp-rm-stype.wait{background:rgba(255,255,255,.07);color:rgba(255,255,255,.35)}
+  .lp-rm-sdet { flex: 1; }
+  .lp-rm-ssel { font-size: 11px; color: rgba(255,255,255,0.75); font-weight: 500; }
+  .lp-rm-sval { font-size: 10px; color: rgba(255,255,255,0.28); font-family: 'JetBrains Mono',monospace; }
+  .lp-rm-loc { margin-top: 10px; background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.2); border-radius: 8px; padding: 10px 12px; }
+  .lp-rm-loc-t { font-size: 10px; color: #93C5FD; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+  .lp-rm-loc-r { display: flex; gap: 8px; align-items: center; margin-bottom: 3px; }
+  .lp-rm-loc-b { font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: 3px; flex-shrink: 0; }
+  .lp-rm-loc-b.act{background:rgba(16,185,129,.25);color:#6EE7B7}.lp-rm-loc-b.fb{background:rgba(255,255,255,.07);color:rgba(255,255,255,.28)}
+  .lp-rm-loc-v { font-size: 10px; color: rgba(255,255,255,0.28); font-family: 'JetBrains Mono',monospace; }
+  .lp-rm-loc-v.p { color: rgba(255,255,255,0.72); }
+  .lp-rm-foot { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: center; }
+  .lp-rm-stats { display: flex; gap: 14px; }
+  .lp-rm-stat { font-size: 11px; color: rgba(255,255,255,0.28); }
+  .lp-rm-stat span { color: rgba(255,255,255,0.68); font-weight: 700; }
+  .lp-rm-run { font-size: 11px; font-weight: 700; padding: 5px 13px; background: #10B981; color: #fff; border-radius: 6px; }
+
+  /* Strategy table */
+  .lp-strat-tbl { background: #111E30; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.07); }
+  .lp-strat-hdr { display: grid; grid-template-columns: 28px 1fr 90px; padding: 10px 16px; background: rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.07); font-size: 10px; font-weight: 700; color: rgba(255,255,255,.28); text-transform: uppercase; letter-spacing: .1em; gap: 12px; }
+  .lp-strat-row { display: grid; grid-template-columns: 28px 1fr 90px; padding: 9px 16px; gap: 12px; align-items: center; border-bottom: 1px solid rgba(255,255,255,.04); transition: background .12s; }
+  .lp-strat-row:hover { background: rgba(255,255,255,.04); }
+  .lp-strat-row:last-child { border-bottom: none; }
+  .lp-strat-row.best { background: rgba(99,102,241,.08); }
+  .lp-strat-row.best .lp-sn { color: #A5B4FC; }
+  .lp-sr-num { font-size: 11px; font-weight: 700; color: rgba(255,255,255,.2); font-family: 'JetBrains Mono',monospace; }
+  .lp-sn { font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,.8); }
+  .lp-sn small { font-size: 10.5px; font-weight: 400; color: rgba(255,255,255,.28); display: block; }
+  .lp-sstab { font-size: 9.5px; font-weight: 700; padding: 3px 8px; border-radius: 100px; text-align: center; }
+  .lp-sstab.hi{background:rgba(16,185,129,.14);color:#6EE7B7}.lp-sstab.md{background:rgba(245,158,11,.12);color:#FCD34D}.lp-sstab.lo{background:rgba(239,68,68,.12);color:#FCA5A5}
+
+  /* Analytics visual */
+  .lp-av { background: #111E30; border: 1px solid rgba(255,255,255,.08); border-radius: 12px; overflow: hidden; }
+  .lp-av-hdr { padding: 14px 18px; border-bottom: 1px solid rgba(255,255,255,.06); display: flex; align-items: center; justify-content: space-between; }
+  .lp-av-ttl { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.85); }
+  .lp-tabs { display: flex; gap: 4px; }
+  .lp-tab { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 5px; cursor: default; }
+  .lp-tab.on { background: #4338CA; color: #fff; }
+  .lp-tab:not(.on) { background: rgba(255,255,255,.06); color: rgba(255,255,255,.33); }
+  .lp-av-body { padding: 16px; }
+  .lp-av-metrics { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 14px; }
+  .lp-avm { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 9px; padding: 12px 14px; }
+  .lp-avm-val { font-size: 19px; font-weight: 800; color: rgba(255,255,255,.85); }
+  .lp-avm-lbl { font-size: 10px; color: rgba(255,255,255,.33); font-weight: 500; text-transform: uppercase; letter-spacing: .06em; margin-top: 2px; }
+  .lp-avm-trend { font-size: 11px; font-weight: 600; margin-top: 4px; }
+  .lp-avm-trend.up{color:#6EE7B7}.lp-avm-trend.dn{color:#FCA5A5}
+  .lp-chart { height: 100px; display: flex; align-items: flex-end; gap: 5px; padding: 0 4px; }
+  .lp-bg { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .lp-bp { border-radius: 3px 3px 0 0; width: 100%; background: #10B981; }
+  .lp-bf { border-radius: 3px 3px 0 0; width: 100%; background: rgba(239,68,68,.45); }
+  .lp-bl { font-size: 9px; color: rgba(255,255,255,.22); }
+  .lp-av-projs { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+  .lp-avp { display: flex; align-items: center; gap: 10px; }
+  .lp-avp-n { font-size: 11px; font-weight: 500; color: rgba(255,255,255,.44); width: 96px; flex-shrink: 0; }
+  .lp-avp-bar { flex: 1; height: 5px; background: rgba(255,255,255,.07); border-radius: 3px; overflow: hidden; }
+  .lp-avp-fill { height: 100%; border-radius: 3px; background: #10B981; }
+  .lp-avp-fill.lo { background: #EF4444; }
+  .lp-avp-pct { font-size: 11px; font-weight: 700; color: rgba(255,255,255,.55); width: 32px; text-align: right; }
+
+  /* Run result mockup */
+  .lp-rr { background: #111E30; border: 1px solid rgba(255,255,255,.08); border-radius: 14px; overflow: hidden; }
+  .lp-rr-hdr { padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,.06); display: flex; align-items: center; gap: 8px; }
+  .lp-rr-dot { width: 9px; height: 9px; border-radius: 50%; background: #EF4444; }
+  .lp-rr-ttl { font-size: 13px; font-weight: 600; color: rgba(255,255,255,.65); }
+  .lp-rr-badge2 { margin-left: auto; font-size: 10.5px; background: rgba(239,68,68,.12); color: #FCA5A5; padding: 2px 9px; border-radius: 100px; font-weight: 600; }
+  .lp-rr-steps2 { padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,.06); display: flex; flex-direction: column; gap: 2px; }
+  .lp-rrs { display: flex; align-items: center; gap: 8px; padding: 5px 0; font-size: 12px; color: rgba(255,255,255,.5); }
+  .lp-rrs-pb { padding: 2px 7px; border-radius: 4px; font-size: 10.5px; font-weight: 600; }
+  .lp-rrs-pb.p{background:rgba(34,197,94,.1);color:#86EFAC}.lp-rrs-pb.f{background:rgba(239,68,68,.1);color:#FCA5A5}
+  .lp-rrs-time { margin-left: auto; color: rgba(255,255,255,.22); font-size: 11px; }
+  .lp-rrs-ss { margin-left: 36px; margin-top: 4px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 7px; padding: 8px 12px; display: flex; align-items: center; gap: 8px; font-size: 11px; color: rgba(255,255,255,.42); }
+  .lp-rr-rec { padding: 12px 16px; background: rgba(99,102,241,.06); border-top: 1px solid rgba(99,102,241,.14); }
+  .lp-rr-rec-lbl { font-size: 11px; font-weight: 600; color: #A5B4FC; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .lp-rr-vid { background: #0D1628; border-radius: 7px; height: 64px; display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 8px; position: relative; overflow: hidden; }
+  .lp-rr-vid-ov { position: absolute; inset: 0; background: linear-gradient(135deg,rgba(30,64,175,.14),rgba(124,58,237,.14)); }
+  .lp-rr-play { width: 26px; height: 26px; background: rgba(255,255,255,.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1; font-size: 11px; margin-left: 2px; }
+  .lp-rr-prog { flex: 1; max-width: 150px; z-index: 1; }
+  .lp-rr-prog-bg { height: 3px; background: rgba(255,255,255,.1); border-radius: 2px; overflow: hidden; margin-bottom: 4px; }
+  .lp-rr-prog-fill { width: 38%; height: 100%; background: #7C3AED; border-radius: 2px; }
+  .lp-rr-prog-t { display: flex; justify-content: space-between; font-size: 10px; color: rgba(255,255,255,.3); }
+  .lp-rr-trace { display: flex; align-items: center; gap: 10px; font-size: 11px; }
+  .lp-rr-trace-lbl { color: rgba(255,255,255,.4); display: flex; align-items: center; gap: 5px; }
+  .lp-rr-trace-dl { background: rgba(99,102,241,.15); color: #A5B4FC; padding: 3px 11px; border-radius: 100px; font-weight: 600; cursor: pointer; }
+  .lp-rr-trace-link { color: rgba(255,255,255,.28); }
+
+  /* History panels */
+  .lp-hist-panel { background: #111E30; border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+  .lp-hist-hdr { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.07); font-size: 13px; font-weight: 700; color: rgba(255,255,255,.8); }
+  .lp-hist-rows { display: flex; flex-direction: column; gap: 6px; }
+  .lp-hr { display: flex; align-items: center; gap: 10px; padding: 7px 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,.07); }
+  .lp-hr.cur { background: rgba(99,102,241,.12); border-color: rgba(99,102,241,.25); }
+  .lp-vb { font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 100px; }
+  .lp-vb.cur { background: #4338CA; color: #fff; }
+  .lp-vb.old { background: rgba(255,255,255,.1); color: rgba(255,255,255,.48); }
+  .lp-hr-meta { font-size: 12px; color: rgba(255,255,255,.72); }
+  .lp-hr-detail { font-size: 11px; color: rgba(255,255,255,.38); }
+  .lp-hr-del { color: #FCA5A5; text-decoration: line-through; }
+  .lp-hr-add { color: #6EE7B7; }
+  .lp-hr-btn { margin-left: auto; font-size: 11px; border: 1px solid rgba(255,255,255,.12); background: transparent; border-radius: 4px; padding: 3px 8px; cursor: pointer; color: rgba(255,255,255,.44); }
+  .lp-ms { background: #111E30; border: 1px solid rgba(99,102,241,.25); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+  .lp-ms-hdr { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+  .lp-ms-ttl { display: flex; align-items: center; gap: 7px; font-weight: 700; font-size: 13px; color: rgba(255,255,255,.85); }
+  .lp-ms-lt { font-size: 10px; font-weight: 700; background: rgba(16,185,129,.1); color: #6EE7B7; border: 1px solid rgba(16,185,129,.2); padding: 2px 8px; border-radius: 100px; }
+  .lp-ms-date { font-size: 11px; color: rgba(255,255,255,.33); margin-bottom: 8px; }
+  .lp-ms-pills { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 10px; }
+  .lp-ms-pill { font-size: 11px; padding: 2px 8px; border-radius: 100px; }
+  .lp-ms-pill.in{background:rgba(99,102,241,.12);color:#A5B4FC;border:1px solid rgba(99,102,241,.2)}.lp-ms-pill.pu{background:rgba(124,58,237,.1);color:#C4B5FD;border:1px solid rgba(124,58,237,.2)}.lp-ms-pill.te{background:rgba(16,185,129,.1);color:#6EE7B7;border:1px solid rgba(16,185,129,.2)}.lp-ms-pill.am{background:rgba(245,158,11,.1);color:#FCD34D;border:1px solid rgba(245,158,11,.15)}
+  .lp-ms-btns { display: flex; gap: 6px; }
+  .lp-ms-btn { font-size: 11px; background: transparent; border-radius: 5px; padding: 4px 10px; cursor: pointer; }
+  .lp-ms-btn.d{border:1px solid rgba(99,102,241,.3);color:#A5B4FC}.lp-ms-btn.r{border:1px solid rgba(239,68,68,.25);color:#FCA5A5}
+  .lp-cf { background: #111E30; border: 1px solid rgba(255,255,255,.07); border-radius: 12px; padding: 16px; }
+  .lp-cf-hdr { display: flex; align-items: center; gap: 7px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.07); }
+  .lp-cf-ttl { font-weight: 700; font-size: 13px; color: rgba(255,255,255,.8); }
+  .lp-cf-tag { margin-left: auto; font-size: 10px; background: rgba(245,158,11,.1); color: #FCD34D; border: 1px solid rgba(245,158,11,.2); padding: 2px 7px; border-radius: 100px; font-weight: 600; }
+  .lp-cf-steps { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; opacity: .44; }
+  .lp-cf-step { font-size: 11px; color: rgba(255,255,255,.55); background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 5px; padding: 5px 10px; }
+  .lp-cf-modal { background: rgba(245,158,11,.07); border: 1px solid rgba(245,158,11,.2); border-radius: 8px; padding: 14px; }
+  .lp-cf-mhdr { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 12px; font-weight: 700; color: #FCD34D; }
+  .lp-cf-mtxt { font-size: 11px; color: rgba(245,190,80,.6); line-height: 1.55; margin-bottom: 10px; }
+  .lp-cf-mbtns { display: flex; gap: 7px; }
+  .lp-cf-mbtn { font-size: 11px; border-radius: 5px; padding: 5px 12px; cursor: pointer; font-weight: 600; }
+  .lp-cf-mbtn.rl{background:transparent;border:1px solid rgba(245,158,11,.35);color:#FCD34D}
+  .lp-cf-mbtn.fs{background:rgba(245,158,11,.8);border:none;color:#0F172A}
+
+  /* Security */
+  .lp-security { padding: 80px 0; background: #0A1628; position: relative; overflow: hidden; }
+  .lp-security::before { content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 70% 40%,rgba(99,102,241,.1) 0%,transparent 60%); }
+  .lp-security .lp-container { position: relative; }
+  .lp-sec-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 16px; margin-top: 44px; }
+  .lp-sec-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 22px; transition: background .2s, border-color .2s; }
+  .lp-sec-card:hover { background: rgba(255,255,255,.07); border-color: rgba(99,102,241,.35); }
+  .lp-sec-icon { font-size: 20px; width: 42px; height: 42px; background: rgba(99,102,241,.14); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+  .lp-sec-card h4 { font-size: 15px; font-weight: 700; color: rgba(255,255,255,.88); margin-bottom: 7px; }
+  .lp-sec-card p { font-size: 13px; color: rgba(255,255,255,.44); line-height: 1.6; }
+
+  /* CLI */
+  .lp-cli { padding: 80px 0; }
+  .lp-cli-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  @media (max-width: 860px) { .lp-cli-inner { grid-template-columns: 1fr; gap: 40px; } }
+  .lp-term { background: #0D1628; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); font-family: 'JetBrains Mono',monospace; }
+  .lp-term-bar { background: #111E30; padding: 10px 14px; display: flex; align-items: center; gap: 6px; border-bottom: 1px solid rgba(255,255,255,.06); }
+  .lp-term-ttl { font-size: 11px; color: rgba(255,255,255,.28); margin-left: 8px; }
+  .lp-term-body { padding: 18px; font-size: 12.5px; line-height: 2; }
+  .lp-tl { display: flex; gap: 8px; }
+  .lp-tp { color: #10B981; font-weight: 600; }
+  .lp-tc { color: rgba(255,255,255,.9); }
+  .lp-tco { color: rgba(255,255,255,.22); }
+  .lp-to { color: rgba(255,255,255,.4); }
+  .lp-tpa { color: #10B981; }
+  .lp-ti { color: #93C5FD; }
+  .lp-tb { height: 8px; }
+  .lp-tcur { display: inline-block; width: 8px; height: 14px; background: rgba(255,255,255,.65); animation: lp-blink 1.1s step-end infinite; vertical-align: middle; }
+  @keyframes lp-blink { 0%,100%{opacity:1}50%{opacity:0} }
+
+  /* Roadmap */
+  .lp-roadmap { padding: 80px 0; }
+  .lp-rm-hdr { text-align: center; margin-bottom: 48px; }
+  .lp-rm-hdr .lp-sec-sub { margin: 0 auto; }
+  .lp-rm-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 14px; }
+  .lp-rm-card { background: rgba(255,255,255,.04); border: 1.5px solid rgba(255,255,255,.08); border-radius: 12px; padding: 22px; transition: background .2s,border-color .2s; position: relative; overflow: hidden; }
+  .lp-rm-card::before { content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#4338CA,#818CF8); }
+  .lp-rm-card:hover { background: rgba(255,255,255,.07); border-color: rgba(99,102,241,.3); }
+  .lp-rm-icon { font-size: 22px; margin-bottom: 8px; display: block; }
+  .lp-rm-card h4 { font-size: 14px; font-weight: 700; color: rgba(255,255,255,.85); margin-bottom: 6px; }
+  .lp-rm-card p { font-size: 12.5px; color: rgba(255,255,255,.4); line-height: 1.6; }
+  .lp-coming { font-size: 10px; font-weight: 700; color: rgba(99,102,241,.6); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 5px; display: block; }
+
+  /* Bottom CTA */
+  .lp-cta { padding: 80px 0; background: linear-gradient(135deg,#1E1B8C 0%,#3730A3 40%,#4338CA 100%); text-align: center; position: relative; overflow: hidden; }
+  .lp-cta::before { content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(255,255,255,.06) 0%,transparent 50%),radial-gradient(circle at 80% 50%,rgba(255,255,255,.04) 0%,transparent 50%); }
+  .lp-cta .lp-container { position: relative; }
+  .lp-cta h2 { font-size: clamp(26px,4vw,40px); font-weight: 900; color: #fff; letter-spacing: -1px; margin-bottom: 12px; }
+  .lp-cta > .lp-container > p { font-size: 17px; color: rgba(255,255,255,.6); margin-bottom: 30px; }
+  .lp-cta-form { display: flex; gap: 10px; max-width: 460px; margin: 0 auto 12px; flex-wrap: wrap; justify-content: center; }
+  .lp-cta-inp { flex: 1; min-width: 200px; background: rgba(255,255,255,.12); border: 1.5px solid rgba(255,255,255,.2); border-radius: 8px; padding: 12px 16px; font-size: 15px; color: #fff; outline: none; font-family: 'Inter',sans-serif; transition: border .18s,background .18s; }
+  .lp-cta-inp::placeholder { color: rgba(255,255,255,.36); }
+  .lp-cta-inp:focus { border-color: rgba(255,255,255,.45); background: rgba(255,255,255,.17); }
+  .lp-cta-note2 { font-size: 12.5px; color: rgba(255,255,255,.38); }
+  .lp-cta-btn { background: #fff; color: #3730A3; font-size: 15px; font-weight: 700; padding: 12px 22px; border-radius: 8px; border: none; cursor: pointer; transition: transform .14s,box-shadow .18s; white-space: nowrap; }
+  .lp-cta-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,.3); }
+  .lp-cta-perks { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.1); }
+  .lp-perk { display: flex; align-items: center; gap: 7px; font-size: 13px; color: rgba(255,255,255,.52); }
+  .lp-perk-check { color: #6EE7B7; }
+  .lp-cta-success { display: none; margin-top: 12px; font-size: 14px; color: #6EE7B7; font-weight: 600; }
+
+  @media (max-width: 480px) {
+    .lp-feature-grid, .lp-rm-grid, .lp-sec-grid { grid-template-columns: 1fr; }
+    .lp-stats-inner { gap: 16px; }
+    .lp-stat-val { font-size: 22px; }
+  }
+</style>
+
+<!-- ── Stats bar ── -->
+<div class="lp-stats-bar">
+  <div class="lp-container lp-stats-inner">
+    <div class="lp-stat-item"><div class="lp-stat-val">95<span>%+</span></div><div class="lp-stat-lbl">Locator Success Rate</div></div>
+    <div class="lp-stat-item"><div class="lp-stat-val">9</div><div class="lp-stat-lbl">Locator Strategies</div></div>
+    <div class="lp-stat-item"><div class="lp-stat-val">80<span>+</span></div><div class="lp-stat-lbl">Step Keywords</div></div>
+    <div class="lp-stat-item"><div class="lp-stat-val">5</div><div class="lp-stat-lbl">Concurrent Runs</div></div>
+    <div class="lp-stat-item"><div class="lp-stat-val">4</div><div class="lp-stat-lbl">Variable Layers</div></div>
+    <div class="lp-stat-item"><div class="lp-stat-val">90<span>d</span></div><div class="lp-stat-lbl">Analytics Windows</div></div>
+  </div>
+</div>
+
+<!-- ── Problem → Solution ── -->
+<section class="lp-problem">
+  <div class="lp-container">
+    <div class="lp-problem-inner">
+      <div class="lp-fade">
+        <div class="lp-sec-label">The Problem</div>
+        <div class="lp-sec-title">Every team has these problems.<br>Most platforms ignore them.</div>
+        <div class="lp-pain-list">
+          <div class="lp-pain-item"><div class="lp-pain-icon">💔</div><div class="lp-pain-text"><strong>Brittle selectors break every sprint</strong><span>A CSS class renames. A label moves. 40 tests break. Half a sprint gone on maintenance.</span></div></div>
+          <div class="lp-pain-item"><div class="lp-pain-icon">🫥</div><div class="lp-pain-text"><strong>No cross-team visibility</strong><span>QA director checking 6 CI dashboards every morning. No unified pass/fail health view.</span></div></div>
+          <div class="lp-pain-item"><div class="lp-pain-icon">🔓</div><div class="lp-pain-text"><strong>Credentials live in test code</strong><span>API keys, tokens, prod URLs hardcoded or stored where anyone can see and override them.</span></div></div>
+          <div class="lp-pain-item"><div class="lp-pain-icon">🏚️</div><div class="lp-pain-text"><strong>10 teams, 10 automation silos</strong><span>No org-level governance. No shared components. No consistent standards across projects.</span></div></div>
+        </div>
+      </div>
+      <div class="lp-fade">
+        <div class="lp-sec-label">The Solution</div>
+        <div class="lp-sec-title">One ACOE platform built to solve all four.</div>
+        <div class="lp-solution-list">
+          <div class="lp-solution-item"><div class="lp-solution-icon">🎯</div><div class="lp-solution-text"><strong>Smart Locator Engine — 9 strategies, 95%+ success</strong><span>Captures 9 locator strategies per element during recording. Falls back automatically when the primary fails.</span></div></div>
+          <div class="lp-solution-item"><div class="lp-solution-icon">📊</div><div class="lp-solution-text"><strong>Platform-level analytics across all projects</strong><span>7, 14, 30, 90-day dashboards. Pass rates, failure trends, run volume — one view for the whole org.</span></div></div>
+          <div class="lp-solution-item"><div class="lp-solution-icon">🔒</div><div class="lp-solution-text"><strong>Locked credentials at the org level</strong><span>Org variables are locked — test authors use them in runs but can never read or override them.</span></div></div>
+          <div class="lp-solution-item"><div class="lp-solution-icon">🏢</div><div class="lp-solution-text"><strong>Multi-org, multi-project governance</strong><span>Separate orgs, shared platform. Roles, permissions, and reusable components across every project.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lp-divider"></div>
+
+<!-- ── Feature Grid ── -->
+<section class="lp-features" id="features">
+  <div class="lp-container">
+    <div class="lp-features-header lp-fade">
+      <div class="lp-sec-label">What's In The Beta</div>
+      <div class="lp-sec-title">Everything you need to ship reliable automation today.</div>
+      <p class="lp-sec-sub">Full platform — web automation, analytics, version history, team collaboration, security, and CLI — from day one.</p>
+    </div>
+    <div class="lp-feature-grid">
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🎯</div><h3>Smart Locator Engine</h3><p>9 strategies captured per element during recording. Test ID → ARIA → Label → Placeholder → CSS → XPath. Optimal runs first, fallbacks fire automatically. Tests survive UI changes without manual fixes.</p><span class="lp-ftag blue">95%+ Success Rate</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">📊</div><h3>Analytics &amp; Reports</h3><p>Built-in dashboards across 7, 14, 30, and 90-day windows. Pass rate trends, failure analysis, run volume, and per-project health — visible across every org and project in one place.</p><span class="lp-ftag teal">Platform-Level View</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(245,158,11,0.12)">🔐</div><h3>4-Layer Variable Management</h3><p>Org → Project → Suite/Test → Runtime resolution. Lock org-level credentials so no test author can ever read or override them. Execution profiles switch environments at run time.</p><span class="lp-ftag blue">Enterprise-Grade Governance</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(255,255,255,0.06)">💻</div><h3>CLI Support</h3><p>Run any test, suite, or full project from the terminal. Hook Testovex into any pipeline, script, or cron job you already have — today. No CI/CD connector needed to get started.</p><span class="lp-ftag gray">Pipeline-Ready</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">⚡</div><h3>Parallel Execution</h3><p>Up to 5 concurrent suite runs across the platform. Multiple teams and projects trigger runs simultaneously with no bottlenecks. BullMQ-powered async queue — the API never blocks.</p><span class="lp-ftag blue">5 Concurrent Runs</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🏗️</div><h3>Reusable Components</h3><p>Package shared test logic once — login flows, navigation sequences, common assertions — and call them from any test across the entire org. Change it once, it updates everywhere.</p><span class="lp-ftag teal">Write Once, Use Everywhere</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(245,158,11,0.12)">🎬</div><h3>Browser Recorder</h3><p>Record interactions in Chrome, get a stable, runnable test case immediately. Captures 9 locator strategies per element as you click — so tests survive UI changes before they've even run once.</p><span class="lp-ftag gray">Minutes to First Run</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🌊</div><h3>Control Flow Engine</h3><p>While loops, forEach, repeat, if/else/endIf with break and continue support — all without writing code. Build conditional logic and loops visually in the test builder.</p><span class="lp-ftag blue">No-Code Logic</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(255,255,255,0.06)">🗄️</div><h3>Zero External Database</h3><p>Embedded database included — no Postgres, no MySQL, no connection strings to configure. Install, start the server, and you're building automation in minutes. No DBA required.</p><span class="lp-ftag gray">Install &amp; Run</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(139,92,246,0.15)">📜</div><h3>Version History</h3><p>Every save auto-snapshots the full state — across test cases, components, suites, and objects. See exactly what changed, who changed it, and when. Restore any prior version in one click.</p><span class="lp-ftag blue">50-Version Rollback</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🏁</div><h3>Project Milestones</h3><p>Commit the state of your entire project — all test cases, components, suites, and objects — as a named snapshot. Move forward confidently. Restore the whole project to any milestone in one click.</p><span class="lp-ftag teal">Cross-Entity Commit</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(245,158,11,0.12)">⚡</div><h3>Multi-User Conflict Detection</h3><p>Two engineers editing the same test simultaneously? Testovex detects it the moment either one saves — and presents a clear conflict modal. No silent overwrites. No lost work.</p><span class="lp-ftag gray">Team-Safe Editing</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(139,92,246,0.15)">🎥</div><h3>Run Recording &amp; Diagnostics</h3><p>Every test run is automatically recorded — video, per-step failure screenshots, and a full Playwright trace. Watch the browser session, see exactly which step broke, replay in Trace Viewer.</p><span class="lp-ftag blue">Zero Debug Guesswork</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Recorder ── -->
+<section class="lp-spotlight" id="recorder">
+  <div class="lp-container">
+    <div class="lp-spotlight-inner">
+      <div class="lp-fade">
+        <div class="lp-sec-label">Browser Recorder</div>
+        <div class="lp-sec-title">From first click to passing test — in minutes.</div>
+        <p class="lp-sec-sub" style="margin-top:14px">The Testovex recorder isn't just a click capturer. It's the foundation of the Smart Locator Engine — capturing <strong style="color:rgba(255,255,255,0.75)">9 locator strategies per element</strong> as you record, so tests are stable before you even run them for the first time.</p>
+        <div class="lp-rec-flow" style="margin-top:30px">
+          <div class="lp-rec-step"><div class="lp-rec-num n1">1</div><div class="lp-rec-body"><strong>Install the extension &amp; start recording</strong><p>Open your app in Chrome, click Record in the Testovex extension. Every interaction is captured — clicks, form fills, assertions, navigation.</p><span class="lp-rec-time">⏱ Under 60 seconds to start</span></div></div>
+          <div class="lp-rec-step"><div class="lp-rec-num n2">2</div><div class="lp-rec-body"><strong>Semantic capture — not just "click"</strong><p>check, uncheck, doubleClick, rightClick are recorded as distinct step types. iFrame interactions, alert handling, canvas actions — all captured as readable keyword steps.</p></div></div>
+          <div class="lp-rec-step"><div class="lp-rec-num n3">3</div><div class="lp-rec-body"><strong>9 locator strategies saved per element</strong><p>While you click, the engine silently captures Test ID, ARIA Role, Label, Placeholder, CSS, XPath and more. The most stable strategy is pre-selected. Fallbacks are ready.</p><span class="lp-rec-time">✓ Stable from the very first recording</span></div></div>
+          <div class="lp-rec-step"><div class="lp-rec-num n4">4</div><div class="lp-rec-body"><strong>Review, enrich &amp; run</strong><p>Edit steps in the visual builder, add variables, assertions, and control flow. Then run — from the platform or straight from your terminal with the CLI.</p><span class="lp-rec-time">⚡ Authoring to execution in minutes</span></div></div>
+        </div>
+        <div class="lp-rec-badges">
+          <div class="lp-rec-badge"><span>🎬</span> Chrome extension</div>
+          <div class="lp-rec-badge"><span>🔒</span> Session-only auth</div>
+          <div class="lp-rec-badge"><span>📐</span> 15 step categories</div>
+          <div class="lp-rec-badge"><span>🎯</span> 80+ step keywords</div>
+        </div>
+      </div>
+      <div class="lp-fade">
+        <div class="lp-rm">
+          <div class="lp-rm-bar"><div class="lp-dr r"></div><div class="lp-dr y"></div><div class="lp-dr g"></div><div class="lp-rm-ext"><span class="lp-recdot"></span> Testovex Recorder — Recording</div></div>
+          <div class="lp-rm-body">
+            <div class="lp-rm-ttl">Captured Steps — Checkout Flow</div>
+            <div class="lp-rm-step"><span class="lp-rm-snum">1</span><span class="lp-rm-stype nav">navigate</span><div class="lp-rm-sdet"><div class="lp-rm-ssel">https://shop.acme.com/cart</div></div></div>
+            <div class="lp-rm-step"><span class="lp-rm-snum">2</span><span class="lp-rm-stype assert">assertText</span><div class="lp-rm-sdet"><div class="lp-rm-ssel">Cart Summary</div><div class="lp-rm-sval">contains "2 items"</div></div></div>
+            <div class="lp-rm-step"><span class="lp-rm-snum">3</span><span class="lp-rm-stype click">click</span><div class="lp-rm-sdet"><div class="lp-rm-ssel">Proceed to Checkout</div><div class="lp-rm-sval">[data-testid="checkout-btn"]</div></div></div>
+            <div class="lp-rm-step"><span class="lp-rm-snum">4</span><span class="lp-rm-stype type">typeText</span><div class="lp-rm-sdet"><div class="lp-rm-ssel">Email Address field</div><div class="lp-rm-sval">{{user_email}}</div></div></div>
+            <div class="lp-rm-step"><span class="lp-rm-snum">5</span><span class="lp-rm-stype check">check</span><div class="lp-rm-sdet"><div class="lp-rm-ssel">Save billing address</div></div></div>
+            <div class="lp-rm-step"><span class="lp-rm-snum">6</span><span class="lp-rm-stype dbl">dblClick</span><div class="lp-rm-sdet"><div class="lp-rm-ssel">Promo code field</div></div></div>
+            <div class="lp-rm-step"><span class="lp-rm-snum">7</span><span class="lp-rm-stype wait">waitForElement</span><div class="lp-rm-sdet"><div class="lp-rm-ssel">Order total</div><div class="lp-rm-sval">timeout: 5000ms</div></div></div>
+            <div class="lp-rm-loc">
+              <div class="lp-rm-loc-t">🎯 Step 3 — 9 locator strategies captured</div>
+              <div class="lp-rm-loc-r"><span class="lp-rm-loc-b act">ACTIVE</span><span class="lp-rm-loc-v p">testId → checkout-btn</span></div>
+              <div class="lp-rm-loc-r"><span class="lp-rm-loc-b fb">FALLBACK</span><span class="lp-rm-loc-v">role → button "Proceed to Checkout"</span></div>
+              <div class="lp-rm-loc-r"><span class="lp-rm-loc-b fb">FALLBACK</span><span class="lp-rm-loc-v">text → "Proceed to Checkout"</span></div>
+              <div class="lp-rm-loc-r"><span class="lp-rm-loc-b fb">FALLBACK</span><span class="lp-rm-loc-v">css → .checkout-action &gt; button</span></div>
+              <div class="lp-rm-loc-r"><span class="lp-rm-loc-b fb">FALLBACK</span><span class="lp-rm-loc-v">xpath → //button[contains(.,'Checkout')]</span></div>
+            </div>
+            <div class="lp-rm-foot">
+              <div class="lp-rm-stats"><div class="lp-rm-stat"><span>7</span> steps</div><div class="lp-rm-stat"><span>9</span> strategies/el</div><div class="lp-rm-stat"><span>4m 12s</span> recorded</div></div>
+              <div class="lp-rm-run">▶ Run Test</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lp-divider"></div>
+
+<!-- ── Locator Engine ── -->
+<section class="lp-spotlight alt" id="locator">
+  <div class="lp-container">
+    <div class="lp-spotlight-inner">
+      <div class="lp-fade">
+        <div class="lp-sec-label">Smart Locator Engine</div>
+        <div class="lp-stat-callout"><span class="lp-stat-big">95</span><span class="lp-stat-suffix">%+</span><span class="lp-stat-desc">element resolution<br>success rate</span></div>
+        <div class="lp-sec-title" style="font-size:clamp(20px,2.8vw,30px)">Tests that survive UI changes without manual fixes.</div>
+        <p class="lp-sec-sub" style="margin-top:14px">Most automation tools record one locator and hope it survives the next sprint. Testovex records <strong style="color:rgba(255,255,255,0.72)">nine</strong> and uses whichever one works. When a CSS class renames or a label moves, the engine tries the next strategy in the chain — automatically, without stopping the test.</p>
+        <div class="lp-pill-row">
+          <span class="lp-pill teal">✓ Semantic-first priority</span>
+          <span class="lp-pill blue">✓ Auto-fallback chain</span>
+          <span class="lp-pill gray">✓ XPath as last resort</span>
+        </div>
+      </div>
+      <div class="lp-fade">
+        <div class="lp-strat-tbl">
+          <div class="lp-strat-hdr"><span>#</span><span>Strategy</span><span>Stability</span></div>
+          <div class="lp-strat-row best"><span class="lp-sr-num">1</span><div class="lp-sn">Test ID <small>data-testid · data-cy · data-test</small></div><span class="lp-sstab hi">Highest</span></div>
+          <div class="lp-strat-row best"><span class="lp-sr-num">2</span><div class="lp-sn">ARIA Role <small>Semantic role + accessible name</small></div><span class="lp-sstab hi">Very High</span></div>
+          <div class="lp-strat-row"><span class="lp-sr-num">3</span><div class="lp-sn">Label Text <small>aria-labelledby · &lt;label&gt;</small></div><span class="lp-sstab hi">High</span></div>
+          <div class="lp-strat-row"><span class="lp-sr-num">4</span><div class="lp-sn">Placeholder <small>Input placeholder text</small></div><span class="lp-sstab hi">High</span></div>
+          <div class="lp-strat-row"><span class="lp-sr-num">5</span><div class="lp-sn">Alt Text <small>Image alt attribute</small></div><span class="lp-sstab hi">High</span></div>
+          <div class="lp-strat-row"><span class="lp-sr-num">6</span><div class="lp-sn">Title <small>Title attribute</small></div><span class="lp-sstab md">Med-High</span></div>
+          <div class="lp-strat-row"><span class="lp-sr-num">7</span><div class="lp-sn">Visible Text <small>Exact or partial text content</small></div><span class="lp-sstab md">Medium</span></div>
+          <div class="lp-strat-row"><span class="lp-sr-num">8</span><div class="lp-sn">CSS Selector <small>Class · ID · attribute</small></div><span class="lp-sstab md">Medium</span></div>
+          <div class="lp-strat-row"><span class="lp-sr-num">9</span><div class="lp-sn">XPath <small>DOM path — last resort only</small></div><span class="lp-sstab lo">Lowest</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lp-divider"></div>
+
+<!-- ── Analytics ── -->
+<section class="lp-spotlight">
+  <div class="lp-container">
+    <div class="lp-spotlight-inner rev">
+      <div class="lp-fade">
+        <div class="lp-sec-label">Analytics &amp; Reports</div>
+        <div class="lp-sec-title">The 30-minute morning check becomes a 30-second glance.</div>
+        <p class="lp-sec-sub" style="margin-top:14px">Built-in dashboards across 7, 14, 30, and 90-day windows. Pass rates, failure trends, run volume, and per-project health — aggregated across every org and project on your platform.</p>
+        <div class="lp-feat-list">
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Pass rate trends</strong><span>Is automation getting more or less stable over time?</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Failure analysis</strong><span>Which tests consistently fail? Which are flaky?</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Run volume tracking</strong><span>How active is automation across each team?</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Per-project comparison</strong><span>Spot the problem project before it becomes a release blocker.</span></div></div>
+        </div>
+      </div>
+      <div class="lp-fade">
+        <div class="lp-av">
+          <div class="lp-av-hdr"><span class="lp-av-ttl">QA Health Dashboard</span><div class="lp-tabs"><span class="lp-tab">7d</span><span class="lp-tab">14d</span><span class="lp-tab on">30d</span><span class="lp-tab">90d</span></div></div>
+          <div class="lp-av-body">
+            <div class="lp-av-metrics">
+              <div class="lp-avm"><div class="lp-avm-val">94.2%</div><div class="lp-avm-lbl">Pass Rate</div><div class="lp-avm-trend up">↑ 3.1% vs prev</div></div>
+              <div class="lp-avm"><div class="lp-avm-val">1,847</div><div class="lp-avm-lbl">Total Runs</div><div class="lp-avm-trend up">↑ 12% growth</div></div>
+              <div class="lp-avm"><div class="lp-avm-val">108</div><div class="lp-avm-lbl">Failures</div><div class="lp-avm-trend dn">↓ 18 this week</div></div>
+            </div>
+            <div class="lp-chart" id="lp-chart"></div>
+            <div class="lp-av-projs" style="margin-top:12px">
+              <div class="lp-avp"><span class="lp-avp-n">Checkout App</span><div class="lp-avp-bar"><div class="lp-avp-fill" style="width:97%"></div></div><span class="lp-avp-pct">97%</span></div>
+              <div class="lp-avp"><span class="lp-avp-n">Auth Service</span><div class="lp-avp-bar"><div class="lp-avp-fill" style="width:94%"></div></div><span class="lp-avp-pct">94%</span></div>
+              <div class="lp-avp"><span class="lp-avp-n">Payment API</span><div class="lp-avp-bar"><div class="lp-avp-fill lo" style="width:76%"></div></div><span class="lp-avp-pct" style="color:#EF4444">76%</span></div>
+              <div class="lp-avp"><span class="lp-avp-n">Mobile Web</span><div class="lp-avp-bar"><div class="lp-avp-fill" style="width:91%"></div></div><span class="lp-avp-pct">91%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lp-divider"></div>
+
+<!-- ── Run Recording & Diagnostics ── -->
+<section class="lp-spotlight alt" id="recording">
+  <div class="lp-container">
+    <div class="lp-spotlight-inner">
+      <div class="lp-fade">
+        <div class="lp-sec-label">Run Recording &amp; Diagnostics</div>
+        <div class="lp-sec-title">Every failure explained. No guesswork, no re-running to reproduce.</div>
+        <p class="lp-sec-sub" style="margin-top:14px">When a test fails in CI at 2 am, you shouldn't need to reproduce it locally. Testovex automatically records every run — video, screenshots, and a full Playwright trace — so the answer is waiting the moment you open the result.</p>
+        <div class="lp-feat-list">
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Automatic video recording</strong><span>Full browser session captured on every run — even headless. Watch exactly what the browser did, frame by frame.</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Inline failure screenshots</strong><span>A screenshot is taken automatically at the exact moment a step fails — inline under the failing step in the results panel.</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Playwright Trace export</strong><span>Download trace.zip and open it in trace.playwright.dev — scrub the timeline, inspect DOM state, and replay every network request.</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Step-level timing</strong><span>Every step shows duration in milliseconds. Spot slow steps, flaky waits, and network bottlenecks at a glance.</span></div></div>
+        </div>
+        <div class="lp-pill-row">
+          <span class="lp-pill blue">✓ No repro needed</span>
+          <span class="lp-pill teal">✓ Works headless</span>
+          <span class="lp-pill gray">✓ Zero config</span>
+        </div>
+      </div>
+      <div class="lp-fade">
+        <div class="lp-rr">
+          <div class="lp-rr-hdr"><div class="lp-rr-dot"></div><span class="lp-rr-ttl">Run Results — Login Flow</span><span class="lp-rr-badge2">1 failed</span></div>
+          <div class="lp-rr-steps2">
+            <div class="lp-rrs"><span style="color:#22C55E;font-size:13px">✓</span><span class="lp-rrs-pb p">pass</span><span>Navigate to https://app.example.com/login</span><span class="lp-rrs-time">124ms</span></div>
+            <div class="lp-rrs"><span style="color:#22C55E;font-size:13px">✓</span><span class="lp-rrs-pb p">pass</span><span>Fill Email input with "user@example.com"</span><span class="lp-rrs-time">89ms</span></div>
+            <div class="lp-rrs"><span style="color:#22C55E;font-size:13px">✓</span><span class="lp-rrs-pb p">pass</span><span>Fill Password input</span><span class="lp-rrs-time">76ms</span></div>
+            <div style="display:flex;flex-direction:column;gap:4px;padding:5px 0">
+              <div class="lp-rrs"><span style="color:#EF4444;font-size:13px">✗</span><span class="lp-rrs-pb f">fail</span><span>Assert Dashboard heading is visible</span><span class="lp-rrs-time">10042ms</span></div>
+              <div class="lp-rrs-ss">📷 <div><div style="font-weight:600">Failure screenshot</div><div style="color:rgba(255,255,255,0.3)">Captured at step failure · click to expand</div></div></div>
+            </div>
+          </div>
+          <div class="lp-rr-rec">
+            <div class="lp-rr-rec-lbl">🎥 Run Recording</div>
+            <div class="lp-rr-vid"><div class="lp-rr-vid-ov"></div><div class="lp-rr-play">▶</div><div class="lp-rr-prog"><div class="lp-rr-prog-bg"><div class="lp-rr-prog-fill"></div></div><div class="lp-rr-prog-t"><span>0:14</span><span>0:37</span></div></div></div>
+            <div class="lp-rr-trace"><span class="lp-rr-trace-lbl">⬇ Playwright Trace</span><span class="lp-rr-trace-dl">Download trace.zip</span><span class="lp-rr-trace-link">→ trace.playwright.dev</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lp-divider"></div>
+
+<!-- ── Version History & Milestones ── -->
+<section class="lp-spotlight" id="collaboration">
+  <div class="lp-container">
+    <div class="lp-spotlight-inner rev">
+      <div class="lp-fade">
+        <div class="lp-sec-label">Version History &amp; Milestones</div>
+        <div class="lp-sec-title">Every entity versioned. Every sprint committed. Every mistake undoable.</div>
+        <p class="lp-sec-sub" style="margin-top:14px">Testovex snapshots every test case, component, suite, and object before each save — automatically. See exactly what changed, who changed it, and when. Restore any entity individually or commit your entire project state as a named Milestone.</p>
+        <div class="lp-feat-list">
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Per-entity history — all 4 types</strong><span>Test cases, components, suites, and objects each carry their own 50-version history with before → after diffs.</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Project Milestones</strong><span>Name and commit the current state of your entire project. Restore everything in one click if the next sprint breaks something.</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Before → after change detail</strong><span>History doesn't just say "name changed" — it shows the old value crossed out and the new value highlighted, for every field.</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Conflict detection</strong><span>Two engineers editing the same test simultaneously? The second save surfaces a clear modal — Force Save or Reload. No silent overwrites.</span></div></div>
+        </div>
+      </div>
+      <div class="lp-fade" style="display:flex;flex-direction:column;gap:12px">
+        <div class="lp-hist-panel">
+          <div class="lp-hist-hdr">📜 Version History — Login Flow test case</div>
+          <div class="lp-hist-rows">
+            <div class="lp-hr cur"><span class="lp-vb cur">v8</span><div><div class="lp-hr-meta">Current · Sarah K · 2 min ago</div><div class="lp-hr-detail">Name: <span class="lp-hr-del">Login Test</span> → <span class="lp-hr-add">Login Flow v2</span></div></div></div>
+            <div class="lp-hr"><span class="lp-vb old">v7</span><div><div class="lp-hr-detail">Steps: <span class="lp-hr-del">11 steps</span> → <span class="lp-hr-add">14 steps</span></div><div class="lp-hr-meta" style="font-size:11px;color:rgba(255,255,255,0.35)">James T · 1 hr ago</div></div><button class="lp-hr-btn">Restore</button></div>
+          </div>
+        </div>
+        <div class="lp-ms">
+          <div class="lp-ms-hdr"><div class="lp-ms-ttl">🏁 Sprint 1 Complete — 10 tests automated</div><span class="lp-ms-lt">Latest</span></div>
+          <div class="lp-ms-date">Jun 14 2026 · by Sarah K</div>
+          <div class="lp-ms-pills"><span class="lp-ms-pill in">10 test cases</span><span class="lp-ms-pill pu">4 components</span><span class="lp-ms-pill te">2 suites</span><span class="lp-ms-pill am">6 objects</span></div>
+          <div class="lp-ms-btns"><button class="lp-ms-btn d">Details</button><button class="lp-ms-btn r">Restore Project</button></div>
+        </div>
+        <div class="lp-cf">
+          <div class="lp-cf-hdr"><span>✏️</span><span class="lp-cf-ttl">Login Flow — Test Builder</span><span class="lp-cf-tag">Unsaved changes</span></div>
+          <div class="lp-cf-steps"><div class="lp-cf-step">1 · Navigate to /login</div><div class="lp-cf-step">2 · Fill email field</div><div class="lp-cf-step">3 · Fill password field</div></div>
+          <div class="lp-cf-modal">
+            <div class="lp-cf-mhdr">⚠️ Edit conflict detected</div>
+            <div class="lp-cf-mtxt"><strong>James T</strong> saved this test case while you were editing.<br>Your changes are still here — choose how to proceed.</div>
+            <div class="lp-cf-mbtns"><button class="lp-cf-mbtn rl">↩ Reload Their Version</button><button class="lp-cf-mbtn fs">⚡ Force Save Mine</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lp-divider"></div>
+
+<!-- ── Security ── -->
+<section class="lp-security" id="security">
+  <div class="lp-container">
+    <div class="lp-sec-label lp-fade">Enterprise Security</div>
+    <div class="lp-sec-title lp-fade" style="max-width:600px">Built multi-tenant from day one.<br>Not bolted on after.</div>
+    <p class="lp-sec-sub lp-fade" style="margin-top:12px">Every enterprise evaluator asks the same question: <em>"How do you guarantee Org A can't see Org B's data?"</em> Our answer is architecture, not just policy.</p>
+    <div class="lp-sec-grid">
+      <div class="lp-sec-card lp-fade"><div class="lp-sec-icon">🔒</div><h4>Tenant Isolation by Architecture</h4><p>Every org's data is stored and queried in strict isolation. Cross-org data leakage is architecturally prevented — not just policy-restricted.</p></div>
+      <div class="lp-sec-card lp-fade"><div class="lp-sec-icon">👥</div><h4>Role-Based Access Control</h4><p>Three roles per org: Owner, Admin, and Member. At the project level, a Viewer role provides read-only access — granular control over who can create, edit, run, and manage tests.</p></div>
+      <div class="lp-sec-card lp-fade"><div class="lp-sec-icon">🗝️</div><h4>Locked Credential Variables</h4><p>API keys, auth tokens, and prod URLs are set at the org level and locked. Test authors can use them in runs but can never read, edit, or override them. Credentials never live in test code.</p></div>
+      <div class="lp-sec-card lp-fade"><div class="lp-sec-icon">🚫</div><h4>No Cross-Org Access</h4><p>A user in Org A cannot see, access, or interact with anything in Org B — even on the same platform instance.</p></div>
+      <div class="lp-sec-card lp-fade"><div class="lp-sec-icon">⏱️</div><h4>Runtime-Only Variable Scope</h4><p>Values extracted from the live page (session tokens, dynamic IDs) exist only for the duration of a test run and are never persisted to storage.</p></div>
+      <div class="lp-sec-card lp-fade"><div class="lp-sec-icon">🔐</div><h4>Session-Only Recorder Auth</h4><p>The browser recorder uses session-only credentials. No API keys are stored in the extension, reducing credential exposure risk at the capture layer.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="lp-divider"></div>
+
+<!-- ── CLI ── -->
+<section class="lp-cli" id="cli">
+  <div class="lp-container">
+    <div class="lp-cli-inner">
+      <div class="lp-fade">
+        <div class="lp-term">
+          <div class="lp-term-bar"><div class="lp-dr r"></div><div class="lp-dr y"></div><div class="lp-dr g"></div><span class="lp-term-ttl">testovex CLI</span></div>
+          <div class="lp-term-body">
+            <div class="lp-tl"><span class="lp-tco"># Authenticate with your Testovex server</span></div>
+            <div class="lp-tl"><span class="lp-tp">$</span><span class="lp-tc"> testovex login --email qa@acme.com</span></div>
+            <div class="lp-tl"><span class="lp-tpa">✓ Logged in as qa@acme.com → Acme Corp</span></div>
+            <div class="lp-tb"></div>
+            <div class="lp-tl"><span class="lp-tco"># List your projects</span></div>
+            <div class="lp-tl"><span class="lp-tp">$</span><span class="lp-tc"> testovex projects</span></div>
+            <div class="lp-tl"><span class="lp-ti">checkout-app</span><span class="lp-to">  https://checkout.acme.com</span></div>
+            <div class="lp-tl"><span class="lp-ti">auth-service</span><span class="lp-to">   https://auth.acme.com</span></div>
+            <div class="lp-tb"></div>
+            <div class="lp-tl"><span class="lp-tco"># Run smoke suite and wait for results</span></div>
+            <div class="lp-tl"><span class="lp-tp">$</span><span class="lp-tc"> testovex run --suite smoke-suite --wait</span></div>
+            <div class="lp-tl"><span class="lp-to">  Running tests…</span></div>
+            <div class="lp-tl"><span class="lp-tpa">✅ PASSED &nbsp; 14 passed &nbsp; 0 failed &nbsp; of 14</span></div>
+            <div class="lp-tb"></div>
+            <div class="lp-tl"><span class="lp-tp">$</span><span class="lp-tc"> testovex whoami</span></div>
+            <div class="lp-tl"><span class="lp-ti">User: </span><span class="lp-tpa">qa@acme.com</span></div>
+            <div class="lp-tl"><span class="lp-ti">Org:  </span><span class="lp-to">Acme Corp (Admin)</span></div>
+            <div class="lp-tl"><span class="lp-tp">$</span><span class="lp-tcur"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="lp-fade">
+        <div class="lp-sec-label">CLI Support</div>
+        <div class="lp-sec-title">Your pipeline. Your scripts.<br>Testovex fits right in.</div>
+        <p class="lp-sec-sub" style="margin-top:14px">Don't wait for a native CI/CD connector. Hook Testovex into any pipeline, script, or cron job you already have — today. GitHub Actions, Jenkins, GitLab CI, Bitbucket Pipelines — if it can run a shell command, it can run Testovex.</p>
+        <div class="lp-feat-list">
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>testovex login</strong><span>Authenticate, supports multi-org accounts with interactive picker or --org flag for CI</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>testovex run</strong><span>Trigger any suite with --wait to block until complete. Exit code 1 on failure for CI gating.</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>testovex results</strong><span>Fetch detailed pass/fail output for any run ID</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>testovex whoami / logout</strong><span>Session management for shared CI environments</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lp-divider"></div>
+
+<!-- ── Roadmap ── -->
+<section class="lp-roadmap" id="roadmap">
+  <div class="lp-container">
+    <div class="lp-rm-hdr lp-fade">
+      <div class="lp-sec-label">Coming After Beta</div>
+      <div class="lp-sec-title">The ACOE platform for your entire engineering stack.</div>
+      <p class="lp-sec-sub">Beta users get early access to every feature as it ships — and a direct line to the roadmap.</p>
+    </div>
+    <div class="lp-rm-grid">
+      <div class="lp-rm-card lp-fade"><span class="lp-coming">AI Features</span><span class="lp-rm-icon">🔗</span><h4>Generate Tests from URL</h4><p>Paste a page URL and Testovex automatically analyses the DOM, identifies every interactive element, and generates a ready-to-run test suite in under 30 seconds.</p></div>
+      <div class="lp-rm-card lp-fade"><span class="lp-coming">AI Features</span><span class="lp-rm-icon">🤖</span><h4>AI Test Generation</h4><p>Describe a user flow in plain English, get full test steps generated automatically.</p></div>
+      <div class="lp-rm-card lp-fade"><span class="lp-coming">AI Features</span><span class="lp-rm-icon">🔧</span><h4>AI Self-Healing Locators</h4><p>When a locator breaks after a UI change, AI finds the element on the new DOM and repairs the step.</p></div>
+      <div class="lp-rm-card lp-fade"><span class="lp-coming">AI Features</span><span class="lp-rm-icon">🛠️</span><h4>AI Test Maintenance</h4><p>Detects UI changes after a deploy and auto-flags or auto-repairs affected tests before they fail in CI.</p></div>
+      <div class="lp-rm-card lp-fade"><span class="lp-coming">AI Features</span><span class="lp-rm-icon">💬</span><h4>AI Root Cause Analysis</h4><p>"Why did this test fail?" answered in natural language with context — not just a stack trace.</p></div>
+      <div class="lp-rm-card lp-fade"><span class="lp-coming">Testing</span><span class="lp-rm-icon">🔌</span><h4>API Testing</h4><p>REST and GraphQL coverage from the same platform. One tool for web and API automation.</p></div>
+      <div class="lp-rm-card lp-fade"><span class="lp-coming">Testing</span><span class="lp-rm-icon">📱</span><h4>Mobile Automation</h4><p>iOS and Android support. The same ACOE platform extended to mobile teams.</p></div>
+      <div class="lp-rm-card lp-fade"><span class="lp-coming">Integrations</span><span class="lp-rm-icon">⚙️</span><h4>CI/CD Deep Integration</h4><p>Native GitHub Actions, Jenkins, and GitLab CI connectors with pipeline templates.</p></div>
+      <div class="lp-rm-card lp-fade"><span class="lp-coming">Integrations</span><span class="lp-rm-icon">📡</span><h4>Grafana &amp; Splunk</h4><p>Export Testovex analytics into your existing observability stack.</p></div>
+      <div class="lp-rm-card lp-fade"><span class="lp-coming">Data</span><span class="lp-rm-icon">🗃️</span><h4>Test Data Management</h4><p>Datasets, parameterization, and data-driven testing at scale. CSV, JSON, and Excel-driven test iterations.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- ── Bottom CTA ── -->
 <section class="cta-section">
   <div class="section-eyebrow" style="margin-bottom:12px;">Limited beta access</div>
@@ -1240,7 +1936,7 @@
   // ─── WAITLIST COUNTER ────────────────────────────────────────────────────────
   // Update WAITLIST_COUNT manually each time a new signup arrives in Formspree.
   // TOTAL_SPOTS is the first-phase beta cohort size.
-  const WAITLIST_COUNT = 6;
+  const WAITLIST_COUNT = 7;
   const TOTAL_SPOTS    = 25;
   // ─────────────────────────────────────────────────────────────────────────────
 
@@ -1317,6 +2013,40 @@
     e.preventDefault();
     submitEmail(document.getElementById('ctaEmailInput').value.trim().toLowerCase(), 'ctaForm', 'ctaSuccess');
   });
+
+  /* ── Feature section: scroll-triggered fade-ins ── */
+  (function() {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(en) {
+        if (en.isIntersecting) { en.target.classList.add('vis'); obs.unobserve(en.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.lp-fade').forEach(function(el) { obs.observe(el); });
+  })();
+
+  /* ── Analytics chart bars ── */
+  (function() {
+    var chartEl = document.getElementById('lp-chart');
+    if (!chartEl) return;
+    var weeks = [
+      { p: 82, f: 8, lbl: 'W1' }, { p: 87, f: 6, lbl: 'W2' }, { p: 85, f: 9, lbl: 'W3' },
+      { p: 90, f: 5, lbl: 'W4' }, { p: 91, f: 4, lbl: 'W5' }, { p: 93, f: 4, lbl: 'W6' },
+      { p: 94, f: 3, lbl: 'W7' }, { p: 94, f: 3, lbl: 'W8' }
+    ];
+    var maxH = 85;
+    var html = '';
+    weeks.forEach(function(w) {
+      var ph = Math.round((w.p / 100) * maxH);
+      var fh = Math.round((w.f / 100) * maxH);
+      html += '<div class="lp-bg">'
+        + '<div class="lp-bp" style="height:' + ph + 'px"></div>'
+        + '<div class="lp-bf" style="height:' + fh + 'px"></div>'
+        + '<div class="lp-bl">' + w.lbl + '</div>'
+        + '</div>';
+    });
+    chartEl.innerHTML = html;
+  })();
+
 </script>
 </body>
 </html>
