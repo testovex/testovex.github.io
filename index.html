@@ -239,6 +239,49 @@
     }
     .urgency svg { flex-shrink: 0; }
 
+    /* Spot counter */
+    .spot-counter {
+      width: 100%;
+      background: rgba(255,165,0,0.06);
+      border: 1px solid rgba(255,165,0,0.2);
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-top: 12px;
+    }
+    .spot-counter-top {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .spot-counter-label {
+      font-size: 12px; font-weight: 600; color: rgba(255,165,0,0.85);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .spot-counter-nums {
+      font-size: 11px; color: rgba(255,255,255,0.4);
+    }
+    .spot-counter-nums strong { color: rgba(255,255,255,0.75); font-weight: 700; }
+    .spot-bar-bg {
+      width: 100%; height: 6px; border-radius: 3px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+    .spot-bar-fill {
+      height: 100%; border-radius: 3px;
+      background: linear-gradient(90deg, #F59E0B, #EF4444);
+      transition: width 0.5s ease;
+    }
+    .spot-counter-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 6px;
+    }
+    .spot-joined {
+      font-size: 11px; color: rgba(255,255,255,0.35);
+    }
+    .spot-joined strong { color: #6EE7B7; font-weight: 700; }
+    .spot-remaining {
+      font-size: 11px; font-weight: 700; color: rgba(255,165,0,0.8);
+    }
+
     /* Success / duplicate messages */
     .success-msg {
       display: none; align-items: center; gap: 8px;
@@ -832,6 +875,24 @@
       Beta spots are limited — join now to secure yours
     </div>
 
+    <!-- Waitlist spot counter — update WAITLIST_COUNT below as new signups arrive -->
+    <div class="spot-counter" id="spotCounter">
+      <div class="spot-counter-top">
+        <div class="spot-counter-label">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          First-phase beta · <span id="spotsRemainingLabel"></span> spots remaining
+        </div>
+        <div class="spot-counter-nums"><strong id="joinedCount"></strong> of <strong id="totalCount"></strong> spots claimed</div>
+      </div>
+      <div class="spot-bar-bg">
+        <div class="spot-bar-fill" id="spotBarFill"></div>
+      </div>
+      <div class="spot-counter-bottom">
+        <div class="spot-joined"><strong id="joinedCountBottom"></strong> QA leaders already on the list</div>
+        <div class="spot-remaining" id="spotRemaining"></div>
+      </div>
+    </div>
+
     <div class="success-msg" id="successMsg">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
       You're on the list! We'll reach out when beta opens.
@@ -1171,6 +1232,32 @@
 </footer>
 
 <script>
+  // ─── WAITLIST COUNTER ────────────────────────────────────────────────────────
+  // Update WAITLIST_COUNT manually each time a new signup arrives in Formspree.
+  // TOTAL_SPOTS is the first-phase beta cohort size.
+  const WAITLIST_COUNT = 6;
+  const TOTAL_SPOTS    = 25;
+  // ─────────────────────────────────────────────────────────────────────────────
+
+  function renderSpotCounter(count) {
+    const c      = count || WAITLIST_COUNT;
+    const remain = TOTAL_SPOTS - c;
+    const pct    = Math.min((c / TOTAL_SPOTS) * 100, 100);
+
+    var el = document.getElementById('spotCounter');
+    if (!el) return;
+
+    document.getElementById('joinedCount').textContent        = c;
+    document.getElementById('joinedCountBottom').textContent  = c;
+    document.getElementById('totalCount').textContent         = TOTAL_SPOTS;
+    document.getElementById('spotsRemainingLabel').textContent = remain;
+    document.getElementById('spotRemaining').textContent      = remain + ' spots left';
+    document.getElementById('spotBarFill').style.width        = pct + '%';
+  }
+
+  // Render on load
+  renderSpotCounter();
+
   const WL_KEY = 'testovex_waitlist';
 
   function showSuccess(formId, successId) {
@@ -1207,9 +1294,12 @@
       // also hide the other form if it exists
       if (formId === 'waitlistForm') showSuccess('ctaForm', 'ctaSuccess');
       if (formId === 'ctaForm') showSuccess('waitlistForm', 'successMsg');
+      // live-bump the counter in this session
+      renderSpotCounter(WAITLIST_COUNT + 1);
     }).catch(() => {
       localStorage.setItem(WL_KEY, email);
       showSuccess(formId, successId);
+      renderSpotCounter(WAITLIST_COUNT + 1);
     });
   }
 
