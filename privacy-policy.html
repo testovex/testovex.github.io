@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — Testovex</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -31,11 +35,18 @@
       display: flex; align-items: center; gap: 10px;
       text-decoration: none;
     }
-    .nav-logo svg { width: 28px; height: 28px; }
+    .nav-logo-icon {
+      width: 34px; height: 34px;
+      background: white;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      padding: 3px; flex-shrink: 0;
+    }
     .nav-logo-text {
-      font-size: 17px; font-weight: 700; color: #fff;
+      font-size: 17px; font-weight: 800; color: #fff;
       letter-spacing: -0.3px;
     }
+    .nav-logo-text span { color: #818CF8; }
     .nav-links { display: flex; gap: 24px; }
     .nav-links a {
       color: rgba(255,255,255,0.55); font-size: 13px;
@@ -138,18 +149,23 @@
 <!-- Nav -->
 <nav>
   <a href="https://testovex.com" class="nav-logo">
-    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M20 3L35 10V22C35 30 28 37 20 39C12 37 5 30 5 22V10L20 3Z" fill="url(#shield-grad)" opacity="0.95"/>
-      <path d="M20 3L35 10V22C35 30 28 37 20 39C12 37 5 30 5 22V10L20 3Z" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
-      <path d="M13 20.5L17.5 25.5L27.5 15" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <defs>
-        <linearGradient id="shield-grad" x1="5" y1="3" x2="35" y2="39" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#6366F1"/>
-          <stop offset="100%" stop-color="#4338CA"/>
-        </linearGradient>
-      </defs>
-    </svg>
-    <span class="nav-logo-text">Testovex</span>
+    <div class="nav-logo-icon">
+      <svg width="28" height="28" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0F172A"/>
+            <stop offset="100%" stop-color="#1A3FAA"/>
+          </linearGradient>
+        </defs>
+        <polygon points="54,24 346,24 376,54 376,218 200,376 24,218 24,54" fill="url(#sg)"/>
+        <polygon points="54,24 346,24 376,54 376,218 200,376 24,218 24,54" fill="none" stroke="#6384D4" stroke-width="4" stroke-opacity="0.6"/>
+        <rect x="125" y="87" width="150" height="50" fill="white"/>
+        <rect x="175" y="137" width="50" height="105" fill="white"/>
+        <circle cx="200" cy="284" r="16" fill="#10B981"/>
+        <polyline points="192,284 198,291 210,275" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="nav-logo-text">Testo<span>vex</span></span>
   </a>
   <div class="nav-links">
     <a href="https://testovex.com">Home</a>
