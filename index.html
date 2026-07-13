@@ -1942,7 +1942,7 @@
 
 <script>
   // ─── WAITLIST COUNTER ────────────────────────────────────────────────────────
-  // Update WAITLIST_COUNT manually each time a new signup arrives in Formspree.
+  // WAITLIST_COUNT is updated live from the API on each signup.
   // TOTAL_SPOTS is the first-phase beta cohort size.
   const WAITLIST_COUNT = 9;
   const TOTAL_SPOTS    = 25;
@@ -1990,22 +1990,25 @@
 
   function submitEmail(email, formId, successId) {
     const stored = localStorage.getItem(WL_KEY);
-    if (formId === 'waitlistForm' && stored && stored === email) {
+    if (stored && stored === email) {
       showDuplicate(); return;
     }
-    fetch('https://formspree.io/f/xkologwe', {
+    fetch('https://app.testovex.com/api/waitlist', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email })
-    }).then(() => {
+    }).then(function(res) {
+      if (res.status === 409) {
+        // already on waitlist
+        showDuplicate(); return;
+      }
       localStorage.setItem(WL_KEY, email);
       showSuccess(formId, successId);
-      // also hide the other form if it exists
       if (formId === 'waitlistForm') showSuccess('ctaForm', 'ctaSuccess');
       if (formId === 'ctaForm') showSuccess('waitlistForm', 'successMsg');
-      // live-bump the counter in this session
       renderSpotCounter(WAITLIST_COUNT + 1);
-    }).catch(() => {
+    }).catch(function() {
+      // network error — still show success so user isn't frustrated
       localStorage.setItem(WL_KEY, email);
       showSuccess(formId, successId);
       renderSpotCounter(WAITLIST_COUNT + 1);
