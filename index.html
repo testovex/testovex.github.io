@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Testovex — Enterprise Test Automation for ACOE Teams</title>
-  <meta name="description" content="Enterprise test automation platform. No-code, Playwright-backed, built for ACOE teams. Beta invites rolling out the week of July 21 — join the waitlist." />
+  <meta name="description" content="Enterprise test automation platform. No-code, Playwright-backed, built for ACOE teams. Now in beta — free while we're in beta. Request access." />
 
   <!-- Open Graph / LinkedIn / Facebook -->
   <meta property="og:type"        content="website" />
@@ -811,7 +811,7 @@
 
 <!-- Navbar -->
 <nav>
-  <a class="nav-logo" href="#">
+  <a class="nav-logo" href="/">
     <div class="nav-logo-icon">
       <svg width="28" height="28" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -831,6 +831,7 @@
     <span class="nav-logo-name">Testo<span>vex</span></span>
   </a>
   <div class="lp-nav-links">
+    <a href="#demo">Demo</a>
     <a href="#features">Features</a>
     <a href="#recorder">Recorder</a>
     <a href="#locator">Locator Engine</a>
@@ -839,8 +840,11 @@
     <a href="#security">Security</a>
     <a href="#cli">CLI</a>
     <a href="#roadmap">Roadmap</a>
+    <a href="#roi">ROI</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
   </div>
-  <div class="nav-tag">Beta invites: week of July 21</div>
+  <div class="nav-tag">Now in beta · Free</div>
 </nav>
 
 <!-- ── Hero ── -->
@@ -851,7 +855,7 @@
 
     <div class="status">
       <span class="status-dot"></span>
-      Beta invites start rolling out the week of July 21
+      Beta is live — request your access
     </div>
 
     <h1>
@@ -912,7 +916,7 @@
       Join the waitlist now — invites go out in order, first come, first served
     </div>
 
-    <!-- Waitlist spot counter — update WAITLIST_COUNT below as new signups arrive -->
+    <!-- Waitlist spot counter — count is pulled live from GET /api/waitlist/count -->
     <div class="spot-counter" id="spotCounter">
       <div class="spot-counter-top">
         <div class="spot-counter-label">
@@ -976,6 +980,54 @@
 </section>
 
 <!-- ── How it works ── -->
+<!-- ── Demo video ── -->
+<section class="demo-section" id="demo">
+  <style>
+    .demo-section { position: relative; z-index: 10; padding: 64px 48px 72px; border-top: 1px solid rgba(255,255,255,0.07); text-align: center; }
+    .demo-inner { max-width: 880px; margin: 0 auto; }
+    .demo-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #818CF8; margin-bottom: 10px; }
+    .demo-title { font-size: clamp(24px, 2.5vw, 34px); font-weight: 800; letter-spacing: -0.8px; color: #fff; }
+    .demo-title span { color: #818CF8; }
+    .demo-sub { font-size: 15px; color: rgba(255,255,255,0.5); margin: 12px auto 32px; max-width: 560px; line-height: 1.6; }
+    .demo-player { display: block; width: 100%; border: none; padding: 0; background: none; cursor: pointer; border-radius: 16px; }
+    .demo-poster { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; border: 1px solid rgba(99,102,241,0.3); background: radial-gradient(ellipse 80% 80% at 50% 0%, rgba(79,70,229,0.35), rgba(15,23,42,0.9)), #0A1628; display: flex; align-items: center; justify-content: center; transition: border-color .2s, transform .2s; }
+    .demo-player:hover .demo-poster { border-color: rgba(99,102,241,0.6); transform: translateY(-3px); }
+    .demo-play { width: 76px; height: 76px; border-radius: 50%; background: linear-gradient(135deg,#4F46E5,#4338CA); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 30px rgba(67,56,202,0.6); transition: transform .2s; }
+    .demo-player:hover .demo-play { transform: scale(1.08); }
+    .demo-duration { position: absolute; bottom: 14px; right: 14px; font-size: 12px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.55); padding: 3px 10px; border-radius: 6px; }
+    .demo-poster-label { position: absolute; top: 16px; left: 16px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); padding: 4px 12px; border-radius: 999px; }
+    /* Modal */
+    .demo-modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(5,8,18,0.88); backdrop-filter: blur(6px); align-items: center; justify-content: center; padding: 24px; }
+    .demo-modal.open { display: flex; }
+    .demo-modal-inner { position: relative; width: 100%; max-width: 960px; }
+    .demo-frame { width: 100%; aspect-ratio: 16 / 9; background: #0A1628; border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .demo-frame iframe, .demo-frame video { width: 100%; height: 100%; border: 0; }
+    .demo-soon { font-size: 14px; color: rgba(255,255,255,0.5); padding: 24px; text-align: center; line-height: 1.6; }
+    .demo-soon code { color: #A5B4FC; background: rgba(255,255,255,0.08); padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+    .demo-close { position: absolute; top: -44px; right: 0; width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color: #fff; font-size: 20px; line-height: 1; cursor: pointer; }
+    .demo-close:hover { background: rgba(255,255,255,0.16); }
+    @media (max-width: 860px) { .demo-section { padding: 48px 24px; } }
+  </style>
+  <div class="demo-inner">
+    <div class="demo-eyebrow">See it in action</div>
+    <h2 class="demo-title">Record once. Run <span>forever</span>. Zero code.</h2>
+    <p class="demo-sub">A real checkout flow — 12 steps recorded in minutes, executed in 34 seconds. 100% pass, first try.</p>
+    <div style="position: relative; width: 100%; max-width: 860px; margin: 8px auto 0; border-radius: 16px; overflow: hidden; border: 1px solid rgba(99,102,241,0.25); box-shadow: 0 24px 80px rgba(67,56,202,0.25);">
+      <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+        <iframe
+          src="https://www.youtube.com/embed/tfurfvA5QLc?rel=0&modestbranding=1&color=white"
+          title="Testovex Demo — Record & Run a 12-Step Checkout Test in Under 2 Minutes"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        </iframe>
+      </div>
+    </div>
+    <p style="margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.22);">No voiceover. No editing tricks. This is Testovex running live.</p>
+  </div>
+</section>
+
 <section class="hiw-section" id="how-it-works">
   <div class="section-eyebrow">How it works</div>
   <h2 class="section-title">From recording to passing test in minutes</h2>
@@ -1014,25 +1066,6 @@
     </div>
   </div>
 
-  <!-- ── Live Demo Video ── -->
-  <div style="margin-top: 56px; text-align: center;">
-    <div style="font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #818CF8; margin-bottom: 10px;">See it for yourself</div>
-    <h3 style="font-size: clamp(20px, 2.2vw, 28px); font-weight: 800; letter-spacing: -0.5px; color: white; margin-bottom: 8px;">Record once. Run forever. Zero code.</h3>
-    <p style="font-size: 14px; color: rgba(255,255,255,0.45); margin-bottom: 28px;">A real checkout flow — 12 steps recorded in minutes, executed in 34 seconds. 100% pass. First try.</p>
-    <div style="position: relative; width: 100%; max-width: 860px; margin: 0 auto; border-radius: 16px; overflow: hidden; border: 1px solid rgba(99,102,241,0.25); box-shadow: 0 24px 80px rgba(67,56,202,0.25);">
-      <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-        <iframe
-          src="https://www.youtube.com/embed/tfurfvA5QLc?rel=0&modestbranding=1&color=white"
-          title="Testovex Demo — Record & Run a 12-Step Checkout Test in Under 2 Minutes"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-        </iframe>
-      </div>
-    </div>
-    <p style="margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.22);">No voiceover. No editing tricks. This is Testovex running live.</p>
-  </div>
 
 </section>
 
@@ -1895,8 +1928,385 @@
   </div>
 </section>
 
+<!-- ── ROI / Benefits ── -->
+<section class="roi-section" id="roi">
+  <style>
+    .roi-section { position: relative; z-index: 10; padding: 72px 48px 80px; border-top: 1px solid rgba(255,255,255,0.07); }
+    .roi-inner { max-width: 1160px; margin: 0 auto; }
+    .roi-head { text-align: center; margin-bottom: 40px; }
+    .roi-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #818CF8; margin-bottom: 10px; }
+    .roi-title { font-size: clamp(24px, 2.5vw, 36px); font-weight: 800; letter-spacing: -0.8px; color: #fff; }
+    .roi-title span { color: #818CF8; }
+    .roi-sub { font-size: 15px; color: rgba(255,255,255,0.5); margin-top: 12px; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+
+    /* Five levers grid */
+    .roi-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 48px; }
+    @media (max-width: 980px) { .roi-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .roi-grid { grid-template-columns: 1fr; } }
+    .roi-lever { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: 14px; padding: 20px 18px; display: flex; flex-direction: column; gap: 8px; transition: border-color .2s, transform .15s; }
+    .roi-lever:hover { border-color: rgba(99,102,241,0.35); transform: translateY(-3px); }
+    .roi-lever-icon { font-size: 22px; }
+    .roi-lever-name { font-size: 14px; font-weight: 800; color: #fff; letter-spacing: -0.2px; }
+    .roi-lever-val { font-size: 12.5px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+    .roi-lever-how { font-size: 10.5px; color: rgba(129,140,248,0.85); line-height: 1.45; margin-top: auto; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.06); }
+
+    /* Calculator */
+    .roi-calc { background: rgba(30,41,59,0.55); border: 1px solid rgba(99,102,241,0.28); border-radius: 20px; padding: 28px; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 28px; }
+    @media (max-width: 860px) { .roi-calc { grid-template-columns: 1fr; gap: 22px; padding: 22px; } }
+    .roi-calc-title { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .roi-calc-note { font-size: 12px; color: rgba(255,255,255,0.42); margin-bottom: 20px; line-height: 1.5; }
+    .roi-field { margin-bottom: 16px; }
+    .roi-field label { display: flex; justify-content: space-between; align-items: baseline; font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.7); margin-bottom: 7px; }
+    .roi-field label .roi-fval { color: #A5B4FC; font-weight: 700; }
+    .roi-input { width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: 9px; padding: 9px 12px; color: #fff; font-size: 14px; font-family: inherit; outline: none; transition: border-color .2s; }
+    .roi-input:focus { border-color: #6366F1; }
+    .roi-select { width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: 9px; padding: 9px 12px; color: #fff; font-size: 14px; font-family: inherit; outline: none; }
+    .roi-select option { background: #1E293B; color: #fff; }
+    .roi-range { width: 100%; accent-color: #6366F1; margin-top: 2px; }
+
+    .roi-results { background: linear-gradient(160deg, rgba(49,46,129,0.4), rgba(30,41,59,0.3)); border: 1px solid rgba(99,102,241,0.25); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; }
+    .roi-hero-stat { text-align: center; padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .roi-hero-num { font-size: 40px; font-weight: 900; letter-spacing: -1.5px; color: #6EE7B7; line-height: 1; }
+    .roi-hero-lbl { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 8px; }
+    .roi-hero-sub { font-size: 12px; color: #A5B4FC; font-weight: 600; margin-top: 4px; }
+    .roi-mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+    .roi-mini { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px 10px; text-align: center; }
+    .roi-mini-num { font-size: 17px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+    .roi-mini-lbl { font-size: 10px; color: rgba(255,255,255,0.42); margin-top: 3px; }
+    .roi-horizon { border-collapse: collapse; width: 100%; font-size: 12.5px; }
+    .roi-horizon th, .roi-horizon td { padding: 7px 8px; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .roi-horizon th:first-child, .roi-horizon td:first-child { text-align: left; color: rgba(255,255,255,0.55); }
+    .roi-horizon thead th { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.5px; color: rgba(255,255,255,0.4); font-weight: 700; }
+    .roi-horizon td { color: rgba(255,255,255,0.85); }
+    .roi-horizon .roi-net { color: #6EE7B7; font-weight: 700; }
+    .roi-caveat { font-size: 11.5px; color: rgba(255,255,255,0.35); line-height: 1.55; margin-top: 24px; text-align: center; max-width: 780px; margin-left: auto; margin-right: auto; }
+    .roi-caveat a { color: #818CF8; text-decoration: none; }
+  </style>
+  <div class="roi-inner">
+    <div class="roi-head">
+      <div class="roi-eyebrow">The ROI</div>
+      <div class="roi-title">Your QA team's time is the <span>real cost</span></div>
+      <p class="roi-sub">Enterprise QA teams lose most of their capacity not to <em>writing</em> tests, but to maintaining brittle ones, debugging failures, and running manual regression. Testovex attacks exactly that waste — across five dimensions.</p>
+    </div>
+
+    <div class="roi-grid">
+      <div class="roi-lever">
+        <div class="roi-lever-icon">💰</div>
+        <div class="roi-lever-name">Financial</div>
+        <div class="roi-lever-val">Reclaim paid hours, avoid new hires as you scale, and cut costly production incidents.</div>
+        <div class="roi-lever-how">Compounded across every lever below</div>
+      </div>
+      <div class="roi-lever">
+        <div class="roi-lever-icon">⚙️</div>
+        <div class="roi-lever-name">Process</div>
+        <div class="roi-lever-val">No duplicated effort across teams. Standardized, governed testing. Bugs caught before release.</div>
+        <div class="roi-lever-how">Reusable components · org RBAC · CI/CD quality gates</div>
+      </div>
+      <div class="roi-lever">
+        <div class="roi-lever-icon">🧑‍💻</div>
+        <div class="roi-lever-name">Effort</div>
+        <div class="roi-lever-val">Analysts build tests without code. Fix a flow once, every test inherits it. Triage in minutes, not hours.</div>
+        <div class="roi-lever-how">No-code recorder · components · run diagnostics</div>
+      </div>
+      <div class="roi-lever">
+        <div class="roi-lever-icon">⏱️</div>
+        <div class="roi-lever-name">Timeline</div>
+        <div class="roi-lever-val">Tests built 3–5× faster. Regression that took days runs in hours. Failures understood at a glance.</div>
+        <div class="roi-lever-how">No-code builder · parallel Playwright execution</div>
+      </div>
+      <div class="roi-lever">
+        <div class="roi-lever-icon">🛡️</div>
+        <div class="roi-lever-name">Stability</div>
+        <div class="roi-lever-val">Tests survive UI changes. Defects caught in CI before production. Instant rollback of test state.</div>
+        <div class="roi-lever-how">Smart locator engine · version history + milestones</div>
+      </div>
+    </div>
+
+    <div class="roi-calc">
+      <div class="roi-calc-inputs">
+        <div class="roi-calc-title">Estimate your ROI</div>
+        <div class="roi-calc-note">Plug in your team's numbers. Everything updates live — these become <em>your</em> figures, not ours.</div>
+
+        <div class="roi-field">
+          <label for="roiTeam">QA engineers on the team <span class="roi-fval" id="roiTeamVal">6</span></label>
+          <input class="roi-range" type="range" id="roiTeam" min="1" max="50" step="1" value="6" />
+        </div>
+        <div class="roi-field">
+          <label for="roiCost">Loaded cost / engineer / month <span class="roi-fval" id="roiCostVal">$5,000</span></label>
+          <input class="roi-input" type="number" id="roiCost" min="500" step="250" value="5000" />
+        </div>
+        <div class="roi-field">
+          <label for="roiReclaim">Capacity Testovex reclaims <span class="roi-fval" id="roiReclaimVal">40%</span></label>
+          <input class="roi-range" type="range" id="roiReclaim" min="10" max="55" step="1" value="40" />
+        </div>
+        <div class="roi-field">
+          <label for="roiPlan">Testovex plan</label>
+          <select class="roi-select" id="roiPlan">
+            <option value="49">Starter — $49 / mo</option>
+            <option value="149">Team — $149 / mo</option>
+            <option value="449" selected>Business — $449 / mo</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="roi-results">
+        <div class="roi-hero-stat">
+          <div class="roi-hero-num" id="roiNetMonthly">$11,551</div>
+          <div class="roi-hero-lbl">net reclaimed value / month</div>
+          <div class="roi-hero-sub" id="roiMultiple">≈ 27× return on tool cost</div>
+        </div>
+        <div class="roi-mini-grid">
+          <div class="roi-mini"><div class="roi-mini-num" id="roiReclaimedVal">$12,000</div><div class="roi-mini-lbl">capacity reclaimed / mo</div></div>
+          <div class="roi-mini"><div class="roi-mini-num" id="roiEngineers">2.4</div><div class="roi-mini-lbl">engineers freed</div></div>
+          <div class="roi-mini"><div class="roi-mini-num" id="roiToolCost">$449</div><div class="roi-mini-lbl">Testovex / mo</div></div>
+        </div>
+        <table class="roi-horizon">
+          <thead><tr><th>Horizon</th><th>Reclaimed</th><th>Net benefit</th></tr></thead>
+          <tbody>
+            <tr><td>Monthly</td><td id="roiMoReclaim">$12,000</td><td class="roi-net" id="roiMoNet">$11,551</td></tr>
+            <tr><td>6 months</td><td id="roiHalfReclaim">$72,000</td><td class="roi-net" id="roiHalfNet">$69,306</td></tr>
+            <tr><td>Yearly</td><td id="roiYrReclaim">$144,000</td><td class="roi-net" id="roiYrNet">$139,510</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="roi-caveat">
+      Illustrative, model-based figures — not a guarantee. Actual savings depend on your team's current toil level and adoption. Studies show automation teams spend 30–50% of effort just maintaining brittle tests; Testovex conservatively reclaims ~40% of total capacity. The strongest proof is a 30-day pilot. <a href="#beta">Start one free →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ── Pricing ── -->
+<section class="pr-section" id="pricing">
+  <style>
+    .pr-section { position: relative; z-index: 10; padding: 72px 48px 80px; border-top: 1px solid rgba(255,255,255,0.07); }
+    .pr-inner { max-width: 1160px; margin: 0 auto; }
+    .pr-head { text-align: center; margin-bottom: 8px; }
+    .pr-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #818CF8; margin-bottom: 10px; }
+    .pr-title { font-size: clamp(24px, 2.5vw, 36px); font-weight: 800; letter-spacing: -0.8px; color: #fff; }
+    .pr-title span { color: #818CF8; }
+    .pr-sub { font-size: 15px; color: rgba(255,255,255,0.5); margin-top: 12px; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .pr-subhero { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 6px; }
+    .pr-founding { max-width: 720px; margin: 22px auto 8px; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; text-align: center; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 14px; padding: 14px 20px; }
+    .pr-founding .pr-pill { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #0F172A; background: #6EE7B7; padding: 3px 10px; border-radius: 999px; }
+    .pr-founding .pr-ftxt { font-size: 14px; color: #D1FAE5; }
+    .pr-founding .pr-ftxt b { color: #fff; font-weight: 700; }
+    .pr-toggle-row { display: flex; align-items: center; justify-content: center; margin: 26px 0 40px; }
+    .pr-seg { display: inline-flex; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; padding: 4px; gap: 4px; flex-wrap: wrap; justify-content: center; }
+    .pr-seg-btn { font-family: inherit; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.55); background: transparent; border: none; cursor: pointer; padding: 8px 16px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; transition: background .2s, color .2s; white-space: nowrap; }
+    .pr-seg-btn:hover { color: rgba(255,255,255,0.85); }
+    .pr-seg-btn.active { background: #4F46E5; color: #fff; }
+    .pr-seg-save { font-size: 10.5px; font-weight: 700; color: #6EE7B7; }
+    .pr-seg-btn.active .pr-seg-save { color: #C7FBE4; }
+    .pr-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    @media (max-width: 980px) { .pr-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .pr-grid { grid-template-columns: 1fr; } }
+    .pr-card { background: rgba(30,41,59,0.55); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 26px 22px; display: flex; flex-direction: column; }
+    .pr-card.featured { border: 2px solid #6366F1; background: rgba(49,46,129,0.35); }
+    .pr-card-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #C7D2FE; background: rgba(99,102,241,0.25); padding: 4px 10px; border-radius: 999px; margin-bottom: 12px; align-self: flex-start; }
+    .pr-card-name { font-size: 18px; font-weight: 700; }
+    .pr-card-tag { font-size: 12.5px; color: rgba(255,255,255,0.5); margin-top: 4px; min-height: 34px; }
+    .pr-price { display: flex; align-items: baseline; gap: 6px; margin: 16px 0 4px; }
+    .pr-price .pr-amt { font-size: 34px; font-weight: 800; letter-spacing: -1px; }
+    .pr-price .pr-per { font-size: 13px; color: rgba(255,255,255,0.45); }
+    .pr-billed { font-size: 12px; color: rgba(129,140,248,0.85); min-height: 18px; margin-bottom: 18px; }
+    .pr-btn { display: block; text-align: center; font-size: 14px; font-weight: 600; padding: 11px; border-radius: 10px; text-decoration: none; margin-bottom: 20px; cursor: pointer; }
+    .pr-btn-primary { background: #4F46E5; color: #fff; }
+    .pr-btn-ghost { background: transparent; color: #C7D2FE; border: 1px solid rgba(255,255,255,0.15); }
+    .pr-feats { list-style: none; font-size: 13px; line-height: 1.15; display: flex; flex-direction: column; gap: 11px; }
+    .pr-feats li { display: flex; align-items: flex-start; gap: 8px; color: rgba(255,255,255,0.75); }
+    .pr-feats li svg { flex-shrink: 0; margin-top: 1px; }
+    .pr-feats .pr-secline { color: rgba(255,255,255,0.4); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+    .pr-note { text-align: center; font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 40px; }
+    .pr-note a { color: #818CF8; text-decoration: none; }
+    @media (max-width: 860px) { .pr-section { padding: 48px 24px; } }
+  </style>
+  <div class="pr-inner">
+    <div class="pr-head">
+      <div class="pr-eyebrow">Pricing</div>
+      <div class="pr-title">Simple pricing that <span>scales with your team</span></div>
+      <p class="pr-sub">No-code, Playwright-backed test automation built for ACOE teams. Pay per organization — no per-seat surprises.</p>
+      <p class="pr-subhero">Planned pricing — free for all beta users while we're in beta.</p>
+    </div>
+
+    <div class="pr-founding">
+      <span class="pr-pill">Beta founders</span>
+      <span class="pr-ftxt">Join during beta and <b>lock in 40% off any paid plan for your first year</b>, plus <b>free founder-led onboarding</b> — free until launch.</span>
+    </div>
+
+    <div class="pr-toggle-row">
+      <div class="pr-seg" id="prSeg" role="tablist" aria-label="Billing period">
+        <button class="pr-seg-btn active" data-period="m" role="tab" aria-selected="true">Monthly</button>
+        <button class="pr-seg-btn" data-period="h" role="tab" aria-selected="false">6 months <span class="pr-seg-save">−10%</span></button>
+        <button class="pr-seg-btn" data-period="y" role="tab" aria-selected="false">Annual <span class="pr-seg-save">−17%</span></button>
+      </div>
+    </div>
+
+    <div class="pr-grid">
+      <div class="pr-card">
+        <div class="pr-card-name">Starter</div>
+        <div class="pr-card-tag">Small teams trying automation</div>
+        <div class="pr-price"><span class="pr-amt" data-m="$49" data-h="$44" data-y="$41">$49</span><span class="pr-per">/ mo</span></div>
+        <div class="pr-billed" data-m="" data-h="billed $264 / 6 mo" data-y="billed $490 / year"></div>
+        <a class="pr-btn pr-btn-ghost" href="#beta">Start free</a>
+        <ul class="pr-feats">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>3 projects · 5 users</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>50 tests · 25 components / project</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>30 runs / day · 2 concurrent</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Recorder · Playwright · diagnostics</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Components + version history</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>7-day analytics · community support</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Group onboarding webinar</li>
+        </ul>
+      </div>
+
+      <div class="pr-card featured">
+        <div class="pr-card-badge">Most popular</div>
+        <div class="pr-card-name">Team</div>
+        <div class="pr-card-tag">Growing QA teams</div>
+        <div class="pr-price"><span class="pr-amt" data-m="$149" data-h="$134" data-y="$124">$149</span><span class="pr-per">/ mo</span></div>
+        <div class="pr-billed" data-m="" data-h="billed $804 / 6 mo" data-y="billed $1,490 / year"></div>
+        <a class="pr-btn pr-btn-primary" href="#beta">Start free</a>
+        <ul class="pr-feats">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>10 projects · 20 users</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>300 tests · 150 components / project</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>200 runs / day · 5 concurrent</li>
+          <li class="pr-secline">Everything in Starter, plus</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>CI/CD (CLI + API) · milestones</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Org dashboard · locked variables</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>30-day analytics · email support</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>1 guided onboarding session</li>
+        </ul>
+      </div>
+
+      <div class="pr-card">
+        <div class="pr-card-name">Business</div>
+        <div class="pr-card-tag">Established QA orgs and ACOE teams</div>
+        <div class="pr-price"><span class="pr-amt" data-m="$449" data-h="$404" data-y="$374">$449</span><span class="pr-per">/ mo</span></div>
+        <div class="pr-billed" data-m="" data-h="billed $2,424 / 6 mo" data-y="billed $4,490 / year"></div>
+        <a class="pr-btn pr-btn-ghost" href="#beta">Start free</a>
+        <ul class="pr-feats">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>30 projects · 75 users</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>1,000 tests · 500 components / project</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>1,000 runs / day · 15 concurrent</li>
+          <li class="pr-secline">Everything in Team, plus</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Advanced RBAC + governance</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>90-day analytics · audit logs</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Priority support</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>White-glove onboarding · 2 sessions</li>
+        </ul>
+      </div>
+
+      <div class="pr-card">
+        <div class="pr-card-name">Enterprise</div>
+        <div class="pr-card-tag">Large enterprises with compliance needs</div>
+        <div class="pr-price"><span class="pr-amt">Custom</span></div>
+        <div class="pr-billed">Tailored to your scale</div>
+        <a class="pr-btn pr-btn-ghost" href="mailto:hello@testovex.com?subject=Testovex%20Enterprise">Contact sales</a>
+        <ul class="pr-feats">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Unlimited projects · users · tests</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Custom runs / day + concurrency</li>
+          <li class="pr-secline">Everything in Business, plus</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>SSO / SAML · self-hosted option</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>SLA · dedicated success manager</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Security review · custom integrations</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Personalized onboarding program</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="pr-note">All plans include the Chrome recorder, cross-browser Playwright execution, and run diagnostics. Free during beta · <a href="#beta">Join the waitlist</a></p>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="faq-section" id="faq">
+  <style>
+    .faq-section { position: relative; z-index: 10; padding: 72px 48px 80px; border-top: 1px solid rgba(255,255,255,0.07); }
+    .faq-inner { max-width: 760px; margin: 0 auto; }
+    .faq-head { text-align: center; margin-bottom: 36px; }
+    .faq-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #818CF8; margin-bottom: 10px; }
+    .faq-title { font-size: clamp(24px, 2.5vw, 34px); font-weight: 800; letter-spacing: -0.8px; color: #fff; }
+    .faq-item { border: 1px solid rgba(255,255,255,0.09); border-radius: 12px; margin-bottom: 12px; background: rgba(255,255,255,0.03); overflow: hidden; }
+    .faq-item summary { list-style: none; cursor: pointer; padding: 16px 20px; font-size: 15px; font-weight: 600; color: #fff; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; font-size: 22px; font-weight: 400; color: #818CF8; flex-shrink: 0; transition: transform .2s; }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item summary:hover { color: #C7D2FE; }
+    .faq-item p { padding: 0 20px 18px; font-size: 13.5px; color: rgba(255,255,255,0.55); line-height: 1.65; margin: 0; }
+    @media (max-width: 860px) { .faq-section { padding: 48px 24px; } }
+  </style>
+  <div class="faq-inner">
+    <div class="faq-head">
+      <div class="faq-eyebrow">FAQ</div>
+      <div class="faq-title">Questions QA leaders ask</div>
+    </div>
+
+    <details class="faq-item">
+      <summary>Does the app I'm testing need to be reachable over the internet?</summary>
+      <p>For running tests, yes. The Chrome recorder runs in your browser, so it captures tests on any app you can open — including internal, staging, VPN-only, or localhost sites. But test runs execute on Testovex's cloud servers, which reach your app over the public internet. So a VPN-only or private app records fine, but the run can't reach it — point runs at an internet-reachable URL (e.g. a public staging environment). For internal-only apps, Enterprise self-hosted execution runs tests inside your own network.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Is my test data and credentials secure?</summary>
+      <p>Yes. Every organization is fully isolated with role-based access control, and sensitive values live in locked org-level variables that are never exposed in test steps or logs. Each run's artifacts (video, screenshots, traces) are scoped to your org. Enterprise adds SSO/SAML and a self-hosted option.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Do I need to know how to code?</summary>
+      <p>No. QA analysts build tests by clicking through your app with the Chrome recorder. Control flow (loops, if/else), reusable components, hover and iframe handling, and variables are all no-code. Playwright runs it all under the hood — you get the power without writing scripts.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How long until my first test is running?</summary>
+      <p>Minutes. Install the Chrome recorder, click through a flow, and run it. Most teams have a real regression suite live on their first day — and your free founder-led onboarding session gets you there faster.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What happens to pricing after the beta?</summary>
+      <p>Testovex is completely free during beta — no credit card required to join. Beta founders lock in 40% off any paid plan for their first year. You'll get clear advance notice before any plan begins billing; there are no surprise charges.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What if a UI change breaks my tests?</summary>
+      <p>The smart locator engine uses 9 strategies to find elements, so most tests survive UI changes automatically. When something does need attention, fix a reusable component once and every test inherits it — and version history plus milestones let you roll back test state instantly.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Does it fit our existing CI/CD?</summary>
+      <p>Yes. Trigger runs from any pipeline or terminal via the CLI and API, with parallel Playwright execution. Use runs as quality gates so defects are caught before they reach production.</p>
+    </details>
+
+    <div style="text-align:center;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin:34px 0 18px;">For enterprise &amp; security teams</div>
+
+    <details class="faq-item">
+      <summary>Do you support SSO / SAML and centralized user management?</summary>
+      <p>Yes — on the Enterprise plan, Testovex supports SSO/SAML so access is governed by your identity provider, with role-based access control across every organization and project. Provisioning and de-provisioning are centralized, so off-boarding a team member removes their access everywhere at once.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can Testovex run in our own environment or region?</summary>
+      <p>Yes. Enterprise includes a self-hosted deployment option for teams with data-residency, network-isolation, or VPC requirements. For everyone else Testovex is a fully managed cloud service — and either way, your data stays isolated to your organization.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How do you handle data security and security reviews?</summary>
+      <p>Every organization is fully isolated, sensitive values live in locked variables that never appear in logs or test steps, and all traffic is encrypted in transit over TLS. As part of an Enterprise evaluation we'll complete your vendor security questionnaire and walk your team through our security posture.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What compliance standards and certifications do you hold?</summary>
+      <p>Testovex is built to enterprise security best practices — tenant isolation, role-based access control, audit logging, and encryption in transit. As we graduate from beta, formal certifications such as SOC&nbsp;2 are on our roadmap; we're glad to share our current security documentation and complete your compliance questionnaire on request.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Do you provide audit logs and governance controls?</summary>
+      <p>Yes. Business and Enterprise plans include audit logs, advanced RBAC, and org-level governance — a shared reusable-component library and locked organizational standards keep multiple teams consistent, and version history plus milestones capture every change for full traceability.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What SLA and support do enterprise customers get?</summary>
+      <p>Enterprise includes a service-level agreement, priority support, and a dedicated success manager who owns your onboarding and ongoing adoption. Business plans receive priority support, and every plan includes run diagnostics (video, screenshots, and traces) so issues are fast to resolve.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can we sign an MSA / DPA and set custom procurement terms?</summary>
+      <p>Yes. Enterprise supports custom contracts (MSA), a Data Processing Agreement (DPA), a security review, custom integrations, and annual invoicing. Email <a href="mailto:hello@testovex.com" style="color:#818CF8;text-decoration:none;">hello@testovex.com</a> and we'll start the process.</p>
+    </details>
+  </div>
+</section>
+
 <!-- ── Bottom CTA ── -->
-<section class="cta-section">
+<section class="cta-section" id="beta">
   <div class="section-eyebrow" style="margin-bottom:12px;">Limited beta access</div>
   <h2 class="cta-title">Ready to transform your QA team?</h2>
   <p class="cta-sub">Join the waitlist and be among the first to experience enterprise test automation done right.</p>
@@ -1914,6 +2324,39 @@
 </section>
 
 <!-- ── Footer ── -->
+<!-- ── What happens next ── -->
+<section class="whn-section">
+  <style>
+    .whn-section { position: relative; z-index: 10; padding: 56px 48px 64px; border-top: 1px solid rgba(255,255,255,0.07); }
+    .whn-inner { max-width: 1000px; margin: 0 auto; }
+    .whn-eyebrow { text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #818CF8; margin-bottom: 28px; }
+    .whn-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    @media (max-width: 720px) { .whn-steps { grid-template-columns: 1fr; } }
+    .whn-step { display: flex; gap: 14px; align-items: flex-start; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px 20px; }
+    .whn-num { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg,#4F46E5,#4338CA); color: #fff; font-size: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; }
+    .whn-step h4 { font-size: 14px; font-weight: 700; color: #fff; margin: 3px 0 5px; }
+    .whn-step p { font-size: 12.5px; color: rgba(255,255,255,0.5); line-height: 1.55; margin: 0; }
+    @media (max-width: 860px) { .whn-section { padding: 40px 24px; } }
+  </style>
+  <div class="whn-inner">
+    <div class="whn-eyebrow">What happens after you join</div>
+    <div class="whn-steps">
+      <div class="whn-step">
+        <span class="whn-num">1</span>
+        <div><h4>You're on the list</h4><p>Instant confirmation. Invites go out in order — first come, first served.</p></div>
+      </div>
+      <div class="whn-step">
+        <span class="whn-num">2</span>
+        <div><h4>Free founder onboarding</h4><p>A short guided session to set up your org and record your first test together.</p></div>
+      </div>
+      <div class="whn-step">
+        <span class="whn-num">3</span>
+        <div><h4>First suite running</h4><p>Most teams have a real regression suite live on day one — free during beta.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <span class="footer-copy">
     © 2026 Puneet Kamboj · Testovex. All rights reserved.
@@ -1946,15 +2389,19 @@
 
 <script>
   // ─── WAITLIST COUNTER ────────────────────────────────────────────────────────
-  // WAITLIST_COUNT is updated live from the API on each signup.
-  // TOTAL_SPOTS is the first-phase beta cohort size.
-  const WAITLIST_COUNT = 9;
-  const TOTAL_SPOTS    = 25;
+  // Both the live count AND the cohort size come from the API
+  // (GET /api/waitlist/count → { count, total }). The cohort size is set on the
+  // server via the WAITLIST_TOTAL_SPOTS env var — no page edit needed to change it.
+  // The constants below are only fallbacks if that request fails.
+  const FALLBACK_COUNT = 9;
+  var   TOTAL_SPOTS    = 25;
+  var   lastCount      = FALLBACK_COUNT;
   // ─────────────────────────────────────────────────────────────────────────────
 
   function renderSpotCounter(count) {
-    const c      = count || WAITLIST_COUNT;
-    const remain = TOTAL_SPOTS - c;
+    const c      = (typeof count === 'number') ? count : lastCount;
+    lastCount    = c;
+    const remain = Math.max(TOTAL_SPOTS - c, 0);
     const pct    = Math.min((c / TOTAL_SPOTS) * 100, 100);
 
     var el = document.getElementById('spotCounter');
@@ -1968,8 +2415,21 @@
     document.getElementById('spotBarFill').style.width        = pct + '%';
   }
 
-  // Render on load
+  // Pull the real signup count from the database via the API. Falls back to the
+  // static number only if the request fails (offline / API down).
+  function loadSpotCount() {
+    fetch('https://app.testovex.com/api/waitlist/count')
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (d && typeof d.total === 'number' && d.total > 0) TOTAL_SPOTS = d.total;
+        renderSpotCounter(d && typeof d.count === 'number' ? d.count : undefined);
+      })
+      .catch(function () { renderSpotCounter(); });
+  }
+
+  // Render immediately with the fallback, then refresh with the live count.
   renderSpotCounter();
+  loadSpotCount();
 
   const WL_KEY = 'testovex_waitlist';
 
@@ -2010,12 +2470,12 @@
       showSuccess(formId, successId);
       if (formId === 'waitlistForm') showSuccess('ctaForm', 'ctaSuccess');
       if (formId === 'ctaForm') showSuccess('waitlistForm', 'successMsg');
-      renderSpotCounter(WAITLIST_COUNT + 1);
+      loadSpotCount();
     }).catch(function() {
       // network error — still show success so user isn't frustrated
       localStorage.setItem(WL_KEY, email);
       showSuccess(formId, successId);
-      renderSpotCounter(WAITLIST_COUNT + 1);
+      renderSpotCounter(lastCount + 1);
     });
   }
 
@@ -2061,6 +2521,87 @@
     });
     chartEl.innerHTML = html;
   })();
+
+  /* ── Pricing: billing-period selector (monthly / 6-month / annual) ── */
+  (function () {
+    var seg = document.getElementById('prSeg');
+    if (!seg) return;
+    var btns = seg.querySelectorAll('.pr-seg-btn');
+    function apply(period) {
+      btns.forEach(function (b) {
+        var on = b.getAttribute('data-period') === period;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      document.querySelectorAll('.pr-amt').forEach(function (el) {
+        var v = el.getAttribute('data-' + period);
+        if (v) el.textContent = v;
+      });
+      document.querySelectorAll('.pr-billed').forEach(function (el) {
+        // Only the tiered cards carry data-m; Enterprise ("Tailored…") is left alone.
+        if (el.hasAttribute('data-m')) {
+          el.textContent = el.getAttribute('data-' + period) || '';
+        }
+      });
+    }
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () { apply(b.getAttribute('data-period')); });
+    });
+  })();
+
+  /* ── ROI calculator ── */
+  (function () {
+    var team    = document.getElementById('roiTeam');
+    if (!team) return;
+    var cost    = document.getElementById('roiCost');
+    var reclaim = document.getElementById('roiReclaim');
+    var plan    = document.getElementById('roiPlan');
+
+    function money(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+
+    function recompute() {
+      var t = Math.max(1, parseInt(team.value, 10) || 1);
+      var c = Math.max(0, parseFloat(cost.value) || 0);
+      var r = (parseInt(reclaim.value, 10) || 0) / 100;
+      var p = parseFloat(plan.value) || 0;
+
+      var teamCost      = t * c;
+      var reclaimedMo   = teamCost * r;
+      var engineers     = t * r;
+      var netMo         = reclaimedMo - p;
+      var multiple      = p > 0 ? reclaimedMo / p : 0;
+
+      // Yearly tool cost uses the annual price (2 months free), matching pricing.
+      var toolYr        = p * 10;
+
+      // Live input labels
+      document.getElementById('roiTeamVal').textContent    = t;
+      document.getElementById('roiCostVal').textContent    = money(c);
+      document.getElementById('roiReclaimVal').textContent = Math.round(r * 100) + '%';
+
+      // Hero + minis
+      document.getElementById('roiNetMonthly').textContent  = money(netMo);
+      document.getElementById('roiMultiple').textContent    = '≈ ' + (multiple >= 10 ? Math.round(multiple) : multiple.toFixed(1)) + '× return on tool cost';
+      document.getElementById('roiReclaimedVal').textContent = money(reclaimedMo);
+      document.getElementById('roiEngineers').textContent   = engineers.toFixed(1);
+      document.getElementById('roiToolCost').textContent    = money(p);
+
+      // Horizon table
+      document.getElementById('roiMoReclaim').textContent   = money(reclaimedMo);
+      document.getElementById('roiMoNet').textContent       = money(netMo);
+      document.getElementById('roiHalfReclaim').textContent = money(reclaimedMo * 6);
+      document.getElementById('roiHalfNet').textContent     = money(reclaimedMo * 6 - p * 6);
+      document.getElementById('roiYrReclaim').textContent   = money(reclaimedMo * 12);
+      document.getElementById('roiYrNet').textContent       = money(reclaimedMo * 12 - toolYr);
+    }
+
+    [team, cost, reclaim, plan].forEach(function (el) {
+      el.addEventListener('input', recompute);
+      el.addEventListener('change', recompute);
+    });
+    recompute();
+  })();
+
 
 </script>
 </body>
