@@ -184,7 +184,7 @@
 <!-- Content -->
 <div class="content">
 
-  <span class="last-updated">Last updated: July 3, 2026</span>
+  <span class="last-updated">Last updated: July 31, 2026</span>
 
   <div class="highlight-box">
     Testovex is currently in beta. This Privacy Policy applies to all users of the Testovex platform, including beta participants, and will be updated as the product evolves.
@@ -213,9 +213,19 @@
       <li>Pages visited and features used within the application</li>
     </ul>
     <p><strong style="color:#E2E8F0;">Browser Extension Data</strong></p>
+    <p>Testovex publishes multiple Chrome extensions. Data handling differs between them:</p>
+    <p><strong style="color:#E2E8F0;">Testovex Recorder</strong></p>
     <ul>
-      <li>The Testovex Recorder extension captures user interactions (clicks, typing, navigation) on websites you choose to test. This data is sent only to your Testovex account and is not used for any other purpose.</li>
+      <li>Captures user interactions (clicks, typing, navigation) on websites you choose to test.</li>
+      <li>This data is sent only to your Testovex account and is not used for any other purpose.</li>
       <li>The extension does not capture data from websites when recording is not actively enabled.</li>
+    </ul>
+    <p><strong style="color:#E2E8F0;">PROD Guard</strong></p>
+    <ul>
+      <li>Inspects only the URL of tabs you visit, against rules you configure locally in the extension's settings.</li>
+      <li>PROD Guard does not read page content, does not collect any personal information, and does not transmit any data to Testovex servers or any third party.</li>
+      <li>User rules and settings are stored locally via chrome.storage.sync — this syncs across the user's own Chrome instances via their Google account only, and is never accessible to Testovex.</li>
+      <li>PROD Guard does not require a Testovex account and works fully offline.</li>
     </ul>
     <p><strong style="color:#E2E8F0;">Communications</strong></p>
     <ul>
