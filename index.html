@@ -952,6 +952,8 @@
   <div class="hero-right">
     <p class="features-label">What's included in beta</p>
     <div class="feature-grid">
+      <div class="feat"><span class="feat-icon">📐</span><span class="feat-content"><span class="feat-label">Blueprint Shift-Left</span><span class="feat-desc">Test cases from a requirement, before the app is built</span></span></div>
+      <div class="feat"><span class="feat-icon">🔗</span><span class="feat-content"><span class="feat-label">Generate from URL</span><span class="feat-desc">Paste a page, get a full test suite in minutes</span></span></div>
       <div class="feat"><span class="feat-icon">🎯</span><span class="feat-content"><span class="feat-label">Smart Locator Engine</span><span class="feat-desc">9 strategies, 95%+ success rate</span></span></div>
       <div class="feat"><span class="feat-icon">🎬</span><span class="feat-content"><span class="feat-label">Browser Recorder</span><span class="feat-desc">Click to test case in minutes</span></span></div>
       <div class="feat"><span class="feat-icon">🌑</span><span class="feat-content"><span class="feat-label">Shadow DOM Support</span><span class="feat-desc">Records &amp; runs inside web components</span></span></div>
@@ -1044,6 +1046,31 @@
         </div>
       </div>
       <p style="margin-top: 16px; font-size: 12px; color: rgba(255,255,255,0.22);">AI drafts every test. Your QA reviews, refines &amp; approves — you stay in control.</p>
+    </div>
+
+    <!-- Third: Blueprint Shift-Left -->
+    <div style="margin-top: 64px; padding-top: 56px; border-top: 1px solid rgba(255,255,255,0.07);">
+      <div class="demo-eyebrow">New · Blueprint Shift-Left</div>
+      <h2 class="demo-title">Test the requirement. <span>Before the app exists.</span></h2>
+      <p class="demo-sub">Most testing starts after a feature ships. Blueprint starts at the user story — and tells you the moment the build doesn't match what was actually specified.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:860px;margin:32px auto 0;text-align:left;">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:rgba(99,102,241,0.18);color:#A5B4FC;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-bottom:12px;">1</div>
+          <h4 style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.88);margin-bottom:6px;">Paste the requirement</h4>
+          <p style="font-size:12.5px;color:rgba(255,255,255,0.44);line-height:1.6;">A user story or acceptance criteria — whatever you've already written. No app needed yet.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:rgba(99,102,241,0.18);color:#A5B4FC;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-bottom:12px;">2</div>
+          <h4 style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.88);margin-bottom:6px;">Get full test cases in minutes</h4>
+          <p style="font-size:12.5px;color:rgba(255,255,255,0.44);line-height:1.6;">Happy path, negative, validation, navigation — generated from the spec, ready to review.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:rgba(99,102,241,0.18);color:#A5B4FC;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-bottom:12px;">3</div>
+          <h4 style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.88);margin-bottom:6px;">One click, fully executable</h4>
+          <p style="font-size:12.5px;color:rgba(255,255,255,0.44);line-height:1.6;">When the feature ships, "Bind to app" turns every test into real, runnable automation — and flags anything the build is missing.</p>
+        </div>
+      </div>
+      <p style="margin-top: 20px; font-size: 12px; color: rgba(255,255,255,0.22);">Tests exist before the code does. Gaps surface before release — not after a customer finds them.</p>
     </div>
   </div>
 </section>
@@ -1539,7 +1566,8 @@
   .lp-roadmap { padding: 80px 0; }
   .lp-rm-hdr { text-align: center; margin-bottom: 48px; }
   .lp-rm-hdr .lp-sec-sub { margin: 0 auto; }
-  .lp-rm-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 14px; }
+  .lp-rm-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+  @media (max-width: 900px) { .lp-rm-grid { grid-template-columns: repeat(2,1fr); } }
   .lp-rm-card { background: rgba(255,255,255,.04); border: 1.5px solid rgba(255,255,255,.08); border-radius: 12px; padding: 22px; transition: background .2s,border-color .2s; position: relative; overflow: hidden; }
   .lp-rm-card::before { content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#4338CA,#818CF8); }
   .lp-rm-card:hover { background: rgba(255,255,255,.07); border-color: rgba(99,102,241,.3); }
@@ -1624,6 +1652,8 @@
       <p class="lp-sec-sub">Full platform — web automation, analytics, version history, team collaboration, security, and CLI — from day one.</p>
     </div>
     <div class="lp-feature-grid">
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">📐</div><h3>Blueprint Shift-Left</h3><p>Generate test cases from a requirement — user story or acceptance criteria — before the app is even built. When the feature ships, one click binds every test to the live app and flags anything the build is missing.</p><span class="lp-ftag blue">New · Test Before Build</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🔗</div><h3>Generate from URL</h3><p>Paste any live page and get a working test suite back in minutes. Quick Scan is instant and rule-based; AI Generate uses your own AI provider key for smarter, context-aware test cases.</p><span class="lp-ftag teal">New · Minutes, Not Hours</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🎯</div><h3>Smart Locator Engine</h3><p>9 strategies captured per element during recording. Test ID → ARIA → Label → Placeholder → CSS → XPath. Optimal runs first, fallbacks fire automatically. Tests survive UI changes without manual fixes.</p><span class="lp-ftag blue">95%+ Success Rate</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">📊</div><h3>Analytics &amp; Reports</h3><p>Built-in dashboards across 7, 14, 30, and 90-day windows. Pass rate trends, failure analysis, run volume, and per-project health — visible across every org and project in one place.</p><span class="lp-ftag teal">Platform-Level View</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(245,158,11,0.12)">🔐</div><h3>4-Layer Variable Management</h3><p>Org → Project → Suite/Test → Runtime resolution. Lock org-level credentials so no test author can ever read or override them. Execution profiles switch environments at run time.</p><span class="lp-ftag blue">Enterprise-Grade Governance</span></div>
@@ -1934,8 +1964,6 @@
       <p class="lp-sec-sub">Beta users get early access to every feature as it ships — and a direct line to the roadmap.</p>
     </div>
     <div class="lp-rm-grid">
-      <div class="lp-rm-card lp-fade"><span class="lp-coming">AI Features</span><span class="lp-rm-icon">🔗</span><h4>Generate Tests from URL</h4><p>Paste a page URL and Testovex automatically analyses the DOM, identifies every interactive element, and generates a ready-to-run test suite in under 30 seconds.</p></div>
-      <div class="lp-rm-card lp-fade"><span class="lp-coming">AI Features</span><span class="lp-rm-icon">🤖</span><h4>AI Test Generation</h4><p>Describe a user flow in plain English, get full test steps generated automatically.</p></div>
       <div class="lp-rm-card lp-fade"><span class="lp-coming">AI Features</span><span class="lp-rm-icon">🔧</span><h4>AI Self-Healing Locators</h4><p>When a locator breaks after a UI change, AI finds the element on the new DOM and repairs the step.</p></div>
       <div class="lp-rm-card lp-fade"><span class="lp-coming">AI Features</span><span class="lp-rm-icon">🛠️</span><h4>AI Test Maintenance</h4><p>Detects UI changes after a deploy and auto-flags or auto-repairs affected tests before they fail in CI.</p></div>
       <div class="lp-rm-card lp-fade"><span class="lp-coming">AI Features</span><span class="lp-rm-icon">💬</span><h4>AI Root Cause Analysis</h4><p>"Why did this test fail?" answered in natural language with context — not just a stack trace.</p></div>
