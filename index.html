@@ -100,13 +100,21 @@
     }
     .nav-logo-name { font-size: 18px; font-weight: 800; color: white; letter-spacing: -0.3px; }
     .nav-logo-name span { color: #818CF8; }
-    .nav-tag {
-      font-size: 11.5px; font-weight: 600;
-      background: rgba(16,185,129,0.12);
-      border: 1px solid rgba(16,185,129,0.28);
-      color: #6EE7B7;
-      padding: 4px 12px; border-radius: 999px; letter-spacing: 0.2px;
+    .nav-actions {
+      display: flex; align-items: center; gap: 10px; flex-shrink: 0;
     }
+    /* Same gradient/shadow language as the "Get Early Access" CTA button */
+    .nav-btn {
+      flex-shrink: 0; white-space: nowrap; text-decoration: none;
+      padding: 7px 16px; border-radius: 8px;
+      background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+      color: white; font-size: 12.5px; font-weight: 700;
+      font-family: inherit; letter-spacing: 0.01em;
+      box-shadow: 0 2px 8px rgba(67,56,202,0.45);
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .nav-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    @media (max-width: 960px) { .nav-actions .nav-btn:first-child { display: none; } }
 
     /* ── Hero section ── */
     .hero {
@@ -758,8 +766,6 @@
     /* ── Small phone (≤420px) ── */
     @media (max-width: 420px) {
       nav { padding: 0 16px; }
-      /* Hide the beta tag on very small screens to avoid overflow */
-      .nav-tag { display: none; }
 
       .hero { padding: 24px 16px; gap: 24px; }
       .hero-left { max-width: 100%; }
@@ -844,7 +850,10 @@
     <a href="#pricing">Pricing</a>
     <a href="#faq">FAQ</a>
   </div>
-  <div class="nav-tag">Now in beta · Free</div>
+  <div class="nav-actions">
+    <a class="nav-btn" href="mailto:hello@testovex.com?subject=Testovex%20Inquiry">Contact Us</a>
+    <a class="nav-btn" href="#beta">Get Started →</a>
+  </div>
 </nav>
 
 <!-- ── Hero ── -->
@@ -1017,12 +1026,12 @@
     <div style="position: relative; width: 100%; max-width: 860px; margin: 8px auto 0; border-radius: 16px; overflow: hidden; border: 1px solid rgba(99,102,241,0.25); box-shadow: 0 24px 80px rgba(67,56,202,0.25);">
       <div style="position: relative; padding-bottom: 56.25%; height: 0;">
         <iframe
-          src="https://www.youtube.com/embed/tfurfvA5QLc?rel=0&modestbranding=1&color=white"
-          title="Testovex Demo — Record & Run a 12-Step Checkout Test in Under 2 Minutes"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                src="https://www.youtube.com/embed/tfurfvA5QLc?rel=0&modestbranding=1&color=white"
+                title="Testovex Demo — Record & Run a 12-Step Checkout Test in Under 2 Minutes"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
         </iframe>
       </div>
     </div>
@@ -1036,12 +1045,12 @@
       <div style="position: relative; width: 100%; max-width: 860px; margin: 8px auto 0; border-radius: 16px; overflow: hidden; border: 1px solid rgba(99,102,241,0.25); box-shadow: 0 24px 80px rgba(67,56,202,0.25);">
         <div style="position: relative; padding-bottom: 56.25%; height: 0;">
           <iframe
-            src="https://www.youtube.com/embed/rHaTDobOW1A?rel=0&modestbranding=1&color=white"
-            title="Testovex AI Demo — Paste a URL, Get 14 Runnable Tests in Under a Minute"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                  src="https://www.youtube.com/embed/rHaTDobOW1A?rel=0&modestbranding=1&color=white"
+                  title="Testovex AI Demo — Paste a URL, Get 14 Runnable Tests in Under a Minute"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
           </iframe>
         </div>
       </div>
@@ -2111,9 +2120,9 @@
         <table class="roi-horizon">
           <thead><tr><th>Horizon</th><th>Reclaimed</th><th>Net benefit</th></tr></thead>
           <tbody>
-            <tr><td>Monthly</td><td id="roiMoReclaim">$12,000</td><td class="roi-net" id="roiMoNet">$11,551</td></tr>
-            <tr><td>6 months</td><td id="roiHalfReclaim">$72,000</td><td class="roi-net" id="roiHalfNet">$69,306</td></tr>
-            <tr><td>Yearly</td><td id="roiYrReclaim">$144,000</td><td class="roi-net" id="roiYrNet">$139,510</td></tr>
+          <tr><td>Monthly</td><td id="roiMoReclaim">$12,000</td><td class="roi-net" id="roiMoNet">$11,551</td></tr>
+          <tr><td>6 months</td><td id="roiHalfReclaim">$72,000</td><td class="roi-net" id="roiHalfNet">$69,306</td></tr>
+          <tr><td>Yearly</td><td id="roiYrReclaim">$144,000</td><td class="roi-net" id="roiYrNet">$139,510</td></tr>
           </tbody>
         </table>
       </div>
