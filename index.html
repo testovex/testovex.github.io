@@ -2178,6 +2178,18 @@
     .pr-feats li { display: flex; align-items: flex-start; gap: 8px; color: rgba(255,255,255,0.75); }
     .pr-feats li svg { flex-shrink: 0; margin-top: 1px; }
     .pr-feats .pr-secline { color: rgba(255,255,255,0.4); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+    .pr-card-addon { position: relative; cursor: help; outline: none; }
+    .pr-card-addon-info { display: inline-block; margin-left: 4px; color: #818CF8; font-weight: 700; }
+    .pr-card-addon-tip { display: none; position: absolute; left: 0; right: 0; bottom: calc(100% + 8px); z-index: 20; background: #1E1B4B; border: 1px solid rgba(129,140,248,0.5); border-radius: 10px; padding: 12px 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.45); font-size: 12px; line-height: 1.4; font-weight: 500; color: rgba(255,255,255,0.85); text-align: left; }
+    .pr-card-addon-tip b { display: block; color: #fff; font-size: 12.5px; margin-bottom: 6px; }
+    .pr-card-addon-row { display: block; margin-top: 4px; }
+    .pr-card-addon-foot { display: block; margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.12); color: #A5B4FC; }
+    .pr-card-addon:hover .pr-card-addon-tip, .pr-card-addon:focus .pr-card-addon-tip, .pr-card-addon:focus-within .pr-card-addon-tip { display: block; }
+    .pr-card-addon { margin-top: auto; padding-top: 16px; border-top: 1px dashed rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: space-between; gap: 8px; text-decoration: none; font-size: 12.5px; }
+    .pr-card .pr-feats { margin-bottom: 18px; }
+    .pr-card-addon-label { color: rgba(255,255,255,0.75); font-weight: 600; }
+    .pr-card-addon-val { color: #A5B4FC; font-weight: 700; white-space: nowrap; }
+    .pr-card-addon:hover .pr-card-addon-label { color: #fff; }
     .pr-note { text-align: center; font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 40px; }
     .pr-note a { color: #818CF8; text-decoration: none; }
     @media (max-width: 860px) { .pr-section { padding: 48px 24px; } }
@@ -2219,6 +2231,7 @@
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>7-day analytics · community support</li>
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Group onboarding webinar</li>
         </ul>
+        <div class="pr-card-addon" tabindex="0"><span class="pr-card-addon-label">🔌 API Testing add-on<span class="pr-card-addon-info" aria-hidden="true">ⓘ</span></span><span class="pr-card-addon-val"><span class="pr-amt" data-m="+$29" data-h="+$26" data-y="+$24">+$29</span> / mo</span><span class="pr-card-addon-tip" role="tooltip"><b>API Testing add-on</b><span class="pr-card-addon-row">✓ Import from curl, Postman or OpenAPI / Swagger</span><span class="pr-card-addon-row">✓ Status code, body and JSON-path assertions</span><span class="pr-card-addon-row">✓ UI + API steps in one test case</span><span class="pr-card-addon-row">✓ Chain values between steps; locked variables for keys and tokens</span><span class="pr-card-addon-foot">Free for all beta users. Add it to any plan.</span></span></div>
       </div>
 
       <div class="pr-card featured">
@@ -2238,6 +2251,7 @@
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>30-day analytics · email support</li>
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>1 guided onboarding session</li>
         </ul>
+        <div class="pr-card-addon" tabindex="0"><span class="pr-card-addon-label">🔌 API Testing add-on<span class="pr-card-addon-info" aria-hidden="true">ⓘ</span></span><span class="pr-card-addon-val"><span class="pr-amt" data-m="+$29" data-h="+$26" data-y="+$24">+$29</span> / mo</span><span class="pr-card-addon-tip" role="tooltip"><b>API Testing add-on</b><span class="pr-card-addon-row">✓ Import from curl, Postman or OpenAPI / Swagger</span><span class="pr-card-addon-row">✓ Status code, body and JSON-path assertions</span><span class="pr-card-addon-row">✓ UI + API steps in one test case</span><span class="pr-card-addon-row">✓ Chain values between steps; locked variables for keys and tokens</span><span class="pr-card-addon-foot">Free for all beta users. Add it to any plan.</span></span></div>
       </div>
 
       <div class="pr-card">
@@ -2256,6 +2270,7 @@
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Priority support</li>
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>White-glove onboarding · 2 sessions</li>
         </ul>
+        <div class="pr-card-addon" tabindex="0"><span class="pr-card-addon-label">🔌 API Testing add-on<span class="pr-card-addon-info" aria-hidden="true">ⓘ</span></span><span class="pr-card-addon-val"><span class="pr-amt" data-m="+$29" data-h="+$26" data-y="+$24">+$29</span> / mo</span><span class="pr-card-addon-tip" role="tooltip"><b>API Testing add-on</b><span class="pr-card-addon-row">✓ Import from curl, Postman or OpenAPI / Swagger</span><span class="pr-card-addon-row">✓ Status code, body and JSON-path assertions</span><span class="pr-card-addon-row">✓ UI + API steps in one test case</span><span class="pr-card-addon-row">✓ Chain values between steps; locked variables for keys and tokens</span><span class="pr-card-addon-foot">Free for all beta users. Add it to any plan.</span></span></div>
       </div>
 
       <div class="pr-card">
@@ -2273,10 +2288,12 @@
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Security review · custom integrations</li>
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Personalized onboarding program</li>
         </ul>
+        <div class="pr-card-addon" tabindex="0"><span class="pr-card-addon-label">🔌 API Testing add-on<span class="pr-card-addon-info" aria-hidden="true">ⓘ</span></span><span class="pr-card-addon-val">Included</span><span class="pr-card-addon-tip" role="tooltip"><b>API Testing add-on</b><span class="pr-card-addon-row">✓ Import from curl, Postman or OpenAPI / Swagger</span><span class="pr-card-addon-row">✓ Status code, body and JSON-path assertions</span><span class="pr-card-addon-row">✓ UI + API steps in one test case</span><span class="pr-card-addon-row">✓ Chain values between steps; locked variables for keys and tokens</span><span class="pr-card-addon-foot">Included in your custom Enterprise plan.</span></span></div>
       </div>
     </div>
 
-    <p class="pr-note">All plans include the Chrome recorder, cross-browser Playwright execution, and run diagnostics. Free during beta · <a href="#beta">Join the waitlist</a></p>
+
+    <p class="pr-note">All plans include the Chrome recorder, cross-browser Playwright execution, and run diagnostics. The API Testing add-on (curl, Postman and OpenAPI import, UI + API steps in one test) is available on every plan. Free during beta · <a href="#beta">Join the waitlist</a></p>
   </div>
 </section>
 
