@@ -981,6 +981,10 @@
       <div class="feat"><span class="feat-icon">💻</span><span class="feat-content"><span class="feat-label">CLI + CI/CD</span><span class="feat-desc">Trigger from any pipeline or terminal</span></span></div>
       <div class="feat"><span class="feat-icon">🖱️</span><span class="feat-content"><span class="feat-label">Hover &amp; Tooltip</span><span class="feat-desc">Validate tooltips &amp; hover states</span></span></div>
       <div class="feat"><span class="feat-icon">🏁</span><span class="feat-content"><span class="feat-label">Project Milestones</span><span class="feat-desc">Commit &amp; restore full project state</span></span></div>
+      <div class="feat"><span class="feat-icon">🗃️</span><span class="feat-content"><span class="feat-label">Test Data Management</span><span class="feat-desc">Datasets from CSV, Excel or JSON</span></span></div>
+      <div class="feat"><span class="feat-icon">🎲</span><span class="feat-content"><span class="feat-label">Generated Test Data</span><span class="feat-desc">Fresh emails, names, dates on every run</span></span></div>
+      <div class="feat"><span class="feat-icon">🔁</span><span class="feat-content"><span class="feat-label">Re-run with Same Data</span><span class="feat-desc">Reproduce a failure exactly</span></span></div>
+      <div class="feat"><span class="feat-icon">⛔</span><span class="feat-content"><span class="feat-label">Stop on First Fail</span><span class="feat-desc">Skip the remaining rows when one fails</span></span></div>
     </div>
   </div>
 
@@ -1666,6 +1670,7 @@
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">📐</div><h3>Blueprint Shift-Left</h3><p>Generate test cases from a requirement — user story or acceptance criteria — before the app is even built. When the feature ships, one click binds every test to the live app and flags anything the build is missing.</p><span class="lp-ftag blue">New · Test Before Build</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🔗</div><h3>Generate from URL</h3><p>Paste any live page and get a working test suite back in minutes. Quick Scan is instant and rule-based; AI Generate uses your own AI provider key for smarter, context-aware test cases.</p><span class="lp-ftag teal">New · Minutes, Not Hours</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🔌</div><h3>API Testing</h3><p>Paste a curl command, import a Postman collection, or upload an OpenAPI / Swagger file (3.x or 2.0, JSON or YAML). Testovex generates the test cases and assertions, including negative cases from your schema, and you review them before saving. API and web steps can sit in the same test case, so one test covers the full flow.</p><span class="lp-ftag blue">New · No Code</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(139,92,246,0.15)">🗃️</div><h3>Test Data Management</h3><p>Run one test against many sets of data. Upload a CSV, Excel or JSON file, or let Testovex generate fresh emails, names, passwords and dates on every run. Results are grouped per row, secret columns are masked, and you can re-run with exactly the same data to reproduce a failure.</p><span class="lp-ftag blue">New · Data-Driven, No Code</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🎯</div><h3>Smart Locator Engine</h3><p>9 strategies captured per element during recording. Test ID → ARIA → Label → Placeholder → CSS → XPath. Optimal runs first, fallbacks fire automatically. Tests survive UI changes without manual fixes.</p><span class="lp-ftag blue">95%+ Success Rate</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">📊</div><h3>Analytics &amp; Reports</h3><p>Built-in dashboards across 7, 14, 30, and 90-day windows. Pass rate trends, failure analysis, run volume, and per-project health — visible across every org and project in one place.</p><span class="lp-ftag teal">Platform-Level View</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(245,158,11,0.12)">🔐</div><h3>4-Layer Variable Management</h3><p>Org → Project → Suite/Test → Runtime resolution. Lock org-level credentials so no test author can ever read or override them. Execution profiles switch environments at run time.</p><span class="lp-ftag blue">Enterprise-Grade Governance</span></div>
@@ -1957,7 +1962,8 @@
         <div class="lp-feat-list">
           <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>testovex login</strong><span>Authenticate, supports multi-org accounts with interactive picker or --org flag for CI</span></div></div>
           <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>testovex run</strong><span>Trigger any suite with --wait to block until complete. Exit code 1 on failure for CI gating.</span></div></div>
-          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>testovex results</strong><span>Fetch detailed pass/fail output for any run ID</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>testovex rerun</strong><span>Repeat a run with the same test data to reproduce a failure</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>testovex results</strong><span>Detailed pass/fail output for any run ID, with data-driven rows grouped per test case</span></div></div>
           <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>testovex whoami / logout</strong><span>Session management for shared CI environments</span></div></div>
         </div>
       </div>
@@ -1983,7 +1989,6 @@
       <div class="lp-rm-card lp-fade"><span class="lp-coming">Testing</span><span class="lp-rm-icon">📱</span><h4>Mobile Automation</h4><p>iOS and Android support. The same ACOE platform extended to mobile teams.</p></div>
       <div class="lp-rm-card lp-fade"><span class="lp-coming">Integrations</span><span class="lp-rm-icon">⚙️</span><h4>CI/CD Deep Integration</h4><p>Native GitHub Actions, Jenkins, and GitLab CI connectors with pipeline templates.</p></div>
       <div class="lp-rm-card lp-fade"><span class="lp-coming">Integrations</span><span class="lp-rm-icon">📡</span><h4>Grafana &amp; Splunk</h4><p>Export Testovex analytics into your existing observability stack.</p></div>
-      <div class="lp-rm-card lp-fade"><span class="lp-coming">Data</span><span class="lp-rm-icon">🗃️</span><h4>Test Data Management</h4><p>Datasets, parameterization, and data-driven testing at scale. CSV, JSON, and Excel-driven test iterations.</p></div>
     </div>
   </div>
 </section>
