@@ -114,7 +114,7 @@
       transition: opacity 0.2s, transform 0.1s;
     }
     .nav-btn:hover { opacity: 0.88; transform: translateY(-1px); }
-    @media (max-width: 960px) { .nav-actions .nav-btn:first-child { display: none; } }
+    
 
     /* ── Hero section ── */
     .hero {
@@ -808,6 +808,85 @@
       background: rgba(255,255,255,0.06);
     }
     @media (max-width: 960px) { .lp-nav-links { display: none; } }
+
+    /* ── Nav v2: grouped menu, mobile menu, active state ── */
+    html { scroll-padding-top: 76px; }
+    section[id], div[id="beta"] { scroll-margin-top: 76px; }
+    nav { transition: background .2s, box-shadow .2s, border-color .2s; }
+    nav.scrolled { background: rgba(15,23,42,0.96); border-bottom-color: rgba(255,255,255,0.12); box-shadow: 0 6px 24px rgba(2,6,23,0.35); }
+    .lp-nav-links { gap: 2px; }
+    .lp-nav-links > a, .lp-dd-btn {
+      font-size: 13.5px; font-weight: 500; font-family: inherit;
+      color: rgba(255,255,255,0.62); text-decoration: none;
+      padding: 8px 13px; border-radius: 8px; white-space: nowrap;
+      background: none; border: 0; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: color .15s, background .15s;
+    }
+    .lp-nav-links > a:hover, .lp-dd-btn:hover, .lp-dd:focus-within > .lp-dd-btn, .lp-dd:hover > .lp-dd-btn {
+      color: #fff; background: rgba(255,255,255,0.07);
+    }
+    .lp-nav-links > a.active, .lp-dd-btn.active { color: #fff; background: rgba(129,140,248,0.16); }
+    .lp-dd { position: relative; }
+    .lp-dd-btn svg { opacity: .7; transition: transform .15s; }
+    .lp-dd:hover .lp-dd-btn svg, .lp-dd:focus-within .lp-dd-btn svg { transform: rotate(180deg); }
+    .lp-dd-menu {
+      position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      min-width: 270px; padding: 8px; margin-top: 8px;
+      background: rgba(15,23,42,0.99); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; box-shadow: 0 18px 40px rgba(2,6,23,0.55);
+      display: none; flex-direction: column; gap: 2px;
+    }
+    .lp-dd-menu::before { content: ""; position: absolute; left: 0; right: 0; top: -10px; height: 10px; }
+    .lp-dd:hover .lp-dd-menu, .lp-dd:focus-within .lp-dd-menu { display: flex; }
+    .lp-dd.closed .lp-dd-menu { display: none !important; }
+    .lp-dd-menu a {
+      display: flex; flex-direction: column; gap: 1px; padding: 9px 12px;
+      border-radius: 8px; text-decoration: none; transition: background .15s;
+    }
+    .lp-dd-menu a:hover, .lp-dd-menu a:focus-visible { background: rgba(129,140,248,0.14); }
+    .lp-dd-menu b { font-size: 13px; font-weight: 600; color: #fff; }
+    .lp-dd-menu span { font-size: 11.5px; color: rgba(255,255,255,0.5); }
+    .nav-login { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.75); text-decoration: none; padding: 8px 10px; border-radius: 8px; transition: color .15s, background .15s; }
+    .nav-login:hover { color: #fff; background: rgba(255,255,255,0.07); }
+    .nav-actions .nav-contact {
+      background: transparent; box-shadow: none;
+      border: 1px solid rgba(255,255,255,0.22); color: rgba(255,255,255,0.88);
+    }
+    .nav-actions .nav-contact:hover { background: rgba(255,255,255,0.08); opacity: 1; }
+    .nav-actions .nav-cta { padding: 8px 18px; font-size: 13px; box-shadow: 0 4px 14px rgba(79,70,229,0.55); }
+    .nav-burger {
+      display: none; width: 40px; height: 40px; border-radius: 10px; cursor: pointer;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);
+      flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 0;
+    }
+    .nav-burger span { display: block; width: 18px; height: 2px; background: #fff; border-radius: 2px; transition: transform .2s, opacity .2s; }
+    .nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+    .lp-mobile {
+      position: fixed; top: 60px; left: 0; right: 0; max-height: calc(100vh - 60px);
+      overflow-y: auto; padding: 8px 16px 24px;
+      background: #0F172A; border-bottom: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 24px 40px rgba(2,6,23,0.55);
+    }
+    .lp-mobile[hidden] { display: none; }
+    .lp-m-group { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,0.4); padding: 14px 8px 6px; }
+    .lp-mobile a:not(.nav-btn) { display: block; padding: 11px 8px; font-size: 15px; color: rgba(255,255,255,0.88); text-decoration: none; border-radius: 8px; }
+    .lp-mobile a:not(.nav-btn):active, .lp-mobile a:not(.nav-btn):hover { background: rgba(255,255,255,0.07); }
+    .lp-m-actions { display: flex; flex-direction: column; gap: 6px; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .lp-m-actions .nav-btn { text-align: center; padding: 12px 16px; font-size: 14px; }
+    .lp-m-actions .lp-m-login { text-align: center; color: rgba(255,255,255,0.7); }
+    @media (max-width: 1180px) { .nav-actions .nav-contact { display: none; } .lp-nav-links > a, .lp-dd-btn { padding: 8px 10px; font-size: 13px; } }
+    @media (max-width: 1040px) { .nav-login { display: none; } }
+    @media (max-width: 960px) {
+      .lp-nav-links { display: none; }
+      .nav-burger { display: inline-flex; }
+      .nav-actions .nav-cta { padding: 7px 14px; }
+      .nav-actions { gap: 8px; }
+    }
+    @media (min-width: 961px) { .lp-mobile { display: none !important; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } nav, .nav-burger span, .lp-dd-btn svg { transition: none; } }
   </style>
 </head>
 <body>
@@ -836,23 +915,94 @@
     </div>
     <span class="nav-logo-name">Testo<span>vex</span></span>
   </a>
-  <div class="lp-nav-links">
+  <div class="lp-nav-links" id="lpNavLinks">
+    <div class="lp-dd">
+      <a class="lp-dd-btn" href="#features" data-group="product" aria-haspopup="true">Platform <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="#features" role="menuitem"><b>All features</b><span>Everything in the beta, at a glance</span></a>
+        <a href="#demo" role="menuitem"><b>Demo</b><span>See a real run, start to finish</span></a>
+        <a href="#recorder" role="menuitem"><b>Smart recorder</b><span>Click through your app, get a smart-locator test</span></a>
+        <a href="#locator" role="menuitem"><b>Smart locator engine</b><span>Smart locators: 9 strategies, tests survive UI change</span></a>
+        <a href="#recording" role="menuitem"><b>Run diagnostics</b><span>Video, screenshots and traces</span></a>
+        <a href="#collaboration" role="menuitem"><b>Version history</b><span>Rollback and project milestones</span></a>
+        <a href="#cli" role="menuitem"><b>CLI &amp; CI/CD</b><span>Run from any pipeline</span></a>
+        <a href="#roadmap" role="menuitem"><b>Roadmap</b><span>What is coming after beta</span></a>
+      </div>
+    </div>
+    <div class="lp-dd">
+      <a class="lp-dd-btn" href="#generate" data-group="testing" aria-haspopup="true">Coverage <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="#generate" role="menuitem"><b>Generate your way</b><span>UI, API or both: generate it, record it, or build it by hand</span></a>
+        <a href="#g-ui" role="menuitem"><b>No-code UI journeys</b><span>Record, generate or build browser flows, zero scripting</span></a>
+        <a href="#g-api" role="menuitem"><b>No-code API checks</b><span>curl, Postman or OpenAPI in, tests out</span></a>
+        <a href="#g-mix" role="menuitem"><b>No-code full-stack journeys</b><span>UI + API in one test case, screen to service</span></a>
+        <a href="#f-data" role="menuitem"><b>Data-driven runs</b><span>One flow, many rows: CSV, Excel, JSON or generated</span></a>
+        <a href="#f-blueprint" role="menuitem"><b>AI scenarios from requirements</b><span>Blueprint: AI drafts automation from a user story</span></a>
+        <a href="#f-url" role="menuitem"><b>AI from any URL</b><span>Paste a page, AI drafts wider coverage. You approve</span></a>
+      </div>
+    </div>
+    <div class="lp-dd">
+      <a class="lp-dd-btn" href="#org-demo" data-group="orgs" aria-haspopup="true">Leadership <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="#org-demo" role="menuitem"><b>Org dashboards</b><span>Release readiness, automation value, failures, time to fix</span></a>
+        <a href="#f-library" role="menuitem"><b>Component library</b><span>One approved flow, shared by every project in your org</span></a>
+        <a href="#security" role="menuitem"><b>Security &amp; governance</b><span>Isolation, roles and locked credentials</span></a>
+      </div>
+    </div>
+    <a href="#security" data-nav="security">Security</a>
+    <a href="#roi" data-nav="roi">ROI</a>
+    <a href="#pricing" data-nav="pricing">Pricing</a>
+    <a href="#faq" data-nav="faq">FAQ</a>
+    <div class="lp-dd">
+      <button type="button" class="lp-dd-btn" data-group="docs" aria-haspopup="true">Docs <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="lp-dd-menu" role="menu">
+        <a href="https://app.testovex.com/docs/steps/" role="menuitem"><b>Step reference</b><span>Every step type, with examples</span></a>
+        <a href="https://app.testovex.com/docs/cli/" role="menuitem"><b>CLI guide</b><span>Install, run, rerun and CI gating</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-actions">
+    <a class="nav-login" href="https://app.testovex.com/login">Log in</a>
+    <a class="nav-btn nav-contact" href="mailto:hello@testovex.com?subject=Testovex%20Inquiry">Contact us</a>
+    <a class="nav-btn nav-cta" href="#beta">Get started <span aria-hidden="true">→</span></a>
+    <button type="button" class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="lpMobile">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="lp-mobile" id="lpMobile" hidden>
+    <div class="lp-m-group">Coverage</div>
+    <a href="#generate">Generate your way</a>
+    <a href="#g-ui">No-code UI journeys</a>
+    <a href="#g-api">No-code API checks</a>
+    <a href="#g-mix">No-code full-stack journeys</a>
+    <a href="#f-data">Data-driven runs</a>
+    <a href="#f-blueprint">AI scenarios from requirements</a>
+    <a href="#f-url">AI from any URL</a>
+    <div class="lp-m-group">Leadership</div>
+    <a href="#org-demo">Org dashboards</a>
+    <a href="#f-library">Component library</a>
+    <a href="#security">Security &amp; governance</a>
+    <div class="lp-m-group">Platform</div>
+    <a href="#features">All features</a>
     <a href="#demo">Demo</a>
-    <a href="#features">Features</a>
-    <a href="#recorder">Recorder</a>
-    <a href="#locator">Locator Engine</a>
-    <a href="#recording">Recording</a>
-    <a href="#collaboration">History</a>
-    <a href="#security">Security</a>
-    <a href="#cli">CLI</a>
+    <a href="#recorder">Smart recorder</a>
+    <a href="#locator">Smart locator engine</a>
+    <a href="#recording">Run diagnostics</a>
+    <a href="#collaboration">Version history</a>
+    <a href="#cli">CLI &amp; CI/CD</a>
     <a href="#roadmap">Roadmap</a>
+    <div class="lp-m-group">Explore</div>
     <a href="#roi">ROI</a>
     <a href="#pricing">Pricing</a>
     <a href="#faq">FAQ</a>
-  </div>
-  <div class="nav-actions">
-    <a class="nav-btn" href="mailto:hello@testovex.com?subject=Testovex%20Inquiry">Contact Us</a>
-    <a class="nav-btn" href="#beta">Get Started →</a>
+    <div class="lp-m-group">Docs</div>
+    <a href="https://app.testovex.com/docs/steps/">Step reference</a>
+    <a href="https://app.testovex.com/docs/cli/">CLI guide</a>
+    <div class="lp-m-actions">
+      <a class="nav-btn nav-cta" href="#beta">Get started →</a>
+      <a class="lp-m-login" href="https://app.testovex.com/login">Log in</a>
+      <a class="lp-m-login" href="mailto:hello@testovex.com?subject=Testovex%20Inquiry">Contact us</a>
+    </div>
   </div>
 </nav>
 
@@ -959,7 +1109,19 @@
 
   <!-- Right: feature grid -->
   <div class="hero-right">
-    <p class="features-label">What's included in beta</p>
+    <p class="features-label">Watch a test run</p>
+    <div class="lr-card" id="lrCard" aria-label="Animated example of a UI plus API test running">
+      <div class="lr-bar">
+        <div class="lr-dots"><i></i><i></i><i></i></div>
+        <div class="lr-title">Checkout flow <span>· UI + API · Chromium</span></div>
+        <span class="lr-chip" id="lrChip">Running</span>
+      </div>
+      <div class="lr-progress"><i id="lrProg"></i></div>
+      <ul class="lr-steps" id="lrSteps"></ul>
+      <div class="lr-foot"><span class="lr-sum" id="lrSum">Running step by step</span><span>Illustrative example · no code written</span></div>
+    </div>
+    <details class="feat-more">
+      <summary><span class="fm-open">See everything included in the beta (32 features) ▾</span><span class="fm-close">Hide the full feature list ▴</span></summary>
     <div class="feature-grid">
       <div class="feat"><span class="feat-icon">📐</span><span class="feat-content"><span class="feat-label">Blueprint Shift-Left</span><span class="feat-desc">Test cases from a requirement, before the app is built</span></span></div>
       <div class="feat"><span class="feat-icon">🔗</span><span class="feat-content"><span class="feat-label">Generate from URL</span><span class="feat-desc">Paste a page, get a full test suite in minutes</span></span></div>
@@ -994,6 +1156,7 @@
       <div class="feat"><span class="feat-icon">🔁</span><span class="feat-content"><span class="feat-label">Re-run with Same Data</span><span class="feat-desc">Reproduce a failure exactly</span></span></div>
       <div class="feat"><span class="feat-icon">⛔</span><span class="feat-content"><span class="feat-label">Stop on First Fail</span><span class="feat-desc">Skip the remaining rows when one fails</span></span></div>
     </div>
+    </details>
   </div>
 
   <!-- Scroll hint -->
@@ -1076,7 +1239,7 @@
       <div class="demo-eyebrow">New · Blueprint Shift-Left</div>
       <h2 class="demo-title">Test the requirement. <span>Before the app exists.</span></h2>
       <p class="demo-sub">Most testing starts after a feature ships. Blueprint starts at the user story — and tells you the moment the build doesn't match what was actually specified.</p>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:860px;margin:32px auto 0;text-align:left;">
+      <div class="bp-steps" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:860px;margin:32px auto 0;text-align:left;">
         <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px;">
           <div style="width:32px;height:32px;border-radius:8px;background:rgba(99,102,241,0.18);color:#A5B4FC;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-bottom:12px;">1</div>
           <h4 style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.88);margin-bottom:6px;">Paste the requirement</h4>
@@ -1366,6 +1529,94 @@
   .lp-solution-text span { font-size: 13px; color: rgba(255,255,255,0.44); }
 
   /* Feature grid */
+
+  /* ── Generate: UI, API or both ── */
+  .gen-section { padding: 80px 0; background: #0F172A; }
+  .gen-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  .gen-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; }
+  .gen-card.mix { background: linear-gradient(160deg, rgba(79,70,229,0.18), rgba(16,185,129,0.08)); border-color: rgba(129,140,248,0.35); }
+  .gen-head { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+  .gen-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 19px; background: rgba(99,102,241,0.15); }
+  .gen-card h3 { font-size: 17px; font-weight: 700; color: #fff; margin: 0; }
+  .gen-lead { font-size: 13px; color: rgba(255,255,255,0.5); margin: 4px 0 16px; line-height: 1.6; }
+  .gen-list { list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-direction: column; gap: 12px; }
+  .gen-list li { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.55; padding-left: 16px; position: relative; }
+  .gen-list li::before { content: ""; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: #818CF8; }
+  .gen-list li b { color: rgba(255,255,255,0.92); font-weight: 600; }
+  .gen-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+  .gen-note { text-align: center; font-size: 12.5px; color: rgba(255,255,255,0.45); margin: 26px auto 0; max-width: 760px; line-height: 1.6; }
+
+  /* ── Impressive v1: live run, org dashboard demo, step previews ── */
+  .lr-card { background: linear-gradient(180deg, rgba(15,23,42,0.92), rgba(15,23,42,0.78)); border: 1px solid rgba(129,140,248,0.28); border-radius: 16px; box-shadow: 0 24px 60px rgba(2,6,23,0.55), 0 0 0 1px rgba(255,255,255,0.03) inset; overflow: hidden; margin-bottom: 14px; }
+  .lr-bar { display: flex; align-items: center; gap: 10px; padding: 11px 14px; border-bottom: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.03); }
+  .lr-dots { display: flex; gap: 6px; } .lr-dots i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.18); display: block; }
+  .lr-dots i:nth-child(1){background:#F87171} .lr-dots i:nth-child(2){background:#FBBF24} .lr-dots i:nth-child(3){background:#34D399}
+  .lr-title { font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.85); flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .lr-title span { color: rgba(255,255,255,0.4); font-weight: 500; }
+  .lr-chip { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; background: rgba(99,102,241,0.18); color: #A5B4FC; border: 1px solid rgba(99,102,241,0.3); display: inline-flex; align-items: center; gap: 6px; transition: all .25s; }
+  .lr-chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: lrPulse 1s infinite; }
+  .lr-card.done .lr-chip { background: rgba(16,185,129,0.15); color: #6EE7B7; border-color: rgba(16,185,129,0.35); }
+  .lr-card.done .lr-chip::before { animation: none; }
+  @keyframes lrPulse { 50% { opacity: .3; } }
+  .lr-progress { height: 2px; background: rgba(255,255,255,0.06); } .lr-progress i { display: block; height: 100%; width: 0; background: linear-gradient(90deg,#6366F1,#34D399); transition: width .5s ease; }
+  .lr-steps { list-style: none; margin: 0; padding: 8px 6px; }
+  .lr-step { display: flex; align-items: center; gap: 10px; padding: 7px 10px; border-radius: 8px; font-size: 12.5px; color: rgba(255,255,255,0.28); transition: color .25s, background .25s; }
+  .lr-step.running { color: #fff; background: rgba(99,102,241,0.12); }
+  .lr-step.done { color: rgba(255,255,255,0.8); }
+  .lr-ico { width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0; border: 1.5px solid rgba(255,255,255,0.18); position: relative; transition: all .25s; }
+  .lr-step.running .lr-ico { border-color: rgba(129,140,248,0.35); border-top-color: #818CF8; animation: lrSpin .7s linear infinite; }
+  .lr-step.done .lr-ico { background: #10B981; border-color: #10B981; }
+  .lr-step.done .lr-ico::after { content: ""; position: absolute; left: 5px; top: 2px; width: 4px; height: 8px; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+  @keyframes lrSpin { to { transform: rotate(360deg); } }
+  .lr-kind { font-size: 9.5px; font-weight: 800; letter-spacing: .06em; padding: 2px 7px; border-radius: 5px; flex-shrink: 0; }
+  .lr-kind.ui { background: rgba(99,102,241,0.18); color: #A5B4FC; } .lr-kind.api { background: rgba(245,158,11,0.16); color: #FCD34D; }
+  .lr-txt { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .lr-txt code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11.5px; color: rgba(255,255,255,0.55); }
+  .lr-ms { font-size: 11px; color: rgba(255,255,255,0.35); font-variant-numeric: tabular-nums; opacity: 0; transition: opacity .25s; } .lr-step.done .lr-ms { opacity: 1; }
+  .lr-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px; border-top: 1px solid rgba(255,255,255,0.07); font-size: 11.5px; color: rgba(255,255,255,0.45); background: rgba(255,255,255,0.02); flex-wrap: wrap; }
+  .lr-sum { color: rgba(255,255,255,0.3); transition: color .3s; } .lr-card.done .lr-sum { color: #6EE7B7; font-weight: 600; }
+  .feat-more { margin-top: 2px; } .feat-more > summary { cursor: pointer; list-style: none; font-size: 12.5px; font-weight: 600; color: #A5B4FC; padding: 10px 14px; border: 1px dashed rgba(129,140,248,0.35); border-radius: 10px; text-align: center; transition: background .2s; }
+  .feat-more > summary::-webkit-details-marker { display: none; } .feat-more > summary:hover { background: rgba(99,102,241,0.08); }
+  .feat-more[open] > summary { margin-bottom: 10px; } .feat-more[open] > summary .fm-open { display: none; } .feat-more:not([open]) > summary .fm-close { display: none; }
+
+  .od-section { padding: 88px 0; background: linear-gradient(180deg,#0A1628 0%,#0F172A 100%); }
+  .od-wrap { background: rgba(15,23,42,0.85); border: 1px solid rgba(129,140,248,0.25); border-radius: 18px; box-shadow: 0 30px 70px rgba(2,6,23,0.55); overflow: hidden; max-width: 980px; margin: 0 auto; }
+  .od-top { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.03); flex-wrap: wrap; }
+  .od-url { font-size: 12px; color: rgba(255,255,255,0.4); flex: 1; min-width: 160px; } .od-demo-tag { font-size: 10.5px; font-weight: 700; padding: 3px 10px; border-radius: 100px; background: rgba(245,158,11,0.14); color: #FCD34D; border: 1px solid rgba(245,158,11,0.3); }
+  .od-tabs { display: flex; gap: 4px; padding: 10px 12px 0; overflow-x: auto; border-bottom: 1px solid rgba(255,255,255,0.07); scrollbar-width: none; } .od-tabs::-webkit-scrollbar { display: none; }
+  .od-tab { font: inherit; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.5); background: none; border: 0; padding: 10px 16px; border-radius: 9px 9px 0 0; cursor: pointer; white-space: nowrap; border-bottom: 2px solid transparent; transition: color .15s, background .15s; }
+  .od-tab:hover { color: #fff; background: rgba(255,255,255,0.05); } .od-tab[aria-selected="true"] { color: #fff; border-bottom-color: #818CF8; background: rgba(99,102,241,0.1); }
+  .od-panel { display: none; padding: 22px; } .od-panel.active { display: block; animation: odIn .35s ease; }
+  @keyframes odIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .od-h { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 2px; } .od-sub { font-size: 12.5px; color: rgba(255,255,255,0.45); margin-bottom: 18px; }
+  .od-tiles { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 18px; }
+  .od-tile { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; } .od-tile small { display: block; font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,0.4); margin-bottom: 6px; }
+  .od-tile b { display: block; font-size: 24px; color: #fff; line-height: 1.1; font-variant-numeric: tabular-nums; } .od-tile em { display: block; font-style: normal; font-size: 11.5px; color: #6EE7B7; margin-top: 4px; } .od-tile em.n { color: rgba(255,255,255,0.4); }
+  .od-two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .od-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 16px; } .od-box h4 { font-size: 12.5px; font-weight: 700; color: rgba(255,255,255,0.85); margin: 0 0 12px; }
+  .od-risk { display: flex; gap: 10px; align-items: flex-start; font-size: 12.5px; color: rgba(255,255,255,0.7); padding: 8px 0; border-top: 1px solid rgba(255,255,255,0.06); } .od-risk:first-of-type { border-top: 0; padding-top: 0; }
+  .od-sev { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; } .od-sev.hi { background: #EF4444; } .od-sev.md { background: #F59E0B; } .od-sev.ok { background: #10B981; }
+  .od-seg { display: flex; height: 12px; border-radius: 100px; overflow: hidden; background: rgba(255,255,255,0.06); margin-bottom: 10px; } .od-seg i { display: block; height: 100%; }
+  .od-leg { display: flex; gap: 14px; font-size: 12px; color: rgba(255,255,255,0.6); flex-wrap: wrap; } .od-leg span::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; background: var(--c); }
+  .od-row { display: grid; grid-template-columns: 1fr 70px 1.4fr; gap: 12px; align-items: center; padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.06); font-size: 13px; color: rgba(255,255,255,0.8); } .od-row:first-of-type { border-top: 0; }
+  .od-row .nm { display: flex; align-items: center; gap: 8px; }
+  .od-bar { height: 8px; border-radius: 100px; background: rgba(255,255,255,0.07); overflow: hidden; } .od-bar > i { display: block; height: 100%; width: 0; border-radius: 100px; background: var(--c,#6366F1); transition: width .9s cubic-bezier(.2,.8,.2,1); }
+  .od-panel.active .od-bar > i { width: var(--w); }
+  .od-fr { display: grid; grid-template-columns: 150px 1fr 40px; gap: 12px; align-items: center; padding: 8px 0; font-size: 12.5px; color: rgba(255,255,255,0.75); } .od-fr b { text-align: right; color: #fff; font-variant-numeric: tabular-nums; }
+  .od-cols { display: flex; align-items: flex-end; gap: 10px; height: 150px; padding: 6px 4px 0; } .od-col { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 6px; height: 100%; font-size: 10.5px; color: rgba(255,255,255,0.4); }
+  .od-col i { width: 100%; max-width: 38px; border-radius: 6px 6px 0 0; background: linear-gradient(180deg,#34D399,#10B981); height: 0; transition: height .9s cubic-bezier(.2,.8,.2,1); } .od-panel.active .od-col i { height: var(--h); }
+  .od-note { font-size: 11.5px; color: rgba(255,255,255,0.4); margin-top: 14px; line-height: 1.6; }
+  .od-foot { text-align: center; max-width: 720px; margin: 22px auto 0; font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+  @media (max-width: 860px) { .od-tiles { grid-template-columns: repeat(2, 1fr); } .od-two { grid-template-columns: 1fr; } .od-row { grid-template-columns: 1fr 56px; } .od-row .od-bar { grid-column: 1 / -1; } .od-fr { grid-template-columns: 110px 1fr 34px; } .od-panel { padding: 16px; } }
+
+  .gp-box { margin: 0 0 16px; padding: 12px 14px; border-radius: 10px; background: rgba(2,6,23,0.55); border: 1px solid rgba(255,255,255,0.08); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11.5px; line-height: 1.9; color: rgba(255,255,255,0.6); }
+  .gp-box .k { display: inline-block; min-width: 34px; font-weight: 800; font-size: 9.5px; letter-spacing: .06em; padding: 1px 6px; border-radius: 4px; margin-right: 8px; text-align: center; } .gp-box .k.ui { background: rgba(99,102,241,0.2); color: #A5B4FC; } .gp-box .k.api { background: rgba(245,158,11,0.18); color: #FCD34D; }
+  .gp-box .ok { color: #34D399; float: right; }
+  @media (prefers-reduced-motion: reduce) { .lr-chip::before, .lr-step.running .lr-ico { animation: none; } .od-panel.active { animation: none; } .od-bar > i, .od-col i { transition: none; } }
+  /* landing highlight for deep links */
+  .lp-feature-card:target, .gen-card:target { border-color: rgba(129,140,248,0.75) !important; box-shadow: 0 0 0 3px rgba(99,102,241,0.25), 0 18px 40px rgba(2,6,23,0.45); animation: tgtPulse 1.6s ease 1; }
+  @keyframes tgtPulse { 0% { box-shadow: 0 0 0 0 rgba(99,102,241,0.6); } 100% { box-shadow: 0 0 0 3px rgba(99,102,241,0.25), 0 18px 40px rgba(2,6,23,0.45); } }
+  .lp-feature-card:target, .gen-card:target { opacity: 1 !important; transform: none !important; }
   .lp-features { padding: 80px 0; background: #0A1628; }
   .lp-features-header { text-align: center; margin-bottom: 48px; }
   .lp-features-header .lp-sec-sub { margin: 0 auto; }
@@ -1622,6 +1873,17 @@
     .lp-stats-inner { gap: 16px; }
     .lp-stat-val { font-size: 22px; }
   }
+
+  /* ── Mobile safety net ── */
+  .gen-grid, .lp-feature-grid { grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
+  @media (max-width: 720px) { .bp-steps { grid-template-columns: 1fr !important; } }
+  @media (max-width: 560px) {
+    .lp-av-metrics, .roi-mini-grid { grid-template-columns: 1fr 1fr; }
+    .od-fr { grid-template-columns: 90px 1fr 32px; }
+    .lp-cta-inp { min-width: 0; width: 100%; }
+    .od-url { min-width: 0; }
+  }
+  img, svg, video { max-width: 100%; }
 </style>
 
 <!-- ── Stats bar ── -->
@@ -1675,18 +1937,18 @@
       <p class="lp-sec-sub">Full platform — web automation, analytics, version history, team collaboration, security, and CLI — from day one.</p>
     </div>
     <div class="lp-feature-grid">
-      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">📐</div><h3>Blueprint Shift-Left</h3><p>Generate test cases from a requirement — user story or acceptance criteria — before the app is even built. When the feature ships, one click binds every test to the live app and flags anything the build is missing.</p><span class="lp-ftag blue">New · Test Before Build</span></div>
-      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🔗</div><h3>Generate from URL</h3><p>Paste any live page and get a working test suite back in minutes. Quick Scan is instant and rule-based; AI Generate uses your own AI provider key for smarter, context-aware test cases.</p><span class="lp-ftag teal">New · Minutes, Not Hours</span></div>
-      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🔌</div><h3>API Testing</h3><p>Paste a curl command, import a Postman collection, or upload an OpenAPI / Swagger file (3.x or 2.0, JSON or YAML). Testovex generates the test cases and assertions, including negative cases from your schema, and you review them before saving. API and web steps can sit in the same test case, so one test covers the full flow.</p><span class="lp-ftag blue">New · No Code</span></div>
-      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(139,92,246,0.15)">🗃️</div><h3>Test Data Management</h3><p>Run one test against many sets of data. Upload a CSV, Excel or JSON file, or let Testovex generate fresh emails, names, passwords and dates on every run. Results are grouped per row, secret columns are masked, and you can re-run with exactly the same data to reproduce a failure.</p><span class="lp-ftag blue">New · Data-Driven, No Code</span></div>
+      <div class="lp-feature-card lp-fade" id="f-blueprint"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">📐</div><h3>Blueprint Shift-Left</h3><p>Generate test cases from a requirement — user story or acceptance criteria — before the app is even built. When the feature ships, one click binds every test to the live app and flags anything the build is missing.</p><span class="lp-ftag blue">New · Test Before Build</span></div>
+      <div class="lp-feature-card lp-fade" id="f-url"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🔗</div><h3>Generate from URL</h3><p>Paste any live page and get a working test suite back in minutes. Quick Scan is instant and rule-based; AI Generate uses your own AI provider key for smarter, context-aware test cases.</p><span class="lp-ftag teal">New · Minutes, Not Hours</span></div>
+      <div class="lp-feature-card lp-fade" id="f-api"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🔌</div><h3>API Testing</h3><p>Paste a curl command, import a Postman collection, or upload an OpenAPI / Swagger file (3.x or 2.0, JSON or YAML). Testovex generates the test cases and assertions, including negative cases from your schema, and you review them before saving. API and web steps can sit in the same test case, so one test covers the full flow.</p><span class="lp-ftag blue">New · No Code</span></div>
+      <div class="lp-feature-card lp-fade" id="f-data"><div class="lp-feature-icon" style="background:rgba(139,92,246,0.15)">🗃️</div><h3>Test Data Management</h3><p>Run one test against many sets of data. Upload a CSV, Excel or JSON file, or let Testovex generate fresh emails, names, passwords and dates on every run. Results are grouped per row, secret columns are masked, and you can re-run with exactly the same data to reproduce a failure.</p><span class="lp-ftag blue">New · Data-Driven, No Code</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🎯</div><h3>Smart Locator Engine</h3><p>9 strategies captured per element during recording. Test ID → ARIA → Label → Placeholder → CSS → XPath. Optimal runs first, fallbacks fire automatically. Tests survive UI changes without manual fixes.</p><span class="lp-ftag blue">95%+ Success Rate</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">📊</div><h3>Analytics &amp; Reports</h3><p>Built-in dashboards across 7, 14, 30, and 90-day windows. Pass rate trends, failure analysis, run volume, and per-project health — visible across every org and project in one place.</p><span class="lp-ftag teal">Platform-Level View</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(245,158,11,0.12)">🔐</div><h3>4-Layer Variable Management</h3><p>Org → Project → Suite/Test → Runtime resolution. Lock org-level credentials so no test author can ever read or override them. Execution profiles switch environments at run time.</p><span class="lp-ftag blue">Enterprise-Grade Governance</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(255,255,255,0.06)">💻</div><h3>CLI Support</h3><p>Run any test, suite, or full project from the terminal. Hook Testovex into any pipeline, script, or cron job you already have — today. No CI/CD connector needed to get started.</p><span class="lp-ftag gray">Pipeline-Ready</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">⚡</div><h3>Parallel Execution</h3><p>Up to 5 concurrent suite runs across the platform. Multiple teams and projects trigger runs simultaneously with no bottlenecks. BullMQ-powered async queue — the API never blocks.</p><span class="lp-ftag blue">5 Concurrent Runs</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🏗️</div><h3>Reusable Components</h3><p>Package shared test logic once — login flows, navigation sequences, common assertions — and call them from any test across the entire org. Change it once, it updates everywhere.</p><span class="lp-ftag teal">Write Once, Use Everywhere</span></div>
-      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🏛️</div><h3>Org Component Library</h3><p>Stop rebuilding Login in every project. Any project editor can submit a component; an org admin reviews and approves it. Every team then runs the published version, and each new version is reviewed with a diff and a count of the tests it will affect. In-use components can only be deprecated, and every action is audited.</p><span class="lp-ftag blue">New · Central Governance, Shared by All</span></div>
-      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🧭</div><h3>Org Dashboards for Leaders &amp; Project Managers</h3><p>Answers without a spreadsheet. An executive scorecard shows pass rate, activity and top risks, compared with the previous period. A project view covers suites, environments, failing and flaky tests and recent runs. Further views show how fast failures get fixed, the most common causes behind them, which tests are stale or slow, the estimated manual hours automation avoids, and how the shared component library is used. Available to org owners and admins.</p><span class="lp-ftag teal">New · Visibility for Leadership</span></div>
+      <div class="lp-feature-card lp-fade" id="f-library"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🏛️</div><h3>Org Component Library</h3><p>Stop rebuilding Login in every project. Any project editor can submit a component; an org admin reviews and approves it. Every team then runs the published version, and each new version is reviewed with a diff and a count of the tests it will affect. In-use components can only be deprecated, and every action is audited.</p><span class="lp-ftag blue">New · Central Governance, Shared by All</span></div>
+      <div class="lp-feature-card lp-fade" id="f-dashboards"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🧭</div><h3>Org Dashboards for Leaders &amp; Project Managers</h3><p>Answers without a spreadsheet. An executive scorecard shows pass rate, activity and top risks, compared with the previous period. A project view covers suites, environments, failing and flaky tests and recent runs. Further views show how fast failures get fixed, the most common causes behind them, which tests are stale or slow, the estimated manual hours automation avoids, and how the shared component library is used. Available to org owners and admins.</p><span class="lp-ftag teal">New · Visibility for Leadership</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(245,158,11,0.12)">🎬</div><h3>Browser Recorder</h3><p>Record interactions in Chrome, get a stable, runnable test case immediately. Captures 9 locator strategies per element as you click — so tests survive UI changes before they've even run once.</p><span class="lp-ftag gray">Minutes to First Run</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🌊</div><h3>Control Flow Engine</h3><p>While loops, forEach, repeat, if/else/endIf with break and continue support — all without writing code. Build conditional logic and loops visually in the test builder.</p><span class="lp-ftag blue">No-Code Logic</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(255,255,255,0.06)">🗄️</div><h3>Zero External Database</h3><p>Embedded database included — no Postgres, no MySQL, no connection strings to configure. Install, start the server, and you're building automation in minutes. No DBA required.</p><span class="lp-ftag gray">Install &amp; Run</span></div>
@@ -1699,6 +1961,130 @@
 </section>
 
 <!-- ── Recorder ── -->
+<!-- ── Generate: UI, API or both ── -->
+<section class="gen-section" id="generate">
+  <div class="lp-container">
+    <div class="lp-features-header lp-fade">
+      <div class="lp-sec-label">Generate Tests Your Way</div>
+      <div class="lp-sec-title">UI, API, or both in one test case.</div>
+      <p class="lp-sec-sub">Start from a page, a requirement, a curl command, a Postman collection or an OpenAPI file, or build it by hand in the test case builder. No code at any step, and every generated test is a draft you review and approve.</p>
+    </div>
+    <div class="gen-grid">
+      <div class="gen-card lp-fade" id="g-ui">
+        <div class="gen-head"><div class="gen-icon">🖥️</div><h3>No-code UI journeys</h3></div>
+        <p class="gen-lead">Browser tests that run on real Chromium, Firefox and WebKit.</p>
+        <ul class="gen-list">
+          <li><b>From a URL, Quick Scan.</b> Reads the page and drafts tests instantly. Rule-based, no AI key needed.</li>
+          <li><b>From a URL, AI Generate.</b> AI drafts happy-path, negative and validation tests for wider coverage.</li>
+          <li><b>From a requirement.</b> Paste a user story and AI drafts the test cases before the app exists. Bind them to the live app when it ships.</li>
+          <li><b>Or record it.</b> Click through your app in Chrome and get a stable test.</li>
+          <li><b>Or build it by hand.</b> Add steps one by one in the test case builder: 80+ step types, no code.</li>
+        </ul>
+        <div class="gp-box"><span class="k ui">UI</span>navigate /login<br><span class="k ui">UI</span>fill email {{user_email}}<br><span class="k ui">UI</span>click "Sign in"<br><span class="k ui">UI</span>assert "Dashboard" visible <span class="ok">✓</span></div>
+        <div class="gen-tags"><span class="lp-ftag blue">Quick Scan</span><span class="lp-ftag teal">AI Generate</span><span class="lp-ftag blue">Blueprint</span></div>
+      </div>
+      <div class="gen-card lp-fade" id="g-api">
+        <div class="gen-head"><div class="gen-icon">🔌</div><h3>No-code API checks</h3></div>
+        <p class="gen-lead">REST tests with status, body and JSON-path assertions.</p>
+        <ul class="gen-list">
+          <li><b>From a curl command.</b> Paste it, review the request, get a test.</li>
+          <li><b>From a Postman collection.</b> Pick the requests you want; environments are supported.</li>
+          <li><b>From an OpenAPI / Swagger file.</b> 3.x or 2.0, JSON or YAML, including negative cases from your schema.</li>
+          <li><b>Or build it by hand.</b> Add a request and assertions step by step in the test case builder, no code.</li>
+          <li><b>Send and see.</b> Fire a request from the editor and inspect the real response before writing assertions.</li>
+        </ul>
+        <div class="gp-box"><span class="k api">API</span>POST {{baseUrl}}/orders<br><span class="k api">API</span>assert status = 201<br><span class="k api">API</span>assert $.id exists<br><span class="k api">API</span>assert $.items[*].paid = true <span class="ok">✓</span></div>
+        <div class="gen-tags"><span class="lp-ftag blue">curl</span><span class="lp-ftag blue">Postman</span><span class="lp-ftag blue">OpenAPI</span><span class="lp-ftag gray">Add-on · free in beta</span></div>
+      </div>
+      <div class="gen-card mix lp-fade" id="g-mix">
+        <div class="gen-head"><div class="gen-icon">🔀</div><h3>No-code full-stack journeys</h3></div>
+        <p class="gen-lead">One test case that covers the screen and the service behind it.</p>
+        <ul class="gen-list">
+          <li><b>Build it by hand.</b> In the test case builder, add API steps to a UI test, or UI steps to an API test, in the same case.</li>
+          <li><b>Shared session.</b> Log in through the UI, then call an API as that user, with the same cookies.</li>
+          <li><b>Chain values.</b> Capture a token or ID from a response and use it in later UI or API steps.</li>
+          <li><b>One place to look.</b> Same suites, runs, reports and CI gate for UI, API and mixed tests.</li>
+        </ul>
+        <div class="gp-box"><span class="k ui">UI</span>log in as {{user_email}}<br><span class="k api">API</span>GET /api/orders (same session)<br><span class="k api">API</span>assert $.items[0].status = "paid"<br><span class="k ui">UI</span>assert "Order confirmed" visible <span class="ok">✓</span></div>
+        <div class="gen-tags"><span class="lp-ftag teal">Hybrid tests</span><span class="lp-ftag gray">Add-on · free in beta</span></div>
+      </div>
+    </div>
+    <p class="gen-note lp-fade">AI features use your own AI provider key, so your data stays under your account. Generated tests always arrive as drafts. Your QA reviews, runs and approves them before they count.</p>
+  </div>
+</section>
+
+<!-- ── Org Dashboards demo ── -->
+<section class="od-section" id="org-demo">
+  <div class="lp-container">
+    <div class="lp-features-header lp-fade">
+      <div class="lp-sec-label">For Leaders &amp; Project Managers</div>
+      <div class="lp-sec-title">The answers, without the Thursday-night spreadsheet.</div>
+      <p class="lp-sec-sub">Click through the Org Dashboards. Scorecard, release readiness, failure causes and automation value, all scoped to your organization.</p>
+    </div>
+    <div class="od-wrap lp-fade">
+      <div class="od-top"><div class="lr-dots"><i></i><i></i><i></i></div><span class="od-url">app.testovex.com / org-dashboard</span><span class="od-demo-tag">Demo data</span></div>
+      <div class="od-tabs" role="tablist" aria-label="Org dashboard views">
+        <button class="od-tab" role="tab" aria-selected="true" data-od="sc">Scorecard</button>
+        <button class="od-tab" role="tab" aria-selected="false" data-od="rd">Release readiness</button>
+        <button class="od-tab" role="tab" aria-selected="false" data-od="fl">Failures</button>
+        <button class="od-tab" role="tab" aria-selected="false" data-od="va">Automation value</button>
+      </div>
+
+      <div class="od-panel active" id="od-sc" role="tabpanel">
+        <div class="od-h">Executive scorecard</div><div class="od-sub">The whole organization on one page · last 30 days</div>
+        <div class="od-tiles">
+          <div class="od-tile"><small>Pass rate</small><b>94.2%</b><em>▲ 3.1 pts vs previous</em></div>
+          <div class="od-tile"><small>Runs</small><b>1,847</b><em>▲ 12%</em></div>
+          <div class="od-tile"><small>Test executions</small><b>18,430</b><em>▲ 9%</em></div>
+          <div class="od-tile"><small>Manual hours avoided</small><b>487 h</b><em class="n">estimate · 5 min per test</em></div>
+          <div class="od-tile"><small>Automated tests</small><b>326</b><em>+14 in 30 days</em></div>
+        </div>
+        <div class="od-two">
+          <div class="od-box"><h4>Release readiness by project</h4>
+            <div class="od-seg"><i style="width:60%;background:#10B981"></i><i style="width:20%;background:#F59E0B"></i><i style="width:20%;background:#EF4444"></i></div>
+            <div class="od-leg"><span style="--c:#10B981">3 ready</span><span style="--c:#F59E0B">1 at risk</span><span style="--c:#EF4444">1 not ready</span></div>
+          </div>
+          <div class="od-box"><h4>Top risks</h4>
+            <div class="od-risk"><i class="od-sev hi"></i><span>Admin Console is not ready: 42% pass rate</span></div>
+            <div class="od-risk"><i class="od-sev md"></i><span>Payment API at risk: 76% and latest run failed</span></div>
+            <div class="od-risk"><i class="od-sev md"></i><span>3 library approvals waiting 5+ days</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="od-panel" id="od-rd" role="tabpanel">
+        <div class="od-h">Release readiness</div><div class="od-sub">Every project, ready or not, on one list</div>
+        <div class="od-row"><span class="nm"><i class="od-sev ok"></i>Checkout App</span><b>97%</b><div class="od-bar"><i style="--w:97%;--c:#10B981"></i></div></div>
+        <div class="od-row"><span class="nm"><i class="od-sev ok"></i>Auth Service</span><b>94%</b><div class="od-bar"><i style="--w:94%;--c:#10B981"></i></div></div>
+        <div class="od-row"><span class="nm"><i class="od-sev ok"></i>Mobile Web</span><b>91%</b><div class="od-bar"><i style="--w:91%;--c:#10B981"></i></div></div>
+        <div class="od-row"><span class="nm"><i class="od-sev md"></i>Payment API</span><b>76%</b><div class="od-bar"><i style="--w:76%;--c:#F59E0B"></i></div></div>
+        <div class="od-row"><span class="nm"><i class="od-sev hi"></i>Admin Console</span><b>42%</b><div class="od-bar"><i style="--w:42%;--c:#EF4444"></i></div></div>
+        <div class="od-note">Status rule: red when there is no finished run or the pass rate is under 50%. Amber when it is 50 to 79% or the latest finished run failed. Green otherwise.</div>
+      </div>
+
+      <div class="od-panel" id="od-fl" role="tabpanel">
+        <div class="od-h">Failure analysis</div><div class="od-sub">108 failures grouped into the few causes behind them</div>
+        <div class="od-fr"><span>Timeout</span><div class="od-bar"><i style="--w:38%;--c:#818CF8"></i></div><b>38</b></div>
+        <div class="od-fr"><span>Element not found</span><div class="od-bar"><i style="--w:27%;--c:#818CF8"></i></div><b>27</b></div>
+        <div class="od-fr"><span>Assertion mismatch</span><div class="od-bar"><i style="--w:19%;--c:#818CF8"></i></div><b>19</b></div>
+        <div class="od-fr"><span>API error (5xx)</span><div class="od-bar"><i style="--w:11%;--c:#818CF8"></i></div><b>11</b></div>
+        <div class="od-fr"><span>Other</span><div class="od-bar"><i style="--w:5%;--c:#818CF8"></i></div><b>5</b></div>
+        <div class="od-note">Kinds are grouped automatically from the error text and labelled auto-classified. Time to fix shows how long each broken test stays broken.</div>
+      </div>
+
+      <div class="od-panel" id="od-va" role="tabpanel">
+        <div class="od-h">Automation value</div><div class="od-sub">Estimated manual hours avoided per week · 487 h in the last 8 weeks</div>
+        <div class="od-cols">
+          <div class="od-col"><i style="--h:45%"></i>W1</div><div class="od-col"><i style="--h:54%"></i>W2</div><div class="od-col"><i style="--h:62%"></i>W3</div><div class="od-col"><i style="--h:73%"></i>W4</div>
+          <div class="od-col"><i style="--h:69%"></i>W5</div><div class="od-col"><i style="--h:83%"></i>W6</div><div class="od-col"><i style="--h:94%"></i>W7</div><div class="od-col"><i style="--h:100%"></i>W8</div>
+        </div>
+        <div class="od-note">This is an estimate. Your org sets the minutes a person would spend running each test by hand (here 5), and the dashboard shows that assumption next to the result.</div>
+      </div>
+    </div>
+    <p class="od-foot lp-fade">Available to org owners and admins. Also in the dashboards: project view, stability, test health and governance and adoption.</p>
+  </div>
+</section>
+
 <section class="lp-spotlight" id="recorder">
   <div class="lp-container">
     <div class="lp-spotlight-inner">
@@ -2699,5 +3085,137 @@
 
 
 </script>
+
+<script>
+(function () {
+  var nav = document.querySelector('nav');
+  var burger = document.getElementById('navBurger');
+  var panel = document.getElementById('lpMobile');
+  function setOpen(open) {
+    if (!burger || !panel) return;
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (open) panel.removeAttribute('hidden'); else panel.setAttribute('hidden', '');
+  }
+  if (burger) burger.addEventListener('click', function () { setOpen(burger.getAttribute('aria-expanded') !== 'true'); });
+  if (panel) panel.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { setOpen(false); if (document.activeElement && document.activeElement.blur && nav.contains(document.activeElement)) document.activeElement.blur(); } });
+  window.addEventListener('resize', function () { if (window.innerWidth > 960) setOpen(false); });
+
+  // desktop dropdowns: close after a click, reopen on the next hover or keyboard focus
+  document.querySelectorAll('.lp-dd').forEach(function (dd) {
+    dd.addEventListener('click', function (e) {
+      if (e.target.closest('.lp-dd-menu a, a.lp-dd-btn')) {
+        dd.classList.add('closed');
+        if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+      }
+    });
+    dd.addEventListener('mouseleave', function () { dd.classList.remove('closed'); });
+    var btn = dd.querySelector('.lp-dd-btn');
+    if (btn) btn.addEventListener('focus', function () { dd.classList.remove('closed'); });
+  });
+  function onScroll() { if (nav) nav.classList.toggle('scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // highlight the menu item for the section being read
+  var productIds = ['features','demo','recorder','locator','recording','collaboration','cli','roadmap'];
+  var topIds = ['security','roi','pricing','faq'];
+  var extraIds = ['generate','org-demo'];
+  var links = {}; topIds.forEach(function (id) { links[id] = document.querySelector('.lp-nav-links a[data-nav="' + id + '"]'); });
+  var productBtn = document.querySelector('.lp-dd-btn[data-group="product"]');
+  var testingBtn = document.querySelector('.lp-dd-btn[data-group="testing"]');
+  var orgsBtn = document.querySelector('.lp-dd-btn[data-group="orgs"]');
+  function setActive(id) {
+    topIds.forEach(function (k) { if (links[k]) links[k].classList.toggle('active', k === id); });
+    if (productBtn) productBtn.classList.toggle('active', productIds.indexOf(id) !== -1);
+    if (testingBtn) testingBtn.classList.toggle('active', id === 'generate');
+    if (orgsBtn) orgsBtn.classList.toggle('active', id === 'security' || id === 'org-demo');
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) setActive(en.target.id); });
+    }, { rootMargin: '-35% 0px -60% 0px' });
+    productIds.concat(topIds, extraIds).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+  }
+})();
+</script>
+
+<script>
+(function () {
+  // ── hero: live run animation ──
+  var steps = [
+    ['UI','navigate <code>/login</code>',120],
+    ['UI','fill <code>email</code> with {{user_email}}',86],
+    ['UI','click <code>Sign in</code>',214],
+    ['API','GET <code>/api/orders</code> as the same user',142],
+    ['API','assert <code>$.items[0].status</code> = "paid"',9],
+    ['UI','assert <code>Order confirmed</code> is visible',71],
+    ['UI','screenshot <code>after-checkout</code>',48]
+  ];
+  var card = document.getElementById('lrCard'), list = document.getElementById('lrSteps');
+  if (card && list) {
+    var chip = document.getElementById('lrChip'), prog = document.getElementById('lrProg'), sum = document.getElementById('lrSum');
+    var total = steps.reduce(function (a, s) { return a + s[2]; }, 0);
+    steps.forEach(function (st) {
+      var li = document.createElement('li'); li.className = 'lr-step';
+      li.innerHTML = '<span class="lr-ico"></span><span class="lr-kind ' + st[0].toLowerCase() + '">' + st[0] + '</span><span class="lr-txt">' + st[1] + '</span><span class="lr-ms">' + st[2] + ' ms</span>';
+      list.appendChild(li);
+    });
+    var items = list.children, timers = [], visible = false, running = false;
+    function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+    function reset() { timers.forEach(clearTimeout); timers = []; card.classList.remove('done'); chip.textContent = 'Running'; prog.style.width = '0'; sum.textContent = 'Running step by step'; for (var i = 0; i < items.length; i++) items[i].className = 'lr-step'; }
+    function finish() { card.classList.add('done'); chip.textContent = 'Passed'; prog.style.width = '100%'; sum.textContent = steps.length + ' passed · 0 failed · ' + (total / 1000).toFixed(1) + ' s'; for (var i = 0; i < items.length; i++) items[i].className = 'lr-step done'; }
+    function play() {
+      if (running) return; running = true; reset();
+      var t = 500;
+      steps.forEach(function (st, i) {
+        later(function () { items[i].className = 'lr-step running'; prog.style.width = ((i + 0.5) / steps.length * 100) + '%'; }, t);
+        t += 650;
+        later(function () { items[i].className = 'lr-step done'; prog.style.width = ((i + 1) / steps.length * 100) + '%'; }, t);
+      });
+      later(function () { card.classList.add('done'); chip.textContent = 'Passed'; sum.textContent = steps.length + ' passed · 0 failed · ' + (total / 1000).toFixed(1) + ' s'; }, t + 100);
+      later(function () { running = false; if (visible) play(); }, t + 4200);
+    }
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) { finish(); }
+    else if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) { visible = en[0].isIntersecting; if (visible) play(); else { running = false; reset(); } }, { threshold: 0.25 }).observe(card);
+    } else { finish(); }
+  }
+
+  // ── org dashboard demo tabs ──
+  var tabs = document.querySelectorAll('.od-tab');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) { t.setAttribute('aria-selected', t === tab ? 'true' : 'false'); });
+      document.querySelectorAll('.od-panel').forEach(function (p) { p.classList.remove('active'); });
+      var panel = document.getElementById('od-' + tab.getAttribute('data-od'));
+      if (panel) { void panel.offsetWidth; panel.classList.add('active'); }
+    });
+    tab.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      var arr = Array.prototype.slice.call(tabs), i = arr.indexOf(tab);
+      var nxt = arr[(i + (e.key === 'ArrowRight' ? 1 : arr.length - 1)) % arr.length]; nxt.focus(); nxt.click();
+    });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var hero = document.getElementById('emailInput'), tail = document.getElementById('ctaEmailInput');
+  document.querySelectorAll('a.nav-cta, .lp-m-actions a.nav-btn').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = (window.scrollY < 1400 && hero) ? hero : tail;
+      if (!target) return;
+      e.preventDefault();
+      var box = target.closest('form') || target;
+      box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(function () { try { target.focus({ preventScroll: true }); } catch (x) { target.focus(); } }, 450);
+    });
+  });
+})();
+</script>
 </body>
 </html>
+
