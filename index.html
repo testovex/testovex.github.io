@@ -920,6 +920,7 @@
       <a class="lp-dd-btn" href="#features" data-group="product" aria-haspopup="true">Platform <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <div class="lp-dd-menu" role="menu">
         <a href="#features" role="menuitem"><b>All features</b><span>Everything in the beta, at a glance</span></a>
+        <a href="#agents" role="menuitem"><b>AI agents</b><span>Triage, self-healing, Autofix and flaky detection</span></a>
         <a href="#demo" role="menuitem"><b>Demo</b><span>See a real run, start to finish</span></a>
         <a href="#recorder" role="menuitem"><b>Smart recorder</b><span>Click through your app, get a smart-locator test</span></a>
         <a href="#locator" role="menuitem"><b>Smart locator engine</b><span>Smart locators: 9 strategies, tests survive UI change</span></a>
@@ -949,6 +950,7 @@
         <a href="#security" role="menuitem"><b>Security &amp; governance</b><span>Isolation, roles and locked credentials</span></a>
       </div>
     </div>
+    <a href="#agents" data-nav="agents">AI Agents</a>
     <a href="#security" data-nav="security">Security</a>
     <a href="#roi" data-nav="roi">ROI</a>
     <a href="#pricing" data-nav="pricing">Pricing</a>
@@ -984,6 +986,7 @@
     <a href="#security">Security &amp; governance</a>
     <div class="lp-m-group">Platform</div>
     <a href="#features">All features</a>
+    <a href="#agents">AI agents</a>
     <a href="#demo">Demo</a>
     <a href="#recorder">Smart recorder</a>
     <a href="#locator">Smart locator engine</a>
@@ -1617,6 +1620,9 @@
   .lp-feature-card:target, .gen-card:target { border-color: rgba(129,140,248,0.75) !important; box-shadow: 0 0 0 3px rgba(99,102,241,0.25), 0 18px 40px rgba(2,6,23,0.45); animation: tgtPulse 1.6s ease 1; }
   @keyframes tgtPulse { 0% { box-shadow: 0 0 0 0 rgba(99,102,241,0.6); } 100% { box-shadow: 0 0 0 3px rgba(99,102,241,0.25), 0 18px 40px rgba(2,6,23,0.45); } }
   .lp-feature-card:target, .gen-card:target { opacity: 1 !important; transform: none !important; }
+  .lp-agents { padding: 80px 0; background: #0D1B33; }
+  .lp-agents .lp-features-header { text-align: center; margin-bottom: 40px; }
+  .lp-agent-note { text-align: center; font-size: 12.5px; color: rgba(255,255,255,0.4); margin-top: 22px; }
   .lp-features { padding: 80px 0; background: #0A1628; }
   .lp-features-header { text-align: center; margin-bottom: 48px; }
   .lp-features-header .lp-sec-sub { margin: 0 auto; }
@@ -1957,6 +1963,27 @@
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(245,158,11,0.12)">⚡</div><h3>Multi-User Conflict Detection</h3><p>Two engineers editing the same test simultaneously? Testovex detects it the moment either one saves — and presents a clear conflict modal. No silent overwrites. No lost work.</p><span class="lp-ftag gray">Team-Safe Editing</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(139,92,246,0.15)">🎥</div><h3>Run Recording &amp; Diagnostics</h3><p>Every test run is automatically recorded — video, per-step failure screenshots, and a full Playwright trace. Watch the browser session, see exactly which step broke, replay in Trace Viewer.</p><span class="lp-ftag blue">Zero Debug Guesswork</span></div>
     </div>
+  </div>
+</section>
+
+<!-- ── AI Agents ── -->
+<section class="lp-agents" id="agents">
+  <div class="lp-container">
+    <div class="lp-features-header lp-fade">
+      <div class="lp-sec-label">AI Agents</div>
+      <div class="lp-sec-title">When a test breaks, Testovex works out why &mdash; and helps fix it.</div>
+      <p class="lp-sec-sub">Agents run on every test run, inside the platform you already use. No extra setup, no separate tool.</p>
+    </div>
+    <div class="lp-feature-grid">
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🔎</div><h3>Failure Triage</h3><p>Every failed run is sorted automatically: a real product bug, a changed element, a timing problem, or an environment issue. You see the likely cause and the next step on the run itself, with an optional plain-English summary from your own AI key.</p><span class="lp-ftag blue">Live · Know Why It Failed</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🩹</div><h3>Self-Healing</h3><p>When a locator breaks, Testovex looks at the live page, finds the element that best matches, and proposes a replacement with a confidence score. You apply it in one click, or undo it just as fast. Nothing changes until you say so.</p><span class="lp-ftag teal">Live · Suggest, Never Surprise</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(245,158,11,0.12)">🛠️</div><h3>Autofix</h3><p>Switch a project from Suggestion to Autofix mode and Testovex applies the fix, re-runs the test, and keeps it only if it passes. If it still fails, the change is undone automatically. Set at org level, override per project.</p><span class="lp-ftag blue">Live · Fix, Verify, Keep or Undo</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(139,92,246,0.15)">🎲</div><h3>Flaky Test Detection &amp; Quarantine</h3><p>Tests that pass and fail on the same code are scored and flagged, so one unreliable test stops blocking every release. Quarantine them while you fix the cause, and keep your pass rate honest.</p><span class="lp-ftag blue">Live · Trust Your Pass Rate</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🩺</div><h3>Environment Doctor</h3><p>Before a run starts, Testovex checks that your app&rsquo;s URL is actually reachable. If the environment is down, you are warned (or the run is blocked, your choice per org or project) instead of getting a wall of false failures. You can always choose Run anyway.</p><span class="lp-ftag teal">Live · No More False Failures</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(255,255,255,0.06)">⏱️</div><h3>Time Saved</h3><p>See the engineering time the agents gave back: every kept Autofix and every applied heal is counted once, so you can show what the automation is worth.</p><span class="lp-ftag gray">Live · Measured, Not Guessed</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🔒</div><h3>You Stay in Control</h3><p>Agents can be switched off for the whole organization with one setting; when off, nothing runs and the agent screens disappear. Your AI key, your data, and strict separation between organizations.</p><span class="lp-ftag teal">Org-Level Switch</span></div>
+    </div>
+    <p class="lp-agent-note">More agents are on the way. Beta users get them first.</p>
   </div>
 </section>
 
@@ -3119,7 +3146,7 @@
 
   // highlight the menu item for the section being read
   var productIds = ['features','demo','recorder','locator','recording','collaboration','cli','roadmap'];
-  var topIds = ['security','roi','pricing','faq'];
+  var topIds = ['agents','security','roi','pricing','faq'];
   var extraIds = ['generate','org-demo'];
   var links = {}; topIds.forEach(function (id) { links[id] = document.querySelector('.lp-nav-links a[data-nav="' + id + '"]'); });
   var productBtn = document.querySelector('.lp-dd-btn[data-group="product"]');
@@ -3218,4 +3245,5 @@
 </script>
 </body>
 </html>
+
 
