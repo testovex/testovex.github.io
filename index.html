@@ -950,8 +950,21 @@
         <a href="#security" role="menuitem"><b>Security &amp; governance</b><span>Isolation, roles and locked credentials</span></a>
       </div>
     </div>
-    <a href="#agents" data-nav="agents">AI Agents</a>
+    <div class="lp-dd">
+      <a class="lp-dd-btn" href="#agents" data-group="agents" aria-haspopup="true">Agents <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="#agents" role="menuitem"><b>All agents</b><span>What runs on every test run</span></a>
+        <a href="#a-triage" role="menuitem"><b>Failure Triage</b><span>Why each test failed, sorted automatically</span></a>
+        <a href="#a-heal" role="menuitem"><b>Self-Healing</b><span>A new locator proposed from the live page</span></a>
+        <a href="#a-autofix" role="menuitem"><b>Autofix</b><span>Apply, re-run, keep only if it passes</span></a>
+        <a href="#a-flaky" role="menuitem"><b>Flaky detection &amp; quarantine</b><span>Unreliable tests flagged, builds trusted</span></a>
+        <a href="#a-doctor" role="menuitem"><b>Environment Doctor</b><span>Checks your app is up before a run</span></a>
+        <a href="#a-time" role="menuitem"><b>Time Saved</b><span>Hours the agents gave back</span></a>
+        <a href="#a-control" role="menuitem"><b>You stay in control</b><span>Org-level switch, your AI key, isolated data</span></a>
+      </div>
+    </div>
     <a href="#security" data-nav="security">Security</a>
+    <a href="#roadmap" data-nav="roadmap">Roadmap</a>
     <a href="#roi" data-nav="roi">ROI</a>
     <a href="#pricing" data-nav="pricing">Pricing</a>
     <a href="#faq" data-nav="faq">FAQ</a>
@@ -980,13 +993,20 @@
     <a href="#f-data">Data-driven runs</a>
     <a href="#f-blueprint">AI scenarios from requirements</a>
     <a href="#f-url">AI from any URL</a>
+    <div class="lp-m-group">Agents</div>
+    <a href="#agents">All agents</a>
+    <a href="#a-triage">Failure Triage</a>
+    <a href="#a-heal">Self-Healing</a>
+    <a href="#a-autofix">Autofix</a>
+    <a href="#a-flaky">Flaky detection &amp; quarantine</a>
+    <a href="#a-doctor">Environment Doctor</a>
+    <a href="#a-time">Time Saved</a>
     <div class="lp-m-group">Leadership</div>
     <a href="#org-demo">Org dashboards</a>
     <a href="#f-library">Component library</a>
     <a href="#security">Security &amp; governance</a>
     <div class="lp-m-group">Platform</div>
     <a href="#features">All features</a>
-    <a href="#agents">AI agents</a>
     <a href="#demo">Demo</a>
     <a href="#recorder">Smart recorder</a>
     <a href="#locator">Smart locator engine</a>
@@ -1124,7 +1144,7 @@
       <div class="lr-foot"><span class="lr-sum" id="lrSum">Running step by step</span><span>Illustrative example · no code written</span></div>
     </div>
     <details class="feat-more">
-      <summary><span class="fm-open">See everything included in the beta (32 features) ▾</span><span class="fm-close">Hide the full feature list ▴</span></summary>
+      <summary><span class="fm-open">See everything included in the beta (38 features) ▾</span><span class="fm-close">Hide the full feature list ▴</span></summary>
     <div class="feature-grid">
       <div class="feat"><span class="feat-icon">📐</span><span class="feat-content"><span class="feat-label">Blueprint Shift-Left</span><span class="feat-desc">Test cases from a requirement, before the app is built</span></span></div>
       <div class="feat"><span class="feat-icon">🔗</span><span class="feat-content"><span class="feat-label">Generate from URL</span><span class="feat-desc">Paste a page, get a full test suite in minutes</span></span></div>
@@ -1158,6 +1178,12 @@
       <div class="feat"><span class="feat-icon">🎲</span><span class="feat-content"><span class="feat-label">Generated Test Data</span><span class="feat-desc">Fresh emails, names, dates on every run</span></span></div>
       <div class="feat"><span class="feat-icon">🔁</span><span class="feat-content"><span class="feat-label">Re-run with Same Data</span><span class="feat-desc">Reproduce a failure exactly</span></span></div>
       <div class="feat"><span class="feat-icon">⛔</span><span class="feat-content"><span class="feat-label">Stop on First Fail</span><span class="feat-desc">Skip the remaining rows when one fails</span></span></div>
+      <div class="feat"><span class="feat-icon">🔎</span><span class="feat-content"><span class="feat-label">Failure Triage</span><span class="feat-desc">Every failure sorted by likely cause</span></span></div>
+      <div class="feat"><span class="feat-icon">🩹</span><span class="feat-content"><span class="feat-label">Self-Healing</span><span class="feat-desc">Proposes a new locator from the live page</span></span></div>
+      <div class="feat"><span class="feat-icon">🛠️</span><span class="feat-content"><span class="feat-label">Autofix</span><span class="feat-desc">Applies, re-runs, keeps only if it passes</span></span></div>
+      <div class="feat"><span class="feat-icon">🎲</span><span class="feat-content"><span class="feat-label">Flaky Detection &amp; Quarantine</span><span class="feat-desc">Flag unreliable tests, keep builds honest</span></span></div>
+      <div class="feat"><span class="feat-icon">🩺</span><span class="feat-content"><span class="feat-label">Environment Doctor</span><span class="feat-desc">Checks your app is up before a run</span></span></div>
+      <div class="feat"><span class="feat-icon">⏱️</span><span class="feat-content"><span class="feat-label">Time Saved</span><span class="feat-desc">Hours the agents gave back</span></span></div>
     </div>
     </details>
   </div>
@@ -1622,6 +1648,8 @@
   .lp-feature-card:target, .gen-card:target { opacity: 1 !important; transform: none !important; }
   .lp-agents { padding: 80px 0; background: #0D1B33; }
   .lp-agents .lp-features-header { text-align: center; margin-bottom: 40px; }
+  .lp-agents .lp-feature-card { scroll-margin-top: 90px; }
+  .lp-agents .lp-feature-card.agent-hl { background: rgba(99,102,241,0.14); border-color: #818CF8; box-shadow: 0 0 0 2px rgba(129,140,248,0.45), 0 10px 30px rgba(67,56,202,0.25); }
   .lp-agent-note { text-align: center; font-size: 12.5px; color: rgba(255,255,255,0.4); margin-top: 22px; }
   .lp-features { padding: 80px 0; background: #0A1628; }
   .lp-features-header { text-align: center; margin-bottom: 48px; }
@@ -1975,13 +2003,13 @@
       <p class="lp-sec-sub">Agents run on every test run, inside the platform you already use. No extra setup, no separate tool.</p>
     </div>
     <div class="lp-feature-grid">
-      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🔎</div><h3>Failure Triage</h3><p>Every failed run is sorted automatically: a real product bug, a changed element, a timing problem, or an environment issue. You see the likely cause and the next step on the run itself, with an optional plain-English summary from your own AI key.</p><span class="lp-ftag blue">Live · Know Why It Failed</span></div>
-      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🩹</div><h3>Self-Healing</h3><p>When a locator breaks, Testovex looks at the live page, finds the element that best matches, and proposes a replacement with a confidence score. You apply it in one click, or undo it just as fast. Nothing changes until you say so.</p><span class="lp-ftag teal">Live · Suggest, Never Surprise</span></div>
-      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(245,158,11,0.12)">🛠️</div><h3>Autofix</h3><p>Switch a project from Suggestion to Autofix mode and Testovex applies the fix, re-runs the test, and keeps it only if it passes. If it still fails, the change is undone automatically. Set at org level, override per project.</p><span class="lp-ftag blue">Live · Fix, Verify, Keep or Undo</span></div>
-      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(139,92,246,0.15)">🎲</div><h3>Flaky Test Detection &amp; Quarantine</h3><p>Tests that pass and fail on the same code are scored and flagged, so one unreliable test stops blocking every release. Quarantine them while you fix the cause, and keep your pass rate honest.</p><span class="lp-ftag blue">Live · Trust Your Pass Rate</span></div>
-      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🩺</div><h3>Environment Doctor</h3><p>Before a run starts, Testovex checks that your app&rsquo;s URL is actually reachable. If the environment is down, you are warned (or the run is blocked, your choice per org or project) instead of getting a wall of false failures. You can always choose Run anyway.</p><span class="lp-ftag teal">Live · No More False Failures</span></div>
-      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(255,255,255,0.06)">⏱️</div><h3>Time Saved</h3><p>See the engineering time the agents gave back: every kept Autofix and every applied heal is counted once, so you can show what the automation is worth.</p><span class="lp-ftag gray">Live · Measured, Not Guessed</span></div>
-      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🔒</div><h3>You Stay in Control</h3><p>Agents can be switched off for the whole organization with one setting; when off, nothing runs and the agent screens disappear. Your AI key, your data, and strict separation between organizations.</p><span class="lp-ftag teal">Org-Level Switch</span></div>
+      <div class="lp-feature-card lp-fade" id="a-triage"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🔎</div><h3>Failure Triage</h3><p>Every failed run is sorted automatically: a real product bug, a changed element, a timing problem, or an environment issue. You see the likely cause and the next step on the run itself, with an optional plain-English summary from your own AI key.</p><span class="lp-ftag blue">Live · Know Why It Failed</span></div>
+      <div class="lp-feature-card lp-fade" id="a-heal"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🩹</div><h3>Self-Healing</h3><p>When a locator breaks, Testovex looks at the live page, finds the element that best matches, and proposes a replacement with a confidence score. You apply it in one click, or undo it just as fast. Nothing changes until you say so.</p><span class="lp-ftag teal">Live · Suggest, Never Surprise</span></div>
+      <div class="lp-feature-card lp-fade" id="a-autofix"><div class="lp-feature-icon" style="background:rgba(245,158,11,0.12)">🛠️</div><h3>Autofix</h3><p>Switch a project from Suggestion to Autofix mode and Testovex applies the fix, re-runs the test, and keeps it only if it passes. If it still fails, the change is undone automatically. Set at org level, override per project.</p><span class="lp-ftag blue">Live · Fix, Verify, Keep or Undo</span></div>
+      <div class="lp-feature-card lp-fade" id="a-flaky"><div class="lp-feature-icon" style="background:rgba(139,92,246,0.15)">🎲</div><h3>Flaky Test Detection &amp; Quarantine</h3><p>Tests that pass and fail on the same code are scored and flagged, so one unreliable test stops blocking every release. Quarantine them while you fix the cause, and keep your pass rate honest.</p><span class="lp-ftag blue">Live · Trust Your Pass Rate</span></div>
+      <div class="lp-feature-card lp-fade" id="a-doctor"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🩺</div><h3>Environment Doctor</h3><p>Before a run starts, Testovex checks that your app&rsquo;s URL is actually reachable. If the environment is down, you are warned (or the run is blocked, your choice per org or project) instead of getting a wall of false failures. You can always choose Run anyway.</p><span class="lp-ftag teal">Live · No More False Failures</span></div>
+      <div class="lp-feature-card lp-fade" id="a-time"><div class="lp-feature-icon" style="background:rgba(255,255,255,0.06)">⏱️</div><h3>Time Saved</h3><p>See the engineering time the agents gave back: every kept Autofix and every applied heal is counted once, so you can show what the automation is worth.</p><span class="lp-ftag gray">Live · Measured, Not Guessed</span></div>
+      <div class="lp-feature-card lp-fade" id="a-control"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🔒</div><h3>You Stay in Control</h3><p>Agents can be switched off for the whole organization with one setting; when off, nothing runs and the agent screens disappear. Your AI key, your data, and strict separation between organizations.</p><span class="lp-ftag teal">Org-Level Switch</span></div>
     </div>
     <p class="lp-agent-note">More agents are on the way. Beta users get them first.</p>
   </div>
@@ -2405,9 +2433,7 @@
       <p class="lp-sec-sub">Beta users get early access to every feature as it ships — and a direct line to the roadmap.</p>
     </div>
     <div class="lp-rm-grid">
-      <div class="lp-rm-card lp-fade"><span class="lp-coming">AI Features</span><span class="lp-rm-icon">🔧</span><h4>AI Self-Healing Locators</h4><p>When a locator breaks after a UI change, AI finds the element on the new DOM and repairs the step.</p></div>
-      <div class="lp-rm-card lp-fade"><span class="lp-coming">AI Features</span><span class="lp-rm-icon">🛠️</span><h4>AI Test Maintenance</h4><p>Detects UI changes after a deploy and auto-flags or auto-repairs affected tests before they fail in CI.</p></div>
-      <div class="lp-rm-card lp-fade"><span class="lp-coming">AI Features</span><span class="lp-rm-icon">💬</span><h4>AI Root Cause Analysis</h4><p>"Why did this test fail?" answered in natural language with context — not just a stack trace.</p></div>
+      <div class="lp-rm-card lp-fade"><span class="lp-coming">AI Features</span><span class="lp-rm-icon">🛠️</span><h4>Proactive Test Maintenance</h4><p>Self-Healing and Autofix repair broken locators after a run today. Next: detect UI changes right after a deploy and fix affected tests before they fail in CI.</p></div>
       <div class="lp-rm-card lp-fade"><span class="lp-coming">Testing</span><span class="lp-rm-icon">🔌</span><h4>GraphQL Testing</h4><p>REST API testing is live in beta. GraphQL support is next, so web, REST and GraphQL are covered by one tool.</p></div>
       <div class="lp-rm-card lp-fade"><span class="lp-coming">Testing</span><span class="lp-rm-icon">📱</span><h4>Mobile Automation</h4><p>iOS and Android support. The same ACOE platform extended to mobile teams.</p></div>
       <div class="lp-rm-card lp-fade"><span class="lp-coming">Integrations</span><span class="lp-rm-icon">⚙️</span><h4>CI/CD Deep Integration</h4><p>Native GitHub Actions, Jenkins, and GitLab CI connectors with pipeline templates.</p></div>
@@ -3145,18 +3171,32 @@
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
   // highlight the menu item for the section being read
-  var productIds = ['features','demo','recorder','locator','recording','collaboration','cli','roadmap'];
-  var topIds = ['agents','security','roi','pricing','faq'];
+  var productIds = ['features','demo','recorder','locator','recording','collaboration','cli'];
+  /* Agents menu: highlight the selected agent card */
+  (function () {
+    var cards = document.querySelectorAll('.lp-agents .lp-feature-card[id]');
+    function hl(id) { cards.forEach(function (c) { c.classList.toggle('agent-hl', c.id === id); }); }
+    function fromHash() { var h = (location.hash || '').slice(1); hl(/^a-/.test(h) ? h : ''); }
+    document.querySelectorAll('a[href^="#a-"]').forEach(function (a) {
+      a.addEventListener('click', function () { hl(a.getAttribute('href').slice(1)); });
+    });
+    cards.forEach(function (c) { c.addEventListener('click', function () { hl(c.id); }); });
+    window.addEventListener('hashchange', fromHash);
+    fromHash();
+  })();
+  var topIds = ['agents','security','roadmap','roi','pricing','faq'];
   var extraIds = ['generate','org-demo'];
   var links = {}; topIds.forEach(function (id) { links[id] = document.querySelector('.lp-nav-links a[data-nav="' + id + '"]'); });
   var productBtn = document.querySelector('.lp-dd-btn[data-group="product"]');
   var testingBtn = document.querySelector('.lp-dd-btn[data-group="testing"]');
   var orgsBtn = document.querySelector('.lp-dd-btn[data-group="orgs"]');
+  var agentsBtn = document.querySelector('.lp-dd-btn[data-group="agents"]');
   function setActive(id) {
     topIds.forEach(function (k) { if (links[k]) links[k].classList.toggle('active', k === id); });
     if (productBtn) productBtn.classList.toggle('active', productIds.indexOf(id) !== -1);
     if (testingBtn) testingBtn.classList.toggle('active', id === 'generate');
     if (orgsBtn) orgsBtn.classList.toggle('active', id === 'security' || id === 'org-demo');
+    if (agentsBtn) agentsBtn.classList.toggle('active', id === 'agents');
   }
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
@@ -3245,5 +3285,3 @@
 </script>
 </body>
 </html>
-
-
