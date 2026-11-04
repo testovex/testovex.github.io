@@ -339,3 +339,15 @@
   window.addEventListener('hashchange', fromHash);
   fromHash();
 })();
+
+/* If someone opens a page with ".html" in the address (old link, bookmark), show the clean address. */
+(function () {
+  try {
+    var h = location.hostname;
+    if (!/^(www\.)?testovex\.com$/.test(h)) return;
+    var path = location.pathname;
+    if (!/\.html$/.test(path)) return;
+    var clean = path.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+    history.replaceState(null, '', clean + location.search + location.hash);
+  } catch (e) { /* address bar stays as is */ }
+})();
