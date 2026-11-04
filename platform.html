@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Platform — Testovex</title>
+  <meta name="description" content="Browser recorder, smart locator engine, run diagnostics, version history and CLI. Everything in the Testovex beta, in one platform." />
+
+  <!-- Open Graph / LinkedIn / Facebook -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://testovex.com/platform.html" />
+  <meta property="og:title"       content="Platform — Testovex" />
+  <meta property="og:description" content="Browser recorder, smart locator engine, run diagnostics, version history and CLI. Everything in the Testovex beta, in one platform." />
+  <meta property="og:image"       content="https://testovex.com/og-image.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name"   content="Testovex" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:site"        content="@testovex" />
+  <meta name="twitter:title"       content="Platform — Testovex" />
+  <meta name="twitter:description" content="Browser recorder, smart locator engine, run diagnostics, version history and CLI. Everything in the Testovex beta, in one platform." />
+  <meta name="twitter:image"       content="https://testovex.com/og-image.png" />
+
+  <link rel="canonical" href="https://testovex.com/platform.html" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+
+<!-- Background -->
+<div class="bg"></div>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <div class="nav-logo-icon">
+      <svg width="28" height="28" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0F172A"/>
+            <stop offset="100%" stop-color="#1A3FAA"/>
+          </linearGradient>
+        </defs>
+        <polygon points="54,24 346,24 376,54 376,218 200,376 24,218 24,54" fill="url(#sg)"/>
+        <polygon points="54,24 346,24 376,54 376,218 200,376 24,218 24,54" fill="none" stroke="#6384D4" stroke-width="4" stroke-opacity="0.6"/>
+        <rect x="125" y="87" width="150" height="50" fill="white"/>
+        <rect x="175" y="137" width="50" height="105" fill="white"/>
+        <circle cx="200" cy="284" r="16" fill="#10B981"/>
+        <polyline points="192,284 198,291 210,275" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="nav-logo-name">Testo<span>vex</span></span>
+  </a>
+  <div class="lp-nav-links" id="lpNavLinks">
+    <div class="lp-dd">
+      <a class="lp-dd-btn active" href="platform.html" aria-haspopup="true">Platform <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="index.html#demo" role="menuitem"><b>See it in action</b><span>Watch a real test run, start to finish</span></a>
+        <a href="platform.html#features" role="menuitem"><b>All features</b><span>Everything in the beta, at a glance</span></a>
+        <a href="platform.html#recorder" role="menuitem"><b>Smart recorder</b><span>Click through your app, get a smart-locator test</span></a>
+        <a href="platform.html#locator" role="menuitem"><b>Smart locator engine</b><span>9 strategies, tests survive UI change</span></a>
+        <a href="platform.html#recording" role="menuitem"><b>Run diagnostics</b><span>Video, screenshots and traces</span></a>
+        <a href="platform.html#collaboration" role="menuitem"><b>Version history</b><span>Rollback and project milestones</span></a>
+        <a href="platform.html#cli" role="menuitem"><b>CLI &amp; CI/CD</b><span>Run from any pipeline</span></a>
+      </div>
+    </div>
+    <div class="lp-dd">
+      <a class="lp-dd-btn" href="agents.html" aria-haspopup="true">AI Agents <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="agents.html#agents" role="menuitem"><b>All agents</b><span>What runs on every test run</span></a>
+        <a href="agents.html#a-triage" role="menuitem"><b>Failure Triage</b><span>Why each test failed, sorted automatically</span></a>
+        <a href="agents.html#a-heal" role="menuitem"><b>Self-Healing</b><span>A new locator proposed from the live page</span></a>
+        <a href="agents.html#a-autofix" role="menuitem"><b>Autofix</b><span>Apply, re-run, keep only if it passes</span></a>
+        <a href="agents.html#a-flaky" role="menuitem"><b>Flaky detection &amp; quarantine</b><span>Unreliable tests flagged, builds trusted</span></a>
+        <a href="agents.html#a-doctor" role="menuitem"><b>Environment Doctor</b><span>Checks your app is up before a run</span></a>
+        <a href="agents.html#a-time" role="menuitem"><b>Time Saved</b><span>Hours the agents gave back</span></a>
+      </div>
+    </div>
+    <div class="lp-dd">
+      <a class="lp-dd-btn" href="coverage.html" aria-haspopup="true">Coverage <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="coverage.html#generate" role="menuitem"><b>Generate your way</b><span>UI, API or both: generate, record or build</span></a>
+        <a href="coverage.html#g-ui" role="menuitem"><b>No-code UI journeys</b><span>Record, generate or build browser flows</span></a>
+        <a href="coverage.html#g-api" role="menuitem"><b>No-code API checks</b><span>curl, Postman or OpenAPI in, tests out</span></a>
+        <a href="coverage.html#g-mix" role="menuitem"><b>Full-stack journeys</b><span>UI + API in one test case</span></a>
+        <a href="coverage.html#f-data" role="menuitem"><b>Data-driven runs</b><span>One flow, many rows: CSV, Excel, JSON or generated</span></a>
+        <a href="coverage.html#f-blueprint" role="menuitem"><b>AI scenarios from requirements</b><span>Blueprint: AI drafts automation from a user story</span></a>
+        <a href="coverage.html#f-url" role="menuitem"><b>AI from any URL</b><span>Paste a page, AI drafts wider coverage</span></a>
+      </div>
+    </div>
+    <div class="lp-dd">
+      <a class="lp-dd-btn" href="leaders.html" aria-haspopup="true">For Leaders <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="leaders.html#org-demo" role="menuitem"><b>Org dashboards</b><span>Release readiness, automation value, failures</span></a>
+        <a href="leaders.html#f-library" role="menuitem"><b>Component library</b><span>One approved flow, shared by every project</span></a>
+        <a href="leaders.html#security" role="menuitem"><b>Security &amp; governance</b><span>Isolation, roles and locked credentials</span></a>
+      </div>
+    </div>
+    <div class="lp-dd">
+      <a class="lp-dd-btn" href="pricing.html" aria-haspopup="true">Pricing <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="pricing.html#pricing" role="menuitem"><b>Plans</b><span>Starter, Team, Business and Enterprise</span></a>
+        <a href="pricing.html#roi" role="menuitem"><b>ROI calculator</b><span>What your QA team's time is worth</span></a>
+      </div>
+    </div>
+    <div class="lp-dd">
+      <a class="lp-dd-btn" href="roadmap.html" aria-haspopup="true">Roadmap &amp; FAQ <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="roadmap.html#roadmap" role="menuitem"><b>Roadmap</b><span>What is coming after beta</span></a>
+        <a href="roadmap.html#faq" role="menuitem"><b>FAQ</b><span>Questions QA leaders and security teams ask</span></a>
+        <a href="https://app.testovex.com/docs/steps/" role="menuitem"><b>Step reference</b><span>Every step type, with examples</span></a>
+        <a href="https://app.testovex.com/docs/cli/" role="menuitem"><b>CLI guide</b><span>Install, run, rerun and CI gating</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-actions">
+    <a class="nav-login" href="https://app.testovex.com/login">Log in</a>
+    <a class="nav-btn nav-contact" href="mailto:hello@testovex.com?subject=Testovex%20Inquiry">Contact us</a>
+    <a class="nav-btn nav-cta" href="#beta">Get started <span aria-hidden="true">→</span></a>
+    <button type="button" class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="lpMobile">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="lp-mobile" id="lpMobile" hidden>
+    <div class="lp-m-group">Platform</div>
+    <a href="index.html#demo">See it in action</a>
+    <a href="platform.html#features">All features</a>
+    <a href="platform.html#recorder">Smart recorder</a>
+    <a href="platform.html#locator">Smart locator engine</a>
+    <a href="platform.html#recording">Run diagnostics</a>
+    <a href="platform.html#collaboration">Version history</a>
+    <a href="platform.html#cli">CLI &amp; CI/CD</a>
+    <div class="lp-m-group">AI Agents</div>
+    <a href="agents.html#agents">All agents</a>
+    <a href="agents.html#a-triage">Failure Triage</a>
+    <a href="agents.html#a-heal">Self-Healing</a>
+    <a href="agents.html#a-autofix">Autofix</a>
+    <a href="agents.html#a-flaky">Flaky detection &amp; quarantine</a>
+    <a href="agents.html#a-doctor">Environment Doctor</a>
+    <a href="agents.html#a-time">Time Saved</a>
+    <div class="lp-m-group">Coverage</div>
+    <a href="coverage.html#generate">Generate your way</a>
+    <a href="coverage.html#g-ui">No-code UI journeys</a>
+    <a href="coverage.html#g-api">No-code API checks</a>
+    <a href="coverage.html#g-mix">Full-stack journeys</a>
+    <a href="coverage.html#f-data">Data-driven runs</a>
+    <a href="coverage.html#f-blueprint">AI scenarios from requirements</a>
+    <a href="coverage.html#f-url">AI from any URL</a>
+    <div class="lp-m-group">For Leaders</div>
+    <a href="leaders.html#org-demo">Org dashboards</a>
+    <a href="leaders.html#f-library">Component library</a>
+    <a href="leaders.html#security">Security &amp; governance</a>
+    <div class="lp-m-group">More</div>
+    <a href="pricing.html#pricing">Pricing</a>
+    <a href="pricing.html#roi">ROI calculator</a>
+    <a href="roadmap.html#roadmap">Roadmap</a>
+    <a href="roadmap.html#faq">FAQ</a>
+    <a href="https://app.testovex.com/docs/steps/">Step reference</a>
+    <a href="https://app.testovex.com/docs/cli/">CLI guide</a>
+    <div class="lp-m-actions">
+      <a class="nav-btn nav-cta" href="#beta">Get started →</a>
+      <a class="lp-m-login" href="https://app.testovex.com/login">Log in</a>
+      <a class="lp-m-login" href="mailto:hello@testovex.com?subject=Testovex%20Inquiry">Contact us</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section class="pg-hero">
+  <div class="pg-crumb"><a href="index.html">Home</a> / Platform</div>
+  <h1>One platform to build, run and trust your automation.</h1>
+  <p>Record in Chrome, run on real browsers, and get video, screenshots and traces on every failure. No scripting.</p>
+  <div class="pg-actions">
+    <a class="pg-btn primary" href="#beta">Get early access →</a>
+    <a class="pg-btn ghost" href="#features">See all features</a>
+  </div>
+</section>
+
+<section class="lp-features" id="features">
+  <div class="lp-container">
+    <div class="lp-features-header lp-fade">
+      <div class="lp-sec-label">What's In The Beta</div>
+      <div class="lp-sec-title">Everything you need to ship reliable automation today.</div>
+      <p class="lp-sec-sub">Full platform — web automation, analytics, version history, team collaboration, security, and CLI — from day one.</p>
+    </div>
+    <div class="lp-feature-grid">
+      <div class="lp-feature-card lp-fade" id="f-blueprint"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">📐</div><h3>Blueprint Shift-Left</h3><p>Generate test cases from a requirement — user story or acceptance criteria — before the app is even built. When the feature ships, one click binds every test to the live app and flags anything the build is missing.</p><span class="lp-ftag blue">New · Test Before Build</span></div>
+      <div class="lp-feature-card lp-fade" id="f-url"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🔗</div><h3>Generate from URL</h3><p>Paste any live page and get a working test suite back in minutes. Quick Scan is instant and rule-based; AI Generate uses your own AI provider key for smarter, context-aware test cases.</p><span class="lp-ftag teal">New · Minutes, Not Hours</span></div>
+      <div class="lp-feature-card lp-fade" id="f-api"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🔌</div><h3>API Testing</h3><p>Paste a curl command, import a Postman collection, or upload an OpenAPI / Swagger file (3.x or 2.0, JSON or YAML). Testovex generates the test cases and assertions, including negative cases from your schema, and you review them before saving. API and web steps can sit in the same test case, so one test covers the full flow.</p><span class="lp-ftag blue">New · No Code</span></div>
+      <div class="lp-feature-card lp-fade" id="f-data"><div class="lp-feature-icon" style="background:rgba(139,92,246,0.15)">🗃️</div><h3>Test Data Management</h3><p>Run one test against many sets of data. Upload a CSV, Excel or JSON file, or let Testovex generate fresh emails, names, passwords and dates on every run. Results are grouped per row, secret columns are masked, and you can re-run with exactly the same data to reproduce a failure.</p><span class="lp-ftag blue">New · Data-Driven, No Code</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🎯</div><h3>Smart Locator Engine</h3><p>9 strategies captured per element during recording. Test ID → ARIA → Label → Placeholder → CSS → XPath. Optimal runs first, fallbacks fire automatically. Tests survive UI changes without manual fixes.</p><span class="lp-ftag blue">95%+ Success Rate</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">📊</div><h3>Analytics &amp; Reports</h3><p>Built-in dashboards across 7, 14, 30, and 90-day windows. Pass rate trends, failure analysis, run volume, and per-project health — visible across every org and project in one place.</p><span class="lp-ftag teal">Platform-Level View</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(245,158,11,0.12)">🔐</div><h3>4-Layer Variable Management</h3><p>Org → Project → Suite/Test → Runtime resolution. Lock org-level credentials so no test author can ever read or override them. Execution profiles switch environments at run time.</p><span class="lp-ftag blue">Enterprise-Grade Governance</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(255,255,255,0.06)">💻</div><h3>CLI Support</h3><p>Run any test, suite, or full project from the terminal. Hook Testovex into any pipeline, script, or cron job you already have — today. No CI/CD connector needed to get started.</p><span class="lp-ftag gray">Pipeline-Ready</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">⚡</div><h3>Parallel Execution</h3><p>Up to 5 concurrent suite runs across the platform. Multiple teams and projects trigger runs simultaneously with no bottlenecks. BullMQ-powered async queue — the API never blocks.</p><span class="lp-ftag blue">5 Concurrent Runs</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🏗️</div><h3>Reusable Components</h3><p>Package shared test logic once — login flows, navigation sequences, common assertions — and call them from any test across the entire org. Change it once, it updates everywhere.</p><span class="lp-ftag teal">Write Once, Use Everywhere</span></div>
+      <div class="lp-feature-card lp-fade" id="f-library"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🏛️</div><h3>Org Component Library</h3><p>Stop rebuilding Login in every project. Any project editor can submit a component; an org admin reviews and approves it. Every team then runs the published version, and each new version is reviewed with a diff and a count of the tests it will affect. In-use components can only be deprecated, and every action is audited.</p><span class="lp-ftag blue">New · Central Governance, Shared by All</span></div>
+      <div class="lp-feature-card lp-fade" id="f-dashboards"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🧭</div><h3>Org Dashboards for Leaders &amp; Project Managers</h3><p>Answers without a spreadsheet. An executive scorecard shows pass rate, activity and top risks, compared with the previous period. A project view covers suites, environments, failing and flaky tests and recent runs. Further views show how fast failures get fixed, the most common causes behind them, which tests are stale or slow, the estimated manual hours automation avoids, and how the shared component library is used. Available to org owners and admins.</p><span class="lp-ftag teal">New · Visibility for Leadership</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(245,158,11,0.12)">🎬</div><h3>Browser Recorder</h3><p>Record interactions in Chrome, get a stable, runnable test case immediately. Captures 9 locator strategies per element as you click — so tests survive UI changes before they've even run once.</p><span class="lp-ftag gray">Minutes to First Run</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🌊</div><h3>Control Flow Engine</h3><p>While loops, forEach, repeat, if/else/endIf with break and continue support — all without writing code. Build conditional logic and loops visually in the test builder.</p><span class="lp-ftag blue">No-Code Logic</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(255,255,255,0.06)">🗄️</div><h3>Zero External Database</h3><p>Embedded database included — no Postgres, no MySQL, no connection strings to configure. Install, start the server, and you're building automation in minutes. No DBA required.</p><span class="lp-ftag gray">Install &amp; Run</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(139,92,246,0.15)">📜</div><h3>Version History</h3><p>Every save auto-snapshots the full state — across test cases, components, suites, and objects. See exactly what changed, who changed it, and when. Restore any prior version in one click.</p><span class="lp-ftag blue">50-Version Rollback</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🏁</div><h3>Project Milestones</h3><p>Commit the state of your entire project — all test cases, components, suites, and objects — as a named snapshot. Move forward confidently. Restore the whole project to any milestone in one click.</p><span class="lp-ftag teal">Cross-Entity Commit</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(245,158,11,0.12)">⚡</div><h3>Multi-User Conflict Detection</h3><p>Two engineers editing the same test simultaneously? Testovex detects it the moment either one saves — and presents a clear conflict modal. No silent overwrites. No lost work.</p><span class="lp-ftag gray">Team-Safe Editing</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(139,92,246,0.15)">🎥</div><h3>Run Recording &amp; Diagnostics</h3><p>Every test run is automatically recorded — video, per-step failure screenshots, and a full Playwright trace. Watch the browser session, see exactly which step broke, replay in Trace Viewer.</p><span class="lp-ftag blue">Zero Debug Guesswork</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="screenshots-section" id="screenshots">
+
+  <div class="section-eyebrow">Product Preview</div>
+  <h2 class="section-title">See Testovex in action</h2>
+  <p class="section-sub">Built for real enterprise teams — every feature you need to run test automation at scale.</p>
+
+  <div class="screenshots-grid">
+
+    <!-- Screenshot 1: Test Builder -->
+    <div class="ss-card">
+      <div class="ss-chrome">
+        <span class="ss-dot ss-dot-r"></span>
+        <span class="ss-dot ss-dot-y"></span>
+        <span class="ss-dot ss-dot-g"></span>
+        <span class="ss-url">app.testovex.com / test-builder</span>
+      </div>
+      <div class="ss-img">
+        <!-- Animated test builder mockup -->
+        <div class="mock-ui">
+          <div class="mock-sidebar">
+            <div class="mock-nav-item" style="height:14px;margin-bottom:8px;background:rgba(255,255,255,0.07)"></div>
+            <div class="mock-nav-item active"></div>
+            <div class="mock-nav-item"></div>
+            <div class="mock-nav-item"></div>
+            <div class="mock-nav-item"></div>
+            <div class="mock-nav-item" style="margin-top:auto;background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.2)"></div>
+          </div>
+          <div class="mock-main">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+              <div style="height:10px;width:120px;background:rgba(255,255,255,0.1);border-radius:3px"></div>
+              <div style="height:18px;width:60px;background:linear-gradient(135deg,#4F46E5,#4338CA);border-radius:4px;margin-left:auto;font-size:8px;color:white;display:flex;align-items:center;justify-content:center;font-weight:700">▶ Run</div>
+            </div>
+            <div class="mock-step-row" style="animation-delay:0.0s">
+              <div class="mock-step-num">1</div>
+              <div class="mock-step-label" style="width:55%"></div>
+              <div class="mock-step-badge">navigate</div>
+            </div>
+            <div class="mock-step-row" style="animation-delay:0.15s">
+              <div class="mock-step-num">2</div>
+              <div class="mock-step-label" style="width:65%"></div>
+              <div class="mock-step-badge">click</div>
+            </div>
+            <div class="mock-step-row" style="animation-delay:0.3s">
+              <div class="mock-step-num">3</div>
+              <div class="mock-step-label" style="width:50%"></div>
+              <div class="mock-step-badge" style="background:rgba(251,191,36,0.15);color:#FCD34D;border-color:rgba(251,191,36,0.2)">type</div>
+            </div>
+            <div class="mock-step-row new-row" style="animation-delay:0.45s">
+              <div class="mock-step-num" style="background:rgba(16,185,129,0.8)">4</div>
+              <div class="mock-step-label" style="width:60%;background:rgba(255,255,255,0.18)"></div>
+              <div class="mock-step-badge">assert</div>
+            </div>
+            <div class="mock-step-row" style="animation-delay:0.6s">
+              <div class="mock-step-num">5</div>
+              <div class="mock-step-label" style="width:45%"></div>
+              <div class="mock-step-badge">click</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ss-body">
+        <span class="ss-tag">No-Code Builder</span>
+        <div class="ss-title">Build tests visually — zero code required</div>
+        <div class="ss-desc">Record your clicks, inputs, and navigation in the browser. Testovex turns them into a structured, maintainable test case automatically.</div>
+      </div>
+    </div>
+
+    <!-- Screenshot 2: Run Results -->
+    <div class="ss-card">
+      <div class="ss-chrome">
+        <span class="ss-dot ss-dot-r"></span>
+        <span class="ss-dot ss-dot-y"></span>
+        <span class="ss-dot ss-dot-g"></span>
+        <span class="ss-url">app.testovex.com / run-results</span>
+      </div>
+      <div class="ss-img">
+        <!-- Animated run results mockup -->
+        <div class="mock-ui" style="padding:12px;gap:8px">
+          <div class="mock-result-grid">
+            <div class="mock-stat pass">
+              <div class="mock-stat-num g">24</div>
+              <div class="mock-stat-lbl">Passed</div>
+            </div>
+            <div class="mock-stat fail">
+              <div class="mock-stat-num r">2</div>
+              <div class="mock-stat-lbl">Failed</div>
+            </div>
+          </div>
+          <div class="mock-video-bar">
+            <div class="mock-play-btn">
+              <svg width="8" height="8" viewBox="0 0 10 10" fill="white"><polygon points="2,1 9,5 2,9"/></svg>
+            </div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.5);white-space:nowrap">Run video · 0:42</div>
+            <div class="mock-timeline"><div class="mock-timeline-fill"></div></div>
+            <div style="font-size:9px;color:rgba(255,255,255,0.3)">0:16</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div style="display:flex;align-items:center;gap:6px;padding:5px 8px;background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.15);border-radius:5px">
+              <div style="width:6px;height:6px;border-radius:50%;background:#10B981;flex-shrink:0"></div>
+              <div style="height:7px;flex:1;background:rgba(255,255,255,0.1);border-radius:2px"></div>
+              <div style="font-size:8px;color:#6EE7B7">12ms</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;padding:5px 8px;background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);border-radius:5px">
+              <div style="width:6px;height:6px;border-radius:50%;background:#EF4444;flex-shrink:0"></div>
+              <div style="height:7px;flex:1;background:rgba(255,255,255,0.1);border-radius:2px"></div>
+              <div style="font-size:8px;color:#FCA5A5">timeout</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;padding:5px 8px;background:rgba(99,102,241,0.07);border:1px solid rgba(99,102,241,0.15);border-radius:5px">
+              <div style="font-size:8px;color:#A5B4FC;white-space:nowrap">🔍 Trace</div>
+              <div style="height:7px;flex:1;background:rgba(255,255,255,0.07);border-radius:2px"></div>
+              <div style="font-size:8px;color:rgba(255,255,255,0.3)">Open →</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ss-body">
+        <span class="ss-tag">Run Diagnostics</span>
+        <div class="ss-title">Every failure recorded — video, screenshots & traces</div>
+        <div class="ss-desc">Never guess why a test failed again. Every run captures a full video, step-level screenshots, and Playwright traces for instant root-cause analysis.</div>
+      </div>
+    </div>
+
+    <!-- Screenshot 3: Analytics -->
+    <div class="ss-card">
+      <div class="ss-chrome">
+        <span class="ss-dot ss-dot-r"></span>
+        <span class="ss-dot ss-dot-y"></span>
+        <span class="ss-dot ss-dot-g"></span>
+        <span class="ss-url">app.testovex.com / analytics</span>
+      </div>
+      <div class="ss-img">
+        <!-- Animated analytics mockup -->
+        <div class="mock-ui" style="padding:12px;gap:8px">
+          <div style="display:flex;gap:6px;margin-bottom:2px">
+            <div style="flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:7px;padding:7px 9px">
+              <div style="font-size:16px;font-weight:900;color:#A5B4FC">98.2%</div>
+              <div style="font-size:8px;color:rgba(255,255,255,0.3);margin-top:1px">Pass rate · 30d</div>
+            </div>
+            <div style="flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:7px;padding:7px 9px">
+              <div style="font-size:16px;font-weight:900;color:#6EE7B7">847</div>
+              <div style="font-size:8px;color:rgba(255,255,255,0.3);margin-top:1px">Runs · 30d</div>
+            </div>
+            <div style="flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:7px;padding:7px 9px">
+              <div style="font-size:16px;font-weight:900;color:#FCD34D">3</div>
+              <div style="font-size:8px;color:rgba(255,255,255,0.3);margin-top:1px">Orgs active</div>
+            </div>
+          </div>
+          <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:7px;padding:8px 10px">
+            <div style="font-size:8px;color:rgba(255,255,255,0.3);margin-bottom:8px">Daily pass rate — last 14 days</div>
+            <div class="mock-chart-bars">
+              <div class="mock-bar lo" style="height:55%;animation-delay:0.0s"></div>
+              <div class="mock-bar" style="height:70%;animation-delay:0.05s"></div>
+              <div class="mock-bar" style="height:75%;animation-delay:0.1s"></div>
+              <div class="mock-bar hi" style="height:90%;animation-delay:0.15s"></div>
+              <div class="mock-bar" style="height:80%;animation-delay:0.2s"></div>
+              <div class="mock-bar lo" style="height:60%;animation-delay:0.25s"></div>
+              <div class="mock-bar" style="height:78%;animation-delay:0.3s"></div>
+              <div class="mock-bar hi" style="height:95%;animation-delay:0.35s"></div>
+              <div class="mock-bar hi" style="height:100%;animation-delay:0.4s"></div>
+              <div class="mock-bar" style="height:88%;animation-delay:0.45s"></div>
+              <div class="mock-bar hi" style="height:96%;animation-delay:0.5s"></div>
+              <div class="mock-bar hi" style="height:98%;animation-delay:0.55s"></div>
+              <div class="mock-bar hi" style="height:99%;animation-delay:0.6s"></div>
+              <div class="mock-bar hi" style="height:100%;animation-delay:0.65s"></div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px">
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0">
+              <div style="width:8px;height:8px;border-radius:2px;background:#6366F1;flex-shrink:0"></div>
+              <div style="font-size:9px;color:rgba(255,255,255,0.5);flex:1">Project Alpha</div>
+              <div style="height:4px;width:70%;background:rgba(99,102,241,0.3);border-radius:2px;overflow:hidden"><div style="height:100%;width:98%;background:#6366F1;border-radius:2px"></div></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;padding:4px 0">
+              <div style="width:8px;height:8px;border-radius:2px;background:#10B981;flex-shrink:0"></div>
+              <div style="font-size:9px;color:rgba(255,255,255,0.5);flex:1">Project Beta</div>
+              <div style="height:4px;width:70%;background:rgba(16,185,129,0.2);border-radius:2px;overflow:hidden"><div style="height:100%;width:82%;background:#10B981;border-radius:2px"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ss-body">
+        <span class="ss-tag">Analytics</span>
+        <div class="ss-title">Cross-org health — every project at a glance</div>
+        <div class="ss-desc">7, 14, 30, and 90-day trend views across all projects and teams. Know which projects are healthy and which need attention — before stakeholders ask.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="lp-spotlight" id="recorder">
+  <div class="lp-container">
+    <div class="lp-spotlight-inner">
+      <div class="lp-fade">
+        <div class="lp-sec-label">Browser Recorder</div>
+        <div class="lp-sec-title">From first click to passing test — in minutes.</div>
+        <p class="lp-sec-sub" style="margin-top:14px">The Testovex recorder isn't just a click capturer. It's the foundation of the Smart Locator Engine — capturing <strong style="color:rgba(255,255,255,0.75)">9 locator strategies per element</strong> as you record, so tests are stable before you even run them for the first time.</p>
+        <div class="lp-rec-flow" style="margin-top:30px">
+          <div class="lp-rec-step"><div class="lp-rec-num n1">1</div><div class="lp-rec-body"><strong>Install the extension &amp; start recording</strong><p>Open your app in Chrome, click Record in the Testovex extension. Every interaction is captured — clicks, form fills, assertions, navigation.</p><span class="lp-rec-time">⏱ Under 60 seconds to start</span></div></div>
+          <div class="lp-rec-step"><div class="lp-rec-num n2">2</div><div class="lp-rec-body"><strong>Semantic capture — not just "click"</strong><p>check, uncheck, doubleClick, rightClick are recorded as distinct step types. iFrame interactions, alert handling, canvas actions — all captured as readable keyword steps.</p></div></div>
+          <div class="lp-rec-step"><div class="lp-rec-num n3">3</div><div class="lp-rec-body"><strong>9 locator strategies saved per element</strong><p>While you click, the engine silently captures Test ID, ARIA Role, Label, Placeholder, CSS, XPath and more. The most stable strategy is pre-selected. Fallbacks are ready.</p><span class="lp-rec-time">✓ Stable from the very first recording</span></div></div>
+          <div class="lp-rec-step"><div class="lp-rec-num n4">4</div><div class="lp-rec-body"><strong>Review, enrich &amp; run</strong><p>Edit steps in the visual builder, add variables, assertions, and control flow. Then run — from the platform or straight from your terminal with the CLI.</p><span class="lp-rec-time">⚡ Authoring to execution in minutes</span></div></div>
+        </div>
+        <div class="lp-rec-badges">
+          <div class="lp-rec-badge"><span>🎬</span> Chrome extension</div>
+          <div class="lp-rec-badge"><span>🔒</span> Session-only auth</div>
+          <div class="lp-rec-badge"><span>📐</span> 15 step categories</div>
+          <div class="lp-rec-badge"><span>🎯</span> 80+ step keywords</div>
+        </div>
+      </div>
+      <div class="lp-fade">
+        <div class="lp-rm">
+          <div class="lp-rm-bar"><div class="lp-dr r"></div><div class="lp-dr y"></div><div class="lp-dr g"></div><div class="lp-rm-ext"><span class="lp-recdot"></span> Testovex Recorder — Recording</div></div>
+          <div class="lp-rm-body">
+            <div class="lp-rm-ttl">Captured Steps — Checkout Flow</div>
+            <div class="lp-rm-step"><span class="lp-rm-snum">1</span><span class="lp-rm-stype nav">navigate</span><div class="lp-rm-sdet"><div class="lp-rm-ssel">https://shop.acme.com/cart</div></div></div>
+            <div class="lp-rm-step"><span class="lp-rm-snum">2</span><span class="lp-rm-stype assert">assertText</span><div class="lp-rm-sdet"><div class="lp-rm-ssel">Cart Summary</div><div class="lp-rm-sval">contains "2 items"</div></div></div>
+            <div class="lp-rm-step"><span class="lp-rm-snum">3</span><span class="lp-rm-stype click">click</span><div class="lp-rm-sdet"><div class="lp-rm-ssel">Proceed to Checkout</div><div class="lp-rm-sval">[data-testid="checkout-btn"]</div></div></div>
+            <div class="lp-rm-step"><span class="lp-rm-snum">4</span><span class="lp-rm-stype type">typeText</span><div class="lp-rm-sdet"><div class="lp-rm-ssel">Email Address field</div><div class="lp-rm-sval">{{user_email}}</div></div></div>
+            <div class="lp-rm-step"><span class="lp-rm-snum">5</span><span class="lp-rm-stype check">check</span><div class="lp-rm-sdet"><div class="lp-rm-ssel">Save billing address</div></div></div>
+            <div class="lp-rm-step"><span class="lp-rm-snum">6</span><span class="lp-rm-stype dbl">dblClick</span><div class="lp-rm-sdet"><div class="lp-rm-ssel">Promo code field</div></div></div>
+            <div class="lp-rm-step"><span class="lp-rm-snum">7</span><span class="lp-rm-stype wait">waitForElement</span><div class="lp-rm-sdet"><div class="lp-rm-ssel">Order total</div><div class="lp-rm-sval">timeout: 5000ms</div></div></div>
+            <div class="lp-rm-loc">
+              <div class="lp-rm-loc-t">🎯 Step 3 — 9 locator strategies captured</div>
+              <div class="lp-rm-loc-r"><span class="lp-rm-loc-b act">ACTIVE</span><span class="lp-rm-loc-v p">testId → checkout-btn</span></div>
+              <div class="lp-rm-loc-r"><span class="lp-rm-loc-b fb">FALLBACK</span><span class="lp-rm-loc-v">role → button "Proceed to Checkout"</span></div>
+              <div class="lp-rm-loc-r"><span class="lp-rm-loc-b fb">FALLBACK</span><span class="lp-rm-loc-v">text → "Proceed to Checkout"</span></div>
+              <div class="lp-rm-loc-r"><span class="lp-rm-loc-b fb">FALLBACK</span><span class="lp-rm-loc-v">css → .checkout-action &gt; button</span></div>
+              <div class="lp-rm-loc-r"><span class="lp-rm-loc-b fb">FALLBACK</span><span class="lp-rm-loc-v">xpath → //button[contains(.,'Checkout')]</span></div>
+            </div>
+            <div class="lp-rm-foot">
+              <div class="lp-rm-stats"><div class="lp-rm-stat"><span>7</span> steps</div><div class="lp-rm-stat"><span>9</span> strategies/el</div><div class="lp-rm-stat"><span>4m 12s</span> recorded</div></div>
+              <div class="lp-rm-run">▶ Run Test</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lp-spotlight alt" id="locator">
+  <div class="lp-container">
+    <div class="lp-spotlight-inner">
+      <div class="lp-fade">
+        <div class="lp-sec-label">Smart Locator Engine</div>
+        <div class="lp-stat-callout"><span class="lp-stat-big">95</span><span class="lp-stat-suffix">%+</span><span class="lp-stat-desc">element resolution<br>success rate</span></div>
+        <div class="lp-sec-title" style="font-size:clamp(20px,2.8vw,30px)">Tests that survive UI changes without manual fixes.</div>
+        <p class="lp-sec-sub" style="margin-top:14px">Most automation tools record one locator and hope it survives the next sprint. Testovex records <strong style="color:rgba(255,255,255,0.72)">nine</strong> and uses whichever one works. When a CSS class renames or a label moves, the engine tries the next strategy in the chain — automatically, without stopping the test.</p>
+        <div class="lp-pill-row">
+          <span class="lp-pill teal">✓ Semantic-first priority</span>
+          <span class="lp-pill blue">✓ Auto-fallback chain</span>
+          <span class="lp-pill gray">✓ XPath as last resort</span>
+        </div>
+      </div>
+      <div class="lp-fade">
+        <div class="lp-strat-tbl">
+          <div class="lp-strat-hdr"><span>#</span><span>Strategy</span><span>Stability</span></div>
+          <div class="lp-strat-row best"><span class="lp-sr-num">1</span><div class="lp-sn">Test ID <small>data-testid · data-cy · data-test</small></div><span class="lp-sstab hi">Highest</span></div>
+          <div class="lp-strat-row best"><span class="lp-sr-num">2</span><div class="lp-sn">ARIA Role <small>Semantic role + accessible name</small></div><span class="lp-sstab hi">Very High</span></div>
+          <div class="lp-strat-row"><span class="lp-sr-num">3</span><div class="lp-sn">Label Text <small>aria-labelledby · &lt;label&gt;</small></div><span class="lp-sstab hi">High</span></div>
+          <div class="lp-strat-row"><span class="lp-sr-num">4</span><div class="lp-sn">Placeholder <small>Input placeholder text</small></div><span class="lp-sstab hi">High</span></div>
+          <div class="lp-strat-row"><span class="lp-sr-num">5</span><div class="lp-sn">Alt Text <small>Image alt attribute</small></div><span class="lp-sstab hi">High</span></div>
+          <div class="lp-strat-row"><span class="lp-sr-num">6</span><div class="lp-sn">Title <small>Title attribute</small></div><span class="lp-sstab md">Med-High</span></div>
+          <div class="lp-strat-row"><span class="lp-sr-num">7</span><div class="lp-sn">Visible Text <small>Exact or partial text content</small></div><span class="lp-sstab md">Medium</span></div>
+          <div class="lp-strat-row"><span class="lp-sr-num">8</span><div class="lp-sn">CSS Selector <small>Class · ID · attribute</small></div><span class="lp-sstab md">Medium</span></div>
+          <div class="lp-strat-row"><span class="lp-sr-num">9</span><div class="lp-sn">XPath <small>DOM path — last resort only</small></div><span class="lp-sstab lo">Lowest</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lp-spotlight">
+  <div class="lp-container">
+    <div class="lp-spotlight-inner rev">
+      <div class="lp-fade">
+        <div class="lp-sec-label">Analytics &amp; Reports</div>
+        <div class="lp-sec-title">The 30-minute morning check becomes a 30-second glance.</div>
+        <p class="lp-sec-sub" style="margin-top:14px">Built-in dashboards across 7, 14, 30, and 90-day windows. Pass rates, failure trends, run volume, and per-project health — aggregated across every org and project on your platform.</p>
+        <div class="lp-feat-list">
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Pass rate trends</strong><span>Is automation getting more or less stable over time?</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Failure analysis</strong><span>Which tests consistently fail? Which are flaky?</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Run volume tracking</strong><span>How active is automation across each team?</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Per-project comparison</strong><span>Spot the problem project before it becomes a release blocker.</span></div></div>
+        </div>
+      </div>
+      <div class="lp-fade">
+        <div class="lp-av">
+          <div class="lp-av-hdr"><span class="lp-av-ttl">QA Health Dashboard</span><div class="lp-tabs"><span class="lp-tab">7d</span><span class="lp-tab">14d</span><span class="lp-tab on">30d</span><span class="lp-tab">90d</span></div></div>
+          <div class="lp-av-body">
+            <div class="lp-av-metrics">
+              <div class="lp-avm"><div class="lp-avm-val">94.2%</div><div class="lp-avm-lbl">Pass Rate</div><div class="lp-avm-trend up">↑ 3.1% vs prev</div></div>
+              <div class="lp-avm"><div class="lp-avm-val">1,847</div><div class="lp-avm-lbl">Total Runs</div><div class="lp-avm-trend up">↑ 12% growth</div></div>
+              <div class="lp-avm"><div class="lp-avm-val">108</div><div class="lp-avm-lbl">Failures</div><div class="lp-avm-trend dn">↓ 18 this week</div></div>
+            </div>
+            <div class="lp-chart" id="lp-chart"></div>
+            <div class="lp-av-projs" style="margin-top:12px">
+              <div class="lp-avp"><span class="lp-avp-n">Checkout App</span><div class="lp-avp-bar"><div class="lp-avp-fill" style="width:97%"></div></div><span class="lp-avp-pct">97%</span></div>
+              <div class="lp-avp"><span class="lp-avp-n">Auth Service</span><div class="lp-avp-bar"><div class="lp-avp-fill" style="width:94%"></div></div><span class="lp-avp-pct">94%</span></div>
+              <div class="lp-avp"><span class="lp-avp-n">Payment API</span><div class="lp-avp-bar"><div class="lp-avp-fill lo" style="width:76%"></div></div><span class="lp-avp-pct" style="color:#EF4444">76%</span></div>
+              <div class="lp-avp"><span class="lp-avp-n">Mobile Web</span><div class="lp-avp-bar"><div class="lp-avp-fill" style="width:91%"></div></div><span class="lp-avp-pct">91%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lp-spotlight alt" id="recording">
+  <div class="lp-container">
+    <div class="lp-spotlight-inner">
+      <div class="lp-fade">
+        <div class="lp-sec-label">Run Recording &amp; Diagnostics</div>
+        <div class="lp-sec-title">Every failure explained. No guesswork, no re-running to reproduce.</div>
+        <p class="lp-sec-sub" style="margin-top:14px">When a test fails in CI at 2 am, you shouldn't need to reproduce it locally. Testovex automatically records every run — video, screenshots, and a full Playwright trace — so the answer is waiting the moment you open the result.</p>
+        <div class="lp-feat-list">
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Automatic video recording</strong><span>Full browser session captured on every run — even headless. Watch exactly what the browser did, frame by frame.</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Inline failure screenshots</strong><span>A screenshot is taken automatically at the exact moment a step fails — inline under the failing step in the results panel.</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Playwright Trace export</strong><span>Download trace.zip and open it in trace.playwright.dev — scrub the timeline, inspect DOM state, and replay every network request.</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Step-level timing</strong><span>Every step shows duration in milliseconds. Spot slow steps, flaky waits, and network bottlenecks at a glance.</span></div></div>
+        </div>
+        <div class="lp-pill-row">
+          <span class="lp-pill blue">✓ No repro needed</span>
+          <span class="lp-pill teal">✓ Works headless</span>
+          <span class="lp-pill gray">✓ Zero config</span>
+        </div>
+      </div>
+      <div class="lp-fade">
+        <div class="lp-rr">
+          <div class="lp-rr-hdr"><div class="lp-rr-dot"></div><span class="lp-rr-ttl">Run Results — Login Flow</span><span class="lp-rr-badge2">1 failed</span></div>
+          <div class="lp-rr-steps2">
+            <div class="lp-rrs"><span style="color:#22C55E;font-size:13px">✓</span><span class="lp-rrs-pb p">pass</span><span>Navigate to https://app.example.com/login</span><span class="lp-rrs-time">124ms</span></div>
+            <div class="lp-rrs"><span style="color:#22C55E;font-size:13px">✓</span><span class="lp-rrs-pb p">pass</span><span>Fill Email input with "user@example.com"</span><span class="lp-rrs-time">89ms</span></div>
+            <div class="lp-rrs"><span style="color:#22C55E;font-size:13px">✓</span><span class="lp-rrs-pb p">pass</span><span>Fill Password input</span><span class="lp-rrs-time">76ms</span></div>
+            <div style="display:flex;flex-direction:column;gap:4px;padding:5px 0">
+              <div class="lp-rrs"><span style="color:#EF4444;font-size:13px">✗</span><span class="lp-rrs-pb f">fail</span><span>Assert Dashboard heading is visible</span><span class="lp-rrs-time">10042ms</span></div>
+              <div class="lp-rrs-ss">📷 <div><div style="font-weight:600">Failure screenshot</div><div style="color:rgba(255,255,255,0.3)">Captured at step failure · click to expand</div></div></div>
+            </div>
+          </div>
+          <div class="lp-rr-rec">
+            <div class="lp-rr-rec-lbl">🎥 Run Recording</div>
+            <div class="lp-rr-vid"><div class="lp-rr-vid-ov"></div><div class="lp-rr-play">▶</div><div class="lp-rr-prog"><div class="lp-rr-prog-bg"><div class="lp-rr-prog-fill"></div></div><div class="lp-rr-prog-t"><span>0:14</span><span>0:37</span></div></div></div>
+            <div class="lp-rr-trace"><span class="lp-rr-trace-lbl">⬇ Playwright Trace</span><span class="lp-rr-trace-dl">Download trace.zip</span><span class="lp-rr-trace-link">→ trace.playwright.dev</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lp-spotlight" id="collaboration">
+  <div class="lp-container">
+    <div class="lp-spotlight-inner rev">
+      <div class="lp-fade">
+        <div class="lp-sec-label">Version History &amp; Milestones</div>
+        <div class="lp-sec-title">Every entity versioned. Every sprint committed. Every mistake undoable.</div>
+        <p class="lp-sec-sub" style="margin-top:14px">Testovex snapshots every test case, component, suite, and object before each save — automatically. See exactly what changed, who changed it, and when. Restore any entity individually or commit your entire project state as a named Milestone.</p>
+        <div class="lp-feat-list">
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Per-entity history — all 4 types</strong><span>Test cases, components, suites, and objects each carry their own 50-version history with before → after diffs.</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Project Milestones</strong><span>Name and commit the current state of your entire project. Restore everything in one click if the next sprint breaks something.</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Before → after change detail</strong><span>History doesn't just say "name changed" — it shows the old value crossed out and the new value highlighted, for every field.</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Conflict detection</strong><span>Two engineers editing the same test simultaneously? The second save surfaces a clear modal — Force Save or Reload. No silent overwrites.</span></div></div>
+        </div>
+      </div>
+      <div class="lp-fade" style="display:flex;flex-direction:column;gap:12px">
+        <div class="lp-hist-panel">
+          <div class="lp-hist-hdr">📜 Version History — Login Flow test case</div>
+          <div class="lp-hist-rows">
+            <div class="lp-hr cur"><span class="lp-vb cur">v8</span><div><div class="lp-hr-meta">Current · Sarah K · 2 min ago</div><div class="lp-hr-detail">Name: <span class="lp-hr-del">Login Test</span> → <span class="lp-hr-add">Login Flow v2</span></div></div></div>
+            <div class="lp-hr"><span class="lp-vb old">v7</span><div><div class="lp-hr-detail">Steps: <span class="lp-hr-del">11 steps</span> → <span class="lp-hr-add">14 steps</span></div><div class="lp-hr-meta" style="font-size:11px;color:rgba(255,255,255,0.35)">James T · 1 hr ago</div></div><button class="lp-hr-btn">Restore</button></div>
+          </div>
+        </div>
+        <div class="lp-ms">
+          <div class="lp-ms-hdr"><div class="lp-ms-ttl">🏁 Sprint 1 Complete — 10 tests automated</div><span class="lp-ms-lt">Latest</span></div>
+          <div class="lp-ms-date">Jun 14 2026 · by Sarah K</div>
+          <div class="lp-ms-pills"><span class="lp-ms-pill in">10 test cases</span><span class="lp-ms-pill pu">4 components</span><span class="lp-ms-pill te">2 suites</span><span class="lp-ms-pill am">6 objects</span></div>
+          <div class="lp-ms-btns"><button class="lp-ms-btn d">Details</button><button class="lp-ms-btn r">Restore Project</button></div>
+        </div>
+        <div class="lp-cf">
+          <div class="lp-cf-hdr"><span>✏️</span><span class="lp-cf-ttl">Login Flow — Test Builder</span><span class="lp-cf-tag">Unsaved changes</span></div>
+          <div class="lp-cf-steps"><div class="lp-cf-step">1 · Navigate to /login</div><div class="lp-cf-step">2 · Fill email field</div><div class="lp-cf-step">3 · Fill password field</div></div>
+          <div class="lp-cf-modal">
+            <div class="lp-cf-mhdr">⚠️ Edit conflict detected</div>
+            <div class="lp-cf-mtxt"><strong>James T</strong> saved this test case while you were editing.<br>Your changes are still here — choose how to proceed.</div>
+            <div class="lp-cf-mbtns"><button class="lp-cf-mbtn rl">↩ Reload Their Version</button><button class="lp-cf-mbtn fs">⚡ Force Save Mine</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lp-cli" id="cli">
+  <div class="lp-container">
+    <div class="lp-cli-inner">
+      <div class="lp-fade">
+        <div class="lp-term">
+          <div class="lp-term-bar"><div class="lp-dr r"></div><div class="lp-dr y"></div><div class="lp-dr g"></div><span class="lp-term-ttl">testovex CLI</span></div>
+          <div class="lp-term-body">
+            <div class="lp-tl"><span class="lp-tco"># Authenticate with your Testovex server</span></div>
+            <div class="lp-tl"><span class="lp-tp">$</span><span class="lp-tc"> testovex login --email qa@acme.com</span></div>
+            <div class="lp-tl"><span class="lp-tpa">✓ Logged in as qa@acme.com → Acme Corp</span></div>
+            <div class="lp-tb"></div>
+            <div class="lp-tl"><span class="lp-tco"># List your projects</span></div>
+            <div class="lp-tl"><span class="lp-tp">$</span><span class="lp-tc"> testovex projects</span></div>
+            <div class="lp-tl"><span class="lp-ti">checkout-app</span><span class="lp-to">  https://checkout.acme.com</span></div>
+            <div class="lp-tl"><span class="lp-ti">auth-service</span><span class="lp-to">   https://auth.acme.com</span></div>
+            <div class="lp-tb"></div>
+            <div class="lp-tl"><span class="lp-tco"># Run smoke suite and wait for results</span></div>
+            <div class="lp-tl"><span class="lp-tp">$</span><span class="lp-tc"> testovex run --suite smoke-suite --wait</span></div>
+            <div class="lp-tl"><span class="lp-to">  Running tests…</span></div>
+            <div class="lp-tl"><span class="lp-tpa">✅ PASSED &nbsp; 14 passed &nbsp; 0 failed &nbsp; of 14</span></div>
+            <div class="lp-tb"></div>
+            <div class="lp-tl"><span class="lp-tp">$</span><span class="lp-tc"> testovex whoami</span></div>
+            <div class="lp-tl"><span class="lp-ti">User: </span><span class="lp-tpa">qa@acme.com</span></div>
+            <div class="lp-tl"><span class="lp-ti">Org:  </span><span class="lp-to">Acme Corp (Admin)</span></div>
+            <div class="lp-tl"><span class="lp-tp">$</span><span class="lp-tcur"></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="lp-fade">
+        <div class="lp-sec-label">CLI Support</div>
+        <div class="lp-sec-title">Your pipeline. Your scripts.<br>Testovex fits right in.</div>
+        <p class="lp-sec-sub" style="margin-top:14px">Don't wait for a native CI/CD connector. Hook Testovex into any pipeline, script, or cron job you already have — today. GitHub Actions, Jenkins, GitLab CI, Bitbucket Pipelines — if it can run a shell command, it can run Testovex.</p>
+        <div class="lp-feat-list">
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>testovex login</strong><span>Authenticate, supports multi-org accounts with interactive picker or --org flag for CI</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>testovex run</strong><span>Trigger any suite with --wait to block until complete. Exit code 1 on failure for CI gating.</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>testovex rerun</strong><span>Repeat a run with the same test data to reproduce a failure</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>testovex results</strong><span>Detailed pass/fail output for any run ID, with data-driven rows grouped per test case</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>testovex whoami / logout</strong><span>Session management for shared CI environments</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="beta">
+  <div class="section-eyebrow" style="margin-bottom:12px;">Limited beta access</div>
+  <h2 class="cta-title">Ready to transform your QA team?</h2>
+  <p class="cta-sub">Join the waitlist and be among the first to experience enterprise test automation done right.</p>
+
+  <form class="cta-form" id="ctaForm">
+    <input type="email" id="ctaEmailInput" placeholder="Enter your work email" required autocomplete="email" />
+    <button type="submit">Get Early Access →</button>
+  </form>
+  <p class="cta-note">Free during beta · No credit card required · Unsubscribe anytime</p>
+
+  <div class="cta-success" id="ctaSuccess" style="margin-top: 12px;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+    You're on the list! We'll review and send your invite soon.
+  </div>
+</section>
+
+
+</main>
+
+<footer class="site-footer">
+  <div class="sf-inner">
+    <div class="sf-brand">
+      <a class="sf-logo" href="index.html">Testo<span>vex</span></a>
+      <p>No-code, Playwright-backed test automation for ACOE teams. Record, run and fix tests, with agents that explain every failure.</p>
+      <div class="socials">
+        <a href="https://linkedin.com/company/testovex" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://youtube.com/@testovex" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+    <div class="sf-col">
+      <h5>Product</h5>
+      <a href="platform.html">Platform</a>
+      <a href="agents.html">AI Agents</a>
+      <a href="coverage.html">Coverage</a>
+      <a href="leaders.html">For Leaders</a>
+    </div>
+    <div class="sf-col">
+      <h5>Company</h5>
+      <a href="pricing.html">Pricing</a>
+      <a href="roadmap.html">Roadmap &amp; FAQ</a>
+      <a href="mailto:hello@testovex.com">Contact us</a>
+      <a href="#beta">Join the beta</a>
+    </div>
+    <div class="sf-col">
+      <h5>Resources</h5>
+      <a href="https://app.testovex.com/docs/steps/">Step reference</a>
+      <a href="https://app.testovex.com/docs/cli/">CLI guide</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-of-use.html">Terms of Use</a>
+    </div>
+  </div>
+  <div class="sf-bottom">© 2026 Puneet Kamboj · Testovex. All rights reserved. · <a href="mailto:hello@testovex.com">hello@testovex.com</a></div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page not found — Testovex</title>
+  <meta name="description" content="This page doesn't exist. Head back to Testovex — enterprise test automation for ACOE teams." />
+  <meta name="robots" content="noindex" />
+
+  <link rel="canonical" href="https://testovex.com/" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0F172A;
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Background — same treatment as the main site ── */
+    .bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+    .bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 90% 55% at 50% -5%, #312E81 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 85% 85%, #1E1B8C 0%, transparent 60%);
+    }
+    .bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    /* ── Nav (logo only) ── */
+    nav {
+      position: relative; z-index: 10;
+      height: 60px;
+      display: flex; align-items: center;
+      padding: 0 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon {
+      width: 34px; height: 34px; background: white; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; padding: 3px; flex-shrink: 0;
+    }
+    .nav-logo-name { font-size: 18px; font-weight: 800; color: white; letter-spacing: -0.3px; }
+    .nav-logo-name span { color: #818CF8; }
+
+    /* ── 404 content ── */
+    main {
+      position: relative; z-index: 10;
+      min-height: calc(100vh - 60px);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 48px 24px;
+    }
+    .code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 15px; font-weight: 500; color: #818CF8;
+      background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.3);
+      border-radius: 999px; padding: 6px 18px; margin-bottom: 24px; letter-spacing: 0.02em;
+    }
+    h1 {
+      font-size: clamp(32px, 6vw, 56px); font-weight: 900; letter-spacing: -1.5px;
+      margin-bottom: 14px;
+    }
+    h1 .muted { color: rgba(255,255,255,0.38); }
+    p.sub {
+      font-size: 16px; color: rgba(255,255,255,0.5); max-width: 460px;
+      line-height: 1.6; margin-bottom: 36px;
+    }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .btn {
+      text-decoration: none; white-space: nowrap;
+      padding: 11px 24px; border-radius: 10px; font-size: 14px; font-weight: 700;
+      font-family: inherit; letter-spacing: 0.01em; transition: opacity 0.2s, transform 0.1s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+      color: white; box-shadow: 0 2px 8px rgba(67,56,202,0.45);
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-ghost {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.85);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+
+    @media (max-width: 420px) {
+      nav { padding: 0 20px; }
+      main { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg"></div>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">
+      <svg width="28" height="28" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0F172A"/>
+            <stop offset="100%" stop-color="#1A3FAA"/>
+          </linearGradient>
+        </defs>
+        <polygon points="54,24 346,24 376,54 376,218 200,376 24,218 24,54" fill="url(#sg)"/>
+        <polygon points="54,24 346,24 376,54 376,218 200,376 24,218 24,54" fill="none" stroke="#6384D4" stroke-width="4" stroke-opacity="0.6"/>
+        <rect x="125" y="87" width="150" height="50" fill="white"/>
+        <rect x="175" y="137" width="50" height="105" fill="white"/>
+        <circle cx="200" cy="284" r="16" fill="#10B981"/>
+        <polyline points="192,284 198,291 210,275" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="nav-logo-name">Testo<span>vex</span></span>
+  </a>
+</nav>
+
+<main>
+  <div class="code">404 · assertion failed</div>
+  <h1>This page <span class="muted">didn't pass</span><br/>the test.</h1>
+  <p class="sub">The page you're looking for doesn't exist, moved, or the link's off. Let's get you back somewhere real.</p>
+  <div class="actions">
+    <a class="btn btn-primary" href="/">← Back to home</a>
+    <a class="btn btn-ghost" href="mailto:hello@testovex.com?subject=Broken%20link%20on%20testovex.com">Report a broken link</a>
+  </div>
+</main>
+
+</body>
+</html>

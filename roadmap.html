@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roadmap & FAQ — Testovex</title>
+  <meta name="description" content="What ships after the Testovex beta, and answers to the questions QA leaders and security teams ask first." />
+
+  <!-- Open Graph / LinkedIn / Facebook -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://testovex.com/roadmap.html" />
+  <meta property="og:title"       content="Roadmap & FAQ — Testovex" />
+  <meta property="og:description" content="What ships after the Testovex beta, and answers to the questions QA leaders and security teams ask first." />
+  <meta property="og:image"       content="https://testovex.com/og-image.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name"   content="Testovex" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:site"        content="@testovex" />
+  <meta name="twitter:title"       content="Roadmap & FAQ — Testovex" />
+  <meta name="twitter:description" content="What ships after the Testovex beta, and answers to the questions QA leaders and security teams ask first." />
+  <meta name="twitter:image"       content="https://testovex.com/og-image.png" />
+
+  <link rel="canonical" href="https://testovex.com/roadmap.html" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+
+<!-- Background -->
+<div class="bg"></div>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <div class="nav-logo-icon">
+      <svg width="28" height="28" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0F172A"/>
+            <stop offset="100%" stop-color="#1A3FAA"/>
+          </linearGradient>
+        </defs>
+        <polygon points="54,24 346,24 376,54 376,218 200,376 24,218 24,54" fill="url(#sg)"/>
+        <polygon points="54,24 346,24 376,54 376,218 200,376 24,218 24,54" fill="none" stroke="#6384D4" stroke-width="4" stroke-opacity="0.6"/>
+        <rect x="125" y="87" width="150" height="50" fill="white"/>
+        <rect x="175" y="137" width="50" height="105" fill="white"/>
+        <circle cx="200" cy="284" r="16" fill="#10B981"/>
+        <polyline points="192,284 198,291 210,275" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="nav-logo-name">Testo<span>vex</span></span>
+  </a>
+  <div class="lp-nav-links" id="lpNavLinks">
+    <div class="lp-dd">
+      <a class="lp-dd-btn" href="platform.html" aria-haspopup="true">Platform <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="index.html#demo" role="menuitem"><b>See it in action</b><span>Watch a real test run, start to finish</span></a>
+        <a href="platform.html#features" role="menuitem"><b>All features</b><span>Everything in the beta, at a glance</span></a>
+        <a href="platform.html#recorder" role="menuitem"><b>Smart recorder</b><span>Click through your app, get a smart-locator test</span></a>
+        <a href="platform.html#locator" role="menuitem"><b>Smart locator engine</b><span>9 strategies, tests survive UI change</span></a>
+        <a href="platform.html#recording" role="menuitem"><b>Run diagnostics</b><span>Video, screenshots and traces</span></a>
+        <a href="platform.html#collaboration" role="menuitem"><b>Version history</b><span>Rollback and project milestones</span></a>
+        <a href="platform.html#cli" role="menuitem"><b>CLI &amp; CI/CD</b><span>Run from any pipeline</span></a>
+      </div>
+    </div>
+    <div class="lp-dd">
+      <a class="lp-dd-btn" href="agents.html" aria-haspopup="true">AI Agents <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="agents.html#agents" role="menuitem"><b>All agents</b><span>What runs on every test run</span></a>
+        <a href="agents.html#a-triage" role="menuitem"><b>Failure Triage</b><span>Why each test failed, sorted automatically</span></a>
+        <a href="agents.html#a-heal" role="menuitem"><b>Self-Healing</b><span>A new locator proposed from the live page</span></a>
+        <a href="agents.html#a-autofix" role="menuitem"><b>Autofix</b><span>Apply, re-run, keep only if it passes</span></a>
+        <a href="agents.html#a-flaky" role="menuitem"><b>Flaky detection &amp; quarantine</b><span>Unreliable tests flagged, builds trusted</span></a>
+        <a href="agents.html#a-doctor" role="menuitem"><b>Environment Doctor</b><span>Checks your app is up before a run</span></a>
+        <a href="agents.html#a-time" role="menuitem"><b>Time Saved</b><span>Hours the agents gave back</span></a>
+      </div>
+    </div>
+    <div class="lp-dd">
+      <a class="lp-dd-btn" href="coverage.html" aria-haspopup="true">Coverage <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="coverage.html#generate" role="menuitem"><b>Generate your way</b><span>UI, API or both: generate, record or build</span></a>
+        <a href="coverage.html#g-ui" role="menuitem"><b>No-code UI journeys</b><span>Record, generate or build browser flows</span></a>
+        <a href="coverage.html#g-api" role="menuitem"><b>No-code API checks</b><span>curl, Postman or OpenAPI in, tests out</span></a>
+        <a href="coverage.html#g-mix" role="menuitem"><b>Full-stack journeys</b><span>UI + API in one test case</span></a>
+        <a href="coverage.html#f-data" role="menuitem"><b>Data-driven runs</b><span>One flow, many rows: CSV, Excel, JSON or generated</span></a>
+        <a href="coverage.html#f-blueprint" role="menuitem"><b>AI scenarios from requirements</b><span>Blueprint: AI drafts automation from a user story</span></a>
+        <a href="coverage.html#f-url" role="menuitem"><b>AI from any URL</b><span>Paste a page, AI drafts wider coverage</span></a>
+      </div>
+    </div>
+    <div class="lp-dd">
+      <a class="lp-dd-btn" href="leaders.html" aria-haspopup="true">For Leaders <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="leaders.html#org-demo" role="menuitem"><b>Org dashboards</b><span>Release readiness, automation value, failures</span></a>
+        <a href="leaders.html#f-library" role="menuitem"><b>Component library</b><span>One approved flow, shared by every project</span></a>
+        <a href="leaders.html#security" role="menuitem"><b>Security &amp; governance</b><span>Isolation, roles and locked credentials</span></a>
+      </div>
+    </div>
+    <div class="lp-dd">
+      <a class="lp-dd-btn" href="pricing.html" aria-haspopup="true">Pricing <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="pricing.html#pricing" role="menuitem"><b>Plans</b><span>Starter, Team, Business and Enterprise</span></a>
+        <a href="pricing.html#roi" role="menuitem"><b>ROI calculator</b><span>What your QA team's time is worth</span></a>
+      </div>
+    </div>
+    <div class="lp-dd">
+      <a class="lp-dd-btn active" href="roadmap.html" aria-haspopup="true">Roadmap &amp; FAQ <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="roadmap.html#roadmap" role="menuitem"><b>Roadmap</b><span>What is coming after beta</span></a>
+        <a href="roadmap.html#faq" role="menuitem"><b>FAQ</b><span>Questions QA leaders and security teams ask</span></a>
+        <a href="https://app.testovex.com/docs/steps/" role="menuitem"><b>Step reference</b><span>Every step type, with examples</span></a>
+        <a href="https://app.testovex.com/docs/cli/" role="menuitem"><b>CLI guide</b><span>Install, run, rerun and CI gating</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-actions">
+    <a class="nav-login" href="https://app.testovex.com/login">Log in</a>
+    <a class="nav-btn nav-contact" href="mailto:hello@testovex.com?subject=Testovex%20Inquiry">Contact us</a>
+    <a class="nav-btn nav-cta" href="#beta">Get started <span aria-hidden="true">→</span></a>
+    <button type="button" class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="lpMobile">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="lp-mobile" id="lpMobile" hidden>
+    <div class="lp-m-group">Platform</div>
+    <a href="index.html#demo">See it in action</a>
+    <a href="platform.html#features">All features</a>
+    <a href="platform.html#recorder">Smart recorder</a>
+    <a href="platform.html#locator">Smart locator engine</a>
+    <a href="platform.html#recording">Run diagnostics</a>
+    <a href="platform.html#collaboration">Version history</a>
+    <a href="platform.html#cli">CLI &amp; CI/CD</a>
+    <div class="lp-m-group">AI Agents</div>
+    <a href="agents.html#agents">All agents</a>
+    <a href="agents.html#a-triage">Failure Triage</a>
+    <a href="agents.html#a-heal">Self-Healing</a>
+    <a href="agents.html#a-autofix">Autofix</a>
+    <a href="agents.html#a-flaky">Flaky detection &amp; quarantine</a>
+    <a href="agents.html#a-doctor">Environment Doctor</a>
+    <a href="agents.html#a-time">Time Saved</a>
+    <div class="lp-m-group">Coverage</div>
+    <a href="coverage.html#generate">Generate your way</a>
+    <a href="coverage.html#g-ui">No-code UI journeys</a>
+    <a href="coverage.html#g-api">No-code API checks</a>
+    <a href="coverage.html#g-mix">Full-stack journeys</a>
+    <a href="coverage.html#f-data">Data-driven runs</a>
+    <a href="coverage.html#f-blueprint">AI scenarios from requirements</a>
+    <a href="coverage.html#f-url">AI from any URL</a>
+    <div class="lp-m-group">For Leaders</div>
+    <a href="leaders.html#org-demo">Org dashboards</a>
+    <a href="leaders.html#f-library">Component library</a>
+    <a href="leaders.html#security">Security &amp; governance</a>
+    <div class="lp-m-group">More</div>
+    <a href="pricing.html#pricing">Pricing</a>
+    <a href="pricing.html#roi">ROI calculator</a>
+    <a href="roadmap.html#roadmap">Roadmap</a>
+    <a href="roadmap.html#faq">FAQ</a>
+    <a href="https://app.testovex.com/docs/steps/">Step reference</a>
+    <a href="https://app.testovex.com/docs/cli/">CLI guide</a>
+    <div class="lp-m-actions">
+      <a class="nav-btn nav-cta" href="#beta">Get started →</a>
+      <a class="lp-m-login" href="https://app.testovex.com/login">Log in</a>
+      <a class="lp-m-login" href="mailto:hello@testovex.com?subject=Testovex%20Inquiry">Contact us</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section class="pg-hero">
+  <div class="pg-crumb"><a href="index.html">Home</a> / Roadmap &amp; FAQ</div>
+  <h1>Where Testovex is going, and the questions we hear most.</h1>
+  <p>Beta users get early access to every feature as it ships, and a direct line to the roadmap.</p>
+  <div class="pg-actions">
+    <a class="pg-btn primary" href="#beta">Get early access →</a>
+    <a class="pg-btn ghost" href="#faq">Jump to the FAQ</a>
+  </div>
+</section>
+
+<section class="lp-roadmap" id="roadmap">
+  <div class="lp-container">
+    <div class="lp-rm-hdr lp-fade">
+      <div class="lp-sec-label">Coming After Beta</div>
+      <div class="lp-sec-title">The ACOE platform for your entire engineering stack.</div>
+      <p class="lp-sec-sub">Beta users get early access to every feature as it ships — and a direct line to the roadmap.</p>
+    </div>
+    <div class="lp-rm-grid">
+      <div class="lp-rm-card lp-fade"><span class="lp-coming">AI Features</span><span class="lp-rm-icon">🛠️</span><h4>Proactive Test Maintenance</h4><p>Self-Healing and Autofix repair broken locators after a run today. Next: detect UI changes right after a deploy and fix affected tests before they fail in CI.</p></div>
+      <div class="lp-rm-card lp-fade"><span class="lp-coming">Testing</span><span class="lp-rm-icon">🔌</span><h4>GraphQL Testing</h4><p>REST API testing is live in beta. GraphQL support is next, so web, REST and GraphQL are covered by one tool.</p></div>
+      <div class="lp-rm-card lp-fade"><span class="lp-coming">Testing</span><span class="lp-rm-icon">📱</span><h4>Mobile Automation</h4><p>iOS and Android support. The same ACOE platform extended to mobile teams.</p></div>
+      <div class="lp-rm-card lp-fade"><span class="lp-coming">Integrations</span><span class="lp-rm-icon">⚙️</span><h4>CI/CD Deep Integration</h4><p>Native GitHub Actions, Jenkins, and GitLab CI connectors with pipeline templates.</p></div>
+      <div class="lp-rm-card lp-fade"><span class="lp-coming">Integrations</span><span class="lp-rm-icon">📡</span><h4>Grafana &amp; Splunk</h4><p>Export Testovex analytics into your existing observability stack.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section" id="faq">
+  <style>
+    .faq-section { position: relative; z-index: 10; padding: 72px 48px 80px; border-top: 1px solid rgba(255,255,255,0.07); }
+    .faq-inner { max-width: 760px; margin: 0 auto; }
+    .faq-head { text-align: center; margin-bottom: 36px; }
+    .faq-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #818CF8; margin-bottom: 10px; }
+    .faq-title { font-size: clamp(24px, 2.5vw, 34px); font-weight: 800; letter-spacing: -0.8px; color: #fff; }
+    .faq-item { border: 1px solid rgba(255,255,255,0.09); border-radius: 12px; margin-bottom: 12px; background: rgba(255,255,255,0.03); overflow: hidden; }
+    .faq-item summary { list-style: none; cursor: pointer; padding: 16px 20px; font-size: 15px; font-weight: 600; color: #fff; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; font-size: 22px; font-weight: 400; color: #818CF8; flex-shrink: 0; transition: transform .2s; }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item summary:hover { color: #C7D2FE; }
+    .faq-item p { padding: 0 20px 18px; font-size: 13.5px; color: rgba(255,255,255,0.55); line-height: 1.65; margin: 0; }
+    @media (max-width: 860px) { .faq-section { padding: 48px 24px; } }
+  </style>
+  <div class="faq-inner">
+    <div class="faq-head">
+      <div class="faq-eyebrow">FAQ</div>
+      <div class="faq-title">Questions QA leaders ask</div>
+    </div>
+
+    <details class="faq-item">
+      <summary>Does the app I'm testing need to be reachable over the internet?</summary>
+      <p>For running tests, yes. The Chrome recorder runs in your browser, so it captures tests on any app you can open — including internal, staging, VPN-only, or localhost sites. But test runs execute on Testovex's cloud servers, which reach your app over the public internet. So a VPN-only or private app records fine, but the run can't reach it — point runs at an internet-reachable URL (e.g. a public staging environment). For internal-only apps, Enterprise self-hosted execution runs tests inside your own network.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Is my test data and credentials secure?</summary>
+      <p>Yes. Every organization is fully isolated with role-based access control, and sensitive values live in locked org-level variables that are never exposed in test steps or logs. Each run's artifacts (video, screenshots, traces) are scoped to your org. Enterprise adds SSO/SAML and a self-hosted option.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Do I need to know how to code?</summary>
+      <p>No. QA analysts build tests by clicking through your app with the Chrome recorder. Control flow (loops, if/else), reusable components, hover and iframe handling, and variables are all no-code. Playwright runs it all under the hood — you get the power without writing scripts.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How long until my first test is running?</summary>
+      <p>Minutes. Install the Chrome recorder, click through a flow, and run it. Most teams have a real regression suite live on their first day — and your free founder-led onboarding session gets you there faster.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What happens to pricing after the beta?</summary>
+      <p>Testovex is completely free during beta — no credit card required to join. Beta founders lock in 40% off any paid plan for their first year. You'll get clear advance notice before any plan begins billing; there are no surprise charges.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What if a UI change breaks my tests?</summary>
+      <p>The smart locator engine uses 9 strategies to find elements, so most tests survive UI changes automatically. When something does need attention, fix a reusable component once and every test inherits it — and version history plus milestones let you roll back test state instantly.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Does it fit our existing CI/CD?</summary>
+      <p>Yes. Trigger runs from any pipeline or terminal via the CLI and API, with parallel Playwright execution. Use runs as quality gates so defects are caught before they reach production.</p>
+    </details>
+
+    <div style="text-align:center;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin:34px 0 18px;">For enterprise &amp; security teams</div>
+
+    <details class="faq-item">
+      <summary>Do you support SSO / SAML and centralized user management?</summary>
+      <p>Yes — on the Enterprise plan, Testovex supports SSO/SAML so access is governed by your identity provider, with role-based access control across every organization and project. Provisioning and de-provisioning are centralized, so off-boarding a team member removes their access everywhere at once.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can Testovex run in our own environment or region?</summary>
+      <p>Yes. Enterprise includes a self-hosted deployment option for teams with data-residency, network-isolation, or VPC requirements. For everyone else Testovex is a fully managed cloud service — and either way, your data stays isolated to your organization.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How do you handle data security and security reviews?</summary>
+      <p>Every organization is fully isolated, sensitive values live in locked variables that never appear in logs or test steps, and all traffic is encrypted in transit over TLS. As part of an Enterprise evaluation we'll complete your vendor security questionnaire and walk your team through our security posture.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What compliance standards and certifications do you hold?</summary>
+      <p>Testovex is built to enterprise security best practices — tenant isolation, role-based access control, audit logging, and encryption in transit. As we graduate from beta, formal certifications such as SOC&nbsp;2 are on our roadmap; we're glad to share our current security documentation and complete your compliance questionnaire on request.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Do you provide audit logs and governance controls?</summary>
+      <p>Yes. Business and Enterprise plans include audit logs, advanced RBAC, and org-level governance — a shared reusable-component library and locked organizational standards keep multiple teams consistent, and version history plus milestones capture every change for full traceability.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What SLA and support do enterprise customers get?</summary>
+      <p>Enterprise includes a service-level agreement, priority support, and a dedicated success manager who owns your onboarding and ongoing adoption. Business plans receive priority support, and every plan includes run diagnostics (video, screenshots, and traces) so issues are fast to resolve.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can we sign an MSA / DPA and set custom procurement terms?</summary>
+      <p>Yes. Enterprise supports custom contracts (MSA), a Data Processing Agreement (DPA), a security review, custom integrations, and annual invoicing. Email <a href="mailto:hello@testovex.com" style="color:#818CF8;text-decoration:none;">hello@testovex.com</a> and we'll start the process.</p>
+    </details>
+  </div>
+</section>
+
+<section class="cta-section" id="beta">
+  <div class="section-eyebrow" style="margin-bottom:12px;">Limited beta access</div>
+  <h2 class="cta-title">Ready to transform your QA team?</h2>
+  <p class="cta-sub">Join the waitlist and be among the first to experience enterprise test automation done right.</p>
+
+  <form class="cta-form" id="ctaForm">
+    <input type="email" id="ctaEmailInput" placeholder="Enter your work email" required autocomplete="email" />
+    <button type="submit">Get Early Access →</button>
+  </form>
+  <p class="cta-note">Free during beta · No credit card required · Unsubscribe anytime</p>
+
+  <div class="cta-success" id="ctaSuccess" style="margin-top: 12px;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+    You're on the list! We'll review and send your invite soon.
+  </div>
+</section>
+
+
+</main>
+
+<footer class="site-footer">
+  <div class="sf-inner">
+    <div class="sf-brand">
+      <a class="sf-logo" href="index.html">Testo<span>vex</span></a>
+      <p>No-code, Playwright-backed test automation for ACOE teams. Record, run and fix tests, with agents that explain every failure.</p>
+      <div class="socials">
+        <a href="https://linkedin.com/company/testovex" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://youtube.com/@testovex" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+    <div class="sf-col">
+      <h5>Product</h5>
+      <a href="platform.html">Platform</a>
+      <a href="agents.html">AI Agents</a>
+      <a href="coverage.html">Coverage</a>
+      <a href="leaders.html">For Leaders</a>
+    </div>
+    <div class="sf-col">
+      <h5>Company</h5>
+      <a href="pricing.html">Pricing</a>
+      <a href="roadmap.html">Roadmap &amp; FAQ</a>
+      <a href="mailto:hello@testovex.com">Contact us</a>
+      <a href="#beta">Join the beta</a>
+    </div>
+    <div class="sf-col">
+      <h5>Resources</h5>
+      <a href="https://app.testovex.com/docs/steps/">Step reference</a>
+      <a href="https://app.testovex.com/docs/cli/">CLI guide</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-of-use.html">Terms of Use</a>
+    </div>
+  </div>
+  <div class="sf-bottom">© 2026 Puneet Kamboj · Testovex. All rights reserved. · <a href="mailto:hello@testovex.com">hello@testovex.com</a></div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — Testovex</title>
+  <meta name="description" content="Simple per-organization pricing, free during beta. Plans for small teams to enterprises, plus an ROI calculator." />
+
+  <!-- Open Graph / LinkedIn / Facebook -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://testovex.com/pricing.html" />
+  <meta property="og:title"       content="Pricing — Testovex" />
+  <meta property="og:description" content="Simple per-organization pricing, free during beta. Plans for small teams to enterprises, plus an ROI calculator." />
+  <meta property="og:image"       content="https://testovex.com/og-image.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name"   content="Testovex" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:site"        content="@testovex" />
+  <meta name="twitter:title"       content="Pricing — Testovex" />
+  <meta name="twitter:description" content="Simple per-organization pricing, free during beta. Plans for small teams to enterprises, plus an ROI calculator." />
+  <meta name="twitter:image"       content="https://testovex.com/og-image.png" />
+
+  <link rel="canonical" href="https://testovex.com/pricing.html" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+
+<!-- Background -->
+<div class="bg"></div>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <div class="nav-logo-icon">
+      <svg width="28" height="28" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0F172A"/>
+            <stop offset="100%" stop-color="#1A3FAA"/>
+          </linearGradient>
+        </defs>
+        <polygon points="54,24 346,24 376,54 376,218 200,376 24,218 24,54" fill="url(#sg)"/>
+        <polygon points="54,24 346,24 376,54 376,218 200,376 24,218 24,54" fill="none" stroke="#6384D4" stroke-width="4" stroke-opacity="0.6"/>
+        <rect x="125" y="87" width="150" height="50" fill="white"/>
+        <rect x="175" y="137" width="50" height="105" fill="white"/>
+        <circle cx="200" cy="284" r="16" fill="#10B981"/>
+        <polyline points="192,284 198,291 210,275" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="nav-logo-name">Testo<span>vex</span></span>
+  </a>
+  <div class="lp-nav-links" id="lpNavLinks">
+    <div class="lp-dd">
+      <a class="lp-dd-btn" href="platform.html" aria-haspopup="true">Platform <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="index.html#demo" role="menuitem"><b>See it in action</b><span>Watch a real test run, start to finish</span></a>
+        <a href="platform.html#features" role="menuitem"><b>All features</b><span>Everything in the beta, at a glance</span></a>
+        <a href="platform.html#recorder" role="menuitem"><b>Smart recorder</b><span>Click through your app, get a smart-locator test</span></a>
+        <a href="platform.html#locator" role="menuitem"><b>Smart locator engine</b><span>9 strategies, tests survive UI change</span></a>
+        <a href="platform.html#recording" role="menuitem"><b>Run diagnostics</b><span>Video, screenshots and traces</span></a>
+        <a href="platform.html#collaboration" role="menuitem"><b>Version history</b><span>Rollback and project milestones</span></a>
+        <a href="platform.html#cli" role="menuitem"><b>CLI &amp; CI/CD</b><span>Run from any pipeline</span></a>
+      </div>
+    </div>
+    <div class="lp-dd">
+      <a class="lp-dd-btn" href="agents.html" aria-haspopup="true">AI Agents <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="agents.html#agents" role="menuitem"><b>All agents</b><span>What runs on every test run</span></a>
+        <a href="agents.html#a-triage" role="menuitem"><b>Failure Triage</b><span>Why each test failed, sorted automatically</span></a>
+        <a href="agents.html#a-heal" role="menuitem"><b>Self-Healing</b><span>A new locator proposed from the live page</span></a>
+        <a href="agents.html#a-autofix" role="menuitem"><b>Autofix</b><span>Apply, re-run, keep only if it passes</span></a>
+        <a href="agents.html#a-flaky" role="menuitem"><b>Flaky detection &amp; quarantine</b><span>Unreliable tests flagged, builds trusted</span></a>
+        <a href="agents.html#a-doctor" role="menuitem"><b>Environment Doctor</b><span>Checks your app is up before a run</span></a>
+        <a href="agents.html#a-time" role="menuitem"><b>Time Saved</b><span>Hours the agents gave back</span></a>
+      </div>
+    </div>
+    <div class="lp-dd">
+      <a class="lp-dd-btn" href="coverage.html" aria-haspopup="true">Coverage <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="coverage.html#generate" role="menuitem"><b>Generate your way</b><span>UI, API or both: generate, record or build</span></a>
+        <a href="coverage.html#g-ui" role="menuitem"><b>No-code UI journeys</b><span>Record, generate or build browser flows</span></a>
+        <a href="coverage.html#g-api" role="menuitem"><b>No-code API checks</b><span>curl, Postman or OpenAPI in, tests out</span></a>
+        <a href="coverage.html#g-mix" role="menuitem"><b>Full-stack journeys</b><span>UI + API in one test case</span></a>
+        <a href="coverage.html#f-data" role="menuitem"><b>Data-driven runs</b><span>One flow, many rows: CSV, Excel, JSON or generated</span></a>
+        <a href="coverage.html#f-blueprint" role="menuitem"><b>AI scenarios from requirements</b><span>Blueprint: AI drafts automation from a user story</span></a>
+        <a href="coverage.html#f-url" role="menuitem"><b>AI from any URL</b><span>Paste a page, AI drafts wider coverage</span></a>
+      </div>
+    </div>
+    <div class="lp-dd">
+      <a class="lp-dd-btn" href="leaders.html" aria-haspopup="true">For Leaders <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="leaders.html#org-demo" role="menuitem"><b>Org dashboards</b><span>Release readiness, automation value, failures</span></a>
+        <a href="leaders.html#f-library" role="menuitem"><b>Component library</b><span>One approved flow, shared by every project</span></a>
+        <a href="leaders.html#security" role="menuitem"><b>Security &amp; governance</b><span>Isolation, roles and locked credentials</span></a>
+      </div>
+    </div>
+    <div class="lp-dd">
+      <a class="lp-dd-btn active" href="pricing.html" aria-haspopup="true">Pricing <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="pricing.html#pricing" role="menuitem"><b>Plans</b><span>Starter, Team, Business and Enterprise</span></a>
+        <a href="pricing.html#roi" role="menuitem"><b>ROI calculator</b><span>What your QA team's time is worth</span></a>
+      </div>
+    </div>
+    <div class="lp-dd">
+      <a class="lp-dd-btn" href="roadmap.html" aria-haspopup="true">Roadmap &amp; FAQ <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="lp-dd-menu" role="menu">
+        <a href="roadmap.html#roadmap" role="menuitem"><b>Roadmap</b><span>What is coming after beta</span></a>
+        <a href="roadmap.html#faq" role="menuitem"><b>FAQ</b><span>Questions QA leaders and security teams ask</span></a>
+        <a href="https://app.testovex.com/docs/steps/" role="menuitem"><b>Step reference</b><span>Every step type, with examples</span></a>
+        <a href="https://app.testovex.com/docs/cli/" role="menuitem"><b>CLI guide</b><span>Install, run, rerun and CI gating</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-actions">
+    <a class="nav-login" href="https://app.testovex.com/login">Log in</a>
+    <a class="nav-btn nav-contact" href="mailto:hello@testovex.com?subject=Testovex%20Inquiry">Contact us</a>
+    <a class="nav-btn nav-cta" href="#beta">Get started <span aria-hidden="true">→</span></a>
+    <button type="button" class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="lpMobile">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="lp-mobile" id="lpMobile" hidden>
+    <div class="lp-m-group">Platform</div>
+    <a href="index.html#demo">See it in action</a>
+    <a href="platform.html#features">All features</a>
+    <a href="platform.html#recorder">Smart recorder</a>
+    <a href="platform.html#locator">Smart locator engine</a>
+    <a href="platform.html#recording">Run diagnostics</a>
+    <a href="platform.html#collaboration">Version history</a>
+    <a href="platform.html#cli">CLI &amp; CI/CD</a>
+    <div class="lp-m-group">AI Agents</div>
+    <a href="agents.html#agents">All agents</a>
+    <a href="agents.html#a-triage">Failure Triage</a>
+    <a href="agents.html#a-heal">Self-Healing</a>
+    <a href="agents.html#a-autofix">Autofix</a>
+    <a href="agents.html#a-flaky">Flaky detection &amp; quarantine</a>
+    <a href="agents.html#a-doctor">Environment Doctor</a>
+    <a href="agents.html#a-time">Time Saved</a>
+    <div class="lp-m-group">Coverage</div>
+    <a href="coverage.html#generate">Generate your way</a>
+    <a href="coverage.html#g-ui">No-code UI journeys</a>
+    <a href="coverage.html#g-api">No-code API checks</a>
+    <a href="coverage.html#g-mix">Full-stack journeys</a>
+    <a href="coverage.html#f-data">Data-driven runs</a>
+    <a href="coverage.html#f-blueprint">AI scenarios from requirements</a>
+    <a href="coverage.html#f-url">AI from any URL</a>
+    <div class="lp-m-group">For Leaders</div>
+    <a href="leaders.html#org-demo">Org dashboards</a>
+    <a href="leaders.html#f-library">Component library</a>
+    <a href="leaders.html#security">Security &amp; governance</a>
+    <div class="lp-m-group">More</div>
+    <a href="pricing.html#pricing">Pricing</a>
+    <a href="pricing.html#roi">ROI calculator</a>
+    <a href="roadmap.html#roadmap">Roadmap</a>
+    <a href="roadmap.html#faq">FAQ</a>
+    <a href="https://app.testovex.com/docs/steps/">Step reference</a>
+    <a href="https://app.testovex.com/docs/cli/">CLI guide</a>
+    <div class="lp-m-actions">
+      <a class="nav-btn nav-cta" href="#beta">Get started →</a>
+      <a class="lp-m-login" href="https://app.testovex.com/login">Log in</a>
+      <a class="lp-m-login" href="mailto:hello@testovex.com?subject=Testovex%20Inquiry">Contact us</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section class="pg-hero">
+  <div class="pg-crumb"><a href="index.html">Home</a> / Pricing</div>
+  <h1>Plans for every size of QA team.</h1>
+  <p>Pay per organization, with no per-seat surprises. Free for all beta users, and beta founders lock in 40% off their first year.</p>
+  <div class="pg-actions">
+    <a class="pg-btn primary" href="#beta">Get early access →</a>
+    <a class="pg-btn ghost" href="#roi">Estimate your ROI</a>
+  </div>
+</section>
+
+<section class="pr-section" id="pricing">
+  <style>
+    .pr-section { position: relative; z-index: 10; padding: 72px 48px 80px; border-top: 1px solid rgba(255,255,255,0.07); }
+    .pr-inner { max-width: 1160px; margin: 0 auto; }
+    .pr-head { text-align: center; margin-bottom: 8px; }
+    .pr-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #818CF8; margin-bottom: 10px; }
+    .pr-title { font-size: clamp(24px, 2.5vw, 36px); font-weight: 800; letter-spacing: -0.8px; color: #fff; }
+    .pr-title span { color: #818CF8; }
+    .pr-sub { font-size: 15px; color: rgba(255,255,255,0.5); margin-top: 12px; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .pr-subhero { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 6px; }
+    .pr-founding { max-width: 720px; margin: 22px auto 8px; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; text-align: center; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 14px; padding: 14px 20px; }
+    .pr-founding .pr-pill { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #0F172A; background: #6EE7B7; padding: 3px 10px; border-radius: 999px; }
+    .pr-founding .pr-ftxt { font-size: 14px; color: #D1FAE5; }
+    .pr-founding .pr-ftxt b { color: #fff; font-weight: 700; }
+    .pr-toggle-row { display: flex; align-items: center; justify-content: center; margin: 26px 0 40px; }
+    .pr-seg { display: inline-flex; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; padding: 4px; gap: 4px; flex-wrap: wrap; justify-content: center; }
+    .pr-seg-btn { font-family: inherit; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.55); background: transparent; border: none; cursor: pointer; padding: 8px 16px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; transition: background .2s, color .2s; white-space: nowrap; }
+    .pr-seg-btn:hover { color: rgba(255,255,255,0.85); }
+    .pr-seg-btn.active { background: #4F46E5; color: #fff; }
+    .pr-seg-save { font-size: 10.5px; font-weight: 700; color: #6EE7B7; }
+    .pr-seg-btn.active .pr-seg-save { color: #C7FBE4; }
+    .pr-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    @media (max-width: 980px) { .pr-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .pr-grid { grid-template-columns: 1fr; } }
+    .pr-card { background: rgba(30,41,59,0.55); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 26px 22px; display: flex; flex-direction: column; }
+    .pr-card.featured { border: 2px solid #6366F1; background: rgba(49,46,129,0.35); }
+    .pr-card-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #C7D2FE; background: rgba(99,102,241,0.25); padding: 4px 10px; border-radius: 999px; margin-bottom: 12px; align-self: flex-start; }
+    .pr-card-name { font-size: 18px; font-weight: 700; }
+    .pr-card-tag { font-size: 12.5px; color: rgba(255,255,255,0.5); margin-top: 4px; min-height: 34px; }
+    .pr-price { display: flex; align-items: baseline; gap: 6px; margin: 16px 0 4px; }
+    .pr-price .pr-amt { font-size: 34px; font-weight: 800; letter-spacing: -1px; }
+    .pr-price .pr-per { font-size: 13px; color: rgba(255,255,255,0.45); }
+    .pr-billed { font-size: 12px; color: rgba(129,140,248,0.85); min-height: 18px; margin-bottom: 18px; }
+    .pr-btn { display: block; text-align: center; font-size: 14px; font-weight: 600; padding: 11px; border-radius: 10px; text-decoration: none; margin-bottom: 20px; cursor: pointer; }
+    .pr-btn-primary { background: #4F46E5; color: #fff; }
+    .pr-btn-ghost { background: transparent; color: #C7D2FE; border: 1px solid rgba(255,255,255,0.15); }
+    .pr-feats { list-style: none; font-size: 13px; line-height: 1.15; display: flex; flex-direction: column; gap: 11px; }
+    .pr-feats li { display: flex; align-items: flex-start; gap: 8px; color: rgba(255,255,255,0.75); }
+    .pr-feats li svg { flex-shrink: 0; margin-top: 1px; }
+    .pr-feats .pr-secline { color: rgba(255,255,255,0.4); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+    .pr-card-addon { position: relative; cursor: help; outline: none; }
+    .pr-card-addon-info { display: inline-block; margin-left: 4px; color: #818CF8; font-weight: 700; }
+    .pr-card-addon-tip { display: none; position: absolute; left: 0; right: 0; bottom: calc(100% + 8px); z-index: 20; background: #1E1B4B; border: 1px solid rgba(129,140,248,0.5); border-radius: 10px; padding: 12px 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.45); font-size: 12px; line-height: 1.4; font-weight: 500; color: rgba(255,255,255,0.85); text-align: left; }
+    .pr-card-addon-tip b { display: block; color: #fff; font-size: 12.5px; margin-bottom: 6px; }
+    .pr-card-addon-row { display: block; margin-top: 4px; }
+    .pr-card-addon-foot { display: block; margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.12); color: #A5B4FC; }
+    .pr-card-addon:hover .pr-card-addon-tip, .pr-card-addon:focus .pr-card-addon-tip, .pr-card-addon:focus-within .pr-card-addon-tip { display: block; }
+    .pr-card-addon { margin-top: auto; padding-top: 16px; border-top: 1px dashed rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: space-between; gap: 8px; text-decoration: none; font-size: 12.5px; }
+    .pr-card .pr-feats { margin-bottom: 18px; }
+    .pr-card-addon-label { color: rgba(255,255,255,0.75); font-weight: 600; }
+    .pr-card-addon-val { color: #A5B4FC; font-weight: 700; white-space: nowrap; }
+    .pr-card-addon:hover .pr-card-addon-label { color: #fff; }
+    .pr-note { text-align: center; font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 40px; }
+    .pr-note a { color: #818CF8; text-decoration: none; }
+    @media (max-width: 860px) { .pr-section { padding: 48px 24px; } }
+  </style>
+  <div class="pr-inner">
+    <div class="pr-head">
+      <div class="pr-eyebrow">Pricing</div>
+      <div class="pr-title">Simple pricing that <span>scales with your team</span></div>
+      <p class="pr-sub">No-code, Playwright-backed test automation built for ACOE teams. Pay per organization — no per-seat surprises.</p>
+      <p class="pr-subhero">Planned pricing — free for all beta users while we're in beta.</p>
+    </div>
+
+    <div class="pr-founding">
+      <span class="pr-pill">Beta founders</span>
+      <span class="pr-ftxt">Join during beta and <b>lock in 40% off any paid plan for your first year</b>, plus <b>free founder-led onboarding</b> — free until launch.</span>
+    </div>
+
+    <div class="pr-toggle-row">
+      <div class="pr-seg" id="prSeg" role="tablist" aria-label="Billing period">
+        <button class="pr-seg-btn active" data-period="m" role="tab" aria-selected="true">Monthly</button>
+        <button class="pr-seg-btn" data-period="h" role="tab" aria-selected="false">6 months <span class="pr-seg-save">−10%</span></button>
+        <button class="pr-seg-btn" data-period="y" role="tab" aria-selected="false">Annual <span class="pr-seg-save">−17%</span></button>
+      </div>
+    </div>
+
+    <div class="pr-grid">
+      <div class="pr-card">
+        <div class="pr-card-name">Starter</div>
+        <div class="pr-card-tag">Small teams trying automation</div>
+        <div class="pr-price"><span class="pr-amt" data-m="$49" data-h="$44" data-y="$41">$49</span><span class="pr-per">/ mo</span></div>
+        <div class="pr-billed" data-m="" data-h="billed $264 / 6 mo" data-y="billed $490 / year"></div>
+        <a class="pr-btn pr-btn-ghost" href="#beta">Start free</a>
+        <ul class="pr-feats">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>3 projects · 5 users</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>50 tests · 25 components / project</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>30 runs / day · 2 concurrent</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Recorder · Playwright · diagnostics</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Components + version history</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>7-day analytics · community support</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Group onboarding webinar</li>
+        </ul>
+        <div class="pr-card-addon" tabindex="0"><span class="pr-card-addon-label">🔌 API Testing add-on<span class="pr-card-addon-info" aria-hidden="true">ⓘ</span></span><span class="pr-card-addon-val"><span class="pr-amt" data-m="+$29" data-h="+$26" data-y="+$24">+$29</span> / mo</span><span class="pr-card-addon-tip" role="tooltip"><b>API Testing add-on</b><span class="pr-card-addon-row">✓ Import from curl, Postman or OpenAPI / Swagger</span><span class="pr-card-addon-row">✓ Status code, body and JSON-path assertions</span><span class="pr-card-addon-row">✓ UI + API steps in one test case</span><span class="pr-card-addon-row">✓ Chain values between steps; locked variables for keys and tokens</span><span class="pr-card-addon-foot">Free for all beta users. Add it to any plan.</span></span></div>
+      </div>
+
+      <div class="pr-card featured">
+        <div class="pr-card-badge">Most popular</div>
+        <div class="pr-card-name">Team</div>
+        <div class="pr-card-tag">Growing QA teams</div>
+        <div class="pr-price"><span class="pr-amt" data-m="$149" data-h="$134" data-y="$124">$149</span><span class="pr-per">/ mo</span></div>
+        <div class="pr-billed" data-m="" data-h="billed $804 / 6 mo" data-y="billed $1,490 / year"></div>
+        <a class="pr-btn pr-btn-primary" href="#beta">Start free</a>
+        <ul class="pr-feats">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>10 projects · 20 users</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>300 tests · 150 components / project</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>200 runs / day · 5 concurrent</li>
+          <li class="pr-secline">Everything in Starter, plus</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>CI/CD (CLI + API) · milestones</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Org dashboard · locked variables</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>30-day analytics · email support</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>1 guided onboarding session</li>
+        </ul>
+        <div class="pr-card-addon" tabindex="0"><span class="pr-card-addon-label">🔌 API Testing add-on<span class="pr-card-addon-info" aria-hidden="true">ⓘ</span></span><span class="pr-card-addon-val"><span class="pr-amt" data-m="+$29" data-h="+$26" data-y="+$24">+$29</span> / mo</span><span class="pr-card-addon-tip" role="tooltip"><b>API Testing add-on</b><span class="pr-card-addon-row">✓ Import from curl, Postman or OpenAPI / Swagger</span><span class="pr-card-addon-row">✓ Status code, body and JSON-path assertions</span><span class="pr-card-addon-row">✓ UI + API steps in one test case</span><span class="pr-card-addon-row">✓ Chain values between steps; locked variables for keys and tokens</span><span class="pr-card-addon-foot">Free for all beta users. Add it to any plan.</span></span></div>
+      </div>
+
+      <div class="pr-card">
+        <div class="pr-card-name">Business</div>
+        <div class="pr-card-tag">Established QA orgs and ACOE teams</div>
+        <div class="pr-price"><span class="pr-amt" data-m="$449" data-h="$404" data-y="$374">$449</span><span class="pr-per">/ mo</span></div>
+        <div class="pr-billed" data-m="" data-h="billed $2,424 / 6 mo" data-y="billed $4,490 / year"></div>
+        <a class="pr-btn pr-btn-ghost" href="#beta">Start free</a>
+        <ul class="pr-feats">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>30 projects · 75 users</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>1,000 tests · 500 components / project</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>1,000 runs / day · 15 concurrent</li>
+          <li class="pr-secline">Everything in Team, plus</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Advanced RBAC + governance</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>90-day analytics · audit logs</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Priority support</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>White-glove onboarding · 2 sessions</li>
+        </ul>
+        <div class="pr-card-addon" tabindex="0"><span class="pr-card-addon-label">🔌 API Testing add-on<span class="pr-card-addon-info" aria-hidden="true">ⓘ</span></span><span class="pr-card-addon-val"><span class="pr-amt" data-m="+$29" data-h="+$26" data-y="+$24">+$29</span> / mo</span><span class="pr-card-addon-tip" role="tooltip"><b>API Testing add-on</b><span class="pr-card-addon-row">✓ Import from curl, Postman or OpenAPI / Swagger</span><span class="pr-card-addon-row">✓ Status code, body and JSON-path assertions</span><span class="pr-card-addon-row">✓ UI + API steps in one test case</span><span class="pr-card-addon-row">✓ Chain values between steps; locked variables for keys and tokens</span><span class="pr-card-addon-foot">Free for all beta users. Add it to any plan.</span></span></div>
+      </div>
+
+      <div class="pr-card">
+        <div class="pr-card-name">Enterprise</div>
+        <div class="pr-card-tag">Large enterprises with compliance needs</div>
+        <div class="pr-price"><span class="pr-amt">Custom</span></div>
+        <div class="pr-billed">Tailored to your scale</div>
+        <a class="pr-btn pr-btn-ghost" href="mailto:hello@testovex.com?subject=Testovex%20Enterprise">Contact sales</a>
+        <ul class="pr-feats">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Unlimited projects · users · tests</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Custom runs / day + concurrency</li>
+          <li class="pr-secline">Everything in Business, plus</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>SSO / SAML · self-hosted option</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>SLA · dedicated success manager</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Security review · custom integrations</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Personalized onboarding program</li>
+        </ul>
+        <div class="pr-card-addon" tabindex="0"><span class="pr-card-addon-label">🔌 API Testing add-on<span class="pr-card-addon-info" aria-hidden="true">ⓘ</span></span><span class="pr-card-addon-val">Included</span><span class="pr-card-addon-tip" role="tooltip"><b>API Testing add-on</b><span class="pr-card-addon-row">✓ Import from curl, Postman or OpenAPI / Swagger</span><span class="pr-card-addon-row">✓ Status code, body and JSON-path assertions</span><span class="pr-card-addon-row">✓ UI + API steps in one test case</span><span class="pr-card-addon-row">✓ Chain values between steps; locked variables for keys and tokens</span><span class="pr-card-addon-foot">Included in your custom Enterprise plan.</span></span></div>
+      </div>
+    </div>
+
+
+    <p class="pr-note">All plans include the Chrome recorder, cross-browser Playwright execution, and run diagnostics. The API Testing add-on (curl, Postman and OpenAPI import, UI + API steps in one test) is available on every plan. Free during beta · <a href="#beta">Join the waitlist</a></p>
+  </div>
+</section>
+
+<section class="roi-section" id="roi">
+  <style>
+    .roi-section { position: relative; z-index: 10; padding: 72px 48px 80px; border-top: 1px solid rgba(255,255,255,0.07); }
+    .roi-inner { max-width: 1160px; margin: 0 auto; }
+    .roi-head { text-align: center; margin-bottom: 40px; }
+    .roi-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #818CF8; margin-bottom: 10px; }
+    .roi-title { font-size: clamp(24px, 2.5vw, 36px); font-weight: 800; letter-spacing: -0.8px; color: #fff; }
+    .roi-title span { color: #818CF8; }
+    .roi-sub { font-size: 15px; color: rgba(255,255,255,0.5); margin-top: 12px; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+
+    /* Five levers grid */
+    .roi-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 48px; }
+    @media (max-width: 980px) { .roi-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .roi-grid { grid-template-columns: 1fr; } }
+    .roi-lever { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: 14px; padding: 20px 18px; display: flex; flex-direction: column; gap: 8px; transition: border-color .2s, transform .15s; }
+    .roi-lever:hover { border-color: rgba(99,102,241,0.35); transform: translateY(-3px); }
+    .roi-lever-icon { font-size: 22px; }
+    .roi-lever-name { font-size: 14px; font-weight: 800; color: #fff; letter-spacing: -0.2px; }
+    .roi-lever-val { font-size: 12.5px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+    .roi-lever-how { font-size: 10.5px; color: rgba(129,140,248,0.85); line-height: 1.45; margin-top: auto; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.06); }
+
+    /* Calculator */
+    .roi-calc { background: rgba(30,41,59,0.55); border: 1px solid rgba(99,102,241,0.28); border-radius: 20px; padding: 28px; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 28px; }
+    @media (max-width: 860px) { .roi-calc { grid-template-columns: 1fr; gap: 22px; padding: 22px; } }
+    .roi-calc-title { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .roi-calc-note { font-size: 12px; color: rgba(255,255,255,0.42); margin-bottom: 20px; line-height: 1.5; }
+    .roi-field { margin-bottom: 16px; }
+    .roi-field label { display: flex; justify-content: space-between; align-items: baseline; font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.7); margin-bottom: 7px; }
+    .roi-field label .roi-fval { color: #A5B4FC; font-weight: 700; }
+    .roi-input { width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: 9px; padding: 9px 12px; color: #fff; font-size: 14px; font-family: inherit; outline: none; transition: border-color .2s; }
+    .roi-input:focus { border-color: #6366F1; }
+    .roi-select { width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: 9px; padding: 9px 12px; color: #fff; font-size: 14px; font-family: inherit; outline: none; }
+    .roi-select option { background: #1E293B; color: #fff; }
+    .roi-range { width: 100%; accent-color: #6366F1; margin-top: 2px; }
+
+    .roi-results { background: linear-gradient(160deg, rgba(49,46,129,0.4), rgba(30,41,59,0.3)); border: 1px solid rgba(99,102,241,0.25); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; }
+    .roi-hero-stat { text-align: center; padding-bottom: 18px; margin-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .roi-hero-num { font-size: 40px; font-weight: 900; letter-spacing: -1.5px; color: #6EE7B7; line-height: 1; }
+    .roi-hero-lbl { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 8px; }
+    .roi-hero-sub { font-size: 12px; color: #A5B4FC; font-weight: 600; margin-top: 4px; }
+    .roi-mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+    .roi-mini { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px 10px; text-align: center; }
+    .roi-mini-num { font-size: 17px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+    .roi-mini-lbl { font-size: 10px; color: rgba(255,255,255,0.42); margin-top: 3px; }
+    .roi-horizon { border-collapse: collapse; width: 100%; font-size: 12.5px; }
+    .roi-horizon th, .roi-horizon td { padding: 7px 8px; text-align: right; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .roi-horizon th:first-child, .roi-horizon td:first-child { text-align: left; color: rgba(255,255,255,0.55); }
+    .roi-horizon thead th { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.5px; color: rgba(255,255,255,0.4); font-weight: 700; }
+    .roi-horizon td { color: rgba(255,255,255,0.85); }
+    .roi-horizon .roi-net { color: #6EE7B7; font-weight: 700; }
+    .roi-caveat { font-size: 11.5px; color: rgba(255,255,255,0.35); line-height: 1.55; margin-top: 24px; text-align: center; max-width: 780px; margin-left: auto; margin-right: auto; }
+    .roi-caveat a { color: #818CF8; text-decoration: none; }
+  </style>
+  <div class="roi-inner">
+    <div class="roi-head">
+      <div class="roi-eyebrow">The ROI</div>
+      <div class="roi-title">Your QA team's time is the <span>real cost</span></div>
+      <p class="roi-sub">Enterprise QA teams lose most of their capacity not to <em>writing</em> tests, but to maintaining brittle ones, debugging failures, and running manual regression. Testovex attacks exactly that waste — across five dimensions.</p>
+    </div>
+
+    <div class="roi-grid">
+      <div class="roi-lever">
+        <div class="roi-lever-icon">💰</div>
+        <div class="roi-lever-name">Financial</div>
+        <div class="roi-lever-val">Reclaim paid hours, avoid new hires as you scale, and cut costly production incidents.</div>
+        <div class="roi-lever-how">Compounded across every lever below</div>
+      </div>
+      <div class="roi-lever">
+        <div class="roi-lever-icon">⚙️</div>
+        <div class="roi-lever-name">Process</div>
+        <div class="roi-lever-val">No duplicated effort across teams. Standardized, governed testing. Bugs caught before release.</div>
+        <div class="roi-lever-how">Reusable components · org RBAC · CI/CD quality gates</div>
+      </div>
+      <div class="roi-lever">
+        <div class="roi-lever-icon">🧑‍💻</div>
+        <div class="roi-lever-name">Effort</div>
+        <div class="roi-lever-val">Analysts build tests without code. Fix a flow once, every test inherits it. Triage in minutes, not hours.</div>
+        <div class="roi-lever-how">No-code recorder · components · run diagnostics</div>
+      </div>
+      <div class="roi-lever">
+        <div class="roi-lever-icon">⏱️</div>
+        <div class="roi-lever-name">Timeline</div>
+        <div class="roi-lever-val">Tests built 3–5× faster. Regression that took days runs in hours. Failures understood at a glance.</div>
+        <div class="roi-lever-how">No-code builder · parallel Playwright execution</div>
+      </div>
+      <div class="roi-lever">
+        <div class="roi-lever-icon">🛡️</div>
+        <div class="roi-lever-name">Stability</div>
+        <div class="roi-lever-val">Tests survive UI changes. Defects caught in CI before production. Instant rollback of test state.</div>
+        <div class="roi-lever-how">Smart locator engine · version history + milestones</div>
+      </div>
+    </div>
+
+    <div class="roi-calc">
+      <div class="roi-calc-inputs">
+        <div class="roi-calc-title">Estimate your ROI</div>
+        <div class="roi-calc-note">Plug in your team's numbers. Everything updates live — these become <em>your</em> figures, not ours.</div>
+
+        <div class="roi-field">
+          <label for="roiTeam">QA engineers on the team <span class="roi-fval" id="roiTeamVal">6</span></label>
+          <input class="roi-range" type="range" id="roiTeam" min="1" max="50" step="1" value="6" />
+        </div>
+        <div class="roi-field">
+          <label for="roiCost">Loaded cost / engineer / month <span class="roi-fval" id="roiCostVal">$5,000</span></label>
+          <input class="roi-input" type="number" id="roiCost" min="500" step="250" value="5000" />
+        </div>
+        <div class="roi-field">
+          <label for="roiReclaim">Capacity Testovex reclaims <span class="roi-fval" id="roiReclaimVal">40%</span></label>
+          <input class="roi-range" type="range" id="roiReclaim" min="10" max="55" step="1" value="40" />
+        </div>
+        <div class="roi-field">
+          <label for="roiPlan">Testovex plan</label>
+          <select class="roi-select" id="roiPlan">
+            <option value="49">Starter — $49 / mo</option>
+            <option value="149">Team — $149 / mo</option>
+            <option value="449" selected>Business — $449 / mo</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="roi-results">
+        <div class="roi-hero-stat">
+          <div class="roi-hero-num" id="roiNetMonthly">$11,551</div>
+          <div class="roi-hero-lbl">net reclaimed value / month</div>
+          <div class="roi-hero-sub" id="roiMultiple">≈ 27× return on tool cost</div>
+        </div>
+        <div class="roi-mini-grid">
+          <div class="roi-mini"><div class="roi-mini-num" id="roiReclaimedVal">$12,000</div><div class="roi-mini-lbl">capacity reclaimed / mo</div></div>
+          <div class="roi-mini"><div class="roi-mini-num" id="roiEngineers">2.4</div><div class="roi-mini-lbl">engineers freed</div></div>
+          <div class="roi-mini"><div class="roi-mini-num" id="roiToolCost">$449</div><div class="roi-mini-lbl">Testovex / mo</div></div>
+        </div>
+        <table class="roi-horizon">
+          <thead><tr><th>Horizon</th><th>Reclaimed</th><th>Net benefit</th></tr></thead>
+          <tbody>
+          <tr><td>Monthly</td><td id="roiMoReclaim">$12,000</td><td class="roi-net" id="roiMoNet">$11,551</td></tr>
+          <tr><td>6 months</td><td id="roiHalfReclaim">$72,000</td><td class="roi-net" id="roiHalfNet">$69,306</td></tr>
+          <tr><td>Yearly</td><td id="roiYrReclaim">$144,000</td><td class="roi-net" id="roiYrNet">$139,510</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <p class="roi-caveat">
+      Illustrative, model-based figures — not a guarantee. Actual savings depend on your team's current toil level and adoption. Studies show automation teams spend 30–50% of effort just maintaining brittle tests; Testovex conservatively reclaims ~40% of total capacity. The strongest proof is a 30-day pilot. <a href="#beta">Start one free →</a>
+    </p>
+  </div>
+</section>
+
+<section class="cta-section" id="beta">
+  <div class="section-eyebrow" style="margin-bottom:12px;">Limited beta access</div>
+  <h2 class="cta-title">Ready to transform your QA team?</h2>
+  <p class="cta-sub">Join the waitlist and be among the first to experience enterprise test automation done right.</p>
+
+  <form class="cta-form" id="ctaForm">
+    <input type="email" id="ctaEmailInput" placeholder="Enter your work email" required autocomplete="email" />
+    <button type="submit">Get Early Access →</button>
+  </form>
+  <p class="cta-note">Free during beta · No credit card required · Unsubscribe anytime</p>
+
+  <div class="cta-success" id="ctaSuccess" style="margin-top: 12px;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+    You're on the list! We'll review and send your invite soon.
+  </div>
+</section>
+
+
+</main>
+
+<footer class="site-footer">
+  <div class="sf-inner">
+    <div class="sf-brand">
+      <a class="sf-logo" href="index.html">Testo<span>vex</span></a>
+      <p>No-code, Playwright-backed test automation for ACOE teams. Record, run and fix tests, with agents that explain every failure.</p>
+      <div class="socials">
+        <a href="https://linkedin.com/company/testovex" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://youtube.com/@testovex" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+    <div class="sf-col">
+      <h5>Product</h5>
+      <a href="platform.html">Platform</a>
+      <a href="agents.html">AI Agents</a>
+      <a href="coverage.html">Coverage</a>
+      <a href="leaders.html">For Leaders</a>
+    </div>
+    <div class="sf-col">
+      <h5>Company</h5>
+      <a href="pricing.html">Pricing</a>
+      <a href="roadmap.html">Roadmap &amp; FAQ</a>
+      <a href="mailto:hello@testovex.com">Contact us</a>
+      <a href="#beta">Join the beta</a>
+    </div>
+    <div class="sf-col">
+      <h5>Resources</h5>
+      <a href="https://app.testovex.com/docs/steps/">Step reference</a>
+      <a href="https://app.testovex.com/docs/cli/">CLI guide</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-of-use.html">Terms of Use</a>
+    </div>
+  </div>
+  <div class="sf-bottom">© 2026 Puneet Kamboj · Testovex. All rights reserved. · <a href="mailto:hello@testovex.com">hello@testovex.com</a></div>
+</footer>
+
+<script src="assets/site.js" defer></script>
+</body>
+</html>
