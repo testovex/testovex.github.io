@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/site.css" />
+  <link rel="stylesheet" href="assets/site.css?v=46d84218" />
 </head>
 <body>
 
@@ -75,11 +75,17 @@
       <a class="lp-dd-btn" href="/agents" aria-haspopup="true">AI Agents <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <div class="lp-dd-menu" role="menu">
         <a href="/agents#agents" role="menuitem"><b>All agents</b><span>What runs on every test run</span></a>
-        <a href="/agents#a-triage" role="menuitem"><b>Failure Triage</b><span>Why each test failed, sorted automatically</span></a>
-        <a href="/agents#a-heal" role="menuitem"><b>Self-Healing</b><span>A new locator proposed from the live page</span></a>
+        <a href="/agents#a-author" role="menuitem"><b>Test Author</b><span>Tests from Jira stories and API specs</span></a>
         <a href="/agents#a-autofix" role="menuitem"><b>Autofix</b><span>Apply, re-run, keep only if it passes</span></a>
+        <a href="/agents#a-heal" role="menuitem"><b>Self-Healing</b><span>A new locator proposed from the live page</span></a>
+        <a href="/agents#a-triage" role="menuitem"><b>Failure Triage</b><span>Why each test failed, sorted automatically</span></a>
+        <a href="/agents#a-bugs" role="menuitem"><b>Bug Reporter</b><span>Jira bugs drafted for your approval</span></a>
+        <a href="/agents#a-release" role="menuitem"><b>Release Readiness</b><span>A go/no-go for every project</span></a>
         <a href="/agents#a-flaky" role="menuitem"><b>Flaky detection &amp; quarantine</b><span>Unreliable tests flagged, builds trusted</span></a>
+        <a href="/agents#a-inbox" role="menuitem"><b>Agent Inbox</b><span>Everything needing a human, in one place</span></a>
+        <a href="/agents#a-live" role="menuitem"><b>Agents Live</b><span>Watch the agents work on every run</span></a>
         <a href="/agents#a-doctor" role="menuitem"><b>Environment Doctor</b><span>Checks your app is up before a run</span></a>
+        <a href="/agents#a-ask" role="menuitem"><b>Ask Your Tests</b><span>Plain-English questions about your tests</span></a>
         <a href="/agents#a-time" role="menuitem"><b>Time Saved</b><span>Hours the agents gave back</span></a>
       </div>
     </div>
@@ -139,11 +145,17 @@
     <a href="/platform#cli">CLI &amp; CI/CD</a>
     <div class="lp-m-group">AI Agents</div>
     <a href="/agents#agents">All agents</a>
-    <a href="/agents#a-triage">Failure Triage</a>
-    <a href="/agents#a-heal">Self-Healing</a>
+    <a href="/agents#a-author">Test Author</a>
     <a href="/agents#a-autofix">Autofix</a>
+    <a href="/agents#a-heal">Self-Healing</a>
+    <a href="/agents#a-triage">Failure Triage</a>
+    <a href="/agents#a-bugs">Bug Reporter</a>
+    <a href="/agents#a-release">Release Readiness</a>
     <a href="/agents#a-flaky">Flaky detection &amp; quarantine</a>
+    <a href="/agents#a-inbox">Agent Inbox</a>
+    <a href="/agents#a-live">Agents Live</a>
     <a href="/agents#a-doctor">Environment Doctor</a>
+    <a href="/agents#a-ask">Ask Your Tests</a>
     <a href="/agents#a-time">Time Saved</a>
     <div class="lp-m-group">Coverage</div>
     <a href="/coverage#generate">Generate your way</a>
@@ -287,7 +299,7 @@
       <div class="lr-foot"><span class="lr-sum" id="lrSum">Running step by step</span><span>Illustrative example · no code written</span></div>
     </div>
     <details class="feat-more">
-      <summary><span class="fm-open">See everything included in the beta (38 features) ▾</span><span class="fm-close">Hide the full feature list ▴</span></summary>
+      <summary><span class="fm-open">See everything included in the beta (44 features) ▾</span><span class="fm-close">Hide the full feature list ▴</span></summary>
     <div class="feature-grid">
       <div class="feat"><span class="feat-icon">📐</span><span class="feat-content"><span class="feat-label">Blueprint Shift-Left</span><span class="feat-desc">Test cases from a requirement, before the app is built</span></span></div>
       <div class="feat"><span class="feat-icon">🔗</span><span class="feat-content"><span class="feat-label">Generate from URL</span><span class="feat-desc">Paste a page, get a full test suite in minutes</span></span></div>
@@ -327,6 +339,12 @@
       <div class="feat"><span class="feat-icon">🎲</span><span class="feat-content"><span class="feat-label">Flaky Detection &amp; Quarantine</span><span class="feat-desc">Flag unreliable tests, keep builds honest</span></span></div>
       <div class="feat"><span class="feat-icon">🩺</span><span class="feat-content"><span class="feat-label">Environment Doctor</span><span class="feat-desc">Checks your app is up before a run</span></span></div>
       <div class="feat"><span class="feat-icon">⏱️</span><span class="feat-content"><span class="feat-label">Time Saved</span><span class="feat-desc">Hours the agents gave back</span></span></div>
+      <div class="feat"><span class="feat-icon">📝</span><span class="feat-content"><span class="feat-label">Test Author</span><span class="feat-desc">Tests from Jira stories and API specs</span></span></div>
+      <div class="feat"><span class="feat-icon">🐞</span><span class="feat-content"><span class="feat-label">Bug Reporter</span><span class="feat-desc">Jira bugs drafted for approval</span></span></div>
+      <div class="feat"><span class="feat-icon">🚦</span><span class="feat-content"><span class="feat-label">Release Readiness</span><span class="feat-desc">A go/no-go per project</span></span></div>
+      <div class="feat"><span class="feat-icon">📥</span><span class="feat-content"><span class="feat-label">Agent Inbox</span><span class="feat-desc">Everything needing a human, in one place</span></span></div>
+      <div class="feat"><span class="feat-icon">📡</span><span class="feat-content"><span class="feat-label">Agents Live</span><span class="feat-desc">Watch the agents work</span></span></div>
+      <div class="feat"><span class="feat-icon">💬</span><span class="feat-content"><span class="feat-label">Ask Your Tests</span><span class="feat-desc">Plain-English questions about your tests</span></span></div>
     </div>
     </details>
   </div>
@@ -388,7 +406,7 @@
     </div>
     <div class="ex-grid">
       <a class="ex-card lp-fade" href="/platform"><div class="ex-ico">🎬</div><h3>Platform</h3><p>Browser recorder, smart locator engine, run diagnostics, version history and the CLI.</p><span class="ex-link">See the platform →</span></a>
-      <a class="ex-card lp-fade" href="/agents"><div class="ex-ico">🤖</div><h3>AI Agents</h3><p>Failure Triage, Self-Healing, Autofix, flaky test detection and Environment Doctor, working on every run.</p><span class="ex-link">Meet the agents →</span></a>
+      <a class="ex-card lp-fade" href="/agents"><div class="ex-ico">🤖</div><h3>AI Agents</h3><p>Test Author, Autofix, Self-Healing, Failure Triage, Bug Reporter, Release Readiness and more, working across the whole testing loop.</p><span class="ex-link">Meet the agents →</span></a>
       <a class="ex-card lp-fade" href="/coverage"><div class="ex-ico">🧪</div><h3>Coverage</h3><p>Generate tests from a URL, a user story or an API file, and run them against many data sets.</p><span class="ex-link">Create coverage →</span></a>
       <a class="ex-card lp-fade" href="/leaders"><div class="ex-ico">🧭</div><h3>For Leaders</h3><p>Org dashboards, release readiness, the shared component library, and enterprise security.</p><span class="ex-link">For QA leaders →</span></a>
       <a class="ex-card lp-fade" href="/pricing"><div class="ex-ico">💳</div><h3>Pricing &amp; ROI</h3><p>Simple per-organization plans, free during beta, and a calculator for what your team's time is worth.</p><span class="ex-link">See pricing →</span></a>
@@ -617,6 +635,6 @@
   <div class="sf-bottom">© 2026 Puneet Kamboj · Testovex. All rights reserved. · <a href="mailto:hello@testovex.com">hello@testovex.com</a></div>
 </footer>
 
-<script src="assets/site.js" defer></script>
+<script src="assets/site.js?v=9c671626" defer></script>
 </body>
 </html>

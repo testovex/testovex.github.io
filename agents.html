@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/site.css" />
+  <link rel="stylesheet" href="assets/site.css?v=46d84218" />
 </head>
 <body>
 
@@ -75,11 +75,17 @@
       <a class="lp-dd-btn active" href="/agents" aria-haspopup="true">AI Agents <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <div class="lp-dd-menu" role="menu">
         <a href="/agents#agents" role="menuitem"><b>All agents</b><span>What runs on every test run</span></a>
-        <a href="/agents#a-triage" role="menuitem"><b>Failure Triage</b><span>Why each test failed, sorted automatically</span></a>
-        <a href="/agents#a-heal" role="menuitem"><b>Self-Healing</b><span>A new locator proposed from the live page</span></a>
+        <a href="/agents#a-author" role="menuitem"><b>Test Author</b><span>Tests from Jira stories and API specs</span></a>
         <a href="/agents#a-autofix" role="menuitem"><b>Autofix</b><span>Apply, re-run, keep only if it passes</span></a>
+        <a href="/agents#a-heal" role="menuitem"><b>Self-Healing</b><span>A new locator proposed from the live page</span></a>
+        <a href="/agents#a-triage" role="menuitem"><b>Failure Triage</b><span>Why each test failed, sorted automatically</span></a>
+        <a href="/agents#a-bugs" role="menuitem"><b>Bug Reporter</b><span>Jira bugs drafted for your approval</span></a>
+        <a href="/agents#a-release" role="menuitem"><b>Release Readiness</b><span>A go/no-go for every project</span></a>
         <a href="/agents#a-flaky" role="menuitem"><b>Flaky detection &amp; quarantine</b><span>Unreliable tests flagged, builds trusted</span></a>
+        <a href="/agents#a-inbox" role="menuitem"><b>Agent Inbox</b><span>Everything needing a human, in one place</span></a>
+        <a href="/agents#a-live" role="menuitem"><b>Agents Live</b><span>Watch the agents work on every run</span></a>
         <a href="/agents#a-doctor" role="menuitem"><b>Environment Doctor</b><span>Checks your app is up before a run</span></a>
+        <a href="/agents#a-ask" role="menuitem"><b>Ask Your Tests</b><span>Plain-English questions about your tests</span></a>
         <a href="/agents#a-time" role="menuitem"><b>Time Saved</b><span>Hours the agents gave back</span></a>
       </div>
     </div>
@@ -139,11 +145,17 @@
     <a href="/platform#cli">CLI &amp; CI/CD</a>
     <div class="lp-m-group">AI Agents</div>
     <a href="/agents#agents">All agents</a>
-    <a href="/agents#a-triage">Failure Triage</a>
-    <a href="/agents#a-heal">Self-Healing</a>
+    <a href="/agents#a-author">Test Author</a>
     <a href="/agents#a-autofix">Autofix</a>
+    <a href="/agents#a-heal">Self-Healing</a>
+    <a href="/agents#a-triage">Failure Triage</a>
+    <a href="/agents#a-bugs">Bug Reporter</a>
+    <a href="/agents#a-release">Release Readiness</a>
     <a href="/agents#a-flaky">Flaky detection &amp; quarantine</a>
+    <a href="/agents#a-inbox">Agent Inbox</a>
+    <a href="/agents#a-live">Agents Live</a>
     <a href="/agents#a-doctor">Environment Doctor</a>
+    <a href="/agents#a-ask">Ask Your Tests</a>
     <a href="/agents#a-time">Time Saved</a>
     <div class="lp-m-group">Coverage</div>
     <a href="/coverage#generate">Generate your way</a>
@@ -175,8 +187,8 @@
 <main>
 <section class="pg-hero">
   <div class="pg-crumb"><a href="/">Home</a> / AI Agents</div>
-  <h1>Agents that triage, heal and fix, on every run.</h1>
-  <p>Agents run on every test run, inside the platform you already use. Most are rule-based and predictable, and Failure Triage can add an AI-written summary using your own AI key.</p>
+  <h1>Agents for the whole testing loop.</h1>
+  <p>A full team of agents, from drafting tests to the release go/no-go. Most are rule-based and predictable. Test Author, Ask Your Tests and Failure Triage summaries use your own AI key.</p>
   <div class="pg-actions">
     <a class="pg-btn primary" href="#beta">Get early access →</a>
     <a class="pg-btn ghost" href="#agents">Meet the agents</a>
@@ -187,19 +199,25 @@
   <div class="lp-container">
     <div class="lp-features-header lp-fade">
       <div class="lp-sec-label">AI Agents</div>
-      <div class="lp-sec-title">When a test breaks, Testovex works out why &mdash; and helps fix it.</div>
-      <p class="lp-sec-sub">Agents run on every test run, inside the platform you already use. No extra setup, no separate tool.</p>
+      <div class="lp-sec-title">From writing the test to shipping the release, the agents have it covered.</div>
+      <p class="lp-sec-sub">A full team of agents covers the loop from writing tests to shipping the release. They run inside the platform you already use, with no extra setup and no separate tool.</p>
     </div>
     <div class="lp-feature-grid">
-      <div class="lp-feature-card lp-fade" id="a-triage"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🔎</div><h3>Failure Triage</h3><p>Every failed run is sorted automatically: a real product bug, a changed element, a timing problem, or an environment issue. You see the likely cause and the next step on the run itself, with an optional plain-English summary from your own AI key.</p><span class="lp-ftag blue">Live · Know Why It Failed</span></div>
-      <div class="lp-feature-card lp-fade" id="a-heal"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🩹</div><h3>Self-Healing</h3><p>When a locator breaks, Testovex looks at the live page, finds the element that best matches, and proposes a replacement with a confidence score. You apply it in one click, or undo it just as fast. Nothing changes until you say so.</p><span class="lp-ftag teal">Live · Suggest, Never Surprise</span></div>
+      <div class="lp-feature-card lp-fade" id="a-author"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">📝</div><h3>Test Author</h3><p>Drafts test cases from your Jira stories and from API specs (OpenAPI, Postman, curl), and keeps coverage in step with what is in production. Each test is linked to its story and release, a changed story drafts only the new tests, tests are flagged for review when a story leaves a version, and duplicates are caught. Drafts use your own AI key and nothing counts until a person approves it.</p><span class="lp-ftag blue">Live · Coverage That Keeps Up</span></div>
       <div class="lp-feature-card lp-fade" id="a-autofix"><div class="lp-feature-icon" style="background:rgba(245,158,11,0.12)">🛠️</div><h3>Autofix</h3><p>Switch a project from Suggestion to Autofix mode and Testovex applies the fix, re-runs the test, and keeps it only if it passes. If it still fails, the change is undone automatically. Set at org level, override per project.</p><span class="lp-ftag blue">Live · Fix, Verify, Keep or Undo</span></div>
+      <div class="lp-feature-card lp-fade" id="a-heal"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🩹</div><h3>Self-Healing</h3><p>When a locator breaks, Testovex looks at the live page, finds the element that best matches, and proposes a replacement with a confidence score. You apply it in one click, or undo it just as fast. Nothing changes until you say so.</p><span class="lp-ftag teal">Live · Suggest, Never Surprise</span></div>
+      <div class="lp-feature-card lp-fade" id="a-triage"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🔎</div><h3>Failure Triage</h3><p>Every failed run is sorted automatically: a real product bug, a changed element, a timing problem, or an environment issue. You see the likely cause and the next step on the run itself, with an optional plain-English summary from your own AI key.</p><span class="lp-ftag blue">Live · Know Why It Failed</span></div>
+      <div class="lp-feature-card lp-fade" id="a-bugs"><div class="lp-feature-icon" style="background:rgba(245,158,11,0.12)">🐞</div><h3>Bug Reporter</h3><p>When a failure looks like a real product bug, it drafts the Jira ticket for you: the failing step, the error, and a link to the run with its video and trace. You review and approve before anything is sent. Jira credentials are stored encrypted, per project.</p><span class="lp-ftag blue">Live · Failed Test to Jira Bug</span></div>
+      <div class="lp-feature-card lp-fade" id="a-release"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🚦</div><h3>Release Readiness</h3><p>A go or no-go for every project: ready, at risk or not ready, based on recent pass rates and whether the latest run passed. The rule is shown on the page, leaders see every project on one list, and at-risk projects land in the Agent Inbox.</p><span class="lp-ftag teal">Live · Know Before Release Day</span></div>
       <div class="lp-feature-card lp-fade" id="a-flaky"><div class="lp-feature-icon" style="background:rgba(139,92,246,0.15)">🎲</div><h3>Flaky Test Detection &amp; Quarantine</h3><p>Tests that pass and fail on the same code are scored and flagged, so one unreliable test stops blocking every release. Quarantine them while you fix the cause, and keep your pass rate honest.</p><span class="lp-ftag blue">Live · Trust Your Pass Rate</span></div>
+      <div class="lp-feature-card lp-fade" id="a-inbox"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">📥</div><h3>Agent Inbox</h3><p>One place for everything the agents need a person to look at: locator fixes to approve, tests drafted for review, bug drafts to send, release warnings and coverage flags. A badge in the sidebar shows when something is waiting.</p><span class="lp-ftag blue">Live · One Inbox, Not Twelve Tabs</span></div>
+      <div class="lp-feature-card lp-fade" id="a-live"><div class="lp-feature-icon" style="background:rgba(139,92,246,0.15)">📡</div><h3>Agents Live</h3><p>A pipeline view for every run showing each agent's stage as it happens: triage, healing, autofix, flaky detection and environment check, with a clear status and reason for each step, including when an agent skips. Updates live while agents are working.</p><span class="lp-ftag blue">Live · No Black Box</span></div>
       <div class="lp-feature-card lp-fade" id="a-doctor"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🩺</div><h3>Environment Doctor</h3><p>Before a run starts, Testovex checks that your app&rsquo;s URL is actually reachable. If the environment is down, you are warned (or the run is blocked, your choice per org or project) instead of getting a wall of false failures. You can always choose Run anyway.</p><span class="lp-ftag teal">Live · No More False Failures</span></div>
+      <div class="lp-feature-card lp-fade" id="a-ask"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">💬</div><h3>Ask Your Tests</h3><p>Ask questions about your tests in plain English: which tests failed most this week, what has not run in 30 days, what is slow. Answers come only from your own organization's data, across all your projects, using your own AI key, with daily limits per user and org.</p><span class="lp-ftag teal">Live · Plain-English Answers</span></div>
       <div class="lp-feature-card lp-fade" id="a-time"><div class="lp-feature-icon" style="background:rgba(255,255,255,0.06)">⏱️</div><h3>Time Saved</h3><p>See the engineering time the agents gave back: every kept Autofix and every applied heal is counted once, so you can show what the automation is worth.</p><span class="lp-ftag gray">Live · Measured, Not Guessed</span></div>
       <div class="lp-feature-card lp-fade" id="a-control"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🔒</div><h3>You Stay in Control</h3><p>Agents can be switched off for the whole organization with one setting; when off, nothing runs and the agent screens disappear. Your AI key, your data, and strict separation between organizations.</p><span class="lp-ftag teal">Org-Level Switch</span></div>
     </div>
-    <p class="lp-agent-note">More agents are on the way. Beta users get them first.</p>
+    <p class="lp-agent-note">New agents ship to beta users first.</p>
   </div>
 </section>
 
@@ -258,6 +276,6 @@
   <div class="sf-bottom">© 2026 Puneet Kamboj · Testovex. All rights reserved. · <a href="mailto:hello@testovex.com">hello@testovex.com</a></div>
 </footer>
 
-<script src="assets/site.js" defer></script>
+<script src="assets/site.js?v=9c671626" defer></script>
 </body>
 </html>
