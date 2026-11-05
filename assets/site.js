@@ -46,13 +46,22 @@
 
   const WL_KEY = 'testovex_waitlist';
 
+  // Hide the form and, when it sits in a .form-wrap, its label and small print too,
+  // so the confirmation message takes the form's place.
+  function hideForm(formId) {
+    var f = T(formId);
+    f.style.display = 'none';
+    var wrap = f.closest ? f.closest('.form-wrap') : null;
+    if (wrap) wrap.style.display = 'none';
+  }
+
   function showSuccess(formId, successId) {
-    T(formId).style.display = 'none';
+    hideForm(formId);
     T(successId).style.display = 'flex';
   }
 
   function showDuplicate() {
-    T('waitlistForm').style.display = 'none';
+    hideForm('waitlistForm');
     T('alreadyMsg').style.display = 'flex';
     T('successMsg').style.display = 'none';
   }
