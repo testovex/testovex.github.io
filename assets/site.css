@@ -1308,3 +1308,36 @@ main { position: relative; z-index: 2; }
 
 /* hero tagline under the main headline */
 .hero-tagline{margin:-2px 0 18px;font-size:clamp(22px,2.4vw,32px);font-weight:800;letter-spacing:-.5px;color:#A5B4FC;background:linear-gradient(90deg,#A5B4FC 0%,#818CF8 45%,#6EE7B7 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* hero: sign-up form must be visible on first view */
+.hero-left > .status{order:0}
+.hero-left > h1{order:1}
+.hero-left > .hero-tagline{order:2}
+.hero-left > .sub{order:3}
+.hero-left > .form-wrap{order:4}
+.hero-left > .urgency{order:5}
+.hero-left > .spot-counter{order:6}
+.hero-left > .success-msg{order:7}
+.hero-left > .beta-perks{order:8}
+.hero-left > .social-proof{order:9}
+@media (min-width: 861px){
+  .hero{align-items:flex-start;padding-top:28px;padding-bottom:32px;min-height:0}
+  .hero-right{padding-top:56px}
+  .hero-left .status{margin-bottom:12px}
+  .hero-left h1{font-size:clamp(28px,3vw,40px);margin-bottom:8px}
+  .hero-tagline{margin:0 0 12px}
+  .hero-left .sub{font-size:13.5px;line-height:1.55;margin-bottom:16px}
+  .hero-left .form-label{margin-bottom:8px}
+  .hero-left .beta-perks{margin:16px 0 14px}
+  .hero-left .urgency{margin-top:10px}
+}
+@media (max-width: 860px){
+  .hero-left > .form-wrap{order:3}
+  .hero-left > .urgency{order:4}
+  .hero-left > .spot-counter{order:5}
+  .hero-left > .success-msg{order:6}
+  .hero-left > .sub{order:7}
+  .hero-left > .beta-perks{order:8}
+  .hero-left > .social-proof{order:9}
+  .hero-left > .sub{margin-top:18px}
+}
