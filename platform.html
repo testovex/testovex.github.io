@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/site.css?v=61c548e0" />
+  <link rel="stylesheet" href="assets/site.css?v=46d84218" />
 </head>
 <body>
 
@@ -122,7 +122,7 @@
         <a href="/roadmap#roadmap" role="menuitem"><b>Roadmap</b><span>What is coming after beta</span></a>
         <a href="/roadmap#faq" role="menuitem"><b>FAQ</b><span>Questions QA leaders and security teams ask</span></a>
         <a href="https://app.testovex.com/docs/steps/" role="menuitem"><b>Step reference</b><span>Every step type, with examples</span></a>
-        <a href="https://app.testovex.com/docs/cli/" role="menuitem"><b>CLI guide</b><span>Install, run, rerun and CI gating</span></a>
+        <a href="https://app.testovex.com/docs/cli/" role="menuitem"><b>CLI guide</b><span>Install, run, JUnit reports and CI tokens</span></a>
       </div>
     </div>
   </div>
@@ -210,7 +210,7 @@
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🎯</div><h3>Smart Locator Engine</h3><p>9 strategies captured per element during recording. Test ID → ARIA → Label → Placeholder → CSS → XPath. Optimal runs first, fallbacks fire automatically. Tests survive UI changes without manual fixes.</p><span class="lp-ftag blue">95%+ Success Rate</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">📊</div><h3>Analytics &amp; Reports</h3><p>Built-in dashboards across 7, 14, 30, and 90-day windows. Pass rate trends, failure analysis, run volume, and per-project health — visible across every org and project in one place.</p><span class="lp-ftag teal">Platform-Level View</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(245,158,11,0.12)">🔐</div><h3>4-Layer Variable Management</h3><p>Org → Project → Suite/Test → Runtime resolution. Lock org-level credentials so no test author can ever read or override them. Execution profiles switch environments at run time.</p><span class="lp-ftag blue">Enterprise-Grade Governance</span></div>
-      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(255,255,255,0.06)">💻</div><h3>CLI Support</h3><p>Run any test, suite, or full project from the terminal. Hook Testovex into any pipeline, script, or cron job you already have — today. No CI/CD connector needed to get started.</p><span class="lp-ftag gray">Pipeline-Ready</span></div>
+      <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(255,255,255,0.06)">💻</div><h3>CLI Support</h3><p>Run any test, suite, or full project from the terminal. Hook Testovex into any pipeline, script, or cron job you already have — today. JUnit reports show results in your CI tool, and organization CI tokens keep pipeline access under your admins' control.</p><span class="lp-ftag gray">Pipeline-Ready</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">⚡</div><h3>Parallel Execution</h3><p>Up to 5 concurrent suite runs across the platform. Multiple teams and projects trigger runs simultaneously with no bottlenecks. BullMQ-powered async queue — the API never blocks.</p><span class="lp-ftag blue">5 Concurrent Runs</span></div>
       <div class="lp-feature-card lp-fade"><div class="lp-feature-icon" style="background:rgba(16,185,129,0.12)">🏗️</div><h3>Reusable Components</h3><p>Package shared test logic once — login flows, navigation sequences, common assertions — and call them from any test across the entire org. Change it once, it updates everywhere.</p><span class="lp-ftag teal">Write Once, Use Everywhere</span></div>
       <div class="lp-feature-card lp-fade" id="f-library"><div class="lp-feature-icon" style="background:rgba(99,102,241,0.15)">🏛️</div><h3>Org Component Library</h3><p>Stop rebuilding Login in every project. Any project editor can submit a component; an org admin reviews and approves it. Every team then runs the published version, and each new version is reviewed with a diff and a count of the tests it will affect. In-use components can only be deprecated, and every action is audited.</p><span class="lp-ftag blue">New · Central Governance, Shared by All</span></div>
@@ -641,9 +641,12 @@
             <div class="lp-tl"><span class="lp-to">  Running tests…</span></div>
             <div class="lp-tl"><span class="lp-tpa">✅ PASSED &nbsp; 14 passed &nbsp; 0 failed &nbsp; of 14</span></div>
             <div class="lp-tb"></div>
-            <div class="lp-tl"><span class="lp-tp">$</span><span class="lp-tc"> testovex whoami</span></div>
-            <div class="lp-tl"><span class="lp-ti">User: </span><span class="lp-tpa">qa@acme.com</span></div>
-            <div class="lp-tl"><span class="lp-ti">Org:  </span><span class="lp-to">Acme Corp (Admin)</span></div>
+            <div class="lp-tl"><span class="lp-tco"># In CI: no login, just an organization token</span></div>
+            <div class="lp-tl"><span class="lp-tp">$</span><span class="lp-tc"> export TESTOVEX_URL=https://app.testovex.com</span></div>
+            <div class="lp-tl"><span class="lp-tp">$</span><span class="lp-tc"> export TESTOVEX_TOKEN=tvx_ci_…</span></div>
+            <div class="lp-tl"><span class="lp-tp">$</span><span class="lp-tc"> testovex run --suite smoke-suite --junit results.xml</span></div>
+            <div class="lp-tl"><span class="lp-tpa">✅ PASSED &nbsp; 14 passed &nbsp; 0 failed &nbsp; of 14</span></div>
+            <div class="lp-tl"><span class="lp-to">JUnit report written: /workspace/results.xml</span></div>
             <div class="lp-tl"><span class="lp-tp">$</span><span class="lp-tcur"></span></div>
           </div>
         </div>
@@ -657,6 +660,8 @@
           <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>testovex run</strong><span>Trigger any suite with --wait to block until complete. Exit code 1 on failure for CI gating.</span></div></div>
           <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>testovex rerun</strong><span>Repeat a run with the same test data to reproduce a failure</span></div></div>
           <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>testovex results</strong><span>Detailed pass/fail output for any run ID, with data-driven rows grouped per test case</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>--junit results.xml</strong><span>See Testovex results in the test view of Jenkins, GitLab CI, GitHub Actions and any tool that reads JUnit XML. Each dataset row is its own test case.</span></div></div>
+          <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>Organization CI tokens</strong><span>Owners and admins create tokens in Settings. A token can only start runs and read results, expires when you choose, and can be revoked any time. No personal login or API key in your pipeline.</span></div></div>
           <div class="lp-feat-item"><div class="lp-feat-dot"></div><div><strong>testovex whoami / logout</strong><span>Session management for shared CI environments</span></div></div>
         </div>
       </div>
@@ -719,6 +724,6 @@
   <div class="sf-bottom">© 2026 Puneet Kamboj · Testovex. All rights reserved. · <a href="mailto:hello@testovex.com">hello@testovex.com</a></div>
 </footer>
 
-<script src="assets/site.js?v=9fe1d19e" defer></script>
+<script src="assets/site.js?v=9c671626" defer></script>
 </body>
 </html>
